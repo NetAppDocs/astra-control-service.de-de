@@ -1,0 +1,159 @@
+---
+sidebar: sidebar 
+permalink: use/manage-buckets.html 
+keywords: bucket, buckets, add buckets, change default bucket, default, default bucket, remove bucket, delete bucket, S3, s3, storage, object storage, object store, store, object 
+summary: Managen Sie die Buckets, die Astra für Backups und Klone verwendet, indem Sie zusätzliche Buckets hinzufügen und den Standard-Bucket für die Cluster in Ihrem Cloud-Provider ändern. 
+---
+= Buckets verwalten
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Managen Sie die Buckets, die Astra für Backups und Klone verwendet, indem Sie zusätzliche Buckets hinzufügen und den Standard-Bucket für die Kubernetes-Cluster beim Cloud-Provider ändern.
+
+Nur Administratoren können Buckets hinzufügen und ändern.
+
+
+
+== So verwendet Astra Control Buckets
+
+Wenn Sie mit dem Management des ersten Kubernetes-Clusters beginnen, erstellt Astra Control Service den Standard-Bucket Ihres Cloud-Providers in derselben Region wie das gemanagte Cluster.
+
+Astra Control Service verwendet diesen Standard-Bucket für die Backups und Klone, die Sie erstellen. Anschließend können Sie die Backups verwenden, um Applikationen zwischen Clustern wiederherzustellen und zu klonen.
+
+Wenn Sie dem Astra Control Service zusätzliche Buckets hinzufügen, können Sie beim Erstellen einer Schutzrichtlinie aus diesen Buckets auswählen. Außerdem können Sie den Standard-Bucket von Astra Control Service für Ad-hoc-Backups und Klone ändern. Sie können kein Bucket von einem Cloud-Provider zu einem anderen Cloud-Provider klonen. Um Daten von einem Cloud-Provider zu einem anderen zu migrieren, klonen Sie stattdessen die zugehörige Applikation.
+
+
+TIP: Astra Control Service überprüft vor dem Start eines Backups oder Klons, ob auf einen Ziel-Bucket zugegriffen werden kann.
+
+
+
+== Vorhandene Buckets anzeigen
+
+In dieser Liste der verfügbaren Buckets für den Astra Control Service können Sie den Status des Service bestimmen und den Standard-Bucket Ihres Cloud-Providers festlegen.
+
+Ein Bucket kann einen der folgenden Zustände haben:
+
+Ausstehend:: Nachdem Sie einen Eimer hinzugefügt haben, beginnt er im ausstehenden Zustand, während Astra Control ihn zum ersten Mal anschaut.
+Verfügbar:: Der Eimer ist für Astra Control verfügbar.
+Entfernt:: Der Bucket ist momentan nicht einsatzbereit. Bewegen Sie die Maus über das Statussymbol, um zu ermitteln, was das Problem ist.
++
+--
+Wenn ein Bucket den Status „entfernt“ aufweist, können Sie ihn immer noch als Standard-Bucket festlegen und ihn einem Sicherungszeitplan zuweisen. Wenn der Bucket jedoch zum Start eines Datensicherungsvorgangs nicht im Status „verfügbar“ steht, schlägt dieser Vorgang fehl.
+
+--
+
+
+.Schritt
+. Wählen Sie unter *Verwalten Ihres Speichers* *Buckets* aus.
++
+Die Liste der verfügbaren Buckets für den Astra Control Service wird angezeigt.
+
+
+
+
+
+== Fügen Sie einen zusätzlichen Bucket hinzu
+
+Nachdem Sie mit dem Management eines Clusters bei Ihrem Cloud-Provider begonnen haben, können Sie jederzeit weitere Buckets hinzufügen. Damit können Sie beim Erstellen einer Sicherungsrichtlinie zwischen Buckets wählen und den Standard-Bucket für Ad-hoc-Backups und Klone ändern.
+
+Beachten Sie, dass der Astra Control Service Ihnen nicht ermöglicht, einen Bucket zu entfernen, nachdem Sie ihn hinzugefügt haben.
+
+.Was Sie und#8217;ll benötigen
+* Der Name eines vorhandenen Buckets bei Ihrem Cloud-Provider.
+
+
+ifdef::azure[]
+
+* Wenn Ihr Bucket in Azure ist, muss er zur Ressourcengruppe namens _astra-Backup-rg_ gehören.
+
+
+endif::azure[]
+
+.Schritte
+. Wählen Sie unter *Verwalten Ihres Speichers* *Buckets* aus.
+. Wählen Sie *Hinzufügen* und folgen Sie den Anweisungen, um den Eimer hinzuzufügen.
++
+** *Typ*: Wählen Sie Ihren Cloud-Anbieter.
++
+Ihr Cloud-Provider ist erst verfügbar, nachdem Astra Control Service mit dem Management eines Clusters begonnen hat, der bei diesem Cloud-Provider ausgeführt wird.
+
+** *Vorhandener Bucket-Name*: Geben Sie den Namen des Buckets ein.
+** *Beschreibung*: Geben Sie optional eine Beschreibung des Eimers ein.
+
+
+
+
+ifdef::azure[]
+
+* *Storage-Konto* (nur Azure): Geben Sie den Namen Ihres Azure-Speicherkontos ein. Dieser Bucket muss zur Ressourcengruppe namens _astra-Backup-rg_ gehören.
+
+
+endif::azure[]
+
+ifdef::aws[]
+
+* *S3-Servername oder IP-Adresse* (nur AWS): Geben Sie ohne den vollständig qualifizierten Domainnamen des S3-Endpunkts ein, der Ihrer Region entspricht `https://`. Siehe https://docs.aws.amazon.com/general/latest/gr/s3.html["Die Amazon-Dokumentation"^] Finden Sie weitere Informationen.
+
+
+endif::aws[]
+
+* *Machen Sie diesen Bucket zum Standard-Bucket für diese Cloud*: Wählen Sie, ob Sie diesen Bucket als Standard-Bucket für Ad-hoc-Backups und Klone verwenden möchten.
+* *Select Credentials*: Wählen Sie die Anmeldeinformationen aus, die den Astra Control Service mit den Berechtigungen zur Verwaltung des Buckets bereitstellen.
++
+.. Wählen Sie *Hinzufügen*, um den Eimer hinzuzufügen.
+
+
+
+
+Astra Control Service fügt den zusätzlichen Bucket hinzu. Sie können jetzt beim Erstellen einer Schutzrichtlinie den Bucket auswählen.
+
+
+
+== Ändern des Standard-Bucket
+
+Ändern Sie den Standard-Bucket, den Astra Control Service für Backups und Klone verwenden sollte. Jeder Cloud-Provider verfügt über einen eigenen Standard-Bucket.
+
+Astra Control Service verwendet den Standard-Bucket für Cloud-Provider für Ad-hoc-Backups und für Ad-hoc-Klone, wenn Sie nicht aus einem vorhandenen Backup klonen möchten.
+
+.Schritte
+. Wählen Sie unter *Verwalten Ihres Speichers* *Buckets* aus.
+. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für den Bucket aus, den Sie bearbeiten möchten.
+. Wählen Sie *Machen Sie diesen Bucket zum Standard-Bucket für diese Cloud*.
+. Wählen Sie *Aktualisieren*.
+
+
+
+
+== Entfernen Sie einen Bucket
+
+Sie können einen Eimer entfernen, der nicht mehr verwendet wird oder nicht ordnungsgemäß ist. Dies könnte Sie nutzen, um die Konfiguration Ihres Objektspeicher einfach und aktuell zu halten.
+
+Sie können keinen Standard-Bucket entfernen. Wenn Sie diesen Bucket entfernen möchten, wählen Sie zuerst einen anderen Bucket als Standard aus.
+
+.Was Sie und#8217;ll benötigen
+* Sie sollten vor Beginn sicherstellen, dass keine Backups für diesen Bucket ausgeführt oder abgeschlossen wurden.
+* Sie sollten prüfen, ob der Bucket nicht für geplante Backups verwendet wird.
+
+
+Wenn dies der Fall ist, können Sie nicht fortfahren.
+
+.Schritte
+. Wählen Sie in der linken Navigationsleiste *Buckets* aus.
+. Wählen Sie im Menü *Aktionen* die Option *Entfernen*.
++
+
+NOTE: Astra Control stellt zunächst sicher, dass es keine Planungsrichtlinien gibt, die den Bucket für Backups verwenden und dass keine aktiven Backups im Bucket vorhanden sind, den Sie entfernen möchten.
+
+. Geben Sie „Entfernen“ ein, um die Aktion zu bestätigen.
+. Wählen Sie *Ja, entfernen Sie den Eimer*.
+
+
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
+

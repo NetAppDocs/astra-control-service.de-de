@@ -1,0 +1,164 @@
+---
+sidebar: sidebar 
+permalink: use/set-up-billing.html 
+keywords: billing, set up billing, payments, set up payments, credit card, update credit card, change credit card, free plan, free trial, premium, premium plan 
+summary: Mit dem Free Plan von Astra Control können Sie bis zu 10 Apps in Ihrem Konto verwalten. Wenn Sie mehr als 10 Apps verwalten möchten, müssen Sie die Abrechnung durch ein Upgrade vom kostenlosen Plan auf den Premium-Plan einrichten. 
+---
+= Abrechnung einrichten
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Mit dem Free Plan von Astra Control können Sie bis zu 10 Apps in Ihrem Konto verwalten. Wenn Sie mehr als 10 Apps verwalten möchten, müssen Sie die Abrechnung durch ein Upgrade vom kostenlosen Plan auf den Premium-Plan einrichten.
+
+
+
+== Übersicht über die Abrechnung
+
+Mit dem Astra Control Service stehen zwei Kostenarten zur Verfügung: Die Kosten für den Astra Control Service fallen durch NetApp an. Die Kosten für persistenten Volumes und Objekt-Storage fallen vom Cloud-Provider an.
+
+
+
+=== Fakturierung des Astra Control Service
+
+Der Astra Control Service umfasst drei Pläne:
+
+Kostenloser Plan:: Kostenlose Verwaltung von bis zu 10 Anwendungen.
+Premium-PAYGO:: Verwalten Sie eine unbegrenzte Anzahl von Apps mit einem Preis von 0,005 USD pro Minute pro App.
+Premium-Abonnement:: Mit einem Jahresabonnement können Sie bis zu 10 Apps pro Anwendungspaket verwalten. Wenden Sie sich an den NetApp Sales, um so viele Pakete wie nötig zu erwerben. Beispielsweise können Sie 3 Pakete für das Management von 30 Applikationen über den Astra Control Service erwerben. Wenn Sie mehr Applikationen verwalten als dies durch Ihr Jahresabonnement erlaubt ist, werden Ihnen die Gebühr in Höhe von 0.005 US-Dollar pro Minute und pro Applikation (entspricht Premium PAYGO) berechnet.
++
+--
+Wenn Sie noch kein Astra Control Konto haben, erstellt der Kauf des Premium Subscription automatisch ein Astra Control-Konto für Sie. Wenn Sie bereits einen kostenlosen Plan besitzen, werden Sie automatisch in das Premium-Abonnement konvertiert.
+
+--
+
+
+Wenn Sie ein Astra Control Konto erstellen, werden Sie automatisch für den Free Plan angemeldet. Das Dashboard von Astra Control zeigt Ihnen, wie viele Apps Sie derzeit über die 10 kostenlosen Apps verwalten, die Sie zugelassen haben.
+
+Wenn Sie versuchen, eine 11. App zu verwalten, benachrichtigt Astra Control Sie, dass Sie die Grenze des Freiplans erreicht haben. Anschließend werden Sie aufgefordert, ein Upgrade vom kostenlosen Plan auf einen Premium-Plan durchzuführen.
+
+Sie können jederzeit ein Upgrade auf einen Premium Plan durchführen. Nach dem Upgrade beginnt Astra Control, Sie für _all_ verwaltete Apps im Konto zu laden. Die ersten 10 Apps bleiben nicht im Free Plan.
+
+ifdef::gcp[]
+
+
+
+=== Google Cloud Rechnungen
+
+Wenn Sie GKE-Cluster mit Astra Control Service verwalten, werden persistente Volumes durch NetApp Cloud Volumes Service gesichert und die Backups Ihrer Apps werden in einem Google Cloud Storage Bucket gespeichert.
+
+* https://cloud.google.com/solutions/partners/netapp-cloud-volumes/costs["Weitere Informationen zur Preisgestaltung für Cloud Volumes Service"^].
++
+Beachten Sie, dass der Astra Control Service alle Servicetypen und Servicelevel unterstützt. Der von Ihnen verwendete Servicetyp hängt von Ihrem ab https://cloud.netapp.com/cloud-volumes-global-regions#cvsGcp["Google Cloud-Region"^].
+
+* https://cloud.google.com/storage/pricing["Hier finden Sie Preisdetails für Google Cloud Storage Buckets"^].
+
+
+endif::gcp[]
+
+ifdef::azure[]
+
+
+
+=== Microsoft Azure Abrechnung
+
+Wenn Sie AKS-Cluster mit Astra Control Service verwalten, werden persistente Volumes durch Azure NetApp Files gesichert und die Backups Ihrer Apps werden in einem Azure Blob-Container gespeichert.
+
+* https://azure.microsoft.com/en-us/pricing/details/netapp["Weitere Informationen zur Preisgestaltung für Azure NetApp Files"^].
+* https://azure.microsoft.com/en-us/pricing/details/storage/blobs["Sehen Sie sich Preisdetails für Microsoft Azure Blob Storage an"^].
+
+
+endif::azure[]
+
+ifdef::aws[]
+
+
+
+=== Amazon Web Services Abrechnung
+
+Wenn Sie AWS Cluster mit Astra Control Service verwalten, werden persistente Volumes auf EBS oder FSX für NetApp ONTAP gesichert und die Backups Ihrer Applikationen werden in einem AWS Bucket gespeichert.
+
+* https://aws.amazon.com/eks/pricing/["Preisdetails zu Amazon Web Services anzeigen"^].
+
+
+endif::aws[]
+
+
+
+== Wichtige Hinweise
+
+* Ihr Rechnungsplan ist per Astra Control Konto.
++
+Wenn Sie mehrere Konten haben, hat jeder seinen eigenen Abrechnungsplan.
+
+* Ihre Astra Control Rechnung beinhaltet Gebühren für das Management Ihrer Kubernetes-Applikationen. Für das Storage-Backend für persistente Volumes werden Sie von Ihrem Cloud-Provider separat berechnet.
++
+link:../get-started/intro.html["Erfahren Sie mehr über die Astra Control-Preise"].
+
+* Jeder Abrechnungszeitraum endet am letzten Tag des Monats.
+* Sie können nicht von einem Premium-Plan auf den kostenlosen Plan herunterstufen.
+
+
+
+
+== Upgrade vom kostenlosen Plan auf den Premium PAYGO Plan
+
+Führen Sie jederzeit ein Upgrade Ihres Rechnungsplans durch, um mehr als 10 Apps von Astra Control zu managen. Bezahlen Sie dabei einfach. Sie brauchen nur eine gültige Kreditkarte.
+
+.Schritte
+. Wählen Sie *Konto* und dann *Abrechnung*.
+. Gehen Sie unter *Pläne* zu *Premium PAYGO* und wählen Sie *Upgrade Now*.
+. Geben Sie Zahlungsdetails für eine gültige Kreditkarte an und wählen Sie *Upgrade auf Premium Plan*.
++
+
+NOTE: Astra Control sendet Ihnen eine E-Mail, wenn sich die Kreditkarte dem Ablauf nähert.
+
+
+
+Sie können jetzt mehr als 10 Apps verwalten. Astra Control lädt Sie mit allen Apps, die Sie derzeit verwalten.
+
+
+
+== Upgrade vom kostenlosen Plan auf das Premium-Abonnement
+
+Wenden Sie sich an NetApp Sales, um im Rahmen eines Jahresabonnements eine Vorlaufzeit zu einem reduzierten Preis zu erhalten.
+
+.Schritte
+. Wählen Sie *Konto* und dann *Abrechnung*.
+. Gehen Sie unter *Pläne* zu *Premium-Abonnement* und wählen Sie *Vertrieb kontaktieren*.
+. Geben Sie dem Vertriebsteam Details an, um den Prozess zu starten.
+
+
+Ein NetApp Vertriebsmitarbeiter wird sich mit Ihnen in Verbindung setzen, um Ihre Bestellung zu bearbeiten. Nachdem die Bestellung abgeschlossen ist, wird Astra Control Ihren aktuellen Plan auf der Registerkarte Abrechnung widerspiegeln.
+
+
+
+== Zeigt den aktuellen Kosten- und Abrechnungsverlauf an
+
+Astra Control zeigt Ihnen Ihre aktuellen monatlichen Kosten sowie einen detaillierten Abrechnungsverlauf nach App.
+
+.Schritte
+. Wählen Sie *Konto* und dann *Abrechnung*.
++
+Ihre aktuellen Kosten werden in der Übersicht über die Abrechnung angezeigt.
+
+. Um den Rechnungsverlauf nach App anzuzeigen, wählen Sie *Abrechnungsverlauf*.
++
+Astra Control zeigt Ihnen die Nutzungsdaten und die Kosten für jede App. Eine Nutzungsminute ist, wie viele Minuten Astra Control Ihre App in einem Abrechnungszeitraum verwaltet hat.
+
+. Wählen Sie die Dropdown-Liste aus, um einen vorherigen Monat auszuwählen.
+
+
+
+
+== Ändern Sie die Kreditkarte für Premium PAYGO
+
+Bei Bedarf können Sie die Kreditkarte, die Astra Control zur Abrechnung hat, ändern.
+
+.Schritte
+. Wählen Sie *Konto > Abrechnung > Zahlungsart*.
+. Wählen Sie das Symbol Konfigurieren.
+. Ändern Sie die Kreditkarte.
+

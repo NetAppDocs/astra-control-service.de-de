@@ -1,0 +1,217 @@
+---
+sidebar: sidebar 
+permalink: use/manage-apps.html 
+keywords: manage app, discover app, ignore app 
+summary: 'Nachdem Sie den Astra Control um einen Kubernetes Cluster erweitert haben, können Sie Apps auf diesem Cluster installieren (außerhalb von Astra Control). Wechseln Sie dann zur Seite „Apps“ in Astra Control, um mit der Verwaltung der Applikationen zu beginnen.' 
+---
+= Starten Sie das Anwendungsmanagement
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Nach Ihnen link:../get-started/add-first-cluster.html["Fügen Sie zum Astra Control ein Kubernetes Cluster hinzu"], Sie können Apps auf dem Cluster installieren (außerhalb von Astra Control) und dann auf der Seite Apps in Astra Control, um die Apps zu verwalten beginnen.
+
+
+
+== Anforderungen für das Applikationsmanagement
+
+Astra Control verfügt über folgende Anforderungen an das Applikationsmanagement:
+
+* *Lizenzierung*: Zur Verwaltung von Apps mit Astra Control Center benötigen Sie eine Astra Control Center-Lizenz.
+* *Namesaces*: Astra Control erfordert, dass eine App nicht mehr als einen Single Namespace umfasst, aber ein Namespace kann mehr als eine App enthalten.
+* *StorageClass*: Wenn Sie eine App mit einem explizit eingestellten StorageClass installieren und die App klonen müssen, muss das Zielcluster für den Klonvorgang die ursprünglich angegebene StorageClass haben. Das Klonen einer Applikation, deren StorageClass explizit auf ein Cluster festgelegt ist, das nicht über dieselbe StorageClass verfügt, schlägt fehl.
+* *Kubernetes-Ressourcen*: Applikationen, die nicht von Astra Control gesammelte Kubernetes-Ressourcen verwenden, verfügen unter Umständen nicht über umfassende Funktionen zum App-Datenmanagement. Astra Control sammelt die folgenden Kubernetes-Ressourcen:
+
+
+[cols="1,1,1"]
+|===
+
+
+| ClusterCole | ClusterrollenBding | Konfigmap 
+
+
+| KundenressourcenDefinition | Benutzerressource | Kronjob 
+
+
+| DemonSet | Horizon PodAutoscaler | Eindringen 
+
+
+| BereitstellungConfig | MutatingWebhook | PersistentVolumeClaim 
+
+
+| Pod | PodDisruptionBudget | PodTemplate 
+
+
+| Netzwerkrichtlinie | ReplicaSet | Rolle 
+
+
+| Rollenverschwarten | Route | Geheim 
+
+
+| Service | Service Account | StatfulSet 
+
+
+| ValidierenWebhook |  |  
+|===
+
+
+=== Unterstützte Installationsmethoden für Anwendungen
+
+Sie können die folgenden Methoden verwenden, um Apps zu installieren, die Sie mit Astra Control verwalten möchten:
+
+* *Manifest-Datei*: Astra Control unterstützt Apps, die aus einer Manifest-Datei mit kubectl installiert wurden. Beispiel:
++
+[source, sh]
+----
+kubectl apply -f myapp.yaml
+----
+* *Helm 3*: Wenn Sie Helm zur Installation von Apps verwenden, benötigt Astra Control Helm Version 3. Das Management und Klonen von Apps, die mit Helm 3 installiert sind (oder ein Upgrade von Helm 2 auf Helm 3), werden vollständig unterstützt. Das Verwalten von mit Helm 2 installierten Apps wird nicht unterstützt.
+* *Vom Betreiber implementierte Apps*: Astra Control unterstützt Apps, die mit Betreibern mit Namespace-Scoped installiert sind, die im Allgemeinen mit einer "Pass-by-Value"-Architektur statt mit "Pass-by-reference"-Architektur konzipiert sind. Ein Operator und die von ihm zu installieren App müssen denselben Namespace verwenden. Möglicherweise müssen Sie die yaml-Bereitstellungsdatei ändern, um sicherzustellen, dass dies der Fall ist.
++
+Im Folgenden sind einige Bedieneranwendungen aufgeführt, die folgende Muster befolgen:
+
++
+** https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
++
+
+NOTE: Für K8ssandra werden in-Place-Wiederherstellungsvorgänge unterstützt. Für einen Restore-Vorgang in einem neuen Namespace oder Cluster muss die ursprüngliche Instanz der Applikation ausgefallen sein. Dadurch soll sichergestellt werden, dass die überführten Peer-Group-Informationen nicht zu einer instanzübergreifenden Kommunikation führen. Das Klonen der App wird nicht unterstützt.
+
+** https://github.com/jenkinsci/kubernetes-operator["Jenkins CI"^]
+** https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB Cluster"^]
+
+
+
+
+Astra Control kann einen Operator, der mit einer „Pass-by-reference“-Architektur entworfen wurde, möglicherweise nicht klonen (z.B. der CockroachDB-Operator). Während dieser Art von Klonvorgängen versucht der geklonte Operator, Kubernetes Secrets vom Quelloperator zu beziehen, obwohl er im Zuge des Klonens ein eigenes neues Geheimnis hat. Der Klonvorgang kann fehlschlagen, da Astra Control die Kubernetes-Geheimnisse im Quelloperator nicht kennt.
+
+
+
+== Installation von Apps auf dem Cluster
+
+Nach dem haben link:../get-started/add-first-cluster.html["Hat den Cluster hinzugefügt"] Bei Astra Control können Sie Apps installieren oder vorhandene Apps auf dem Cluster managen. Jede Anwendung, die einem einzelnen Namespace zugeordnet ist, kann verwaltet werden.
+
+Astra Control verwaltet statusorientierte Applikationen nur dann, wenn der Storage sich auf einer Storage-Klasse befindet, die von Astra Control installiert ist.
+
+ifdef::gcp[]
+
+* link:../learn/choose-class-and-size.html["Erfahren Sie mehr über Speicherklassen für GKE-Cluster"]
+
+
+endif::gcp[]
+
+ifdef::azure[]
+
+* link:../learn/azure-storage.html["Erfahren Sie mehr über Speicherklassen für AKS-Cluster"]
+
+
+endif::azure[]
+
+ifdef::aws[]
+
+* link:../learn/aws-storage.html["Erfahren Sie mehr über Storage-Klassen für AWS Cluster"]
+
+
+endif::aws[]
+
+
+
+== Applikationsmanagement
+
+Nachdem Astra Control Namespaces auf den Clustern ermittelt hat, können Sie Anwendungen definieren, die Sie managen möchten. Sie können wählen link:../learn/app-management.html["Sie managen einen gesamten Namespace als eine einzelne Applikation oder managen eine oder mehrere Applikationen im Namespace individuell"]. All dies kommt auf die Granularität zurück, die Sie für Datensicherungsvorgänge benötigen.
+
+Obwohl Astra Control ermöglicht Ihnen, beide Ebenen der Hierarchie (den Namespace und die Apps in diesem Namespace) getrennt zu verwalten, ist die beste Praxis, eine oder andere zu wählen. Aktionen, die Sie in Astra Control nehmen, können fehlschlagen, wenn die Aktionen gleichzeitig sowohl auf Namespace- als auch auf App-Ebene stattfinden.
+
+
+TIP: Beispielsweise könnten Sie eine Backup-Policy für „maria“ setzen, die über ein wöchentliches Kadenz verfügt, aber vielleicht müssen Sie „mariadb“ (die sich im selben Namespace befindet) häufiger sichern. Basierend auf diesen Anforderungen müssen die Applikationen separat gemanagt werden und nicht als Single Namespace App.
+
+.Was Sie und#8217;ll benötigen
+* Astra Control ist ein Kubernetes Cluster.
+* Eine oder mehrere installierte Applikationen auf dem Cluster.  app installation methods,Weitere Informationen zu unterstützten App-Installationsmethoden.
+* Ein oder mehrere aktive Pods.
+* Namespaces wurden auf dem Kubernetes-Cluster angegeben, den Sie Astra Control hinzugefügt haben.
+* (Optional) Kubernetes-Etikett auf jedem beliebigen link:../use/manage-apps.html#app-management-requirements["Unterstützte Kubernetes-Ressourcen"].
++
+
+TIP: Eine Bezeichnung ist ein Schlüssel-/Wertpaar, das Sie Kubernetes-Objekten zur Identifizierung zuweisen können. Etiketten erleichtern das Sortieren, Organisieren und Auffinden Ihrer Kubernetes-Objekte. Weitere Informationen zu Kubernetes-Labels: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/["In der offiziellen Kubernetes-Dokumentation finden Sie weitere Informationen"^].
+
+
+
+Bevor Sie beginnen, sollten Sie auch verstehen link:../use/manage-apps.html#what-about-system-namespaces["Verwalten von Standard- und Systemnames"]. Anweisungen zum Verwalten von Apps mit der Astra Control API finden Sie im link:https://docs.netapp.com/us-en/astra-automation/["Astra Automation und API-Informationen"^].
+
+.Optionen für Applikationsmanagement
+*  resources to manage as an app
+*  a namespace to manage as an app
+
+
+
+
+=== Definition von Ressourcen, die als Applikation gemanagt werden sollen
+
+Sie können den angeben link:../learn/app-management.html["Kubernetes-Ressourcen bilden eine Applikation"] Die Sie mit Astra Control verwalten möchten. Durch die Definition einer App können Sie Elemente Ihres Kubernetes Clusters zu einer einzelnen Applikation gruppieren. Diese Sammlung von Kubernetes-Ressourcen ist nach Namespace und Auswahlkriterien für Labels organisiert.
+
+Mit der Definition einer App haben Sie eine granularere Kontrolle über die Auswirkungen einer Astra Control Operation, einschließlich Klonen, Snapshots und Backups.
+
+
+WARNING: Stellen Sie bei der Definition von Applikationen sicher, dass Sie keine Kubernetes-Ressource in mehrere Applikationen mit Sicherungsrichtlinien aufnehmen. Überlappende Sicherungsrichtlinien für Kubernetes-Ressourcen können zu Datenkonflikten führen.
+
+.Schritte
+. Wählen Sie auf der Seite Anwendungen die Option *Definieren*.
+. Geben Sie im Fenster *Anwendung definieren* den App-Namen ein.
+. Wählen Sie den Cluster aus, auf dem Ihre Anwendung ausgeführt wird, in der Dropdown-Liste * Cluster* aus.
+. Wählen Sie aus der Dropdown-Liste *Namespace* den Namespace Ihrer Anwendung aus.
++
+
+NOTE: Apps können nur innerhalb eines bestimmten Namespace auf einem einzelnen Cluster definiert werden. Astra Control unterstützt nicht die Möglichkeit, dass Apps mehrere Namespaces oder Cluster umfassen.
+
+. Geben Sie eine Bezeichnung für die App und den Namespace ein. Sie können ein einzelnes Etikett oder ein Label-Auswahlkriterium (Abfrage) festlegen.
++
+
+TIP: Weitere Informationen zu Kubernetes-Labels: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/["In der offiziellen Kubernetes-Dokumentation finden Sie weitere Informationen"^].
+
+. Nachdem Sie *Definieren* ausgewählt haben, wiederholen Sie den Vorgang für andere Apps, je nach Bedarf.
+
+
+Nachdem Sie die Definition einer App abgeschlossen haben, wird die App auf der Seite Anwendungen in der Liste der Apps angezeigt. Sie können sie jetzt klonen und erstellen Backups und Snapshots.
+
+
+NOTE: Die gerade hinzugefügte App verfügt möglicherweise über ein Warnsymbol unter der Spalte „geschützt“, das angibt, dass sie nicht gesichert ist und noch keine Backups geplant sind.
+
+
+TIP: Um Details zu einer bestimmten App anzuzeigen, wählen Sie den App-Namen aus.
+
+
+
+=== Definieren Sie einen Namespace, der als App gemanagt werden soll
+
+Sie können alle Kubernetes-Ressourcen im Namespace zum Astra Control Management hinzufügen, indem Sie die Ressourcen dieses Namespace als Applikation definieren. Diese Methode ist es besser, Apps einzeln zu definieren, wenn Sie alle Ressourcen in einem bestimmten Namespace ähnlich und in gemeinsamen Abständen verwalten und schützen wollen.
+
+.Schritte
+. Wählen Sie auf der Seite Cluster einen Cluster aus.
+. Wählen Sie die Registerkarte *Namesaces* aus.
+. Wählen Sie das Menü Aktionen für den Namespace aus, der die Anwendungsressourcen enthält, die Sie verwalten möchten, und wählen Sie *als Anwendung definieren* aus.
++
+
+TIP: Wenn Sie mehrere Namespaces verwalten möchten, wählen Sie die Namespaces aus, und wählen Sie die Schaltfläche *Aktionen* in der linken oberen Ecke aus, und wählen Sie *Verwalten*.
+
++
+
+NOTE: Aktivieren Sie das Kontrollkästchen *System-Namespaces*, um Systemnamenpaces anzuzeigen, die in der Regel nicht standardmäßig in der App-Verwaltung verwendet werden. image:acc_namespace_system.png["Ein Screenshot, der die Option *System Namespaces* zeigt, die auf der Registerkarte Namesaces verfügbar ist."] link:../use/manage-apps.html#what-about-system-namespaces["Weitere Informationen"].
+
+
+
+Nach Abschluss des Prozesses werden die dem Namespace zugeordneten Anwendungen im angezeigt `Associated applications` Spalte.
+
+
+
+== Und wie sieht es mit System-Namespaces aus?
+
+Astra Control erkennt auch Systemnames auf einem Kubernetes Cluster. Wir zeigen Ihnen diese System-Namespaces standardmäßig nicht, da es selten ist, dass Sie die Ressourcen der System-App sichern müssen.
+
+Sie können Systemnames auf der Registerkarte Namespaces für ein ausgewähltes Cluster anzeigen, indem Sie das Kontrollkästchen *System-Namespaces* anzeigen auswählen.
+
+image:acc_namespace_system.png["Ein Screenshot, der die Option *System Namespaces* zeigt, die auf der Registerkarte Namesaces verfügbar ist."]
+
+
+TIP: Astra Control selbst ist keine Standard-App, sondern eine „System-App“. Sie sollten nicht versuchen, Astra Control selbst zu verwalten. Astra Control selbst wird für das Management nicht standardmäßig angezeigt.

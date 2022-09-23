@@ -1,0 +1,323 @@
+---
+sidebar: sidebar 
+permalink: use/manage-app-execution-hooks.html 
+keywords: execution hook, hook, script, snapshot, backup, freeze, thaw, database 
+summary: Ein Execution Hook ist ein benutzerdefiniertes Skript, das Sie vor oder nach einem Snapshot einer verwalteten App ausführen können. 
+---
+= Anwendungsausführungshaken verwalten
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Ein Execution Hook ist eine benutzerdefinierte Aktion, die Sie so konfigurieren können, dass sie zusammen mit einem Datenschutzvorgang einer verwalteten App ausgeführt wird. Wenn Sie beispielsweise über eine Datenbank-App verfügen, können Sie mithilfe von Testsuiten alle Datenbanktransaktionen vor dem Snapshot anhalten und die Transaktionen nach Abschluss des Snapshots fortsetzen. Dies gewährleistet applikationskonsistente Snapshots.
+
+
+
+== Arten von Ausführungshaken
+
+Astra Control unterstützt die folgenden Arten von Ausführungshaken, je nachdem, wann sie ausgeführt werden können:
+
+* Vor dem Snapshot
+* Nach dem Snapshot
+* Vor dem Backup
+* Nach dem Backup
+* Nach dem Wiederherstellen
+
+
+
+
+== Wichtige Hinweise zu benutzerdefinierten Testausführungshaken
+
+Bei der Planung von Testausführungshooks für Ihre Apps sollten Sie Folgendes berücksichtigen:
+
+* Ein Testsuite muss ein Skript verwenden, um Aktionen durchzuführen. Viele Testsuitehaoks können auf dasselbe Skript verweisen.
+* Astra Control erfordert, dass die Skripte, mit denen Ausführungshaken ausgeführt werden, im Format ausführbarer Shell-Skripte geschrieben werden.
+* Die Skriptgröße ist auf 96 KB begrenzt.
+* Astra Control verwendet Hook-Einstellungen für die Ausführung und alle übereinstimmenden Kriterien, um festzustellen, welche Haken für einen Snapshot-, Backup- oder Wiederherstellungsvorgang gelten.
+* Alle Fehler bei den Testausführungshaken sind weiche Ausfälle, andere Haken und der Datenschutzvorgang werden immer noch versucht, auch wenn ein Haken ausfällt. Wenn ein Haken jedoch ausfällt, wird ein Warnereignis im Ereignisprotokoll der Seite * aufgezeichnet.
+* Um Testsuiten zu erstellen, zu bearbeiten oder zu löschen, müssen Sie Benutzer mit den Berechtigungen Eigentümer, Administrator oder Mitglied sein.
+* Wenn ein Execution Hook länger als 25 Minuten dauert, schlägt der Hook fehl und erstellt einen Ereignisprotokolleintrag mit einem Rückgabecode von „N/A“. Jeder betroffene Snapshot wird als fehlgeschlagen markiert, und ein resultierender Eintrag im Ereignisprotokoll weist auf das Timeout hin.
+* Bei Ad-hoc-Datenschutzvorgängen werden alle Hook-Ereignisse im Ereignisprotokoll auf der Seite * erzeugt und gespeichert. Bei geplanten Datenschutzvorgängen werden jedoch nur Hook-Failure-Ereignisse im Ereignisprotokoll aufgezeichnet (Ereignisse, die von den geplanten Datenschutzvorgängen selbst generiert werden, werden noch aufgezeichnet).
+
+
+[NOTE]
+====
+Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt. Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass ein Testinaper nach dem Backup nicht davon ausgehen kann, dass die Sicherung abgeschlossen wurde.
+
+====
+
+
+=== Ausführungsreihenfolge
+
+Wenn ein Datenschutzvorgang ausgeführt wird, finden Hakenereignisse in der folgenden Reihenfolge statt:
+
+. Alle entsprechenden benutzerdefinierten Testhaken für die Ausführung vor dem Betrieb werden auf den entsprechenden Containern ausgeführt. Sie können beliebig viele benutzerdefinierte Hooks für die Vorbedienung erstellen und ausführen, aber die Reihenfolge der Ausführung dieser Haken vor der Operation ist weder garantiert noch konfigurierbar.
+. Der Vorgang der Datensicherung wird durchgeführt.
+. Alle entsprechenden benutzerdefinierten Testhaken für die Ausführung nach der Operation werden auf den entsprechenden Containern ausgeführt. Sie können beliebig viele benutzerdefinierte Haken für die Nachbearbeitung erstellen und ausführen, aber die Reihenfolge der Ausführung dieser Haken nach der Operation ist weder garantiert noch konfigurierbar.
+
+
+Wenn Sie mehrere Testausführungshaken desselben Typs erstellen (z. B. Pre-Snapshot), ist die Reihenfolge der Ausführung dieser Haken nicht garantiert. Die Reihenfolge der Ausführung von Haken unterschiedlicher Art ist jedoch garantiert. So würde beispielsweise die Reihenfolge der Ausführung einer Konfiguration mit allen fünf verschiedenen Hooks aussehen:
+
+. Hooks vor dem Backup wurden ausgeführt
+. Hooks vor dem Snapshot wurden ausgeführt
+. Hooks nach dem Snapshot wurden ausgeführt
+. Hooks nach dem Backup ausgeführt
+. Haken nach der Wiederherstellung ausgeführt
+
+
+Ein Beispiel für diese Konfiguration finden Sie in Szenario 2 aus der Tabelle in  whether a hook will run.
+
+
+NOTE: Sie sollten Ihre Hook-Skripte immer testen, bevor Sie sie in einer Produktionsumgebung aktivieren. Mit dem Befehl 'kubectl exec' können Sie die Skripte bequem testen. Nachdem Sie die Testausführungshaken in einer Produktionsumgebung aktiviert haben, testen Sie die erstellten Snapshots und Backups, um sicherzustellen, dass sie konsistent sind. Dazu klonen Sie die Applikation in einem temporären Namespace, stellen den Snapshot oder das Backup wieder her und testen anschließend die App.
+
+
+
+=== Bestimmen Sie, ob ein Haken läuft
+
+Verwenden Sie die folgende Tabelle, um zu ermitteln, ob ein benutzerdefinierter Testsuite für Ihre Anwendung ausgeführt wird.
+
+Alle grundlegenden Applikationsvorgänge müssen eine der grundlegenden Vorgänge – Snapshot, Backup oder Wiederherstellung – ausgeführt werden. Je nach Szenario kann ein Klonvorgang aus verschiedenen Kombinationen dieser Operationen bestehen, sodass die Ausführungsooks für einen Klonvorgang variieren.
+
+Für Wiederherstellungen ohne Backup ist ein vorhandener Snapshot oder Backup erforderlich, sodass bei diesen Vorgängen keine Snapshot- oder Backup-Hooks ausgeführt werden.
+
+[NOTE]
+====
+Wenn Sie starten, aber dann brechen Sie ein Backup, das einen Snapshot enthält und es sind zugewiesene Testausführungshaken, einige Haken laufen, und andere möglicherweise nicht. Das bedeutet, dass ein Testinaper nach dem Backup nicht davon ausgehen kann, dass die Sicherung abgeschlossen wurde. Beachten Sie die folgenden Punkte für abgebrochene Backups mit zugehörigen Testsuiten:
+
+* Die Hooks vor dem Backup und nach dem Backup laufen immer.
+* Wenn das Backup einen neuen Snapshot enthält und der Snapshot gestartet wurde, werden die Hooks vor dem Snapshot und nach dem Snapshot ausgeführt.
+* Wenn die Sicherung vor dem Start des Snapshots abgebrochen wird, werden die Hooks vor dem Snapshot und nach dem Snapshot nicht ausgeführt.
+
+
+====
+|===
+| Szenario | Betrieb | Vorhandener Snapshot | Vorhandenes Backup | Namespace | Cluster | Snapshot Hooks laufen | Backup Hooks laufen | Hooks Run wiederherstellen 
+
+
+| 1 | Klon | N | N | Neu | Gleich | Y | N | Y 
+
+
+| 2 | Klon | N | N | Neu | Anders | Y | Y | Y 
+
+
+| 3 | Klonen oder Wiederherstellen | Y | N | Neu | Gleich | N | N | Y 
+
+
+| 4 | Klonen oder Wiederherstellen | N | Y | Neu | Gleich | N | N | Y 
+
+
+| 5 | Klonen oder Wiederherstellen | Y | N | Neu | Anders | N | Y | Y 
+
+
+| 6 | Klonen oder Wiederherstellen | N | Y | Neu | Anders | N | N | Y 
+
+
+| 7 | Wiederherstellen | Y | N | Vorhanden | Gleich | N | N | Y 
+
+
+| 8 | Wiederherstellen | N | Y | Vorhanden | Gleich | N | N | Y 
+
+
+| 9 | Snapshot | K. A. | K. A. | K. A. | K. A. | Y | K. A. | K. A. 
+
+
+| 10 | Backup | N | K. A. | K. A. | K. A. | Y | Y | K. A. 
+
+
+| 11 | Backup | Y | K. A. | K. A. | K. A. | N | Y | K. A. 
+|===
+
+
+== Vorhandene Testsuiten anzeigen
+
+Sie können vorhandene benutzerdefinierte Testsuiten für eine App anzeigen.
+
+.Schritte
+. Gehen Sie zu *Anwendungen* und wählen Sie dann den Namen einer verwalteten App aus.
+. Wählen Sie die Registerkarte *Testsuitehaschen* aus.
++
+In der Ergebnisliste können Sie alle aktivierten oder deaktivierten Testausführungshaken anzeigen. Sie sehen den Status, die Quelle und den Ablauf eines Hakens (vor oder nach dem Betrieb). Um Ereignisprotokolle zu den Testausführungshaken anzuzeigen, gehen Sie zur Seite *Aktivität* im linken Navigationsbereich.
+
+
+
+
+
+== Vorhandene Skripte anzeigen
+
+Sie können die bereits hochgeladenen Skripte anzeigen. Auf dieser Seite können Sie auch sehen, welche Skripte verwendet werden und welche Haken sie verwenden.
+
+.Schritte
+. Gehen Sie zu *Konto*.
+. Wählen Sie die Registerkarte *Skripts* aus.
++
+Auf dieser Seite sehen Sie eine Liste mit bereits hochgeladenen Skripten. Die Spalte *used by* zeigt an, welche Testsuitehaoks die einzelnen Skripte verwenden.
+
+
+
+
+
+== Fügen Sie ein Skript hinzu
+
+Sie können einen oder mehrere Skripte hinzufügen, auf die Testausführungshaken verweisen können. Viele Testsuitehaoks können auf dasselbe Skript verweisen. So können Sie viele Testsuiten aktualisieren, indem Sie nur ein Skript ändern.
+
+.Schritte
+. Gehen Sie zu *Konto*.
+. Wählen Sie die Registerkarte *Skripts* aus.
+. Wählen Sie *Hinzufügen*.
+. Führen Sie einen der folgenden Schritte aus:
++
+** Laden Sie ein benutzerdefiniertes Skript hoch.
++
+... Wählen Sie die Option *Datei hochladen*.
+... Navigieren Sie zu einer Datei, und laden Sie sie hoch.
+... Geben Sie dem Skript einen eindeutigen Namen.
+... (Optional) Geben Sie alle Notizen ein, die andere Administratoren über das Skript wissen sollten.
+... Wählen Sie *Skript speichern*.
+
+
+** Fügen Sie in ein benutzerdefiniertes Skript aus der Zwischenablage ein.
++
+... Wählen Sie die Option *Einfügen oder Typ* aus.
+... Wählen Sie das Textfeld aus, und fügen Sie den Skripttext in das Feld ein.
+... Geben Sie dem Skript einen eindeutigen Namen.
+... (Optional) Geben Sie alle Notizen ein, die andere Administratoren über das Skript wissen sollten.
+
+
+
+
+. Wählen Sie *Skript speichern*.
+
+
+Das neue Skript erscheint in der Liste auf der Registerkarte *Scripts*.
+
+
+
+== Ein Skript löschen
+
+Sie können ein Skript aus dem System entfernen, wenn es nicht mehr benötigt wird und nicht von Testsuiten verwendet wird.
+
+.Schritte
+. Gehen Sie zu *Konto*.
+. Wählen Sie die Registerkarte *Skripts* aus.
+. Wählen Sie ein Skript aus, das Sie entfernen möchten, und wählen Sie das Menü in der Spalte *Aktionen* aus.
+. Wählen Sie *Löschen*.
+
+
+
+NOTE: Wenn das Skript mit einem oder mehreren Testsuiten verknüpft ist, ist die Aktion *Löschen* nicht verfügbar. Um das Skript zu löschen, bearbeiten Sie zunächst die zugehörigen Testausführungshaken und ordnen Sie sie einem anderen Skript zu.
+
+
+
+== Erstellen Sie einen benutzerdefinierten Testsuite-Haken
+
+Sie können einen benutzerdefinierten Testsuite-Haken für eine App erstellen. Siehe link:execution-hook-examples.html["Beispiele für Testausführungshaken"^] Beispiele für Haken. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken zu erstellen.
+
+
+NOTE: Wenn Sie ein benutzerdefiniertes Shell-Skript erstellen, das als Execution Hook verwendet werden soll, denken Sie daran, die entsprechende Shell am Anfang der Datei anzugeben, es sei denn, Sie führen bestimmte Befehle aus oder geben den vollständigen Pfad zu einer ausführbaren Datei an.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie die Registerkarte *Testsuitehaschen* aus.
+. Wählen Sie *Hinzufügen*.
+. Legen Sie im Bereich *Hook Details* fest, wann der Haken ausgeführt werden soll, indem Sie im Dropdown-Menü *Operation* einen Operationstyp auswählen.
+. Geben Sie einen eindeutigen Namen für den Haken ein.
+. (Optional) Geben Sie alle Argumente ein, um während der Ausführung an den Haken weiterzuleiten. Drücken Sie nach jedem eingegebenen Argument die Eingabetaste, um jedes Argument aufzuzeichnen.
+. Wenn der Haken im Bereich *Container Images* auf alle Container-Bilder in der Anwendung laufen soll, aktivieren Sie das Kontrollkästchen *auf alle Container-Bilder* anwenden. Sollte der Haken stattdessen nur auf ein oder mehrere angegebene Container-Images wirken, geben Sie die Container-Bildnamen in das Feld *Container-Bildnamen ein, die mit* übereinstimmen.
+. Führen Sie im Bereich *Script* einen der folgenden Schritte aus:
++
+** Fügen Sie ein neues Skript hinzu.
++
+... Wählen Sie *Hinzufügen*.
+... Führen Sie einen der folgenden Schritte aus:
++
+**** Laden Sie ein benutzerdefiniertes Skript hoch.
++
+..... Wählen Sie die Option *Datei hochladen*.
+..... Navigieren Sie zu einer Datei, und laden Sie sie hoch.
+..... Geben Sie dem Skript einen eindeutigen Namen.
+..... (Optional) Geben Sie alle Notizen ein, die andere Administratoren über das Skript wissen sollten.
+..... Wählen Sie *Skript speichern*.
+
+
+**** Fügen Sie in ein benutzerdefiniertes Skript aus der Zwischenablage ein.
++
+..... Wählen Sie die Option *Einfügen oder Typ* aus.
+..... Wählen Sie das Textfeld aus, und fügen Sie den Skripttext in das Feld ein.
+..... Geben Sie dem Skript einen eindeutigen Namen.
+..... (Optional) Geben Sie alle Notizen ein, die andere Administratoren über das Skript wissen sollten.
+
+
+
+
+
+
+** Wählen Sie ein vorhandenes Skript aus der Liste aus.
++
+Hiermit wird der Testsuitelink angewiesen, dieses Skript zu verwenden.
+
+
+
+. Wählen Sie *Haken hinzufügen*.
+
+
+
+
+== Überprüfen Sie den Status eines Testablaufanhängees
+
+Nachdem ein Snapshot-, Backup- oder Wiederherstellungsvorgang abgeschlossen wurde, können Sie den Status der Testsuiten überprüfen, die im Rahmen des Vorgangs ausgeführt wurden. Mit diesen Statusinformationen können Sie festlegen, ob der Testsuite beibehalten, geändert oder gelöscht werden soll.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie die Registerkarte *Datenschutz* aus.
+. Wählen Sie *Snapshots* aus, um die laufenden Snapshots zu sehen, oder *Backups*, um die laufenden Backups zu sehen.
++
+Der *Hook-Status* zeigt den Status der Ausführung Hakenlauf nach Abschluss des Vorgangs an. Sie können den Mauszeiger auf den Status bewegen, um weitere Details zu erhalten. Wenn z. B. beim Snapshot Fehler beim Ausführen von Hakenabfällen auftreten, wird beim Mauszeiger über den Hakenzustand für diesen Snapshot eine Liste mit fehlgeschlagenen Testsuitelhaken angezeigt. Um die Gründe für jeden Fehler zu sehen, können Sie die Seite *Aktivität* im linken Navigationsbereich überprüfen.
+
+
+
+
+
+== Skriptverwendung anzeigen
+
+In der Web-Benutzeroberfläche von Astra Control können Sie sehen, welche Testausführungshaken ein bestimmtes Skript verwenden.
+
+.Schritte
+. Wählen Sie *Konto*.
+. Wählen Sie die Registerkarte *Skripts* aus.
++
+Die Spalte *used by* in der Liste der Skripte enthält Details darüber, welche Haken die einzelnen Skripte in der Liste verwenden.
+
+. Wählen Sie die Informationen in der Spalte *used by* für ein Skript aus, das Sie interessieren.
++
+Eine detailliertere Liste mit den Namen der Haken, die das Skript verwenden, und der Art der Operation, mit der sie konfiguriert sind.
+
+
+
+
+
+== Deaktivieren Sie einen Testsuite-Haken
+
+Sie können einen Testsuite-Hook deaktivieren, wenn Sie ihn vorübergehend vor oder nach einem Snapshot einer App nicht ausführen möchten. Sie müssen über die Berechtigung Eigentümer, Administrator oder Mitglied verfügen, um Testsuiten zu deaktivieren.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie die Registerkarte *Testsuitehaschen* aus.
+. Wählen Sie in der Spalte *Aktionen* das Menü Optionen für einen Haken, den Sie deaktivieren möchten.
+. Wählen Sie *Deaktivieren*.
+
+
+
+
+== Löschen Sie einen Testsuite-Haken
+
+Sie können einen Execution Hook ganz entfernen, wenn Sie ihn nicht mehr benötigen. Sie müssen über die Berechtigung Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken zu löschen.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie die Registerkarte *Testsuitehaschen* aus.
+. Wählen Sie in der Spalte *Aktionen* das Menü Optionen für einen Haken, den Sie löschen möchten.
+. Wählen Sie *Löschen*.
+

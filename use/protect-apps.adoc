@@ -1,0 +1,169 @@
+---
+sidebar: sidebar 
+permalink: use/protect-apps.html 
+keywords: backup, back up, backup apps, back up apps, snapshots, snapshot an app, take a snapshot, take a backup, view backups, view snapshots, set policy, set schedule, schedule backups, schedule snapshots 
+summary: Schützen Sie Ihre Applikationen, indem Sie Snapshots und Backups über eine automatisierte Sicherungsrichtlinie oder Ad-hoc-Erstellung erstellen. 
+---
+= Sichern von Applikationen durch Snapshots und Backups
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Schützen Sie Ihre Applikationen, indem Sie Snapshots und Backups über eine automatisierte Sicherungsrichtlinie oder Ad-hoc-Erstellung erstellen. Sie können die Astra UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Um Anwendungen zu schützen.
+
+
+
+== Snapshots und Backups
+
+A _Snapshot_ ist eine zeitpunktgenaue Kopie einer Applikation, die auf demselben bereitgestellten Volume wie die Applikation gespeichert ist. In der Regel sind sie schnell. Lokale Snapshots werden verwendet, um die Applikation zu einem früheren Zeitpunkt wiederherzustellen.
+
+Ein _Backup_ wird im Objekt-Storage in der Cloud gespeichert. Das Backup kann im Vergleich zu den lokalen Snapshots langsamer erstellt werden. Allerdings ist der Zugriff über Regionen in der Cloud hinweg möglich, um Applikationsmigrationen zu ermöglichen. Sie können auch eine längere Aufbewahrungsdauer für Backups wählen.
+
+
+CAUTION: _Sie können erst dann vollständig geschützt sein, wenn Sie ein kürzlich gesichertes Backup haben. Das ist wichtig, da Backups abseits der persistenten Volumes in einem Objektspeicher gespeichert werden. Falls ein Ausfall des Clusters und der persistente Storage beschädigt werden, muss ein Backup wiederhergestellt werden. Ein Snapshot würde es Ihnen nicht ermöglichen, eine Wiederherstellung durchzuführen.
+
+
+NOTE: Wenn Sie einen Snapshot oder eine Sicherung durchführen, aber der Vorgang mit dem Fehler „die Ressource wurde nicht wegen eines internen Serverproblems erstellt“ fehlschlägt, überprüfen Sie, ob im verwendeten Speicher-Backend die richtigen Treiber installiert sind. Einige Storage-Back-Ends benötigen Container-CSI-Treiber (Storage Interface), während andere einen externen Snapshot-Controller benötigen.
+
+Sie können die folgenden Aufgaben zum Schutz Ihrer Applikationsdaten ausführen:
+
+*  a protection policy
+*  a snapshot
+*  a backup
+*  snapshots and backups
+*  snapshots
+*  backups
+*  backups
+
+
+
+
+== Konfigurieren einer Sicherungsrichtlinie
+
+Eine Sicherungsrichtlinie sichert eine Applikation, indem Snapshots, Backups oder beides nach einem definierten Zeitplan erstellt werden. Sie können Snapshots und Backups stündlich, täglich, wöchentlich und monatlich erstellen. Außerdem können Sie die Anzahl der beizubehaltenden Kopien festlegen. Wenn Sie Backups oder Snapshots öfter als einmal pro Stunde benötigen, können Sie dies tun https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html["Erstellen Sie mithilfe der Astra Control REST API Snapshots und Backups"^].
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie *Datenschutz*.
+. Wählen Sie *Schutzrichtlinie Konfigurieren*.
+. Legen Sie einen Sicherungszeitplan fest. Wählen Sie dazu die Anzahl der Snapshots und Backups aus, die stündlich, täglich, wöchentlich und monatlich erstellt werden sollen.
++
+Sie können die stündlichen, täglichen, wöchentlichen und monatlichen Zeitpläne gleichzeitig festlegen. Ein Zeitplan wird nicht aktiv umschalten, bis Sie ein Aufbewahrungsniveau für Schnappschüsse und Backups festlegen.
+
++
+Wenn Sie ein Aufbewahrungsniveau für Backups festlegen, können Sie den Bucket auswählen, auf dem Sie die Backups speichern möchten.
+
++
+Im folgenden Beispiel sind vier Sicherungspläne definiert: Stündlich, täglich, wöchentlich und monatlich für Snapshots und Backups.
+
++
+image:screenshot-protection-policy.png["Einen Screenshot einer Beispielkonfigurationsrichtlinie, in der Sie Snapshots und Backups stündlich, täglich, wöchentlich oder monatlich erstellen können."]
+
+. Wählen Sie *Bewertung*.
+. Wählen Sie *Konfigurieren*.
++
+Hier sehen Sie ein Video, das jeden dieser Schritte aufzeigt.
+
++
+video::video-set-protection-policy.mp4[width=848,height=480]
+
+
+Astra Control implementiert die Datensicherungsrichtlinien, indem Snapshots und Backups mithilfe der von Ihnen definierten Zeitplan und Aufbewahrungsrichtlinie erstellt und aufbewahrt werden.
+
+
+
+== Erstellen Sie einen Snapshot
+
+Sie können jederzeit einen On-Demand-Snapshot erstellen.
+
+.Schritte
+. Wählen Sie *Anwendungen*.
+. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für die gewünschte App aus.
+. Wählen Sie *Snapshot*.
+. Passen Sie den Namen des Snapshots an und wählen Sie dann *Informationen überprüfen*.
+. Überprüfen Sie die Snapshot-Übersicht und wählen Sie *Snapshot-App*.
+
+
+Astra Control erstellt eine Momentaufnahme der Apps.
+
+
+
+== Erstellen Sie ein Backup
+
+Sie können eine App auch jederzeit sichern.
+
+.Schritte
+. Wählen Sie *Anwendungen*.
+. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für die gewünschte App aus.
+. Wählen Sie *Backup*.
+. Passen Sie den Namen des Backups an, wählen Sie aus, ob die App aus einem vorhandenen Snapshot gesichert werden soll, und wählen Sie dann *Informationen überprüfen* aus.
+. Prüfen Sie die Backup-Zusammenfassung und wählen Sie *Backup-App*.
+
+
+Astra Control erstellt ein Backup der App.
+
+
+
+== Anzeigen von Snapshots und Backups
+
+Sie können die Snapshots und Backups einer Anwendung auf der Registerkarte Datenschutz anzeigen.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie *Datenschutz*.
++
+Die Snapshots werden standardmäßig angezeigt.
+
+. Wählen Sie *Backups*, um die Liste der Backups anzuzeigen.
+
+
+
+
+== Snapshots löschen
+
+Löschen Sie die geplanten oder On-Demand Snapshots, die Sie nicht mehr benötigen.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie *Datenschutz*.
+. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für den gewünschten Snapshot aus.
+. Wählen Sie *Snapshot löschen*.
+. Geben Sie den Namen des Snapshots ein, um das Löschen zu bestätigen, und wählen Sie dann *Ja, Snapshot löschen* aus.
+
+
+Astra Control löscht den Snapshot.
+
+
+
+== Abbrechen von Backups
+
+Sie können ein gerade einlaufenden Backup abbrechen.
+
+
+TIP: Um ein Backup abzubrechen, muss sich das Backup im laufenden Zustand befinden. Sie können ein Backup, das sich im Status „Ausstehend“ befindet, nicht abbrechen.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer App aus.
+. Wählen Sie *Datenschutz*.
+. Wählen Sie *Backups*.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* für das gewünschte Backup die Option *Abbrechen* aus.
+. Geben Sie das Wort „Abbrechen“ ein, um den Löschvorgang zu bestätigen, und wählen Sie dann *Ja, Sicherung abbrechen* aus.
+
+
+
+
+== Backups löschen
+
+Löschen Sie die geplanten oder On-Demand-Backups, die Sie nicht mehr benötigen.
+
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie *Datenschutz*.
+. Wählen Sie *Backups*.
+. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für das gewünschte Backup aus.
+. Wählen Sie *Sicherung löschen*.
+. Geben Sie den Namen des Backups ein, um das Löschen zu bestätigen, und wählen Sie dann *Ja, Backup löschen* aus.
+
+
+Astra Control löscht das Backup.

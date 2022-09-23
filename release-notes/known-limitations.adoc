@@ -1,0 +1,109 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-limitations.html 
+keywords: limitations, known limitations, interoperability 
+summary: Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, die von dieser Version des Produkts nicht unterstützt werden oder nicht korrekt mit dem Produkt zusammenarbeiten. Lesen Sie diese Einschränkungen sorgfältig durch. 
+---
+= Bekannte Einschränkungen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, die von dieser Version des Produkts nicht unterstützt werden oder nicht korrekt mit dem Produkt zusammenarbeiten. Lesen Sie diese Einschränkungen sorgfältig durch.
+
+
+
+== Allgemeine Einschränkungen
+
+Die folgenden Einschränkungen wirken sich auf das Management von Kubernetes-Clustern des Astra Control Service in jeder unterstützten Kubernetes-Implementierung aus.
+
+
+
+=== Astra Trident ist nicht von einem Cluster deinstalliert
+
+Wenn Sie einen Cluster vom Astra Control Service aus verwalten, wird Astra Trident nicht automatisch aus dem Cluster deinstalliert. Um Astra Trident zu deinstallieren, müssen Sie es benötigen https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Folgen Sie den Schritten in der Dokumentation von Astra Trident"^].
+
+
+
+=== Bestehende Verbindungen zu einem Postgres-Pod führen zu Fehlern
+
+Wenn Sie Vorgänge auf Postgres-Pods durchführen, sollten Sie nicht direkt innerhalb des Pods verbinden, um den psql-Befehl zu verwenden. Astra Control Service erfordert psql-Zugriff, um die Datenbanken einzufrieren und zu tauen. Wenn eine bereits vorhandene Verbindung besteht, schlägt der Snapshot, die Sicherung oder der Klon fehl.
+
+ifdef::gcp[]
+
+
+
+== Einschränkungen für die Verwaltung von GKE-Clustern
+
+Die folgenden Einschränkungen gelten für das Management von Kubernetes-Clustern in der Google Kubernetes Engine (GKE).
+
+
+
+=== Es werden ein GCP-Projekt und ein Service-Konto unterstützt
+
+Astra Control Service unterstützt ein Google Cloud Platform-Projekt und ein Service-Konto. Sie sollten dem Astra Control Service nicht mehr als ein Servicekonto hinzufügen, und Sie sollten die Anmeldeinformationen für das Servicekonto nicht rotieren.
+
+
+
+=== Google Marketplace Apps wurden nicht validiert
+
+NetApp hat keine über Google Marketplace bereitgestellten Applikationen validiert. Einige Benutzer berichten über Probleme bei der Erkennung oder Sicherung von Postgres-, MariaDB- und MySQL-Apps, die über den Google Marketplace bereitgestellt wurden.
+
+Unabhängig von der Art der Applikation, die Sie mit Astra Control Service verwenden, sollten Sie den Backup- und Restore-Workflow immer selbst testen, um sicherzustellen, dass Sie Ihre Disaster-Recovery-Anforderungen erfüllen.
+
+endif::gcp[]
+
+
+
+== Einschränkungen beim Applikationsmanagement
+
+Die folgenden Einschränkungen wirken sich auf das Anwendungsmanagement des Astra Control Service aus.
+
+
+
+=== In-Place-Wiederherstellungsvorgänge von Anwendungen, die einen Zertifikatmanager verwenden, werden nicht unterstützt
+
+Diese Version von Astra Control Service unterstützt keine in-Place-Wiederherstellung von Anwendungen mit Zertifikatmanagern. Restore-Vorgänge in einem anderen Namespace und Klonvorgänge werden unterstützt.
+
+
+
+=== Applikationsklone scheitern, nachdem eine Applikation mit einer festgelegten Storage-Klasse implementiert wurde
+
+Nachdem eine Applikation mit einer Storage-Klasse bereitgestellt wurde (z. B. `helm install ...-set global.storageClass=netapp-cvs-perf-extreme`). Nachfolgende Klonversuche der Applikation erfordern, dass das Ziel-Cluster die ursprünglich angegebene Storage-Klasse hat. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl. Es gibt keine Wiederherstellungsschritte in diesem Szenario.
+
+
+
+=== Klone von über Pass-by-Reference-Operatoren installierten Applikationen können fehlschlagen
+
+Astra Control unterstützt Applikationen, die mit Betreibern im Namespace-Umfang installiert sind. Diese Betreiber sind in der Regel mit einer "Pass-by-Value"-Architektur statt "Pass-by-reference"-Architektur ausgelegt. Im Folgenden sind einige Bedieneranwendungen aufgeführt, die folgende Muster befolgen:
+
+* https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
++
+
+NOTE: Für K8ssandra werden in-Place-Wiederherstellungsvorgänge unterstützt. Für einen Restore-Vorgang in einem neuen Namespace oder Cluster muss die ursprüngliche Instanz der Applikation ausgefallen sein. Dadurch soll sichergestellt werden, dass die überführten Peer-Group-Informationen nicht zu einer instanzübergreifenden Kommunikation führen. Das Klonen der App wird nicht unterstützt.
+
+* https://github.com/jenkinsci/kubernetes-operator["Jenkins CI"^]
+* https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB Cluster"^]
+
+
+Astra Control ist möglicherweise nicht in der Lage, einen Operator zu klonen, der mit einer „Pass-by-reference“-Architektur entworfen wurde (z. B. der CockroachDB-Operator). Während dieser Art von Klonvorgängen versucht der geklonte Operator, Kubernetes Secrets vom Quelloperator zu beziehen, obwohl er im Zuge des Klonens ein eigenes neues Geheimnis hat. Der Klonvorgang kann fehlschlagen, da Astra Control die Kubernetes-Geheimnisse im Quelloperator nicht kennt.
+
+
+
+== Einschränkungen bei der rollenbasierten Zugriffssteuerung (Role Based Access Control, RBAC
+
+Die folgenden Einschränkungen gelten für die Art und Weise, wie Astra Control den Benutzerzugriff auf Ressourcen oder Funktionen begrenzt.
+
+
+
+=== Benutzer mit rollenbasierten Bedingungen für die Namespace-Zugriffssteuerung können ein Cluster hinzufügen und aus dem Management wieder aufheben
+
+Benutzer mit rollenbasierten Namespace-Einschränkungen dürfen Cluster nicht hinzufügen oder aus dem Management rückgängig machen. Aufgrund der derzeitigen Beschränkungen verhindert Astra nicht, dass solche Benutzer Cluster nicht mehr verwalten.
+
+
+
+=== Ein Member-Benutzer mit Namespace-Einschränkungen kann nicht auf geklonte oder wiederhergestellte Apps zugreifen, bis ein Admin-Benutzer den Namespace zu der Bedingung hinzufügt
+
+Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name/ID können eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto des Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer den bearbeiten `member` Benutzerkonto und Aktualisierung von Rollenbeschränkungen für den betroffenen Benutzer, um den Zugriff auf den neuen Namespace zu gewähren.

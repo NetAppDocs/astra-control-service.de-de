@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: use/manage-notifications.html 
+keywords: notifications, delete notifications, mark notifications as read 
+summary: Astra Control benachrichtigt Sie, wenn Aktionen abgeschlossen oder fehlgeschlagen sind. Beispielsweise wird eine Benachrichtigung angezeigt, wenn ein Backup einer Anwendung erfolgreich abgeschlossen wurde. 
+---
+= Anzeigen und Managen von Benachrichtigungen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Astra Control benachrichtigt Sie, wenn Aktionen abgeschlossen oder fehlgeschlagen sind. Beispielsweise wird eine Benachrichtigung angezeigt, wenn ein Backup einer Anwendung erfolgreich abgeschlossen wurde.
+
+Die Anzahl der ungelesenen Benachrichtigungen ist oben rechts auf der Schnittstelle verfügbar.
+
+Sie können diese Benachrichtigungen anzeigen und als gelesen markieren (dies kann nützlich sein, wenn Sie ungelesenen Benachrichtigungen löschen möchten, wie wir tun).
+
+.Schritte
+. Wählen Sie oben rechts die Anzahl der ungelesenen Benachrichtigungen aus.
+. Überprüfen Sie die Benachrichtigungen und wählen Sie dann *als gelesen markieren* oder *Alle Benachrichtigungen anzeigen*.
++
+Wenn Sie *Alle Benachrichtigungen anzeigen* ausgewählt haben, wird die Seite Benachrichtigungen geladen.
+
+. Zeigen Sie auf der Seite *Benachrichtigungen* die Benachrichtigungen an, wählen Sie die Benachrichtigungen aus, die Sie als gelesen markieren möchten, wählen Sie *Aktion* und wählen Sie *als gelesen markieren*.
+

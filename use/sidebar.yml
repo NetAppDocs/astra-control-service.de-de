@@ -1,0 +1,49 @@
+---
+section: use
+title: Nutzen Sie Den Astra Control Service
+entries:
+- title: Melden Sie sich an
+  url: "/use/log-in.html"
+- title: Management und Sicherung von Applikationen
+  entries:
+  - title: Starten Sie das Anwendungsmanagement
+    url: "/use/manage-apps.html"
+  - title: Schützen von Applikationen
+    url: "/use/protect-apps.html"
+  - title: Wiederherstellung von Applikationen
+    url: "/use/restore-apps.html"
+  - title: Klonen und Migrieren von Applikationen
+    url: "/use/clone-apps.html"
+  - title: Anwendungsausführungshaken verwalten
+    url: "/use/manage-app-execution-hooks.html"
+    entries:
+    - title: Beispiele für Testausführungshaken
+      url: "/use/execution-hook-examples.html"
+- title: Zeigen Sie den Zustand von Applikationen und Computing an
+  entries:
+  - title: Dashboard-Übersicht
+    url: "/use/view-dashboard.html"
+  - title: Systemzustand und Details des Clusters
+    url: "/use/view-clusters.html"
+  - title: Systemzustand und Details von Anwendungen
+    url: "/use/view-apps.html"
+- title: Buckets verwalten
+  url: "/use/manage-buckets.html"
+- title: Konto verwalten
+  entries:
+  - title: Abrechnung einrichten
+    url: "/use/set-up-billing.html"
+  - title: Benutzer einladen und managen
+    url: "/use/manage-users.html"
+  - title: Rollen managen
+    url: "/use/manage-roles.html"
+  - title: Management der Anmeldedaten von Cloud-Providern
+    url: "/use/manage-credentials.html"
+  - title: Überwachen der Kontoaktivität
+    url: "/use/monitor-account-activity.html"
+  - title: Benachrichtigungen verwalten
+    url: "/use/manage-notifications.html"
+  - title: Schließen Sie Ihr Konto
+    url: "/use/close-account.html"
+- title: Heben Sie das Management von Applikationen und Clustern auf
+  url: "/use/unmanage.html"

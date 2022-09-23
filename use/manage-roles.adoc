@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: use/manage-roles.html 
+keywords: users, roles, user roles, namespace, namespaces, account, accounts, permissions, restriction, restrict, constraint, constraints 
+summary: Erfahren Sie, wie Sie Benutzerrollen verwalten, indem Sie der Rolle eine Einschränkung hinzufügen. 
+---
+= Rollen managen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Sie können Rollen managen, indem Sie Namespace-Einschränkungen hinzufügen und Benutzerrollen auf diese Einschränkungen beschränken. So können Sie den Zugriff auf Ressourcen in Ihrem Unternehmen kontrollieren. Sie können die Astra Control UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Rollen managen.
+
+
+
+== Fügen Sie einer Rolle eine Namespace-Einschränkung hinzu
+
+Ein Administrator oder Eigentümer kann Namespace-Einschränkungen hinzufügen.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Wählen Sie die Registerkarte *Benutzer* aus.
+. Wählen Sie in der Spalte *Actions* die Menü-Schaltfläche für einen Benutzer mit der Rolle Mitglied oder Viewer.
+. Wählen Sie *Rolle bearbeiten*.
+. Aktivieren Sie das Kontrollkästchen * Rolle auf Einschränkungen beschränken*.
++
+Das Kontrollkästchen ist nur für Mitglieder- oder Viewer-Rollen verfügbar. Aus der Dropdown-Liste *Rolle* können Sie eine andere Rolle auswählen.
+
+. Wählen Sie *Bedingung hinzufügen*.
++
+Sie können die Liste der verfügbaren Einschränkungen nach Namespace oder Namensraum-Bezeichnung anzeigen.
+
+. Wählen Sie in der Dropdown-Liste *Constraint type* je nach Konfiguration Ihrer Namespaces entweder *Kubernetes Namespace* oder *Kubernetes Namespace Label* aus.
+. Wählen Sie eine oder mehrere Namespaces oder Labels aus der Liste aus, um eine Beschränkung zu erstellen, die Rollen auf diese Namespaces beschränkt.
+. Wählen Sie *Bestätigen*.
++
+Auf der Seite * Rolle bearbeiten* wird die Liste der für diese Rolle ausgewählten Einschränkungen angezeigt.
+
+. Wählen Sie *Bestätigen*.
++
+Auf der Seite *Konto* können Sie die Einschränkungen für beliebige Mitglieder- oder Viewer-Rollen in der Spalte *Role* anzeigen.
+
+
+
+
+NOTE: Wenn Sie Einschränkungen für eine Rolle aktivieren und *Bestätigen* wählen, ohne dass Einschränkungen hinzugefügt werden müssen, gilt die Rolle als uneingeschränkt eingeschränkt (die Rolle wird dem Zugriff auf alle Ressourcen verweigert, die Namespaces zugewiesen sind).
+
+
+
+== Entfernen Sie eine Namespace-Beschränkung aus einer Rolle
+
+Ein Administrator oder Benutzer eines Eigentümers kann eine Namespace-Einschränkung aus einer Rolle entfernen.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Wählen Sie die Registerkarte *Benutzer* aus.
+. Wählen Sie in der Spalte *Aktionen* die Menütaste für einen Benutzer mit der Rolle Mitglied oder Viewer mit aktiven Einschränkungen.
+. Wählen Sie *Rolle bearbeiten*.
++
+Im Dialogfeld *Rolle bearbeiten* werden die aktiven Einschränkungen für die Rolle angezeigt.
+
+. Wählen Sie das *X* rechts neben der Bedingung aus, die Sie entfernen müssen.
+. Wählen Sie *Bestätigen*.
+
+
+
+
+== Finden Sie weitere Informationen
+
+* link:../learn/user-roles-namespaces.html["Benutzerrollen und Namespaces"]
+

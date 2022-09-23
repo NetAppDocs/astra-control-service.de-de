@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: use/view-clusters.html 
+keywords: view cluster, cluster storage, cluster overview 
+summary: Nachdem Sie Astra Control um Kubernetes Cluster erweitert haben, können Sie Details zum Cluster anzeigen, beispielsweise seinen Speicherort, die Worker-Nodes, persistente Volumes und Storage-Klassen. 
+---
+= Anzeigen des Systemzustands und der Details von Clustern
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Nachdem Sie Astra Control um Kubernetes Cluster erweitert haben, können Sie Details zum Cluster anzeigen, beispielsweise seinen Speicherort, die Worker-Nodes, persistente Volumes und Storage-Klassen.
+
+.Schritte
+. Wählen Sie in der Astra Control Service-UI *Cluster* aus.
+. Wählen Sie auf der Seite *Cluster* den Cluster aus, dessen Details Sie anzeigen möchten.
++
+
+NOTE: Wenn ein Cluster vorhanden ist `removed` Der Zustand der Cluster- und Netzwerk-Konnektivität erscheint jedoch ordnungsgemäß (externe Versuche, mit Kubernetes-APIs erfolgreich auf das Cluster zuzugreifen, sind dennoch erfolgreich), ist das Kubeconsg, das Sie Astra Control zur Verfügung gestellt haben, möglicherweise nicht mehr gültig. Dies kann an einer Zertifikatrotation oder einem Ablaufdatum im Cluster liegen. Um dieses Problem zu beheben, aktualisieren Sie die Anmeldeinformationen, die mit dem Cluster in Astra Control verbunden sind, mithilfe des link:https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"].
+
+. Zeigen Sie die Informationen auf den Registerkarten *Übersicht*, *Speicher* und *Aktivität* an, um die gewünschten Informationen zu finden.
++
+** *Übersicht*: Details zu den Arbeiterknoten, einschließlich ihres Status.
+** *Storage*: Die persistenten Volumes, die mit dem Computing verbunden sind, einschließlich der Speicherklasse und des Status.
+** *Aktivität*: Die Aktivitäten im Zusammenhang mit dem Cluster.
+
+
+
+
+
+NOTE: Sie können auch Cluster-Informationen anzeigen, die vom Astra Control Service *Dashboard* aus gestartet werden. Auf der Registerkarte *Cluster* unter *Resource summary* können Sie die verwalteten Cluster auswählen, die Sie zur Seite *Cluster* führen. Nachdem Sie die Seite *Cluster* aufgerufen haben, befolgen Sie die oben beschriebenen Schritte.

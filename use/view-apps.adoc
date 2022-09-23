@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: use/view-apps.html 
+keywords: view app, view app status, view app protection status, view app pods, view persistent storage 
+summary: Nachdem Sie mit dem Management einer Applikation begonnen haben, stellt Astra Control Details zur Applikation bereit, mit der Sie den Status, den Sicherungsstatus, die Pods, den persistenten Storage und viele andere mehr ermitteln können. 
+---
+= Anzeigen des Funktionszustands und der Details einer App
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Nachdem Sie mit dem Management einer Applikation begonnen haben, stellt Astra Control Details zur App bereit, mit der Sie ihren Status (unabhängig davon, ob sie sich gesund ist), ihren Sicherungsstatus (ob sie im Falle eines Ausfalls vollständig geschützt ist), die Behälter, den persistenten Storage und vieles mehr ermitteln können.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer App aus.
+. Wählen Sie ein Umfeld aus, um nach den gewünschten Informationen zu suchen:
++
+Anwendungsstatus:: Gibt einen Status an, der den Status der App in Kubernetes wiedergibt.
+App-Schutzstatus:: Gibt den Status an, wie gut die App geschützt ist:
++
+--
+** *Vollständig geschützt*: Die App verfügt über einen aktiven Backup-Zeitplan und ein erfolgreiches Backup, das weniger als eine Woche alt ist
+** *Teilweise geschützt*: Die App verfügt über einen aktiven Backup-Zeitplan, einen aktiven Snapshot-Zeitplan oder einen erfolgreichen Backup oder Snapshot
+** *Ungeschützt*: Apps, die weder vollständig geschützt noch teilweise geschützt sind.
++
+_Sie können erst dann vollständig geschützt sein, wenn Sie ein kürzlich gesichertes Backup haben. Das ist wichtig, da Backups abseits der persistenten Volumes in einem Objektspeicher gespeichert werden. Wenn ein Ausfall das Cluster herauswischt und es sich um den persistenten Storage handelt, muss das Backup wiederhergestellt werden. Ein Snapshot würde es Ihnen nicht ermöglichen, eine Wiederherstellung durchzuführen.
+
+
+
+--
+Überblick:: Informationen über den Status der Pods, die mit der App verknüpft sind.
+Datensicherung:: Hiermit können Sie eine Datenschutzrichtlinie konfigurieren und die vorhandenen Snapshots und Backups anzeigen.
+Storage:: Zeigt Ihnen die persistenten Volumes auf App-Ebene. Der Zustand eines persistenten Volumes befindet sich aus der Perspektive des Kubernetes Clusters.
+Ressourcen:: Hiermit können Sie überprüfen, welche Ressourcen gesichert und gemanagt werden.
+Aktivität:: Die Astra Control Aktivitäten im Zusammenhang mit der App.
+
+
+

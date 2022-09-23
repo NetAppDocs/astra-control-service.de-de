@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: learn/azure-storage.html 
+keywords: service level, cvs, cvs-performance, storage class, storage classes, pv size, persistent volume size, volume size, bandwidth, performance 
+summary: 'Astra Control Service verwendet Azure NetApp Files als Storage-Backend für Azure Kubernetes Service-Cluster (AKS). Sie sollten verstehen, wie Sie mithilfe einer Storage-Klasse und einer persistenten Volume-Größe Ihre Performance-Ziele erreichen können.' 
+---
+= Speicherklassen und PV-Größe für AKS-Cluster
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/learn/
+
+
+[role="lead"]
+Astra Control Service unterstützt gemanagte Azure NetApp Files oder Azure Festplatten als Storage-Backend für Azure Kubernetes Service-Cluster (AKS).
+
+
+
+== Azure NetApp Dateien
+
+Astra Control Service unterstützt Azure NetApp Files als Storage-Backend für Azure Kubernetes Service-Cluster (AKS). Sie sollten verstehen, wie Sie mithilfe einer Storage-Klasse und einer persistenten Volume-Größe Ihre Performance-Ziele erreichen können.
+
+
+
+=== Service Levels und Storage-Klassen
+
+Azure NetApp Files unterstützt drei Service-Level: Ultra-Storage, Premium-Storage und Standard-Storage. Jedes dieser Service-Level ist für unterschiedliche Performance-Anforderungen konzipiert:
+
+Ultra-Storage:: Bietet einen Durchsatz von bis zu 128 MiB/s pro 1 tib.
+Premium-Storage:: Bietet einen Durchsatz von bis zu 64 MiB/s pro 1 tib.
+Standard-Storage:: Bietet einen Durchsatz von bis zu 16 MIB/s pro 1 tib.
+
+
+Diese Service Levels sind die Attribute eines Kapazitäts-Pools. Sie müssen für jedes Service-Level, das Sie mit Ihren Kubernetes Clustern verwenden möchten, einen Kapazitäts-Pool einrichten. link:../get-started/set-up-microsoft-azure-with-anf.html["Erfahren Sie, wie Sie Kapazitäts-Pools einrichten"].
+
+Astra Control Service verwendet diese Service-Level als Storage-Klassen für Ihre persistenten Volumes. Wenn Sie Kubernetes-Cluster zum Astra Control Service hinzufügen, werden Sie aufgefordert, Ultra, Premium oder Standard als Standard-Storage-Klasse auszuwählen. Die Namen der Storage-Klassen sind _netapp-anf-perf-ultra_, _netapp-anf-perf-Premium_ und _netapp-anf-perf-Standard_.
+
+https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels["Weitere Informationen zu diesen Service Levels finden Sie in der Azure NetApp Files Dokumentation"^].
+
+
+
+=== Persistente Volume-Größe und -Performance
+
+Wie oben beschrieben, beträgt der Durchsatz für jedes Service-Level 1 tib bereitgestellte Kapazität. Größere Volumes bieten also eine bessere Performance. Sie sollten also bei der Bereitstellung von Volumes sowohl Kapazitäts- als auch Performance-Anforderungen berücksichtigen.
+
+
+
+=== Minimale Volume-Größe
+
+Astra Control Service stellt persistente Volumes mit einer minimalen Volume-Größe von 100 gib bereit, selbst wenn das PVC eine kleinere Volume-Größe erfordert. Wenn beispielsweise das PVC in einem Helm-Diagramm 6 gib verlangt, stellt Astra Control Service automatisch ein Volumen von 100 gib bereit.
+
+
+
+== Von Azure gemanagte Festplatten
+
+Astra Control Service unterstützt von Azure verwaltete Festplatten als Storage-Backend-Option. Dieser Service bietet Storage auf Block-Ebene, der von Azure gemanagt wird.
+
+https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview["Weitere Informationen über von Azure gemanagte Festplatten"^].

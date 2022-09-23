@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: use/manage-users.html 
+keywords: invite users, add users, remove users, delete users 
+summary: Laden Sie Benutzer ein, sich Ihrem Astra Control-Konto anzuschließen und entfernen Sie Benutzer, die keinen Zugriff mehr auf Ihr Konto haben sollten. 
+---
+= Benutzer einladen und entfernen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Laden Sie Benutzer ein, sich Ihrem Astra Control-Konto anzuschließen und entfernen Sie Benutzer, die keinen Zugriff mehr auf das Konto haben sollten.
+
+
+
+== Benutzer einladen
+
+Kontoinhaber und -Administratoren können andere Benutzer einladen, sich dem Astra Control-Konto anzuschließen.
+
+.Schritte
+. Stellen Sie sicher, dass der Benutzer über einen verfügt link:../get-started/register.html["Cloud Central-Anmeldung"].
+. Wählen Sie *Konto*.
+. Wählen Sie auf der Registerkarte *Benutzer* die Option *Einladung* aus.
+. Geben Sie den Namen, die E-Mail-Adresse und die Rolle des Benutzers ein.
++
+Beachten Sie Folgendes:
+
++
+** Die E-Mail-Adresse muss mit der E-Mail-Adresse übereinstimmen, die der Benutzer für die Anmeldung bei Cloud Central verwendet hat.
+** Jede Rolle bietet die folgenden Berechtigungen:
++
+*** Ein *Eigentümer* hat Administratorrechte und kann Konten löschen.
+*** Ein *Admin* hat Mitgliederberechtigungen und kann andere Benutzer einladen.
+*** Ein *Mitglied* kann Apps und Cluster vollständig verwalten.
+*** Ein *Viewer* kann Ressourcen anzeigen.
+
+
+
+
+. Um einem Benutzer mit einer Mitglied- oder Viewer-Rolle Einschränkungen hinzuzufügen, aktivieren Sie das Kontrollkästchen * Rolle auf Einschränkungen beschränken*.
++
+Weitere Informationen zum Hinzufügen von Einschränkungen finden Sie unter link:manage-roles.html["Rollen managen"].
+
+. Um einen anderen Benutzer einzuladen, wählen Sie *Weitere Benutzer hinzufügen* und geben Sie Informationen für den neuen Benutzer ein.
++
+Sie können bis zu 10 Benutzer gleichzeitig einladen. Sie können zwischen den Nutzern, die Sie einladen, auf der linken Seite des Dialogfelds * Benutzer einladen* navigieren.
+
+. Wählen Sie *Benutzer einladen*.
+
+
+Der Benutzer oder die Benutzer erhalten eine E-Mail, die sie dazu einlädt, Ihrem Konto beizutreten.
+
+
+
+== Ändern Sie die Rolle eines Benutzers
+
+Ein Kontoinhaber kann die Rolle aller Benutzer ändern, während ein Kontoadministrator die Rolle von Benutzern ändern kann, die über die Rolle „Administrator“, „Mitglied“ oder „Viewer“ verfügen.
+
+.Schritte
+. Wählen Sie *Konto*.
+. Wählen Sie auf der Registerkarte *Benutzer* das Menü in der Spalte *Aktionen* für den Benutzer aus.
+. Wählen Sie *Rolle bearbeiten*.
+. Wählen Sie eine neue Rolle aus.
+. Um einem Benutzer mit einer Mitglied- oder Viewer-Rolle Einschränkungen hinzuzufügen, aktivieren Sie das Kontrollkästchen * Rolle auf Einschränkungen beschränken*.
++
+Weitere Informationen zum Hinzufügen von Einschränkungen finden Sie unter link:manage-roles.html["Rollen managen"].
+
+. Wählen Sie *Bestätigen*.
+
+
+Astra Control aktualisiert die Benutzerberechtigungen auf der Grundlage der neuen Rolle, die Sie ausgewählt haben.
+
+
+
+== Benutzer entfernen
+
+Ein Benutzer mit der Owner-Rolle kann andere Benutzer jederzeit aus dem Konto entfernen.
+
+.Schritte
+. Wählen Sie *Konto*.
+. Wählen Sie auf der Registerkarte *Benutzer* die Benutzer aus, die Sie entfernen möchten.
+. Wählen Sie in der Spalte *Aktionen* das Menü aus und wählen Sie *Benutzer entfernen*.
+. Wenn Sie aufgefordert werden, bestätigen Sie den Löschvorgang, indem Sie „Entfernen“ eingeben und dann *Ja, Benutzer entfernen* wählen.
+
+
+Astra Control entfernt den Benutzer aus dem Konto.

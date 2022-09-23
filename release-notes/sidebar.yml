@@ -1,0 +1,10 @@
+---
+section: release-notes
+title: Versionshinweise
+entries:
+- title: Was ist neu
+  url: "/release-notes/whats-new.html"
+- title: Bekannte Probleme
+  url: "/release-notes/known-issues.html"
+- title: Bekannte Einschränkungen
+  url: "/release-notes/known-limitations.html"

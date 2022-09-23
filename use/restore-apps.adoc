@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: use/restore-apps.html 
+keywords: restore app, restoring an app, restore an app, restore 
+summary: Astra Control kann Ihre Applikationskonfiguration und Ihren persistenten Storage aus einem Snapshot oder Backup wiederherstellen. Persistente Storage-Backups werden von Ihrem Objektspeicher übertragen, sodass die Wiederherstellung aus einem bestehenden Backup möglichst schnell erfolgt. 
+---
+= Wiederherstellung von Applikationen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Astra Control kann Ihre Applikation aus einem Snapshot oder einem Backup wiederherstellen. Das Wiederherstellen aus einem vorhandenen Snapshot erfolgt schneller, wenn die Anwendung auf dasselbe Cluster wiederhergestellt wird. Sie können die Astra Control UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Zur Wiederherstellung von Applikationen.
+
+
+NOTE: Jeder Mitgliedsbenutzer mit Namespace-Einschränkungen nach Namespace-Name/ID oder durch Namespace-Bezeichnungen kann eine App in einem neuen Namespace auf demselben Cluster oder einem anderen Cluster in seinem Unternehmenskonto klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer das Mitglied-Benutzerkonto bearbeiten und Rolleneinschränkungen für den betroffenen Benutzer aktualisieren, um dem neuen Namespace Zugriff zu gewähren.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie *Datenschutz*.
+. Wenn Sie von einem Snapshot wiederherstellen möchten, behalten Sie *Snapshots* ausgewählt. Andernfalls wählen Sie *Backups* aus, um aus einem Backup wiederherzustellen.
+. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für den Snapshot oder die Sicherung aus, aus der Sie wiederherstellen möchten.
+. Wählen Sie *Anwendung wiederherstellen*.
+. *Restore Details*: Geben Sie Details für die wiederhergestellte App an. Um eine App direkt wiederherzustellen (eine App auf eine frühere Version von sich zurücksetzen), wählen Sie denselben Namespace und denselben Ziel-Cluster aus, in dem sie derzeit ausgeführt wird:
++
+** Geben Sie einen Namespace für die App ein.
+** Wählen Sie das Ziel-Cluster für die App aus.
+** Klicken Sie Auf *Review*.
++
+
+NOTE: Wenn Sie in einem zuvor gelöschten Namespace wiederherstellen, wird im Rahmen des Wiederherstellungsprozesses ein neuer Namespace mit demselben Namen erstellt. Alle Benutzer, die über Berechtigungen zum Verwalten von Apps im zuvor gelöschten Namespace verfügen, müssen die Rechte für den neu erstellten Namespace manuell wiederherstellen.
+
+
+
+. *Zusammenfassung wiederherstellen*: Überprüfen Sie die Details über die Wiederherstellungsaktion, geben Sie "wiederherstellen" ein und wählen Sie *Wiederherstellen*.
+
+
+Astra Control stellt die App basierend auf den von Ihnen angegebenen Informationen wieder her. Wenn Sie die Applikation bereits wiederherstellen, werden die entsprechenden persistenten Volumes gelöscht und neu erstellt.

@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: use/view-dashboard.html 
+keywords: dashboard, cluster health, unhealthy apps, protected apps, managed apps 
+summary: Klicken Sie auf Dashboard, um eine allgemeine Ansicht Ihrer Anwendungen, Cluster und deren Zustand anzuzeigen. 
+---
+= Zeigen Sie eine Zusammenfassung des Applikations- und Cluster-Zustands an
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Klicken Sie auf das *Dashboard*, um eine allgemeine Ansicht Ihrer Apps, Cluster und deren Gesundheit anzuzeigen.
+
+Mithilfe der Kachel „Apps“ können Sie Folgendes identifizieren:
+
+* Wie viele Anwendungen verwalten Sie aktuell.
+* Ob diese verwalteten Apps gesund sind.
+* Gibt an, ob die Applikationen vollständig gesichert sind (sie sind geschützt, wenn neueste Backups verfügbar sind).
+
+
+Beachten Sie, dass es sich dabei nicht nur um Zahlen oder Statusangaben handelt, sondern dass Sie auf jeden einzelnen Aspekt detaillierte Informationen abrufen können. Wenn Apps beispielsweise nicht vollständig geschützt sind, können Sie mit dem Mauszeiger auf das Symbol zeigen, um zu ermitteln, welche Apps nicht vollständig geschützt sind. Dies gibt einen Grund dafür.
+
+Die Kachel Cluster bietet ähnliche Details zum Zustand des Clusters. Zudem können Sie auch unsere Angaben im Detail anzeigen, wie dies bei einer App möglich ist.

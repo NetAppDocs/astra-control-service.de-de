@@ -1,0 +1,286 @@
+---
+sidebar: sidebar 
+permalink: get-started/set-up-microsoft-azure-with-amd.html 
+keywords: azure, azure netapp files, register, create account, create netapp account, azure subscription, azure permissions, service principal, create service principal, set up azure permissions, set up service principal, setup service principal, setup azure permissions, permissions, create capacity pool, setup capacity pool, set up capacity pool, kubernetes cluster, cluster requirements, version requirements, supported versions, supported regions, azure regions, kubernetes version, linux, image type, networking 
+summary: Einige Schritte sind zur Vorbereitung Ihres Microsoft Azure Abonnements erforderlich, bevor Sie Azure Kubernetes Service-Cluster mit Astra Control Service managen können. 
+---
+= Richten Sie Microsoft Azure mit von Azure gemanagten Festplatten ein
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Einige Schritte sind zur Vorbereitung Ihres Microsoft Azure Abonnements erforderlich, bevor Sie Azure Kubernetes Service-Cluster mit Astra Control Service managen können. Befolgen Sie diese Anweisungen, wenn Sie die von Azure verwalteten Laufwerke als Storage-Back-End verwenden möchten.
+
+
+
+== Schnellstart für die Einrichtung von Azure
+
+Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
+
+
+
+=== Astra Control Service-Anforderungen für Azure Kubernetes Service prüfen
+
+[role="quick-margin-para"]
+Vergewissern Sie sich, dass die Cluster ordnungsgemäß sind und eine unterstützte Version von Kubernetes ausführen, dass Node-Pools unter Linux verfügbar sind und unter anderem.  Kubernetes Service cluster requirements,Erfahren Sie mehr zu diesem Schritt.
+
+
+
+=== Melden Sie sich für Microsoft Azure an
+
+[role="quick-margin-para"]
+Erstellen Sie ein Microsoft Azure Konto.  up for Microsoft Azure,Erfahren Sie mehr zu diesem Schritt.
+
+
+
+=== Erstellen Sie einen Azure Service Principal
+
+[role="quick-margin-para"]
+Erstellen Sie einen Azure-Serviceprincipal mit der Rolle „Contributor“.  an Azure service principal,Erfahren Sie mehr zu diesem Schritt.
+
+
+
+=== Konfigurieren Sie die Treiberdetails für die Container-Storage-Schnittstelle (CSI)
+
+[role="quick-margin-para"]
+Sie müssen Ihr Azure-Abonnement und das Cluster konfigurieren, damit Sie mit den CSI-Treibern arbeiten können.  Container Storage Interface (CSI) driver details,Erfahren Sie mehr zu diesem Schritt.
+
+
+
+=== Optional: Redundanz für Azure Backup Buckets konfigurieren
+
+[role="quick-margin-para"]
+Standardmäßig verwendet der Buckets Astra Control Service für das Speichern von Azure Kubernetes Service-Backups die LRS-Redundanzoption (lokal Redundant Storage). Als optionaler Schritt können Sie einen langlebigen Grad an Redundanz für Azure Buckets konfigurieren.  Configure redundancy for Azure backup buckets,Erfahren Sie mehr zu diesem Schritt.
+
+
+
+== Anforderungen für den Azure Kubernetes Service-Cluster
+
+Ein Kubernetes-Cluster muss folgende Anforderungen erfüllen, damit Sie ihn über den Astra Control Service erkennen und managen können.
+
+Kubernetes-Version:: Auf Clustern muss die Kubernetes-Version 1.21 bis 1.24 ausgeführt werden.
+Bildtyp:: Der Image-Typ für alle Node-Pools muss Linux sein.
+Der Cluster-Status:: Cluster müssen in einem ordnungsgemäßen Zustand ausgeführt werden und mindestens einen Online-Worker-Node ohne „Worker“-Nodes im ausgefallenen Status aufweisen.
+Azure Region:: Als Best Practice sollte eine Region gewählt werden, die Azure NetApp Files unterstützt, auch wenn Sie sie nicht als Storage-Backend verwenden. Dadurch ist es einfacher, Azure NetApp Files zukünftig als Storage-Backend zu verwenden, wenn sich Ihre Performance-Anforderungen ändern. https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp["Hier finden Sie Azure Produkte nach Region"^].
+
+
+Controller für externe Datenträger-Snapshots:: Auf Clustern muss ein CSI-Volume-Snapshot-Controller installiert sein. Dieser Controller wird standardmäßig mit K8s Version 1.21 installiert, aber Sie müssen auf Clustern mit Versionen 1.19 und 1.20 überprüfen. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["Erfahren Sie mehr über einen externen Snapshot-Controller für On-Demand Volume Snapshots"^].
+CSI-Treiber:: Auf Clustern müssen die entsprechenden CSI-Treiber installiert sein.
+
+
+
+
+== Melden Sie sich für Microsoft Azure an
+
+Wenn Sie kein Microsoft Azure Konto haben, melden Sie sich zunächst bei Microsoft Azure an.
+
+.Schritte
+. Wechseln Sie zum https://azure.microsoft.com/en-us/free/["Azure-Abonnementseite"^] Um den Azure Service zu abonnieren.
+. Wählen Sie einen Plan aus, und befolgen Sie die Anweisungen, um das Abonnement abzuschließen.
+
+
+
+
+== Erstellen Sie einen Azure Service Principal
+
+Astra Control Service erfordert einen Azure-Service-Principal, dem die Rolle „Contributor“ zugewiesen wird. Astra Control Service nutzt diesen Service-Principal, um das Management von Kubernetes-Applikationsdaten in Ihrem Auftrag zu vereinfachen.
+
+Ein Service-Principal ist eine Identität, die speziell für die Verwendung mit Anwendungen, Services und Tools erstellt wurde. Durch die Zuweisung einer Rolle zum Service-Principal wird der Zugriff auf bestimmte Azure-Ressourcen beschränkt.
+
+Führen Sie die folgenden Schritte aus, um einen Service-Principal mithilfe der Azure CLI zu erstellen. Sie müssen die Ausgabe in einer JSON-Datei speichern und später den Astra Control Service bereitstellen. https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli["Weitere Details zur Verwendung der CLI finden Sie in der Azure Dokumentation"^].
+
+Bei den folgenden Schritten wird davon ausgegangen, dass Sie die Berechtigung zum Erstellen eines Service-Principal haben und dass das Microsoft Azure SDK (az-Befehl) auf Ihrem Computer installiert ist.
+
+.Anforderungen
+* Der Service-Principal muss die regelmäßige Authentifizierung verwenden. Zertifikate werden nicht unterstützt.
+* Dem Service Principal muss ein Zugriff auf Ihr Azure Abonnement für Mitarbeiter oder Eigentümer gewährt werden.
+* Das Abonnement oder die Ressourcengruppe, die Sie für den Umfang auswählen, muss die AKS-Cluster und Ihr Azure NetApp Files-Konto enthalten.
+
+
+.Schritte
+. Geben Sie die Abonnement- und Mandanten-ID an, in der sich Ihre AKS-Cluster befinden (dies sind die Cluster, die Sie im Astra Control Service verwalten möchten).
++
+[source, azureCLI]
+----
+az configure --list-defaults
+az account list --output table
+----
+. Führen Sie einen der folgenden Schritte aus, je nachdem, ob Sie ein gesamtes Abonnement oder eine Ressourcengruppe verwenden:
++
+** Erstellen Sie den Service-Principal, weisen Sie die Rolle Contributor zu und geben Sie den Umfang dem gesamten Abonnement an, in dem sich die Cluster befinden.
++
+[source, azurecli]
+----
+az ad sp create-for-rbac --name service-principal-name --role contributor --scopes /subscriptions/SUBSCRIPTION-ID
+----
+** Erstellen Sie den Service-Principal, weisen Sie die Contributor-Rolle zu und geben Sie die Ressourcengruppe an, in der sich die Cluster befinden.
++
+[source, azurecli]
+----
+az ad sp create-for-rbac --name service-principal-name --role contributor --scopes /subscriptions/SUBSCRIPTION-ID/resourceGroups/RESOURCE-GROUP-ID
+----
+
+
+. Speichern Sie die resultierende Azure CLI-Ausgabe als JSON-Datei.
++
+Sie müssen diese Datei bereitstellen, damit Astra Control Service Ihre AKS-Cluster erkennen und Kubernetes-Datenmanagement-Vorgänge managen kann. link:../use/manage-credentials.html["Erfahren Sie mehr über das Management von Anmeldeinformationen im Astra Control Service"].
+
+. Optional: Fügen Sie die Abonnement-ID der JSON-Datei hinzu, damit der Astra Control Service beim Auswählen der Datei automatisch die ID füllt.
++
+Andernfalls müssen Sie die Abonnement-ID in Astra Control Service eingeben, wenn Sie dazu aufgefordert werden.
+
++
+*Beispiel*
+
++
+[source, JSON]
+----
+{
+  "appId": "0db3929a-bfb0-4c93-baee-aaf8",
+  "displayName": "sp-example-dev-sandbox",
+  "name": "http://sp-example-dev-sandbox",
+  "password": "mypassword",
+  "tenant": "011cdf6c-7512-4805-aaf8-7721afd8ca37",
+  "subscriptionId": "99ce999a-8c99-99d9-a9d9-99cce99f99ad"
+}
+----
+. Optional: Testen Sie Ihren Service-Principal. Wählen Sie je nach Umfang, den Ihr Service Principal verwendet, die folgenden Beispielbefehle aus.
++
+.Abonnement-Umfang
+[source, azurecli]
+----
+az login --service-principal --username APP-ID-SERVICEPRINCIPAL --password PASSWORD --tenant TENANT-ID
+az group list --subscription SUBSCRIPTION-ID
+az aks list --subscription SUBSCRIPTION-ID
+az storage container list --account-name STORAGE-ACCOUNT-NAME
+----
++
+.Umfang der Ressourcengruppen
+[source, azurecli]
+----
+az login --service-principal --username APP-ID-SERVICEPRINCIPAL --password PASSWORD --tenant TENANT-ID
+az aks list --subscription SUBSCRIPTION-ID --resource-group RESOURCE-GROUP-ID
+----
+
+
+
+
+== Konfigurieren Sie die Treiberdetails für die Container-Storage-Schnittstelle (CSI)
+
+Wenn Sie verwaltete Azure-Festplatten mit dem Astra Control Service verwenden möchten, müssen Sie zunächst die CSI-Volume-Snapshot-Funktion für Kubernetes-Versionen ab 1.21 konfigurieren und die erforderlichen CSI-Treiber installieren.
+
+
+
+=== Installieren Sie einen CSI-Volume-Snapshot-Controller für Kubernetes 1.19
+
+Wenn Sie Kubernetes Version 1.19 verwenden, befolgen Sie diese Anweisungen, um einen Volume-Snapshot-Controller zu installieren.
+
+.Schritte
+. Installieren Sie die Volume Snapshot-CRDs.
++
+[source, kubectl]
+----
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-3.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-3.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-3.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
+----
+. Erstellen Sie den Snapshot-Controller.
++
+Wenn Sie den Snapshot-Controller in einem bestimmten Namespace verwenden möchten, laden Sie die folgenden Dateien herunter, und bearbeiten Sie sie, bevor Sie sie anwenden.
+
++
+[source, kubectl]
+----
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-3.0/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-3.0/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
+----
+
+
+
+
+=== Installieren Sie einen CSI-Volume-Snapshot-Controller für Kubernetes 1.20
+
+Wenn Sie Kubernetes Version 1.20 verwenden, befolgen Sie diese Anweisungen, um einen Volume-Snapshot-Controller zu installieren.
+
+.Schritte
+. Installieren Sie die Volume Snapshot-CRDs.
++
+[source, kubectl]
+----
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
+----
+. Erstellen Sie den Snapshot-Controller.
++
+Wenn Sie den Snapshot-Controller in einem bestimmten Namespace verwenden möchten, laden Sie die folgenden Dateien herunter, und bearbeiten Sie sie, bevor Sie sie anwenden.
+
++
+[source, kubectl]
+----
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
+----
+
+
+
+
+=== Aktivieren Sie die CSI-Treiber-Funktion in Ihrem Azure-Abonnement
+
+Bevor Sie die CSI-Treiber installieren, müssen Sie die CSI-Treiberfunktion in Ihrem Azure-Abonnement aktivieren.
+
+.Schritte
+. Öffnen Sie die Azure-Befehlszeilenschnittstelle.
+. Führen Sie den folgenden Befehl aus, um den Treiber zu registrieren:
++
+[source, sh]
+----
+az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureDiskFileCSIDriver"
+----
+. Führen Sie den folgenden Befehl aus, um sicherzustellen, dass die Änderung propagiert wird:
++
+[source, sh]
+----
+az provider register -n Microsoft.ContainerService
+----
++
+Sie sollten eine Ausgabe wie die folgende sehen:
+
+
+
+[listing]
+----
+{
+"id": "/subscriptions/b200155f-001a-43be-87be-3edde83acef4/providers/Microsoft.Features/providers/Microsoft.ContainerService/features/EnableAzureDiskFileCSIDriver",
+"name": "Microsoft.ContainerService/EnableAzureDiskFileCSIDriver",
+"properties": {
+   "state": "Registering"
+},
+"type": "Microsoft.Features/providers/features"
+}
+----
+
+
+=== Installieren Sie die von Azure gemanagten CSI-Treiber in Ihrem Azure Kubernetes Service-Cluster
+
+Sie können die Azure CSI Treiber installieren, um Ihre Vorbereitung abzuschließen.
+
+.Schritt
+. Gehen Sie zu https://docs.microsoft.com/en-us/azure/aks/csi-storage-drivers["Die Microsoft CSI-Treiberdokumentation"^].
+. Befolgen Sie die Anweisungen zur Installation der erforderlichen CSI-Treiber.
+
+
+
+
+== Optional: Redundanz für Azure Backup Buckets konfigurieren
+
+Es besteht die Möglichkeit, eine robuenere Redundanzstufe für Azure Backup Buckets zu konfigurieren. Standardmäßig verwendet der Buckets Astra Control Service für das Speichern von Azure Kubernetes Service-Backups die LRS-Redundanzoption (lokal Redundant Storage). Um eine langlebige Redundanzoption für Azure Buckets zu verwenden, müssen Sie Folgendes tun:
+
+.Schritte
+. Erstellen Sie ein Azure-Storage-Konto, das die erforderliche Redundanzstufe verwendet https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal["Diese Anweisungen"^].
+. Erstellen Sie einen Azure-Container auf dem neuen Storage-Konto mit https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal["Diese Anweisungen"^].
+. Fügen Sie den Container als Eimer zum Astra Control Service hinzu. Siehe link:../use/manage-buckets.html#add-an-additional-bucket["Fügen Sie einen zusätzlichen Bucket hinzu"].
+. (Optional) um den neu erstellten Bucket als Standard-Bucket für Azure Backups zu verwenden, setzen Sie ihn als Standard-Bucket für Azure fest. Siehe link:../use/manage-buckets.html#change-the-default-bucket["Ändern des Standard-Bucket"].
+
