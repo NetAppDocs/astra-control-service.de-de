@@ -68,7 +68,6 @@ Auf beiden Plattformen laufen dieselben Funktionen, mit Ausnahme des Storage-Bac
 
 | Was ist die Back-End-Unterstützung für Storage? | NetApp Cloud-Serviceangebote  a| 
 * NetApp ONTAP AFF und FAS Systeme
-* Astra Data Store als Storage-Backend
 * Cloud Volumes ONTAP Storage Back-End
 
 
@@ -170,7 +169,6 @@ Sie können Applikationen zu Ihrem Cluster hinzufügen. Wenn auch einige Applika
 * https://docs.netapp.com/us-en/astra-family/["Dokumentation für die NetApp Astra Produktfamilie"^]
 * https://docs.netapp.com/us-en/astra/index.html["Dokumentation des Astra Control Service"^]
 * https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center-Dokumentation"^]
-* https://docs.netapp.com/us-en/astra-data-store/index.html["Astra Data Store-Dokumentation"]
 * https://docs.netapp.com/us-en/trident/index.html["Astra Trident-Dokumentation"^]
 * https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
 * https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights-Dokumentation"^]
