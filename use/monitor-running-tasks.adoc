@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: use/monitor-running-tasks.html 
+keywords: activity, log, activities, running, tasks, monitor, status, state 
+summary: In Astra Control können Sie Details zum Ausführen von Aufgaben anzeigen. Wenn Sie beispielsweise einen Snapshot, ein Backup oder einen Klon durchführen. 
+---
+= Überwachen Sie laufende Aufgaben
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Sie können Details über die Ausführung von Aufgaben und Aufgaben anzeigen, die in den letzten 24 Stunden in Astra Control abgeschlossen, fehlgeschlagen oder abgebrochen wurden. Beispielsweise können Sie den Status eines laufenden Backups, Restores oder Klonvorgangs anzeigen, und Details wie den Prozentsatz abgeschlossen und die geschätzte verbleibende Zeit angezeigt werden. Sie können den Status eines geplanten Vorgangs anzeigen, der ausgeführt wurde, oder einen manuell gestarteten Vorgang.
+
+Während Sie eine laufende oder abgeschlossene Aufgabe anzeigen, können Sie die Aufgabendetails erweitern, um den Status der einzelnen Unteraufgaben anzuzeigen. Die Fortschrittsleiste der Aufgabe ist grün für laufende oder abgeschlossene Aufgaben, blau für stornierte Aufgaben und rot für Aufgaben, die aufgrund eines Fehlers fehlgeschlagen sind.
+
+
+NOTE: Bei Klonvorgängen bestehen die Unteraufgaben der Aufgabe aus einem Snapshot und einem Snapshot-Wiederherstellungsvorgang.
+
+Weitere Informationen zu fehlgeschlagenen Aufgaben finden Sie unter link:monitor-account-activity.html["Überwachen der Kontoaktivität"].
+
+.Schritte
+. Während eine Aufgabe ausgeführt wird, gehen Sie zu *Anwendungen*.
+. Wählen Sie den Namen einer Anwendung aus der Liste aus.
+. Wählen Sie in den Details der Anwendung die Registerkarte *Aufgaben* aus.
++
+Sie können Details zu aktuellen oder früheren Aufgaben anzeigen und nach Aufgabenstatus filtern.
+
+
+
+
+NOTE: Aufgaben werden bis zu 24 Stunden in der Liste *Aufgaben* aufbewahrt. Sie können diese Begrenzung und andere Einstellungen für die Aufgabenüberwachung mit dem konfigurieren https://docs.netapp.com/us-en/astra-automation/["Astra Control API"^].

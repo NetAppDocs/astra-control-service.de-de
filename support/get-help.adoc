@@ -11,6 +11,7 @@ summary: 'NetApp bietet Unterstützung für Astra Control auf verschiedene Weise
 :imagesdir: ../media/support/
 
 
+[role="lead"]
 NetApp bietet Unterstützung für Astra Control auf verschiedene Weise. Umfangreiche kostenlose Self-Support-Optionen stehen rund um die Uhr zur Verfügung, wie z. B. Knowledge Base-Artikel (KB) und ein Einseilkanal. Ihr Astra Control-Konto umfasst technischen Remote-Support über eine Web-Ticketausstellung.
 
 Zunächst müssen Sie link:register-support.html["Sie aktivieren den Support für Ihre NetApp Seriennummer"] Um diese nicht-Self-Service-Support-Optionen zu nutzen. Für Chat- und WebTicketing sowie die Case-Verwaltung ist ein SSO-Konto auf der NetApp Support Site (NSS) erforderlich.

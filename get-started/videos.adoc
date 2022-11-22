@@ -11,6 +11,7 @@ summary: 'Viele der Seiten auf dieser doc-Site enthalten Videos, die zeigen, wie
 :imagesdir: ../media/
 
 
+[role="lead"]
 Viele der Seiten auf dieser doc-Site enthalten Videos, die Ihnen zeigen, wie Sie eine Aufgabe für den Astra Control Service erledigen können. Wenn Sie nur an Videos interessiert sind, haben wir es Ihnen leicht gemacht, indem Sie alle Videos auf dieser einzelnen Seite sammeln (ähnlich einer Playlist).
 
 ifdef::gcp[]

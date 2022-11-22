@@ -16,7 +16,7 @@ Nachdem Sie mit dem Management einer Applikation begonnen haben, stellt Astra Co
 
 .Schritte
 . Wählen Sie *Anwendungen* und dann den Namen einer App aus.
-. Wählen Sie ein Umfeld aus, um nach den gewünschten Informationen zu suchen:
+. Hier finden Sie die gewünschten Informationen:
 +
 Anwendungsstatus:: Gibt einen Status an, der den Status der App in Kubernetes wiedergibt.
 App-Schutzstatus:: Gibt den Status an, wie gut die App geschützt ist:

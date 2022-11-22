@@ -11,6 +11,7 @@ summary: Starten Sie mit Astra Control Service in wenigen Schritten.
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 Diese Seite bietet einen grundlegenden Überblick über die Schritte, die Sie für den Einstieg in den Astra Control Service benötigen. Die Links in den einzelnen Schritten führen zu einer Seite, die weitere Details enthält.
 
 
@@ -70,6 +71,8 @@ link:set-up-microsoft-azure-with-amd.html["Erfahren Sie mehr über die von Micro
 
 
 endif::azure[]
+
+Wenn Sie ein eigenes Cluster managen und nicht von einem Cloud-Provider gehostet werden, prüfen Sie die Anforderungen für Self-Managed Cluster.link:add-first-cluster.html#start-managing-kubernetes-clusters["Erfahren Sie mehr über Self-Managed-Cluster-Anforderungen"].
 
 
 

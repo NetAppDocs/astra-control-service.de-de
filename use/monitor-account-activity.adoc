@@ -29,12 +29,3 @@ Details zu den Aktivitäten können Sie in Ihrem Astra Control Konto anzeigen. B
 . Wählen Sie *Cluster* und dann den Namen des Clusters aus.
 . Wählen Sie *Aktivität*.
 
-
-.Zeigen Sie mögliche Aktionen für Ereignisse an
-. Wählen Sie *Aktivität*.
-. Wählen Sie ein Ereignis aus, das Aufmerksamkeit erfordert.
-. Wählen Sie die Dropdown-Option *Aktion* aus.
-+
-In dieser Liste finden Sie mögliche Korrekturmaßnahmen, die Sie ergreifen können, eine Dokumentation zum Problem anzeigen und Support zur Behebung des Problems erhalten.
-
-

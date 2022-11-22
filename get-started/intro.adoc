@@ -11,6 +11,7 @@ summary: Astra Control ist eine Kubernetes-Lösung für das Lifecycle-Management
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 Astra Control ist eine Kubernetes-Lösung für das Lifecycle-Management von Applikationsdaten, die den Betrieb zustandsorientierte Applikationen vereinfacht. Schutz, Backup und Migration von Kubernetes-Workloads und sofortige Erstellung von Applikationsklonen
 
 
@@ -74,18 +75,6 @@ Auf beiden Plattformen laufen dieselben Funktionen, mit Ausnahme des Storage-Bac
 |===
 
 
-== Unterstützte Applikationen
-
-NetApp hat einige Applikationen validiert, um die Sicherheit und Konsistenz der Snapshots und Backups zu gewährleisten.
-
-* https://docs.netapp.com/us-en/astra/learn/validated-vs-standard.html["Erfahren Sie im Astra Control Service den Unterschied zwischen einer validierten App und einer Standard-App"^].
-* https://docs.netapp.com/us-en/astra-control-center/concepts/validated-vs-standard.html["Erfahren Sie im Astra Control Center den Unterschied zwischen einer validierten App und einer Standard-App"^].
-
-
-Unabhängig von der Art der Applikation, die Sie mit Astra Control verwenden, sollten Sie den Backup- und Restore-Workflow immer selbst testen, um Ihre Disaster-Recovery-Anforderungen zu erfüllen.
-
-
-
 == Funktionsweise des Astra Control Service
 
 Astra Control Service ist ein von NetApp gemanagter Cloud-Service, der ständig verfügbar und mit den neuesten Funktionen aktualisiert ist. Verschiedene Komponenten unterstützen das Lifecycle-Management von Applikationsdaten.
@@ -139,7 +128,7 @@ Astra Control Service überwacht Ihr Computing kontinuierlich auf Statusänderun
 
 
 
-Mit dem Free Plan von Astra Control können Sie bis zu 10 Apps in Ihrem Konto verwalten. Wenn Sie mehr als 10 Apps verwalten möchten, müssen Sie die Abrechnung durch ein Upgrade vom kostenlosen Plan auf den Premium-Plan einrichten.
+Mit dem kostenlosen Plan von Astra Control können Sie bis zu 10 Namespaces in Ihrem Konto verwalten. Wenn Sie mehr als 10 Namespaces verwalten möchten, müssen Sie die Abrechnung durch ein Upgrade vom kostenlosen Plan auf den Premium-Plan einrichten.
 
 
 
@@ -147,17 +136,13 @@ Mit dem Free Plan von Astra Control können Sie bis zu 10 Apps in Ihrem Konto ve
 
 Astra Control Center wird lokal in Ihrer eigenen Private Cloud ausgeführt.
 
-Astra Control Center unterstützt OpenShift Kubernetes Cluster mit:
-
-* Trident Storage-Back-Ends mit ONTAP 9.5 und höher
-* Astra Data Store Storage-Back-Ends
-
+Astra Control Center unterstützt Kubernetes-Cluster mit Trident-basiertem Storage mit einem Storage-Backend mit ONTAP 9.5 und höher.
 
 In einer Cloud-vernetzten Umgebung nutzt Astra Control Center erweiterte Monitoring- und Telemetriedaten mithilfe von Cloud Insights. Liegt keine Cloud Insights-Verbindung vor, ist das Monitoring und die Telemetrie nur begrenzt (7 Tage Metriken) im Astra Control Center verfügbar und wird auch über offene Messpunkte in native Kubernetes-Monitoring-Tools (wie Prometheus und Grafana) exportiert.
 
 Astra Control Center ist vollständig in das AutoSupport und Active IQ Ecosystem integriert, damit Benutzer und NetApp Support Fehlerbehebungs- und Verwendungsinformationen liefern können.
 
-Sie können Astra Control Center mit einer 90-Tage-Evaluierungslizenz ausprobieren. Die Evaluierungsversion wird durch E-Mail- und Community-Optionen (Slack-Kanal) unterstützt. Zudem haben Sie über das Dashboard für den Produktsupport Zugriff auf Knowledgebase-Artikel und -Dokumentation.
+Sie können Astra Control Center mit einer 90-Tage-Evaluierungslizenz ausprobieren. Die Evaluierungsversion wird durch E-Mail- und Community-Optionen unterstützt. Zudem haben Sie über das Dashboard für den Produktsupport Zugriff auf Knowledgebase-Artikel und -Dokumentation.
 
 Um Astra Control Center zu installieren und zu verwenden, müssen Sie sicher sein https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html["Anforderungen"].
 
@@ -176,14 +161,7 @@ Astra Control Center funktioniert auf hohem Niveau wie folgt:
 
 Erfahren Sie mehr darüber, wie Sie https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html["Einrichten des Astra Control Center"].
 
-Astra Control Center erreicht dies:
-
-* Erkennung von Details zu gemanagten Kubernetes Clustern
-* Erkennt die Konfiguration Ihrer Astra Trident oder Astra Data Store auf den Clustern, die Sie managen möchten, und ermöglicht Ihnen das Monitoring der Storage-Back-Ends.
-* Erkennt Apps auf diesen Clustern und ermöglicht das Management und den Schutz der Apps.
-
-
-Sie können Applikationen zu Ihrem Cluster hinzufügen. Wenn Sie auch bereits einige Apps im Cluster verwalten, können Sie sie mit Astra Control Center erkennen und managen. Nutzen Sie dann das Astra Control Center, um Snapshots, Backups und Klone zu erstellen.
+Sie können Applikationen zu Ihrem Cluster hinzufügen. Wenn auch einige Applikationen bereits im Cluster gemanagt werden, können Sie sie mit dem Astra Control Center managen. Nutzen Sie dann das Astra Control Center, um Snapshots, Backups, Klone und Replizierungsbeziehungen zu erstellen.
 
 
 

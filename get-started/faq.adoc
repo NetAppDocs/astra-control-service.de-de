@@ -11,6 +11,7 @@ summary: Diese FAQ kann Ihnen helfen, wenn Sie nur nach einer schnellen Antwort 
 :imagesdir: ../media/
 
 
+[role="lead"]
 Diese FAQ kann Ihnen helfen, wenn Sie nur nach einer schnellen Antwort auf eine Frage suchen.
 
 
@@ -41,9 +42,9 @@ Sie können auf den Astra Control Service zugreifen unter https://astra.netapp.i
 
 Bitten Sie sie, ihren Spam-Ordner auf eine E-Mail von do-not-reply@netapp.com zu prüfen, oder suchen Sie in ihrem Posteingang nach „Einladung“. Sie können den Benutzer auch entfernen und versuchen, ihn erneut hinzuzufügen.
 
-*Ich habe einen Upgrade auf den Premium PAYGO Plan aus dem Free Plan. Werde ich für die ersten 10 Bewerbungen aufladen?*
+*Ich habe einen Upgrade auf den Premium PAYGO Plan aus dem Free Plan. Werde ich die ersten 10 Namensräume in Rechnung stellen?*
 
-Ja. Nach dem Upgrade auf den Premium-Plan beginnt Astra Control Sie mit dem Aufladen aller verwalteten Anwendungen in Ihrem Konto.
+Ja. Nach dem Upgrade auf den Premium-Plan beginnt Astra Control Sie mit dem Aufladen aller verwalteten Namespaces in Ihrem Konto.
 
 *Mitte eines Monats habe ich einen Upgrade auf den Premium PAYGO Plan durchgeführt. Werde ich den ganzen Monat in Rechnung stellen?*
 
@@ -63,7 +64,7 @@ Nein Wenn Ihr Cluster Astra Control hinzugefügt wird, installiert der Service a
 
 *Nach dem Hinzufügen zum Astra Control Service muss ich den Worker-Knoten zu meinem Cluster hinzufügen. Was soll ich tun?*
 
-Neue Worker-Nodes können vorhandenen Pools hinzugefügt oder neue Pools erstellt werden, solange sie der Ubuntu-Image-Typ sind. Diese werden automatisch von Astra Control entdeckt. Wenn die neuen Knoten in Astra Control nicht sichtbar sind, prüfen Sie, ob auf den neuen Worker Nodes der unterstützte Bildtyp ausgeführt wird. Sie können den Zustand der neuen Worker-Nodes auch mit überprüfen `kubectl get nodes` Befehl.
+Neue Worker-Nodes können vorhandenen Pools hinzugefügt oder neue Pools erstellt werden, solange sie der sind `COS_CONTAINERD` Bildtyp. Diese werden automatisch von Astra Control entdeckt. Wenn die neuen Knoten in Astra Control nicht sichtbar sind, prüfen Sie, ob auf den neuen Worker Nodes der unterstützte Bildtyp ausgeführt wird. Sie können den Zustand der neuen Worker-Nodes auch mit überprüfen `kubectl get nodes` Befehl.
 
 ifdef::aws[]
 
@@ -164,7 +165,7 @@ Der Operator Astra Trident setzt die Standard-Storage-Klasse auf `netapp-cvs-per
 
 * Laufen `kubectl get sc` Und überprüfen Sie die Standard-Speicherklasse.
 * Prüfen Sie die yaml-Datei oder das Helm-Diagramm, das zum Bereitstellen der Anwendung verwendet wurde, und sehen Sie, ob eine andere Speicherklasse definiert ist.
-* Überprüfen Sie, ob der Bildtyp des Workers Node Ubuntu und der NFS-Mount erfolgreich ist.
+* GKE Version 1.24 und höher unterstützt keine Docker-basierten Node-Images. Überprüfen Sie, ob der Bildtyp des Arbeiterknotens in GKE lautet `COS_CONTAINERD` Und dass der NFS-Mount erfolgreich war.
 
 
 endif::gcp[]

@@ -11,6 +11,7 @@ summary: Laden Sie Benutzer ein, sich Ihrem Astra Control-Konto anzuschließen u
 :imagesdir: ../media/use/
 
 
+[role="lead"]
 Laden Sie Benutzer ein, sich Ihrem Astra Control-Konto anzuschließen und entfernen Sie Benutzer, die keinen Zugriff mehr auf das Konto haben sollten.
 
 

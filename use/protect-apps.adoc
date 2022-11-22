@@ -11,6 +11,7 @@ summary: Schützen Sie Ihre Applikationen, indem Sie Snapshots und Backups über
 :imagesdir: ../media/use/
 
 
+[role="lead"]
 Schützen Sie Ihre Applikationen, indem Sie Snapshots und Backups über eine automatisierte Sicherungsrichtlinie oder Ad-hoc-Erstellung erstellen. Sie können die Astra UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Um Anwendungen zu schützen.
 
 
@@ -62,12 +63,7 @@ Im folgenden Beispiel sind vier Sicherungspläne definiert: Stündlich, täglich
 image:screenshot-protection-policy.png["Einen Screenshot einer Beispielkonfigurationsrichtlinie, in der Sie Snapshots und Backups stündlich, täglich, wöchentlich oder monatlich erstellen können."]
 
 . Wählen Sie *Bewertung*.
-. Wählen Sie *Konfigurieren*.
-+
-Hier sehen Sie ein Video, das jeden dieser Schritte aufzeigt.
-
-+
-video::video-set-protection-policy.mp4[width=848,height=480]
+. Wählen Sie *Schutzrichtlinie Festlegen*.
 
 
 Astra Control implementiert die Datensicherungsrichtlinien, indem Snapshots und Backups mithilfe der von Ihnen definierten Zeitplan und Aufbewahrungsrichtlinie erstellt und aufbewahrt werden.
@@ -80,13 +76,12 @@ Sie können jederzeit einen On-Demand-Snapshot erstellen.
 
 .Schritte
 . Wählen Sie *Anwendungen*.
-. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für die gewünschte App aus.
-. Wählen Sie *Snapshot*.
-. Passen Sie den Namen des Snapshots an und wählen Sie dann *Informationen überprüfen*.
-. Überprüfen Sie die Snapshot-Übersicht und wählen Sie *Snapshot-App*.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* für die gewünschte App die Option *Snapshot* aus.
+. Passen Sie den Namen des Snapshots an und wählen Sie dann *Weiter*.
+. Überprüfen Sie die Snapshot-Zusammenfassung und wählen Sie *Snapshot*.
 
 
-Astra Control erstellt eine Momentaufnahme der Apps.
+Der Snapshot-Prozess beginnt. Ein Snapshot ist erfolgreich, wenn der Status in der Spalte *Zustand* auf der Seite *Datenschutz* > *Snapshots* in der Spalte *Zustand* angegeben ist.
 
 
 
@@ -96,13 +91,18 @@ Sie können eine App auch jederzeit sichern.
 
 .Schritte
 . Wählen Sie *Anwendungen*.
-. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für die gewünschte App aus.
-. Wählen Sie *Backup*.
-. Passen Sie den Namen des Backups an, wählen Sie aus, ob die App aus einem vorhandenen Snapshot gesichert werden soll, und wählen Sie dann *Informationen überprüfen* aus.
-. Prüfen Sie die Backup-Zusammenfassung und wählen Sie *Backup-App*.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* für die gewünschte App die Option *Sichern* aus.
+. Passen Sie den Namen des Backups an.
+. Wählen Sie aus, ob die Anwendung aus einem vorhandenen Snapshot gesichert werden soll. Wenn Sie diese Option auswählen, können Sie aus einer Liste vorhandener Snapshots auswählen.
+. Wählen Sie aus der Liste der Storage-Buckets einen Ziel-Bucket für das Backup aus.
+. Wählen Sie *Weiter*.
+. Überprüfen Sie die Backup-Zusammenfassung und wählen Sie *Backup*.
 
 
 Astra Control erstellt ein Backup der App.
+
+
+NOTE: Wenn Sie eine laufende Sicherung abbrechen müssen, befolgen Sie die Anweisungen unter  backups. Um das Backup zu löschen, warten Sie, bis es abgeschlossen ist, und befolgen Sie die Anweisungen unter  backups.
 
 
 
@@ -128,9 +128,8 @@ Löschen Sie die geplanten oder On-Demand Snapshots, die Sie nicht mehr benötig
 .Schritte
 . Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
 . Wählen Sie *Datenschutz*.
-. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für den gewünschten Snapshot aus.
-. Wählen Sie *Snapshot löschen*.
-. Geben Sie den Namen des Snapshots ein, um das Löschen zu bestätigen, und wählen Sie dann *Ja, Snapshot löschen* aus.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* für den gewünschten Snapshot die Option *Snapshot löschen* aus.
+. Geben Sie das Wort „Löschen“ ein, um das Löschen zu bestätigen und wählen Sie dann *Ja, Snapshot löschen* aus.
 
 
 Astra Control löscht den Snapshot.
@@ -142,14 +141,14 @@ Astra Control löscht den Snapshot.
 Sie können ein gerade einlaufenden Backup abbrechen.
 
 
-TIP: Um ein Backup abzubrechen, muss sich das Backup im laufenden Zustand befinden. Sie können ein Backup, das sich im Status „Ausstehend“ befindet, nicht abbrechen.
+TIP: Um ein Backup abzubrechen, muss sich das Backup befinden `Running` Bundesland. Sie können ein Backup, das sich in befindet, nicht abbrechen `Pending` Bundesland.
 
 .Schritte
 . Wählen Sie *Anwendungen* und dann den Namen einer App aus.
 . Wählen Sie *Datenschutz*.
 . Wählen Sie *Backups*.
 . Wählen Sie im Menü Optionen in der Spalte *Aktionen* für das gewünschte Backup die Option *Abbrechen* aus.
-. Geben Sie das Wort „Abbrechen“ ein, um den Löschvorgang zu bestätigen, und wählen Sie dann *Ja, Sicherung abbrechen* aus.
+. Geben Sie das Wort „Abbrechen“ ein, um den Vorgang zu bestätigen, und wählen Sie dann *Ja, Sicherung abbrechen* aus.
 
 
 
@@ -158,12 +157,15 @@ TIP: Um ein Backup abzubrechen, muss sich das Backup im laufenden Zustand befind
 
 Löschen Sie die geplanten oder On-Demand-Backups, die Sie nicht mehr benötigen.
 
-. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+
+NOTE: Wenn Sie eine laufende Sicherung abbrechen müssen, befolgen Sie die Anweisungen unter  backups. Um das Backup zu löschen, warten Sie, bis es abgeschlossen ist, und befolgen Sie diese Anweisungen.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer App aus.
 . Wählen Sie *Datenschutz*.
 . Wählen Sie *Backups*.
-. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für das gewünschte Backup aus.
-. Wählen Sie *Sicherung löschen*.
-. Geben Sie den Namen des Backups ein, um das Löschen zu bestätigen, und wählen Sie dann *Ja, Backup löschen* aus.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* für das gewünschte Backup die Option *Backup löschen* aus.
+. Geben Sie das Wort „Löschen“ ein, um das Löschen zu bestätigen und wählen Sie dann *Ja, Sicherung löschen*.
 
 
 Astra Control löscht das Backup.

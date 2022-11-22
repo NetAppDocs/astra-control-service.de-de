@@ -18,11 +18,11 @@ Wenn Astra Control Ihre Cluster erkennt, werden die Apps auf diesen Clustern sol
 +
 image:diagram-managed-app1.png["Ein Konzept-Image, das Astra als Management aller Ressourcen im Namespace zeigt."]
 
-* In diesem Beispiel wird eine individuelle Applikation in einem Namespace verwendet (Helm 3).
+* Eine einzelne Applikation, die innerhalb eines oder mehrerer Namespaces bereitgestellt wird (Helm 3 wird in diesem Beispiel verwendet).
 +
 image:diagram-managed-app2.png["Ein Konzept-Image, das Astra für die Verwaltung einer individuellen in einem Namespace implementierten Applikation einschließlich anderer Applikationen zeigt"]
 
-* Eine Gruppe von Ressourcen, die innerhalb eines Namespace durch ein Kubernetes-Label identifiziert werden
+* Eine Gruppe von Ressourcen, die innerhalb eines oder mehrerer Namespaces durch ein Kubernetes-Label identifiziert werden
 +
 image:diagram-managed-app3.png["Ein Konzept-Image, das den Astra zum Management einer benutzerdefinierten App auf der Basis eines Kubernetes-Labels zeigt"]
 

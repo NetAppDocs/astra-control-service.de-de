@@ -11,6 +11,7 @@ summary: Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funk
 :imagesdir: ../media/release-notes/
 
 
+[role="lead"]
 Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, die von dieser Version des Produkts nicht unterstützt werden oder nicht korrekt mit dem Produkt zusammenarbeiten. Lesen Sie diese Einschränkungen sorgfältig durch.
 
 
@@ -63,6 +64,18 @@ Die folgenden Einschränkungen wirken sich auf das Anwendungsmanagement des Astr
 
 
 
+=== Diverse Applikationen, die denselben Namespace nutzen, können nicht zusammen in einem anderen Namespace wiederhergestellt werden
+
+Wenn Sie mehrere Anwendungen verwalten, die denselben Namespace verwenden (durch das Erstellen mehrerer App-Definitionen in Astra Control), können Sie nicht alle Anwendungen auf einem anderen Single Namespace wiederherstellen. Jede Applikation muss ihrem eigenen separaten Namespace wiederhergestellt werden.
+
+
+
+=== Astra Control weist nicht automatisch Standard-Buckets für Cloud-Instanzen zu
+
+Astra Control weist keinem Cloud-Instanz automatisch einen Standard-Bucket zu. Sie müssen manuell einen Standard-Bucket für eine Cloud-Instanz festlegen. Wenn kein Standard-Bucket festgelegt ist, können Sie keine App-Klonvorgänge zwischen zwei Clustern durchführen.
+
+
+
 === In-Place-Wiederherstellungsvorgänge von Anwendungen, die einen Zertifikatmanager verwenden, werden nicht unterstützt
 
 Diese Version von Astra Control Service unterstützt keine in-Place-Wiederherstellung von Anwendungen mit Zertifikatmanagern. Restore-Vorgänge in einem anderen Namespace und Klonvorgänge werden unterstützt.
@@ -88,7 +101,10 @@ NOTE: Für K8ssandra werden in-Place-Wiederherstellungsvorgänge unterstützt. F
 * https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB Cluster"^]
 
 
-Astra Control ist möglicherweise nicht in der Lage, einen Operator zu klonen, der mit einer „Pass-by-reference“-Architektur entworfen wurde (z. B. der CockroachDB-Operator). Während dieser Art von Klonvorgängen versucht der geklonte Operator, Kubernetes Secrets vom Quelloperator zu beziehen, obwohl er im Zuge des Klonens ein eigenes neues Geheimnis hat. Der Klonvorgang kann fehlschlagen, da Astra Control die Kubernetes-Geheimnisse im Quelloperator nicht kennt.
+Astra Control kann einen Operator, der mit einer „Pass-by-Reference“-Architektur entworfen wurde, möglicherweise nicht klonen (z. B. den CockroachDB-Operator). Während dieser Art von Klonvorgängen versucht der geklonte Operator, Kubernetes Secrets vom Quelloperator zu beziehen, obwohl er im Zuge des Klonens ein eigenes neues Geheimnis hat. Der Klonvorgang kann fehlschlagen, da Astra Control die Kubernetes-Geheimnisse im Quelloperator nicht kennt.
+
+
+NOTE: Während Klonvorgängen müssen Applikationen, die eine Ressource oder Webhooks der ProgresClass benötigen, nicht über die Ressourcen verfügen, die bereits auf dem Ziel-Cluster definiert sind.
 
 
 

@@ -29,6 +29,8 @@ entries:
     url: "/use/view-apps.html"
 - title: Buckets verwalten
   url: "/use/manage-buckets.html"
+- title: Überwachen Sie laufende Aufgaben
+  url: "/use/monitor-running-tasks.html"
 - title: Konto verwalten
   entries:
   - title: Abrechnung einrichten
@@ -45,5 +47,7 @@ entries:
     url: "/use/manage-notifications.html"
   - title: Schließen Sie Ihr Konto
     url: "/use/close-account.html"
+- title: Managen Sie Cloud-Instanzen
+  url: "/use/manage-cloud-instances.html"
 - title: Heben Sie das Management von Applikationen und Clustern auf
   url: "/use/unmanage.html"

@@ -11,6 +11,7 @@ summary: Einige Schritte sind zur Vorbereitung Ihres Microsoft Azure Abonnements
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 Einige Schritte sind zur Vorbereitung Ihres Microsoft Azure Abonnements erforderlich, bevor Sie Azure Kubernetes Service-Cluster mit Astra Control Service managen können. Folgen Sie diesen Anweisungen, wenn Sie Azure NetApp Files als Storage-Back-End verwenden möchten.
 
 
@@ -81,7 +82,7 @@ Standardmäßig verwendet der Buckets Astra Control Service für das Speichern v
 
 Ein Kubernetes-Cluster muss folgende Anforderungen erfüllen, damit Sie ihn über den Astra Control Service erkennen und managen können.
 
-Kubernetes-Version:: Auf Clustern muss die Kubernetes-Version 1.21 bis 1.24 ausgeführt werden.
+Kubernetes-Version:: Auf Clustern muss die Kubernetes-Version 1.23 bis 1.25 ausgeführt werden.
 Bildtyp:: Der Image-Typ für alle Node-Pools muss Linux sein.
 Der Cluster-Status:: Cluster müssen in einem ordnungsgemäßen Zustand ausgeführt werden und mindestens einen Online-Worker-Node ohne „Worker“-Nodes im ausgefallenen Status aufweisen.
 Azure Region:: Cluster müssen in einer Region residieren, in der Azure NetApp Files verfügbar ist. https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp["Hier finden Sie Azure Produkte nach Region"^].
@@ -103,57 +104,6 @@ Wenn Sie nahe am Limit sind, haben Sie zwei Möglichkeiten:
 
 
 --
-
-
-Controller für externe Datenträger-Snapshots:: Auf Clustern muss ein CSI-Volume-Snapshot-Controller installiert sein. Dieser Controller wird standardmäßig mit K8s Version 1.21 installiert, aber Sie müssen auf Clustern mit Versionen 1.19 und 1.20 überprüfen. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["Erfahren Sie mehr über einen externen Snapshot-Controller für On-Demand Volume Snapshots"^].
-
-
-
-
-=== Installieren Sie einen CSI-Volume-Snapshot-Controller
-
-Wie im beschrieben  Kubernetes Service cluster requirements, Kubernetes-Cluster müssen einen CSI-Volume-Snapshot-Controller installiert haben. Führen Sie diese Schritte aus, um den Controller auf Ihrem Cluster zu installieren.
-
-.Schritte für K8s Version 1.19
-. Installieren Sie die Volume Snapshot-CRDs.
-+
-[source, kubectl]
-----
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-3.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-3.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-3.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
-----
-. Erstellen Sie den Snapshot-Controller.
-+
-Wenn Sie den Snapshot-Controller in einem bestimmten Namespace verwenden möchten, laden Sie die folgenden Dateien herunter, und bearbeiten Sie sie, bevor Sie sie anwenden.
-
-+
-[source, kubectl]
-----
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-3.0/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-3.0/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
-----
-
-
-.Schritte für K8s Version 1.20
-. Installieren Sie die Volume Snapshot-CRDs.
-+
-[source, kubectl]
-----
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
-----
-. Erstellen Sie den Snapshot-Controller.
-+
-Wenn Sie den Snapshot-Controller in einem bestimmten Namespace verwenden möchten, laden Sie die folgenden Dateien herunter, und bearbeiten Sie sie, bevor Sie sie anwenden.
-
-+
-[source, kubectl]
-----
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
-----
 
 
 

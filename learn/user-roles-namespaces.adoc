@@ -11,6 +11,7 @@ summary: Lernen Sie die verfügbaren Datensicherungsarten im Astra Control Cente
 :imagesdir: ../media/learn/
 
 
+[role="lead"]
 Informieren Sie sich über Benutzerrollen und Namespaces in Astra Control und darüber, wie Sie mit ihnen den Zugriff auf Ressourcen in Ihrem Unternehmen steuern können.
 
 
@@ -37,4 +38,5 @@ Ein Namespace ist ein Umfang, den Sie bestimmten Ressourcen innerhalb eines von 
 
 == Weitere Informationen
 
-link:../use/manage-roles.html["Rollen managen"]
+* link:../use/manage-roles.html["Rollen managen"]
+

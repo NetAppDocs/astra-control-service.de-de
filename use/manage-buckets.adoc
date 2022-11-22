@@ -11,7 +11,8 @@ summary: Managen Sie die Buckets, die Astra für Backups und Klone verwendet, in
 :imagesdir: ../media/use/
 
 
-Managen Sie die Buckets, die Astra für Backups und Klone verwendet, indem Sie zusätzliche Buckets hinzufügen und den Standard-Bucket für die Kubernetes-Cluster beim Cloud-Provider ändern.
+[role="lead"]
+Managen Sie die Buckets, die Astra für Backups und Klone verwendet, indem Sie zusätzliche Buckets hinzufügen und den Standard-Bucket für die Kubernetes-Cluster in Ihrer Cloud-Instanz ändern.
 
 Nur Administratoren können Buckets hinzufügen und ändern.
 
@@ -47,7 +48,7 @@ Wenn ein Bucket den Status „entfernt“ aufweist, können Sie ihn immer noch a
 
 
 .Schritt
-. Wählen Sie unter *Verwalten Ihres Speichers* *Buckets* aus.
+. Gehen Sie zu *Buckets*.
 +
 Die Liste der verfügbaren Buckets für den Astra Control Service wird angezeigt.
 
@@ -73,7 +74,7 @@ ifdef::azure[]
 endif::azure[]
 
 .Schritte
-. Wählen Sie unter *Verwalten Ihres Speichers* *Buckets* aus.
+. Gehen Sie zu *Buckets*.
 . Wählen Sie *Hinzufügen* und folgen Sie den Anweisungen, um den Eimer hinzuzufügen.
 +
 ** *Typ*: Wählen Sie Ihren Cloud-Anbieter.
@@ -100,7 +101,6 @@ ifdef::aws[]
 
 endif::aws[]
 
-* *Machen Sie diesen Bucket zum Standard-Bucket für diese Cloud*: Wählen Sie, ob Sie diesen Bucket als Standard-Bucket für Ad-hoc-Backups und Klone verwenden möchten.
 * *Select Credentials*: Wählen Sie die Anmeldeinformationen aus, die den Astra Control Service mit den Berechtigungen zur Verwaltung des Buckets bereitstellen.
 +
 .. Wählen Sie *Hinzufügen*, um den Eimer hinzuzufügen.
@@ -114,14 +114,18 @@ Astra Control Service fügt den zusätzlichen Bucket hinzu. Sie können jetzt be
 
 == Ändern des Standard-Bucket
 
-Ändern Sie den Standard-Bucket, den Astra Control Service für Backups und Klone verwenden sollte. Jeder Cloud-Provider verfügt über einen eigenen Standard-Bucket.
+Ändern Sie den Standard-Bucket, den Astra Control Service für Backups und Klone verwenden sollte. Jede Cloud-Instanz verfügt über einen eigenen Standard-Bucket.
 
-Astra Control Service verwendet den Standard-Bucket für Cloud-Provider für Ad-hoc-Backups und für Ad-hoc-Klone, wenn Sie nicht aus einem vorhandenen Backup klonen möchten.
+Astra Control Service verwendet den Standard-Bucket für Cloud-Instanzen für Ad-hoc-Backups oder für Ad-hoc-Klone, wenn Sie nicht aus einem vorhandenen Backup klonen möchten.
+
+
+NOTE: Astra Control weist keinem Cloud-Instanz automatisch einen Standard-Bucket zu. Sie müssen einen Standard-Bucket für eine Cloud-Instanz manuell festlegen, bevor Sie Applikationsklonvorgänge zwischen zwei Clustern durchführen.
 
 .Schritte
-. Wählen Sie unter *Verwalten Ihres Speichers* *Buckets* aus.
-. Wählen Sie die Dropdown-Liste in der Spalte *Aktionen* für den Bucket aus, den Sie bearbeiten möchten.
-. Wählen Sie *Machen Sie diesen Bucket zum Standard-Bucket für diese Cloud*.
+. Gehen Sie zu *Cloud-Instanzen*.
+. Wählen Sie das Konfigurationsmenü in der Spalte *Aktionen* für die Cloud-Instanz, die Sie bearbeiten möchten.
+. Wählen Sie *Bearbeiten*.
+. Wählen Sie in der Liste der Buckets den Bucket aus, der als Standard-Bucket für diese Cloud-Instanz verwendet werden soll.
 . Wählen Sie *Aktualisieren*.
 
 
@@ -141,7 +145,7 @@ Sie können keinen Standard-Bucket entfernen. Wenn Sie diesen Bucket entfernen m
 Wenn dies der Fall ist, können Sie nicht fortfahren.
 
 .Schritte
-. Wählen Sie in der linken Navigationsleiste *Buckets* aus.
+. Gehen Sie zu *Buckets*.
 . Wählen Sie im Menü *Aktionen* die Option *Entfernen*.
 +
 

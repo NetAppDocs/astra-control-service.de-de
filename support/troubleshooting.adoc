@@ -11,6 +11,7 @@ summary: Tipps zur Fehlerbehebung für häufige Probleme
 :imagesdir: ../media/support/
 
 
+[role="lead"]
 Lernen Sie, wie Sie mit einigen häufigen Problemen umgehen können.
 
 https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra[]

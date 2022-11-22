@@ -28,26 +28,26 @@ Sie müssen den Astra Connector Operator auf privaten AKS Cluster installieren. 
 .Schritte
 . Klonen des GitHub-Repositorys des Astra Connector-Betreibers:
 +
-[source, sh]
+[source, console]
 ----
 git clone https://github.com/NetApp/astra-connector-operator.git
 ----
 . Ändern Sie die Verzeichnisse auf die oberste Ebene des entpackten Bedienerpakets, damit Sie die sehen können `astraconnector_operator.yaml` Datei mit `ls` Befehl.
 . Erstellen Sie einen Namespace für den Astra Connector Operator.
 +
-[source, sh]
+[source, console]
 ----
 kubectl create ns astra-connector-operator
 ----
 . Anwenden des `astraconnector_operator.yaml` Datei zum Namespace des Bedieners.
 +
-[source, sh]
+[source, console]
 ----
 kubectl apply -f astraconnector_operator.yaml -n astra-connector-operator
 ----
 . Erstellen Sie einen Namespace für die privaten Clusterkomponenten.
 +
-[source, sh]
+[source, console]
 ----
 kubectl create ns astra-connector
 ----
@@ -55,13 +55,13 @@ kubectl create ns astra-connector
 . Ändern Sie die Beispielkonfigurationsdatei im config/Samples-Verzeichnis des Astra Connector Operator Repository, um Ihre Anforderungen zu erfüllen.
 . Wenden Sie die Astra Connector Custom Resource Definition (CRD) an.
 +
-[source, sh]
+[source, console]
 ----
 kubectl apply -f config/samples/astraconnector_v1.yaml -n astra-connector
 ----
 . Überprüfen Sie den Status des Astra Connectors.
 +
-[source, sh]
+[source, console]
 ----
 kubectl get astraconnector astra-connector -n astra-connector
 ----
@@ -69,7 +69,7 @@ kubectl get astraconnector astra-connector -n astra-connector
 Sie sollten eine Ausgabe wie die folgende sehen:
 
 +
-[source, sh]
+[source, console]
 ----
 NAME              REGISTERED   ASTRACONNECTORID
 astra-connector   true         22b839aa-8b85-445a-85dd-0b1f53b5ea19

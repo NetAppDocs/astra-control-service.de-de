@@ -12,34 +12,58 @@ summary: Eine vorhandene Applikation klonen, um eine doppelte Applikation auf de
 
 
 [role="lead"]
-Eine vorhandene Applikation klonen, um eine doppelte Applikation auf demselben Kubernetes-Cluster oder einem anderen Cluster zu erstellen. Das Klonen kann sich leisten, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen. So möchten Sie beispielsweise Workloads über eine CI/CD-Pipeline und über Kubernetes-Namespaces verschieben.
+Eine vorhandene Applikation kann geklont werden, um eine doppelte Applikation auf demselben Kubernetes-Cluster oder einem anderen Cluster zu erstellen. Wenn Astra Control eine Applikation klonen, wird ein Klon Ihrer Applikationskonfiguration und des persistenten Storage erstellt.
 
-Wenn Astra Control eine Applikation klonen, wird ein Klon Ihrer Applikationskonfiguration und des persistenten Storage erstellt.
+Das Klonen kann sich leisten, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen. So möchten Sie beispielsweise Workloads über eine CI/CD-Pipeline und über Kubernetes-Namespaces verschieben.
 
-[NOTE]
-====
-* Wenn Sie eine vom Betreiber implementierte Instanz von Jenkins CI klonen, müssen Sie die persistenten Daten manuell wiederherstellen. Dies ist eine Einschränkung des Bereitstellungsmodells der Applikation.
-* Wenn Sie eine App implementieren, die explizit auf StorageClass gesetzt ist und Sie die Applikation klonen müssen, muss das Ziel-Cluster über die ursprünglich angegebene StorageClass verfügen. Das Klonen einer Applikation, deren StorageClass explizit auf ein Cluster festgelegt ist, das nicht über dieselbe StorageClass verfügt, schlägt fehl.
-* Während eines Applikations-Backups oder Applikations-Restores können Sie optional eine Bucket-ID angeben. Ein Applikationsklonvorgang verwendet jedoch immer den definierten Standard-Bucket. Es besteht keine Möglichkeit, die Buckets für einen Klon zu ändern. Wenn Sie die Kontrolle darüber haben möchten, welcher Bucket verwendet wird, können Sie entweder link:../use/manage-buckets.html#edit-a-bucket["Ändern Sie den Bucket-Standard"] Oder machen Sie ein link:../use/protect-apps.html#create-a-backup["Backup"] Gefolgt von A link:../use/restore-apps.html["Wiederherstellen"] Separat.
-* Jeder Mitgliedsbenutzer mit Namespace-Einschränkungen nach Namespace-Name/ID oder durch Namespace-Bezeichnungen kann eine App in einem neuen Namespace auf demselben Cluster oder einem anderen Cluster in seinem Unternehmenskonto klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer das Mitglied-Benutzerkonto bearbeiten und Rolleneinschränkungen für den betroffenen Benutzer aktualisieren, um dem neuen Namespace Zugriff zu gewähren.
+.Was Sie und#8217;ll benötigen
+* Um Applikationen in einem anderen Cluster zu klonen, müssen Sie sicherstellen, dass die Cloud-Instanzen, die die Quell- und Ziel-Cluster enthalten (wenn sie nicht identisch sind), einen Standard-Bucket haben. Für jede Cloud-Instanz müssen Sie einen Standard-Bucket zuweisen.
+* Während Klonvorgängen müssen Applikationen, die eine Ressource oder Webhooks der ProgresClass benötigen, nicht über die Ressourcen verfügen, die bereits auf dem Ziel-Cluster definiert sind.
 
 
-====
+.Einschränkungen beim Klonen
+* *Explicit Storage Classes*: Wenn Sie eine App mit einem explizit festgelegten StorageClass bereitstellen und die App klonen müssen, muss das Ziel-Cluster die ursprünglich angegebene StorageClass haben. Das Klonen einer Applikation, deren StorageClass explizit auf ein Cluster festgelegt ist, das nicht über dieselbe StorageClass verfügt, schlägt fehl.
+* *Klone und Benutzerbeschränkungen*: Jeder Mitgliedsbenutzer mit Namespace-Beschränkungen durch Namespace-Name/ID oder durch Namespace-Labels kann eine Anwendung in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto ihres Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer das Mitglied-Benutzerkonto bearbeiten und Rolleneinschränkungen für den betroffenen Benutzer aktualisieren, um dem neuen Namespace Zugriff zu gewähren.
+* *Klone verwenden Standardcontainer*:
++
+** Während eines Applikations-Backups oder Applikations-Restores können Sie einen Bucket angeben, der verwendet werden soll. Sie müssen einen Standard-Bucket angeben, wenn Sie über die Cluster hinweg klonen, aber die Angabe eines Buckets ist optional, wenn Sie innerhalb desselben Clusters klonen.
+** Wenn Sie über Cluster hinweg klonen, muss die Cloud-Instanz, die das Quell-Cluster des Klonvorgangs enthält, einen Standard-Bucket-Satz aufweisen.
+** Es besteht keine Möglichkeit, die Buckets für einen Klon zu ändern. Wenn Sie die Kontrolle darüber haben möchten, welcher Bucket verwendet wird, können Sie entweder link:../use/manage-buckets.html#edit-a-bucket["Ändern Sie den Bucket-Standard"] Oder machen Sie ein link:../use/protect-apps.html#create-a-backup["Backup"] Gefolgt von A link:../use/restore-apps.html["Wiederherstellen"] Separat.
+
+
+* *Mit Jenkins CI*: Wenn Sie eine vom Betreiber implementierte Instanz von Jenkins CI klonen, müssen Sie die persistenten Daten manuell wiederherstellen. Dies ist eine Einschränkung des Bereitstellungsmodells der Applikation.
+
+
 .Schritte
 . Wählen Sie *Anwendungen*.
-. Wählen Sie die Dropdown-Liste in der Spalte *Aktion* für die gewünschte App aus.
+. Führen Sie einen der folgenden Schritte aus:
++
+** Wählen Sie das Menü Optionen in der Spalte *Aktionen* für die gewünschte App aus.
+** Wählen Sie den Namen der gewünschten App aus, und wählen Sie rechts oben auf der Seite die Dropdown-Liste Status aus.
+
+
 . Wählen Sie *Clone*.
-. *Clone Details*: Geben Sie Details für den Klon an:
+. Geben Sie Details für den Klon an:
 +
-** Behalten Sie den Standardnamen und den Namespace bei oder bearbeiten Sie sie.
+** Geben Sie einen Namen ein.
 ** Wählen Sie ein Ziel-Cluster für den Klon.
-** Wählen Sie aus, ob Sie den Klon aus einem vorhandenen Snapshot oder einem vorhandenen Backup erstellen möchten. Wenn Sie diese Option nicht wählen, erstellt Astra Control den Klon aus dem aktuellen Status der App.
-
-
-. *Clone Summary*: Überprüfen Sie die Details über den Klon und wählen Sie *Clone App*.
+** Geben Sie die Ziel-Namespaces für den Klon ein. Jeder mit der App verknüpfte Quell-Namespace wird einem Ziel-Namespace zugeordnet.
 +
-image:screenshot-clone-summary.gif["Ein Screenshot des Dialogfelds „Clone Summary“, in dem Sie Kloninformationen über die ursprüngliche App und die geklonte App anzeigen können."]
+
+NOTE: Astra Control erstellt im Rahmen des Klonvorgangs neue Ziel-Namespaces. Die angegebenen Ziel-Namespaces dürfen nicht bereits im Ziel-Cluster vorhanden sein.
+
+** Wählen Sie *Weiter*.
+** Wählen Sie aus, ob Sie den Klon aus einem vorhandenen Snapshot oder einem vorhandenen Backup erstellen möchten. Wenn Sie diese Option nicht wählen, erstellt Astra Control den Klon aus dem aktuellen Status der App.
++
+*** Wenn Sie aus einem vorhandenen Snapshot oder Backup klonen möchten, wählen Sie den Snapshot oder das Backup aus, den Sie verwenden möchten.
 
 
 
-Astra Control klont die App basierend auf den von Ihnen angegebenen Informationen.
+
+. Wählen Sie *Weiter*.
+. Überprüfen Sie die Informationen über den Klon und wählen Sie *Clone*.
+
+
+Astra Control klont die App basierend auf den von Ihnen angegebenen Informationen. Der Klonvorgang ist erfolgreich, wenn der neue Applikationsklon ausgeführt wird `Healthy` Geben Sie auf der Seite *Anwendungen* an.
+
+Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer das Mitglied-Benutzerkonto bearbeiten und Rolleneinschränkungen für den betroffenen Benutzer aktualisieren, um dem neuen Namespace Zugriff zu gewähren.

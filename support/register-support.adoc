@@ -11,6 +11,7 @@ summary: Astra Control versucht, Ihr Konto bei der Einrichtung Ihres Kontos auto
 :imagesdir: ../media/support/
 
 
+[role="lead"]
 Astra Control versucht, Ihr Konto bei der Einrichtung Ihres Kontos automatisch für den Support zu registrieren. Wenn nicht, können Sie sich manuell für den Support registrieren. Um Unterstützung durch den technischen Support von NetApp zu erhalten, ist eine Registrierung erforderlich.
 
 

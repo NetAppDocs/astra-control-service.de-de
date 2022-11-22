@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/set-up-billing.html 
 keywords: billing, set up billing, payments, set up payments, credit card, update credit card, change credit card, free plan, free trial, premium, premium plan 
-summary: Mit dem Free Plan von Astra Control können Sie bis zu 10 Apps in Ihrem Konto verwalten. Wenn Sie mehr als 10 Apps verwalten möchten, müssen Sie die Abrechnung durch ein Upgrade vom kostenlosen Plan auf den Premium-Plan einrichten. 
+summary: Astra Control Service bietet Ihnen zwei Möglichkeiten zur Abrechnung Ihrer Namensvetter. Mit dem kostenlosen Plan können Sie bis zu 10 Apps in Ihrem Konto verwalten. Wenn Sie mehr als 10 Namespaces verwalten möchten, müssen Sie die Abrechnung durch ein Upgrade vom kostenlosen Plan auf den Premium-Plan einrichten. Alternativ können Sie auch über den Azure oder AWS Marketplace die Abrechnung für Azure oder AWS managen. 
 ---
 = Abrechnung einrichten
 :hardbreaks:
@@ -11,7 +11,10 @@ summary: Mit dem Free Plan von Astra Control können Sie bis zu 10 Apps in Ihrem
 :imagesdir: ../media/use/
 
 
-Mit dem Free Plan von Astra Control können Sie bis zu 10 Apps in Ihrem Konto verwalten. Wenn Sie mehr als 10 Apps verwalten möchten, müssen Sie die Abrechnung durch ein Upgrade vom kostenlosen Plan auf den Premium-Plan einrichten.
+[role="lead"]
+Sie können für die Verwaltung Ihrer Astra Control Service-Kontoabrechnung mehrere Methoden verwenden. Wenn Sie Azure oder Amazon AWS nutzen, können Sie einen Astra Control Service-Plan über den Microsoft Azure Marketplace oder AWS Marketplace abonnieren. Wenn Sie dies tun, können Sie Ihre Rechnungsdetails über den Marktplatz verwalten. Sie können sich auch direkt für NetApp anmelden. Wenn Sie sich direkt bei NetApp anmelden, können Sie über den Astra Control Service Ihre Rechnungsdetails verwalten. Wenn Sie den Astra Control Service ohne Abonnement nutzen, werden Sie automatisch beim Free Plan angemeldet.
+
+Mit dem Astra Control Service Free Plan können Sie bis zu 10 Namespaces in Ihrem Konto verwalten. Wenn Sie mehr als 10 Namespaces verwalten möchten, müssen Sie Rechnungen einrichten. Dazu müssen Sie ein Upgrade vom Free Plan auf den Premium Plan durchführen oder den Azure Marketplace oder AWS Marketplace abonnieren.
 
 
 
@@ -25,9 +28,9 @@ Mit dem Astra Control Service stehen zwei Kostenarten zur Verfügung: Die Kosten
 
 Der Astra Control Service umfasst drei Pläne:
 
-Kostenloser Plan:: Kostenlose Verwaltung von bis zu 10 Anwendungen.
-Premium-PAYGO:: Verwalten Sie eine unbegrenzte Anzahl von Apps mit einem Preis von 0,005 USD pro Minute pro App.
-Premium-Abonnement:: Mit einem Jahresabonnement können Sie bis zu 10 Apps pro Anwendungspaket verwalten. Wenden Sie sich an den NetApp Sales, um so viele Pakete wie nötig zu erwerben. Beispielsweise können Sie 3 Pakete für das Management von 30 Applikationen über den Astra Control Service erwerben. Wenn Sie mehr Applikationen verwalten als dies durch Ihr Jahresabonnement erlaubt ist, werden Ihnen die Gebühr in Höhe von 0.005 US-Dollar pro Minute und pro Applikation (entspricht Premium PAYGO) berechnet.
+Kostenloser Plan:: Verwalten Sie bis zu 10 Namespaces kostenlos.
+Premium-PAYGO:: Sie können eine unbegrenzte Anzahl von Namespaces mit einer bestimmten Rate pro Stunde und Namespace managen.
+Premium-Abonnement:: Mit einem Jahresabonnement können Sie bis zu 10 Namespaces pro Namespace Pack verwalten. Wenden Sie sich an den NetApp Vertrieb, um so viele Pakete wie nötig zu erwerben. Zum Beispiel: Kaufen Sie 3 Pakete, um 30 Namespaces vom Astra Control Service zu verwalten. Wenn Sie mehr Namespaces verwalten als von Ihrem Jahresabonnement erlaubt, werden Ihnen die Abonnementgebühr für einen zusätzlichen Namespace berechnet.
 +
 --
 Wenn Sie noch kein Astra Control Konto haben, erstellt der Kauf des Premium Subscription automatisch ein Astra Control-Konto für Sie. Wenn Sie bereits einen kostenlosen Plan besitzen, werden Sie automatisch in das Premium-Abonnement konvertiert.
@@ -35,11 +38,11 @@ Wenn Sie noch kein Astra Control Konto haben, erstellt der Kauf des Premium Subs
 --
 
 
-Wenn Sie ein Astra Control Konto erstellen, werden Sie automatisch für den Free Plan angemeldet. Das Dashboard von Astra Control zeigt Ihnen, wie viele Apps Sie derzeit über die 10 kostenlosen Apps verwalten, die Sie zugelassen haben.
+Wenn Sie ein Astra Control-Konto erstellen, sind Sie automatisch beim Free Plan angemeldet. Das Dashboard von Astra Control zeigt Ihnen, wie viele Namespaces Sie derzeit aus den 10 freien Namespaces verwalten, die Sie zugelassen haben. Die Abrechnung beginnt für einen Namespace, wenn die erste App, die den Namespace enthält, verwaltet wird und stoppt für diesen Namespace, wenn die letzte App, die den Namespace enthält, nicht verwaltet wird.
 
-Wenn Sie versuchen, eine 11. App zu verwalten, benachrichtigt Astra Control Sie, dass Sie die Grenze des Freiplans erreicht haben. Anschließend werden Sie aufgefordert, ein Upgrade vom kostenlosen Plan auf einen Premium-Plan durchzuführen.
+Wenn Sie versuchen, einen 11. Namespace zu verwalten, benachrichtigt Astra Control Sie, dass Sie die Grenze des Freiplans erreicht haben. Anschließend werden Sie aufgefordert, ein Upgrade vom kostenlosen Plan auf einen Premium-Plan durchzuführen. Sie erhalten die Gebühr für die abonnementabhängige Überalterrate pro zusätzlichem Namespace.
 
-Sie können jederzeit ein Upgrade auf einen Premium Plan durchführen. Nach dem Upgrade beginnt Astra Control, Sie für _all_ verwaltete Apps im Konto zu laden. Die ersten 10 Apps bleiben nicht im Free Plan.
+Sie können jederzeit ein Upgrade auf einen Premium Plan durchführen. Nach dem Upgrade beginnt Astra Control Sie mit dem Aufladen von _all_ Namespaces im Konto. Die ersten 10 Namensräume bleiben nicht im Free Plan.
 
 ifdef::gcp[]
 
@@ -87,25 +90,39 @@ endif::aws[]
 
 
 
-== Wichtige Hinweise
+== Abonnieren Sie den Astra Control Service im Azure Marketplace
 
-* Ihr Rechnungsplan ist per Astra Control Konto.
-+
-Wenn Sie mehrere Konten haben, hat jeder seinen eigenen Abrechnungsplan.
+Astra Control Service können Sie über den Azure Marketplace abonnieren. Ihre Konto- und Rechnungsdaten werden über den Marketplace verwaltet.
 
-* Ihre Astra Control Rechnung beinhaltet Gebühren für das Management Ihrer Kubernetes-Applikationen. Für das Storage-Backend für persistente Volumes werden Sie von Ihrem Cloud-Provider separat berechnet.
-+
-link:../get-started/intro.html["Erfahren Sie mehr über die Astra Control-Preise"].
-
-* Jeder Abrechnungszeitraum endet am letzten Tag des Monats.
-* Sie können nicht von einem Premium-Plan auf den kostenlosen Plan herunterstufen.
+.Schritte
+. Wechseln Sie zum https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-astra-acs?tab=Overview["Azure Marketplace"^].
+. Wählen Sie *Jetzt Holen*.
+. Befolgen Sie die Anweisungen, um einen Plan zu abonnieren.
 
 
 
 
-== Upgrade vom kostenlosen Plan auf den Premium PAYGO Plan
+== Abonnieren Sie den Astra Control Service im AWS Marketplace
 
-Führen Sie jederzeit ein Upgrade Ihres Rechnungsplans durch, um mehr als 10 Apps von Astra Control zu managen. Bezahlen Sie dabei einfach. Sie brauchen nur eine gültige Kreditkarte.
+Sie können den Astra Control Service über den AWS Marketplace abonnieren. Ihre Konto- und Rechnungsdaten werden über den Marketplace verwaltet.
+
+.Schritte
+. Wechseln Sie zum https://aws.amazon.com/marketplace/["AWS Marketplace"^].
+. Wählen Sie *Weiter zur Anmeldung*.
+. Befolgen Sie die Anweisungen, um einen Plan zu abonnieren.
+
+
+
+
+== Abonnieren Sie den Astra Control Service direkt mit NetApp
+
+Sie können den Astra Control Service über die Astra Control Service UI abonnieren oder sich an den NetApp Sales wenden.
+
+
+
+=== Upgrade vom kostenlosen Plan auf den Premium PAYGO Plan
+
+Aktualisieren Sie Ihren Rechnungsplan jederzeit, um mehr als 10 Namespaces von Astra Control zu verwalten, indem Sie bezahlen, wie Sie gehen. Sie brauchen nur eine gültige Kreditkarte.
 
 .Schritte
 . Wählen Sie *Konto* und dann *Abrechnung*.
@@ -117,11 +134,11 @@ NOTE: Astra Control sendet Ihnen eine E-Mail, wenn sich die Kreditkarte dem Abla
 
 
 
-Sie können jetzt mehr als 10 Apps verwalten. Astra Control lädt Sie mit allen Apps, die Sie derzeit verwalten.
+Sie können jetzt mehr als 10 Namespaces verwalten. Astra Control lädt Sie für alle Namespaces, die Sie derzeit verwalten.
 
 
 
-== Upgrade vom kostenlosen Plan auf das Premium-Abonnement
+=== Upgrade vom kostenlosen Plan auf das Premium-Abonnement
 
 Wenden Sie sich an NetApp Sales, um im Rahmen eines Jahresabonnements eine Vorlaufzeit zu einem reduzierten Preis zu erhalten.
 
@@ -131,22 +148,22 @@ Wenden Sie sich an NetApp Sales, um im Rahmen eines Jahresabonnements eine Vorla
 . Geben Sie dem Vertriebsteam Details an, um den Prozess zu starten.
 
 
-Ein NetApp Vertriebsmitarbeiter wird sich mit Ihnen in Verbindung setzen, um Ihre Bestellung zu bearbeiten. Nachdem die Bestellung abgeschlossen ist, wird Astra Control Ihren aktuellen Plan auf der Registerkarte Abrechnung widerspiegeln.
+Ein NetApp Vertriebsmitarbeiter wird sich mit Ihnen in Verbindung setzen, um Ihre Bestellung zu bearbeiten. Nachdem die Bestellung abgeschlossen ist, wird Astra Control Ihren aktuellen Plan auf der Registerkarte *Abrechnung* widerspiegeln.
 
 
 
 == Zeigt den aktuellen Kosten- und Abrechnungsverlauf an
 
-Astra Control zeigt Ihnen Ihre aktuellen monatlichen Kosten sowie einen detaillierten Abrechnungsverlauf nach App.
+Astra Control zeigt Ihnen Ihre aktuellen monatlichen Kosten sowie einen detaillierten Abrechnungsverlauf per Namespace. Wenn Sie einen Plan über einen Marktplatz abonniert haben, ist der Rechnungsverlauf nicht sichtbar (Sie können ihn aber anzeigen, indem Sie sich am Marktplatz anmelden.)
 
 .Schritte
 . Wählen Sie *Konto* und dann *Abrechnung*.
 +
 Ihre aktuellen Kosten werden in der Übersicht über die Abrechnung angezeigt.
 
-. Um den Rechnungsverlauf nach App anzuzeigen, wählen Sie *Abrechnungsverlauf*.
+. Um den Abrechnungsverlauf nach Namespace anzuzeigen, wählen Sie *Abrechnungsverlauf* aus.
 +
-Astra Control zeigt Ihnen die Nutzungsdaten und die Kosten für jede App. Eine Nutzungsminute ist, wie viele Minuten Astra Control Ihre App in einem Abrechnungszeitraum verwaltet hat.
+Astra Control zeigt Ihnen die Nutzungsminuten und die Kosten für jeden Namespace. Eine Nutzungsminute ist, wie viele Minuten Astra Control Ihren Namespace in einem Abrechnungszeitraum verwaltet hat.
 
 . Wählen Sie die Dropdown-Liste aus, um einen vorherigen Monat auszuwählen.
 
@@ -161,4 +178,20 @@ Bei Bedarf können Sie die Kreditkarte, die Astra Control zur Abrechnung hat, ä
 . Wählen Sie *Konto > Abrechnung > Zahlungsart*.
 . Wählen Sie das Symbol Konfigurieren.
 . Ändern Sie die Kreditkarte.
+
+
+
+
+== Wichtige Hinweise
+
+* Ihr Rechnungsplan ist per Astra Control Konto.
++
+Wenn Sie mehrere Konten haben, hat jeder seinen eigenen Abrechnungsplan.
+
+* Ihre Astra Control-Rechnung enthält Gebühren für die Verwaltung Ihrer Namespaces. Für das Storage-Back-End für persistente Volumes werden Sie von Ihrem Cloud-Provider separat berechnet.
++
+link:../get-started/intro.html["Erfahren Sie mehr über die Astra Control-Preise"].
+
+* Jeder Abrechnungszeitraum endet am letzten Tag des Monats.
+* Sie können nicht von einem Premium-Plan auf den kostenlosen Plan herunterstufen.
 

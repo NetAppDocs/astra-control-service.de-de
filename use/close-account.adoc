@@ -11,6 +11,7 @@ summary: Wenn Sie kein Astra Control Konto mehr benötigen, können Sie es jeder
 :imagesdir: ../media/use/
 
 
+[role="lead"]
 Wenn Sie Ihr Astra Control-Konto nicht mehr benötigen, können Sie es jederzeit schließen.
 
 

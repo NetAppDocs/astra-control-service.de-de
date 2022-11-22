@@ -11,7 +11,52 @@ summary: NetApp aktualisiert regelmäßig den Astra Control Service, um Ihnen ne
 :imagesdir: ../media/release-notes/
 
 
+[role="lead"]
 NetApp aktualisiert regelmäßig den Astra Control Service, um Ihnen neue Funktionen, Verbesserungen und Fehlerbehebungen zu bieten.
+
+
+
+== 22. November 2022
+
+.Neue Funktionen und Support
+* Unterstützung von Applikationen, die mehrere Namespaces umfassen
++
+link:../use/manage-apps.html["Definieren von Apps"]
+
+* Unterstützung, um Cluster-Ressourcen in eine Applikationsdefinition zu enthalten
++
+link:../use/manage-apps.html["Definieren von Apps"]
+
+* Verbesserte Fortschrittsberichte für Backup-, Restore- und Klonvorgänge
++
+link:../use/monitor-running-tasks.html["Überwachen Sie laufende Aufgaben"]
+
+* Unterstützung für das Management von Clustern, auf denen bereits eine kompatible Version von Astra Trident installiert ist
++
+link:../get-started/add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"]
+
+* Unterstützung für das Managen mehrerer Cloud-Provider-Abonnements in einem einzigen Astra Control Service-Konto
++
+link:../use/manage-cloud-instances.html["Managen Sie Cloud-Instanzen"]
+
+* Unterstützung für das Hinzufügen selbst verwalteter Kubernetes-Cluster zum Astra Control Service.
++
+link:../get-started/add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"]
+
+* Die Abrechnung für den Astra Control Service erfolgt jetzt mit gemessene Namensräume anstatt je Applikation.
++
+link:../use/set-up-billing.html["Abrechnung einrichten"]
+
+* Unterstützung bei der Anmeldung zu den Term-basierten Angeboten des Astra Control Service über AWS Marketplace
++
+link:../use/set-up-billing.html["Abrechnung einrichten"]
+
+
+
+.Bekannte Probleme und Einschränkungen
+* link:../release-notes/known-issues.html["Bekannte Probleme in diesem Release"]
+* link:../release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"]
+
 
 
 
@@ -27,7 +72,7 @@ Diese Version umfasst die folgenden neuen Funktionen und Verbesserungen.
 
 * Verbesserter Applikations-Management-Workflow verbesserte Workflows zum Applikations-Management sorgen für mehr Flexibilität bei der Definition von Applikationen, die von Astra Control gemanagt werden.
 +
-link:../use/manage-apps.html#manage-apps["Applikationsmanagement"]
+link:../use/manage-apps.html#define-apps["Applikationsmanagement"]
 
 
 

@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: use/manage-cloud-instances.html 
+keywords: cloud, instance, manage, delete, remove, edit 
+summary: Managen Sie die hinzugefügten Cloud-Instanzen, wenn Sie neue Cluster hinzufügen. 
+---
+= Managen Sie Cloud-Instanzen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Eine Cloud-Instanz ist eine eindeutige Domäne innerhalb eines Cloud-Providers. Sie können für jeden Cloud-Provider mehrere Cloud-Instanzen erstellen, wobei jede Cloud-Instanz ihren eigenen Namen, ihre Anmeldedaten und zugehörigen Cluster hat.
+
+Wenn Sie dem Astra Control ein neues Cluster hinzufügen, erstellen Sie eine Cloud-Instanz. Sie können eine Cloud-Instanz bearbeiten, um mit der Astra Control UI den Namen oder den Standard-Bucket zu ändern, und mithilfe der Astra Control API andere Aktionen mit der Cloud-Instanz durchführen.
+
+
+
+== Cloud-Instanz hinzufügen
+
+Wenn Sie dem Astra Control ein neues Cluster hinzufügen, können Sie eine neue Cloud-Instanz hinzufügen. Siehe link:../add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"] Finden Sie weitere Informationen.
+
+
+
+== Bearbeiten einer Cloud-Instanz
+
+Sie können eine vorhandene Cloud-Instanz für einen Cloud-Provider ändern.
+
+.Schritte
+. Gehen Sie zu *Cloud-Instanzen*.
+. Wählen Sie in der Liste der Cloud-Instanzen das Menü *Aktionen* für die Cloud-Instanz aus, die Sie bearbeiten möchten.
+. Wählen Sie *Bearbeiten*.
++
+Auf dieser Seite können Sie den Namen und den Standard-Bucket für die Cloud-Instanz aktualisieren.
+
++
+
+NOTE: Jede Cloud-Instanz in Astra Control muss über einen eindeutigen Namen verfügen.
+
+
+
+
+
+== Anmeldedaten für eine Cloud-Instanz rotieren
+
+Mit der Astra Control API können Sie die Anmeldedaten für eine Cloud-Instanz rotieren. Weitere Informationen https://docs.netapp.com/us-en/astra-automation["Besuchen Sie die Astra Automation Dokumentation"^].
+
+
+
+== Entfernen einer Cloud-Instanz
+
+Mit der Astra Control API können Sie eine Cloud-Instanz vom Cloud-Provider entfernen. Weitere Informationen https://docs.netapp.com/us-en/astra-automation["Besuchen Sie die Astra Automation Dokumentation"^].
