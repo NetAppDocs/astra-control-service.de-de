@@ -13,7 +13,7 @@ entries:
 - title: Speicher für GKE-Cluster
   flavor: gcp
   url: "/learn/choose-class-and-size.html"
-- title: Allgemeines zum Applikationsmanagement
+- title: Applikationsmanagement
   url: "/learn/app-management.html"
 - title: Benutzerrollen und Namespaces
   url: "/learn/user-roles-namespaces.html"
