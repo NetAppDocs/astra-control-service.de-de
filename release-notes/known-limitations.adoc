@@ -42,12 +42,6 @@ Die folgenden Einschränkungen gelten für das Management von Kubernetes-Cluster
 
 
 
-=== Es werden ein GCP-Projekt und ein Service-Konto unterstützt
-
-Astra Control Service unterstützt ein Google Cloud Platform-Projekt und ein Service-Konto. Sie sollten dem Astra Control Service nicht mehr als ein Servicekonto hinzufügen, und Sie sollten die Anmeldeinformationen für das Servicekonto nicht rotieren.
-
-
-
 === Google Marketplace Apps wurden nicht validiert
 
 NetApp hat keine über Google Marketplace bereitgestellten Applikationen validiert. Einige Benutzer berichten über Probleme bei der Erkennung oder Sicherung von Postgres-, MariaDB- und MySQL-Apps, die über den Google Marketplace bereitgestellt wurden.

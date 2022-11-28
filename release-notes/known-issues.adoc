@@ -28,13 +28,6 @@ Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
 *  backups and snapshots fail if the volumesnapshotclass is added after a cluster is managed
 
 
-ifdef::azure[]
-
-*  backup buckets use LRS redundancy by default
-
-
-endif::azure[]
-
 .Andere Probleme
 *  eventually begin to fail when using external-snapshotter version 4.2.0
 *  data management operations fail with Internal Service Error (500) when Astra Trident is offline
@@ -75,20 +68,6 @@ App-Klone innerhalb desselben Clusters schlagen konsequent mit dem Bitnami Postg
 == App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird
 
 Backups und Snapshots schlagen in diesem Szenario mit einem UI 500-Fehler fehl. Aktualisieren Sie die App-Liste als Workaround.
-
-ifdef::azure[]
-
-
-
-== Azure Backup-Buckets verwenden standardmäßig LRS-Redundanz
-
-Standardmäßig verwendet der Buckets Astra Control Service für das Speichern von Azure Kubernetes Service-Backups die LRS-Redundanzoption (lokal Redundant Storage). Informationen zur Verwendung einer haltbareren Redundanzoption für Azure Buckets finden Sie in den optionalen Schritten in der Setup-Anleitung für Azure Cloud-Provider:
-
-* link:../get-started/set-up-microsoft-azure-with-amd.html["Richten Sie Microsoft Azure mit von Azure gemanagten Festplatten ein"]
-* link:../get-started/set-up-microsoft-azure-with-anf.html["Microsoft Azure mit Azure NetApp Files einrichten"]
-
-
-endif::azure[]
 
 
 
