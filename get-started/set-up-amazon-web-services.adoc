@@ -88,6 +88,7 @@ CSI-Treiber für Amazon Elastic Block Store (EBS):: Wenn Sie das Amazon EBS Stor
 --
 Anweisungen zur Installation des CSI-Treibers finden Sie in den entsprechenden Einzelheiten.
 
+[%collapsible%open]
 ====
 .Installieren Sie einen externen Schnappschussfilter
 . Erstellen von Volume Snapshot-CRDs.

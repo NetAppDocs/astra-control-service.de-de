@@ -46,6 +46,7 @@ Sie haben auch die Möglichkeit, einen lokalen oder Cloud-gehosteten Cluster zu 
 Nachdem Sie sich beim Astra Control Service angemeldet haben, beginnen Sie zunächst mit dem Verwalten Ihrer Cluster. Sie können ein von einem Cloud-Provider gemanagtes Cluster oder einen Self-Managed Cluster hinzufügen. Bevor Sie dem Astra Control Service einen Cluster hinzufügen, müssen Sie bestimmte Aufgaben ausführen und sicherstellen, dass der Cluster bestimmte Anforderungen erfüllt.
 
 .Was Sie&#8217;ll benötigen Cluster, die von einem Cloud-Provider verwaltet werden
+[%collapsible]
 ====
 ifdef::aws[]
 
@@ -75,6 +76,7 @@ endif::azure[]
 
 ====
 .Was Sie&#8217;ll benötigen für selbstverwaltete Cluster
+[%collapsible]
 ====
 Ihr Cluster muss die folgenden Anforderungen erfüllen:
 

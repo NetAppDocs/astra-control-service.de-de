@@ -29,7 +29,7 @@ Astra Control bietet entscheidende Funktionen für das Lifecycle Management von 
 * Verwenden Sie eine Benutzeroberfläche oder eine API zur Implementierung Ihrer Backup- und Migrations-Workflows
 
 
-Astra Control überwacht Ihr Computing kontinuierlich auf Zustandsänderungen, so ist es bewusst, dass neue Apps, die Sie auf dem Weg hinzufügen.
+Astra Control überwacht Ihre Computing-Ressourcen kontinuierlich auf Zustandsänderungen, sodass Sie sich über neue Applikationen im Klaren sind, die Sie unterwegs hinzufügen.
 
 
 
@@ -66,7 +66,27 @@ Auf beiden Plattformen laufen dieselben Funktionen, mit Ausnahme des Storage-Bac
 
 
 
-| Was ist die Back-End-Unterstützung für Storage? | NetApp Cloud-Serviceangebote  a| 
+| Was ist die Back-End-Unterstützung für Storage?  a| 
+* Amazon Web Services:
++
+** Amazon EBS
+** Amazon FSX für NetApp ONTAP
+
+
+* Google Cloud:
++
+** Google Persistent Disk
+** NetApp Cloud Volumes Service
+
+
+* Microsoft Azure:
++
+** Über Azure Gemanagte Festplatten
+** Azure NetApp Dateien
+
+
+
+ a| 
 * NetApp ONTAP AFF und FAS Systeme
 * Cloud Volumes ONTAP Storage Back-End
 
@@ -116,7 +136,7 @@ endif::azure[]
 
 * Erstellt eine neue Administratorrolle und ein Kubernetes-Servicekonto auf dem Cluster.
 * Verwendet diese neue Administratorrolle für die Installation https://docs.netapp.com/us-en/trident/index.html["Astra Trident"^] Auf dem Cluster und um eine oder mehrere Storage-Klassen zu erstellen.
-* Wenn Sie einen Cloud-Provider-Storage-Service als Storage-Back-End verwenden, stellt Astra Control Service mithilfe des Astra Trident persistente Volumes für Ihre Applikationen bereit.
+* Wenn Sie ein Cloud-Service-Storage-Angebot von NetApp als Storage-Back-End verwenden, verwendet der Astra Control Service Astra Trident zur Bereitstellung persistenter Volumes für Ihre Applikationen. Wenn Sie von Amazon EBS oder Azure gemanagte Festplatten als Storage-Backend verwenden, müssen Sie einen Provider-spezifischen CSI-Treiber installieren. Installationsanweisungen finden Sie in link:set-up-amazon-web-services.html["Einrichten von Amazon Web Services"^] Und link:set-up-microsoft-azure-with-amd.html["Richten Sie Microsoft Azure mit von Azure gemanagten Festplatten ein"^].
 +
 ** An dieser Stelle können Sie Ihrem Cluster Apps hinzufügen. Persistente Volumes werden auf der neuen Standard-Storage-Klasse bereitgestellt.
 ** Anschließend verwalten Sie diese Applikationen mithilfe des Astra Control Service und erstellen Snapshots, Backups und Klone.
@@ -137,7 +157,7 @@ Astra Control Center wird lokal in Ihrer eigenen Private Cloud ausgeführt.
 
 Astra Control Center unterstützt Kubernetes-Cluster mit Trident-basiertem Storage mit einem Storage-Backend mit ONTAP 9.5 und höher.
 
-In einer Cloud-vernetzten Umgebung nutzt Astra Control Center erweiterte Monitoring- und Telemetriedaten mithilfe von Cloud Insights. Liegt keine Cloud Insights-Verbindung vor, ist das Monitoring und die Telemetrie nur begrenzt (7 Tage Metriken) im Astra Control Center verfügbar und wird auch über offene Messpunkte in native Kubernetes-Monitoring-Tools (wie Prometheus und Grafana) exportiert.
+In einer Cloud-vernetzten Umgebung nutzt Astra Control Center erweiterte Monitoring- und Telemetriedaten mithilfe von Cloud Insights. Liegt keine Cloud Insights-Verbindung vor, ist das Monitoring und die Telemetrie nur begrenzt (7 Tage Metriken) im Astra Control Center verfügbar und wird auch über offene Endpunkt in native Kubernetes-Monitoring-Tools (wie Prometheus und Grafana) exportiert.
 
 Astra Control Center ist vollständig in das AutoSupport und Active IQ Ecosystem integriert, damit Benutzer und NetApp Support Fehlerbehebungs- und Verwendungsinformationen liefern können.
 
@@ -160,7 +180,7 @@ Astra Control Center funktioniert auf hohem Niveau wie folgt:
 
 Erfahren Sie mehr darüber, wie Sie https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html["Einrichten des Astra Control Center"].
 
-Sie können Applikationen zu Ihrem Cluster hinzufügen. Wenn auch einige Applikationen bereits im Cluster gemanagt werden, können Sie sie mit dem Astra Control Center managen. Nutzen Sie dann das Astra Control Center, um Snapshots, Backups, Klone und Replizierungsbeziehungen zu erstellen.
+Sie können Applikationen zu Ihrem Cluster hinzufügen. Wenn auch einige Applikationen bereits im Cluster gemanagt werden, können Sie sie mit Astra Control Center managen. Nutzen Sie dann das Astra Control Center, um Snapshots, Backups, Klone und Replizierungsbeziehungen zu erstellen.
 
 
 
