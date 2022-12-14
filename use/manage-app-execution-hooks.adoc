@@ -68,7 +68,7 @@ Wenn Sie mehrere Testausführungshaken desselben Typs erstellen (z. B. Pre-Snaps
 . Haken nach der Wiederherstellung ausgeführt
 
 
-Ein Beispiel für diese Konfiguration finden Sie in Szenario 2 aus der Tabelle in  whether a hook will run.
+Ein Beispiel für diese Konfiguration finden Sie in Szenario 2 aus der Tabelle in <<Bestimmen Sie, ob ein Haken läuft>>.
 
 
 NOTE: Sie sollten Ihre Hook-Skripte immer testen, bevor Sie sie in einer Produktionsumgebung aktivieren. Mit dem Befehl 'kubectl exec' können Sie die Skripte bequem testen. Nachdem Sie die Testausführungshaken in einer Produktionsumgebung aktiviert haben, testen Sie die erstellten Snapshots und Backups, um sicherzustellen, dass sie konsistent sind. Dazu klonen Sie die Applikation in einem temporären Namespace, stellen den Snapshot oder das Backup wieder her und testen anschließend die App.
@@ -131,6 +131,12 @@ Wenn Sie starten, aber dann brechen Sie ein Backup, das einen Snapshot enthält 
 |===
 
 
+== Beispiele für Testausführungshaken
+
+Besuchen Sie das https://github.com/NetApp/Verda["NetApp Verda GitHub Projekt"] Zum Herunterladen von Real-Execution-Hooks für beliebte Apps wie Apache Cassandra und Elasticsearch. Sie können auch Beispiele sehen und Ideen für die Strukturierung Ihrer eigenen benutzerdefinierten Execution Hooks erhalten.
+
+
+
 == Vorhandene Testsuiten anzeigen
 
 Sie können vorhandene benutzerdefinierte Testsuiten für eine App anzeigen.
@@ -191,6 +197,7 @@ Sie können einen oder mehrere Skripte hinzufügen, auf die Testausführungshake
 . Wählen Sie *Skript speichern*.
 
 
+.Ergebnis
 Das neue Skript erscheint in der Liste auf der Registerkarte *Scripts*.
 
 
@@ -213,7 +220,7 @@ NOTE: Wenn das Skript mit einem oder mehreren Testsuiten verknüpft ist, ist die
 
 == Erstellen Sie einen benutzerdefinierten Testsuite-Haken
 
-Sie können einen benutzerdefinierten Testsuite-Haken für eine App erstellen. Siehe link:execution-hook-examples.html["Beispiele für Testausführungshaken"^] Beispiele für Haken. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken zu erstellen.
+Sie können einen benutzerdefinierten Testsuite-Haken für eine App erstellen. Siehe <<Beispiele für Testausführungshaken>> Beispiele für Haken. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken zu erstellen.
 
 
 NOTE: Wenn Sie ein benutzerdefiniertes Shell-Skript erstellen, das als Execution Hook verwendet werden soll, denken Sie daran, die entsprechende Shell am Anfang der Datei anzugeben, es sei denn, Sie führen bestimmte Befehle aus oder geben den vollständigen Pfad zu einer ausführbaren Datei an.
@@ -320,4 +327,11 @@ Sie können einen Execution Hook ganz entfernen, wenn Sie ihn nicht mehr benöti
 . Wählen Sie die Registerkarte *Testsuitehaschen* aus.
 . Wählen Sie in der Spalte *Aktionen* das Menü Optionen für einen Haken, den Sie löschen möchten.
 . Wählen Sie *Löschen*.
+
+
+
+
+== Finden Sie weitere Informationen
+
+* https://github.com/NetApp/Verda["NetApp Verda GitHub Projekt"]
 

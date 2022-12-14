@@ -122,16 +122,16 @@ endif::aws[]
 
 == Definieren von Apps
 
-Nachdem Astra Control Namespaces auf den Clustern ermittelt hat, können Sie Anwendungen definieren, die Sie managen möchten. Sie können wählen  resources to manage as an app,Verwalten einer App, die einen oder mehrere Namespaces umfasst Oder  a namespace to manage as an app,Management eines gesamten Namespace als einzelne Applikation. All dies kommt auf die Granularität zurück, die Sie für Datensicherungsvorgänge benötigen.
+Nachdem Astra Control Namespaces auf den Clustern ermittelt hat, können Sie Anwendungen definieren, die Sie managen möchten. Sie können wählen <<Definition von Ressourcen, die als Applikation gemanagt werden sollen,Verwalten einer App, die einen oder mehrere Namespaces umfasst>> Oder <<Definieren Sie einen Namespace, der als App gemanagt werden soll,Management eines gesamten Namespace als einzelne Applikation>>. All dies kommt auf die Granularität zurück, die Sie für Datensicherungsvorgänge benötigen.
 
 Astra Control ermöglicht es Ihnen zwar, beide Ebenen der Hierarchie (den Namespace und die Apps in diesem Namespace oder den überspannenden Namespaces) separat zu verwalten, aber die beste Vorgehensweise ist es, eine oder andere zu wählen. Aktionen, die Sie in Astra Control nehmen, können fehlschlagen, wenn die Aktionen gleichzeitig sowohl auf Namespace- als auch auf App-Ebene stattfinden.
 
 
 TIP: Beispielsweise könnten Sie eine Backup-Policy für „maria“ setzen, die über ein wöchentliches Kadenz verfügt, aber vielleicht müssen Sie „mariadb“ (die sich im selben Namespace befindet) häufiger sichern. Basierend auf diesen Anforderungen müssen die Applikationen separat gemanagt werden und nicht als Single Namespace App.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Astra Control ist ein Kubernetes Cluster.
-* Eine oder mehrere installierte Applikationen auf dem Cluster.  app installation methods,Weitere Informationen zu unterstützten App-Installationsmethoden.
+* Eine oder mehrere installierte Applikationen auf dem Cluster. <<Unterstützte Installationsmethoden für Anwendungen,Weitere Informationen zu unterstützten App-Installationsmethoden>>.
 * Ein oder mehrere aktive Pods.
 * Namespaces sind auf dem Kubernetes-Cluster vorhanden, die Sie Astra Control hinzugefügt haben.
 * (Optional) ein Kubernetes-Etikett auf jeder beliebigen link:../use/manage-apps.html#app-management-requirements["Unterstützte Kubernetes-Ressourcen"].
@@ -148,8 +148,8 @@ TIP: Eine Bezeichnung ist ein Schlüssel-/Wertpaar, das Sie Kubernetes-Objekten 
 
 
 .Optionen für Applikationsmanagement
-*  resources to manage as an app
-*  a namespace to manage as an app
+* <<Definition von Ressourcen, die als Applikation gemanagt werden sollen>>
+* <<Definieren Sie einen Namespace, der als App gemanagt werden soll>>
 
 
 
@@ -255,7 +255,7 @@ Sie können alle Kubernetes-Ressourcen im Namespace zum Astra Control Management
 . Wählen Sie das Menü Aktionen für den Namespace aus, der die Anwendungsressourcen enthält, die Sie verwalten möchten, und wählen Sie *als Anwendung definieren* aus.
 +
 
-TIP: Wenn Sie mehrere Anwendungen definieren möchten, wählen Sie in der Namensliste die Schaltfläche *Aktionen* in der linken oberen Ecke aus und wählen Sie *als Anwendung definieren* aus. Damit werden mehrere einzelne Anwendungen in ihren einzelnen Namespaces definiert. Informationen zu Multi-Namespace-Anwendungen finden Sie unter  resources to manage as an app.
+TIP: Wenn Sie mehrere Anwendungen definieren möchten, wählen Sie in der Namensliste die Schaltfläche *Aktionen* in der linken oberen Ecke aus und wählen Sie *als Anwendung definieren* aus. Damit werden mehrere einzelne Anwendungen in ihren einzelnen Namespaces definiert. Informationen zu Applikationen mit mehreren Namespaces finden Sie unter <<Definition von Ressourcen, die als Applikation gemanagt werden sollen>>.
 
 +
 

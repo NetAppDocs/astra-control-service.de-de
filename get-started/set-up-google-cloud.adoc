@@ -25,25 +25,26 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 
 
 
-=== Astra Control Service-Anforderungen für Google Kubernetes Engine prüfen
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Astra Control Service-Anforderungen für Google Kubernetes Engine prüfen
 
 [role="quick-margin-para"]
-Stellen Sie sicher, dass die Cluster ordnungsgemäß sind und eine unterstützte Kubernetes-Version ausführen, dass Worker-Nodes online sind und einen unterstützten Bildtyp ausführen, und vieles mehr.  cluster requirements,Erfahren Sie mehr zu diesem Schritt.
+Stellen Sie sicher, dass die Cluster ordnungsgemäß sind und eine unterstützte Kubernetes-Version ausführen, dass Worker-Nodes online sind und einen unterstützten Bildtyp ausführen, und vieles mehr. <<GKE-Clusteranforderungen,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
-=== (Optional): Kaufen Sie Cloud Volumes Service für Google Cloud
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] (Optional): Kaufen Sie Cloud Volumes Service für Google Cloud
 
 [role="quick-margin-para"]
-Wenn Sie Cloud Volumes Service für Google Cloud als Storage-Back-End verwenden möchten, gehen Sie zur NetApp Cloud Volumes Service Seite im Google Cloud Marketplace und wählen Sie „Kaufen“.  Purchase Cloud Volumes Service for Google Cloud,Erfahren Sie mehr zu diesem Schritt.
+Wenn Sie Cloud Volumes Service für Google Cloud als Storage-Back-End verwenden möchten, gehen Sie zur NetApp Cloud Volumes Service Seite im Google Cloud Marketplace und wählen Sie „Kaufen“. <<Optional: Kauf von Cloud Volumes Service für Google Cloud,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
-=== Aktivieren Sie APIs in Ihrem Google Cloud-Projekt
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Aktivieren Sie APIs in Ihrem Google Cloud-Projekt
 
 [role="quick-margin-para"]
 Aktivieren Sie die folgenden Google Cloud APIs:
 
+[role="quick-margin-list"]
 * Google Kubernetes Engine
 * Cloud-Storage
 * Cloud Storage JSON API
@@ -61,15 +62,16 @@ Aktivieren Sie die folgenden Google Cloud APIs:
 
 
 [role="quick-margin-para"]
- APIs in your project,Befolgen Sie die Schritt-für-Schritt-Anweisungen.
+<<Aktivieren Sie APIs in Ihrem Projekt,Befolgen Sie die Schritt-für-Schritt-Anweisungen>>.
 
 
 
-=== Erstellen Sie ein Dienstkonto mit den erforderlichen Berechtigungen
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Erstellen Sie ein Dienstkonto mit den erforderlichen Berechtigungen
 
 [role="quick-margin-para"]
 Erstellen Sie ein Google Cloud-Servicekonto mit folgenden Berechtigungen:
 
+[role="quick-margin-list"]
 * Kubernetes Engine-Administrator
 * NetApp Cloud Volumes Admin
 +
@@ -83,21 +85,21 @@ Erstellen Sie ein Google Cloud-Servicekonto mit folgenden Berechtigungen:
 
 
 [role="quick-margin-para"]
- a service account,Lesen Sie Schritt-für-Schritt-Anleitungen.
+<<Erstellen eines Dienstkontos,Lesen Sie Schritt-für-Schritt-Anleitungen>>.
 
 
 
-=== Erstellen eines Service-Kontokonschlüssels
-
-[role="quick-margin-para"]
-Erstellen Sie einen Schlüssel für das Servicekonto, und speichern Sie die Schlüsseldatei an einem sicheren Speicherort.  a service account key,Befolgen Sie die Schritt-für-Schritt-Anweisungen.
-
-
-
-=== (Optional): Netzwerk-Peering für Ihr VPC einrichten
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"] Erstellen eines Service-Kontokonschlüssels
 
 [role="quick-margin-para"]
-Wenn Sie Cloud Volumes Service für Google Cloud als Storage-Back-End verwenden möchten, richten Sie Netzwerk-Peering von Ihrem VPC zu Cloud Volumes Service für Google Cloud ein.  Set up network peering for your VPC,Befolgen Sie die Schritt-für-Schritt-Anweisungen.
+Erstellen Sie einen Schlüssel für das Servicekonto, und speichern Sie die Schlüsseldatei an einem sicheren Speicherort. <<Erstellen eines Service-Kontokonschlüssels,Befolgen Sie die Schritt-für-Schritt-Anweisungen>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sechs"] (Optional): Netzwerk-Peering für Ihr VPC einrichten
+
+[role="quick-margin-para"]
+Wenn Sie Cloud Volumes Service für Google Cloud als Storage-Back-End verwenden möchten, richten Sie Netzwerk-Peering von Ihrem VPC zu Cloud Volumes Service für Google Cloud ein. <<Optional: Netzwerk-Peering für Ihr VPC einrichten,Befolgen Sie die Schritt-für-Schritt-Anweisungen>>.
 
 
 
@@ -109,7 +111,7 @@ Kubernetes-Version:: Auf einem Cluster muss eine Kubernetes-Version im Bereich v
 Bildtyp:: Der Bildtyp für jeden Arbeiterknoten muss sein `COS_CONTAINERD`.
 Der Cluster-Status:: Cluster müssen in einem ordnungsgemäßen Zustand ausgeführt werden und mindestens einen Online-Worker-Node ohne „Worker“-Nodes im ausgefallenen Status aufweisen.
 Google Cloud-Region:: Wenn Sie Cloud Volumes Service für Google Cloud als Storage-Back-End verwenden möchten, müssen Cluster in einem ausgeführt werden https://cloud.netapp.com/cloud-volumes-global-regions#cvsGc["Google Cloud-Region, in der Cloud Volumes Service für Google Cloud unterstützt wird."] Der Astra Control Service unterstützt beide Servicetypen: CVS und CVS-Performance. Als Best Practice sollten Sie eine Region wählen, die Cloud Volumes Service für Google Cloud unterstützt, auch wenn Sie sie nicht als Storage-Backend verwenden. Dies vereinfacht die Verwendung von Cloud Volumes Service für Google Cloud als Storage-Backend, wenn sich Ihre Performance-Anforderungen ändern.
-Netzwerkbetrieb:: Wenn Sie Cloud Volumes Service für Google Cloud als Storage-Back-End verwenden möchten, muss der Cluster in einer VPC oder der mit Cloud Volumes Service für Google Cloud Peering durchgeführt werden.  Set up network peering for your VPC,Dieser Schritt wird im Folgenden beschrieben.
+Netzwerkbetrieb:: Wenn Sie Cloud Volumes Service für Google Cloud als Storage-Back-End verwenden möchten, muss der Cluster in einer VPC oder der mit Cloud Volumes Service für Google Cloud Peering durchgeführt werden. <<Optional: Netzwerk-Peering für Ihr VPC einrichten,Dieser Schritt wird im Folgenden beschrieben>>.
 Private Cluster:: Wenn das Cluster privat ist, gilt das https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept["Autorisierte Netzwerke"^] Die Astra Control Service-IP-Adresse muss zugelassen werden:
 +
 --
@@ -200,6 +202,7 @@ Um GKE-Cluster zu verwalten, die sich in einem Projekt befinden, aber ein VPC au
 
 
 
+.Ergebnis
 Das Hinzufügen eines GKE-Clusters mithilfe einer gemeinsamen VPC wird mit Astra vollständig funktionieren.
 
 

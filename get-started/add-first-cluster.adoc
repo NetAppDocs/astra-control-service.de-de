@@ -14,18 +14,18 @@ summary: Nach der Einrichtung der Umgebung erstellen Sie sofort einen Kubernetes
 [role="lead"]
 Nach der Einrichtung der Umgebung erstellen Sie sofort einen Kubernetes Cluster und fügen ihn dann dem Astra Control Service hinzu.
 
-*  a Kubernetes cluster
-*  managing Kubernetes clusters
+* <<Erstellen eines Kubernetes-Clusters>>
+* <<Verwalten Sie Kubernetes-Cluster>>
 
 
 ifdef::aws[]
 
-*  cluster access to other users
+* <<Cluster-Zugriff für andere Benutzer bereitstellen>>
 
 
 endif::aws[]
 
-*  the default storage class
+* <<Ändern der Standard-Storage-Klasse>>
 
 
 
@@ -37,7 +37,7 @@ Wenn Sie noch keinen Cluster haben, können Sie ein Cluster erstellen, das erfü
 
 NOTE: Astra Control Service unterstützt AKS-Cluster, die Azure Active Directory (Azure AD) zur Authentifizierung und Identitätsverwaltung nutzen. Wenn Sie das Cluster erstellen, befolgen Sie die Anweisungen im https://docs.microsoft.com/en-us/azure/aks/managed-aad["Offizielle Dokumentation"^] Um den Cluster mit Azure AD zu konfigurieren. Stellen Sie sicher, dass Ihre Cluster die Anforderungen für die AKS-verwaltete Azure AD-Integration erfüllen.
 
-Sie haben auch die Möglichkeit, einen lokalen oder Cloud-gehosteten Cluster zu erstellen, den Sie selbst managen möchten. Sie können einen selbstverwalteten Cluster zum Astra Control Service hinzufügen, indem Sie ein hochladen `kubeconfig.yaml` Datei: Sie müssen sicherstellen, dass der Cluster die in aufgeführten Anforderungen erfüllt  managing Kubernetes clusters.
+Sie haben auch die Möglichkeit, einen lokalen oder Cloud-gehosteten Cluster zu erstellen, den Sie selbst managen möchten. Sie können einen selbstverwalteten Cluster zum Astra Control Service hinzufügen, indem Sie ein hochladen `kubeconfig.yaml` Datei: Sie müssen sicherstellen, dass der Cluster die in aufgeführten Anforderungen erfüllt <<Verwalten Sie Kubernetes-Cluster>>.
 
 
 
@@ -51,7 +51,7 @@ Nachdem Sie sich beim Astra Control Service angemeldet haben, beginnen Sie zunä
 ifdef::aws[]
 
 * Bei Amazon Web Services sollten Sie die JSON-Datei mit den Anmeldedaten des IAM-Benutzers, der das Cluster erstellt hat, haben. link:../get-started/set-up-amazon-web-services.html#create-an-iam-user["Erfahren Sie, wie ein IAM-Benutzer erstellt wird"].
-* Astra Trident ist für Amazon FSX für NetApp ONTAP erforderlich. Wenn Sie Amazon FSX für NetApp ONTAP als Storage-Backend für Ihren EKS-Cluster verwenden möchten, finden Sie in den Informationen zu Astra Trident im link:set-up-amazon-web-services.html#eks-cluster-requirements["EKS-Clusteranforderungen"].
+* Astra Trident ist für Amazon FSX für NetApp ONTAP erforderlich. Wenn Sie Amazon FSX für NetApp ONTAP als Storage-Backend für Ihren EKS-Cluster verwenden möchten, finden Sie die Informationen zu Astra Trident im link:set-up-amazon-web-services.html#eks-cluster-requirements["EKS-Clusteranforderungen"].
 
 
 endif::aws[]
@@ -69,7 +69,7 @@ ifdef::azure[]
 +
 Außerdem benötigen Sie Ihre Azure Abonnement-ID, wenn Sie sie nicht zur JSON-Datei hinzugefügt haben.
 
-* Private AKS-Cluster finden Sie unter link:manage-private-cluster.html["Managen Sie private Cluster über den Astra Control Service"^].
+* Informationen zu privaten AKS-Clustern finden Sie unter link:manage-private-cluster.html["Managen Sie private Cluster über den Astra Control Service"^].
 
 
 endif::azure[]
@@ -106,6 +106,7 @@ export-policy rule modify -vserver <storage virtual machine name> -policyname <p
 * *Rancher only*: Ändern Sie beim Verwalten von Anwendungsclustern in einer Rancher-Umgebung den Standardkontext des Anwendungsclusters in der von Rancher bereitgestellten kubeconfig-Datei, um einen Steuerebenen-Kontext anstelle des Rancher API-Serverkontexts zu verwenden. So wird die Last auf dem Rancher API Server reduziert und die Performance verbessert.
 
 
+.(Optional) Überprüfen Sie die Astra Trident-Version
 Wenn Ihr Cluster Astra Trident für Storage-Services verwendet, stellen Sie sicher, dass die aktuellste installierte Version von Astra Trident ist.
 
 .Schritte
@@ -142,7 +143,7 @@ NOTE: Wenn Astra Trident nicht oder nicht aktuell installiert ist und der Cluste
 ----
 kubectl get pods -n trident
 ----
-. Prüfen Sie, ob die Storage-Klassen die unterstützten Astra Trident Treiber verwenden. Der bereitstellungsname sollte lauten `csi.trident.netapp.io`. Das folgende Beispiel zeigt:
+. Prüfen Sie, ob die Storage-Klassen die unterstützten Astra Trident Treiber verwenden. Der bereitstellungsname sollte lauten `csi.trident.netapp.io`. Im folgenden Beispiel finden Sie weitere Informationen:
 +
 [source, console]
 ----
@@ -159,6 +160,7 @@ ontap-gold (default)   csi.trident.netapp.io          Delete          Immediate 
 ----
 
 
+.Erstellen Sie ein „admin-Role“-kubeconfig
 Stellen Sie sicher, dass Sie die folgenden Schritte auf Ihrem Gerät ausführen:
 
 * Kubectl v1.19 oder höher installiert
@@ -396,7 +398,7 @@ ifdef::azure[]
 +
 
 
-NOTE: Wenn Sie einen Cluster auswählen, der mit einem „Private“-Symbol gekennzeichnet ist, verwendet er private IP-Adressen, und der Astra Connector ist erforderlich, damit Astra Control den Cluster verwalten kann. Wenn Sie eine Meldung sehen, dass Sie den Astra Connector installieren müssen, link:manage-private-cluster.html["Siehe diese Anweisungen"] Um den Astra Connector zu installieren und die Verwaltung des Clusters zu ermöglichen. Nach der Installation des Astra Connectors sollte der Cluster geeignet sein und Sie können das Hinzufügen des Clusters fortsetzen.
+NOTE: Wenn Sie einen Cluster auswählen, der mit einem „Private“-Symbol gekennzeichnet ist, verwendet er private IP-Adressen, und der Astra Connector ist erforderlich, damit Astra Control den Cluster verwalten kann. Wenn Sie eine Meldung sehen, dass Sie den Astra Connector installieren müssen, link:manage-private-cluster.html["Beachten Sie diese Anweisungen"] Um den Astra Connector zu installieren und die Verwaltung des Clusters zu ermöglichen. Nach der Installation des Astra Connectors sollte der Cluster geeignet sein und Sie können das Hinzufügen des Clusters fortsetzen.
 
 endif::azure[]
 
@@ -466,6 +468,7 @@ endif::aws[]
 . *Überprüfen & Genehmigen*: Prüfen Sie die Konfigurationsdetails und wählen Sie *Cluster hinzufügen*.
 
 
+.Ergebnis
 *Für Provider-verwaltete Cluster*: Wenn dies der erste Cluster ist, den Sie für diesen Cloud-Provider hinzugefügt haben, erstellt Astra Control Service einen Objektspeicher für den Cloud-Provider für Applikations-Backups auf geeigneten Clustern. (Wenn Sie nachfolgende Cluster für diesen Cloud-Provider hinzufügen, werden keine weiteren Objektspeicher erstellt.) Astra Control Service setzt außerdem die von Ihnen angegebene Standard-Storage-Klasse. Für Cluster, die in Amazon Web Services oder Google Cloud Platform gemanagt werden, erstellt Astra Control Service auch ein Administratorkonto auf dem Cluster. Diese Vorgänge können mehrere Minuten dauern.
 
 ifdef::aws[]
@@ -476,7 +479,7 @@ ifdef::aws[]
 
 Optional können Sie angeben `kubectl` Befehlszugriff für ein Cluster für andere IAM-Benutzer, die nicht der Ersteller des Clusters sind.
 
-Anweisungen hierzu finden Sie unter https://aws.amazon.com/premiumsupport/knowledge-center/amazon-eks-cluster-access/["Wie erhalte ich Zugriff auf andere IAM-Benutzer und Rollen nach der Cluster-Erstellung in Amazon EKS?"^].
+Anweisungen finden Sie unter https://aws.amazon.com/premiumsupport/knowledge-center/amazon-eks-cluster-access/["Wie erhalte ich Zugriff auf andere IAM-Benutzer und Rollen nach der Cluster-Erstellung in Amazon EKS?"^].
 
 endif::aws[]
 
@@ -490,7 +493,7 @@ Sie können die Standard-Storage-Klasse für ein Cluster ändern.
 
 === Ändern Sie die Standard-Storage-Klasse mit Astra Control
 
-Sie können die Standard-Storage-Klasse für ein Cluster aus Astra Control ändern. Wenn Ihr Cluster einen zuvor installierten Speicher-Backend-Service verwendet, können Sie diese Methode möglicherweise nicht verwenden, um die Standard-Speicherklasse zu ändern (die Aktion *default* ist nicht wählbar). In diesem Fall können Sie  the default storage class using the command line.
+Sie können die Standard-Storage-Klasse für ein Cluster aus Astra Control ändern. Wenn Ihr Cluster einen zuvor installierten Speicher-Backend-Service verwendet, können Sie diese Methode möglicherweise nicht verwenden, um die Standard-Speicherklasse zu ändern (die Aktion *default* ist nicht wählbar). In diesem Fall können Sie <<Ändern Sie die Standard-Storage-Klasse über die Befehlszeile>>.
 
 .Schritte
 . Wählen Sie in der Astra Control Service-UI *Cluster* aus.

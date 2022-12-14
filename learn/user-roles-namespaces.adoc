@@ -26,7 +26,7 @@ Sie können Rollen verwenden, um den Zugriff von Benutzern auf Ressourcen oder F
 * Ein *Viewer* kann Ressourcen anzeigen.
 
 
-Sie können einem Mitglied oder Viewer-Benutzer Einschränkungen hinzufügen, um den Benutzer auf einen oder mehrere Benutzer zu beschränken .
+Sie können einem Mitglied oder Viewer-Benutzer Einschränkungen hinzufügen, um den Benutzer auf einen oder mehrere Benutzer zu beschränken <<Namespaces>>.
 
 
 

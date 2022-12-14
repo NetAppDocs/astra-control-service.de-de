@@ -19,7 +19,7 @@ Der Zugriff auf Astra Control Service erfolgt über eine SaaS-basierte Benutzero
 
 TIP: Sie können sich mit Single Sign-On über Anmeldedaten aus Ihrem Unternehmensverzeichnis (föderierte Identität) anmelden. Weitere Informationen erhalten Sie im https://cloud.netapp.com/help-center["Cloud Central Help Center"^] Und wählen Sie dann *Cloud Central Anmelde-Optionen*.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * link:../get-started/register.html["Eine Cloud Central Benutzer-ID"].
 * link:../get-started/register.html["Ein neues Astra Control Konto"] Oder link:manage-users.html["Einladung zu einem bestehenden Account"].
 * Einen unterstützten Webbrowser.

@@ -134,6 +134,7 @@ NOTE: Astra Control sendet Ihnen eine E-Mail, wenn sich die Kreditkarte dem Abla
 
 
 
+.Ergebnis
 Sie können jetzt mehr als 10 Namespaces verwalten. Astra Control lädt Sie für alle Namespaces, die Sie derzeit verwalten.
 
 
@@ -148,6 +149,7 @@ Wenden Sie sich an NetApp Sales, um im Rahmen eines Jahresabonnements eine Vorla
 . Geben Sie dem Vertriebsteam Details an, um den Prozess zu starten.
 
 
+.Ergebnis
 Ein NetApp Vertriebsmitarbeiter wird sich mit Ihnen in Verbindung setzen, um Ihre Bestellung zu bearbeiten. Nachdem die Bestellung abgeschlossen ist, wird Astra Control Ihren aktuellen Plan auf der Registerkarte *Abrechnung* widerspiegeln.
 
 

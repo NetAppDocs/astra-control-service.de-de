@@ -22,38 +22,38 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 
 
 
-=== Astra Control Service-Anforderungen für Azure Kubernetes Service prüfen
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Astra Control Service-Anforderungen für Azure Kubernetes Service prüfen
 
 [role="quick-margin-para"]
-Vergewissern Sie sich, dass die Cluster ordnungsgemäß sind und eine unterstützte Version von Kubernetes ausführen, dass Node-Pools unter Linux verfügbar sind und unter anderem.  Kubernetes Service cluster requirements,Erfahren Sie mehr zu diesem Schritt.
+Vergewissern Sie sich, dass die Cluster ordnungsgemäß sind und eine unterstützte Version von Kubernetes ausführen, dass Node-Pools unter Linux verfügbar sind und unter anderem. <<Anforderungen für den Azure Kubernetes Service-Cluster,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
-=== Melden Sie sich für Microsoft Azure an
-
-[role="quick-margin-para"]
-Erstellen Sie ein Microsoft Azure Konto.  up for Microsoft Azure,Erfahren Sie mehr zu diesem Schritt.
-
-
-
-=== Erstellen Sie einen Azure Service Principal
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Melden Sie sich für Microsoft Azure an
 
 [role="quick-margin-para"]
-Erstellen Sie einen Azure-Serviceprincipal mit der Rolle „Contributor“.  an Azure service principal,Erfahren Sie mehr zu diesem Schritt.
+Erstellen Sie ein Microsoft Azure Konto. <<Melden Sie sich für Microsoft Azure an,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
-=== Konfigurieren Sie die Treiberdetails für die Container-Storage-Schnittstelle (CSI)
-
-[role="quick-margin-para"]
-Sie müssen Ihr Azure-Abonnement und das Cluster konfigurieren, damit Sie mit den CSI-Treibern arbeiten können.  Container Storage Interface (CSI) driver details,Erfahren Sie mehr zu diesem Schritt.
-
-
-
-=== Optional: Redundanz für Azure Backup Buckets konfigurieren
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Erstellen Sie einen Azure Service Principal
 
 [role="quick-margin-para"]
-Standardmäßig verwendet der Buckets Astra Control Service für das Speichern von Azure Kubernetes Service-Backups die LRS-Redundanzoption (lokal Redundant Storage). Als optionaler Schritt können Sie einen langlebigen Grad an Redundanz für Azure Buckets konfigurieren.  Configure redundancy for Azure backup buckets,Erfahren Sie mehr zu diesem Schritt.
+Erstellen Sie einen Azure-Serviceprincipal mit der Rolle „Contributor“. <<Erstellen Sie einen Azure Service Principal,Erfahren Sie mehr zu diesem Schritt>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Konfigurieren Sie die Treiberdetails für die Container-Storage-Schnittstelle (CSI)
+
+[role="quick-margin-para"]
+Sie müssen Ihr Azure-Abonnement und das Cluster konfigurieren, damit Sie mit den CSI-Treibern arbeiten können. <<Konfigurieren Sie die Treiberdetails für die Container-Storage-Schnittstelle (CSI),Erfahren Sie mehr zu diesem Schritt>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"] Optional: Redundanz für Azure Backup Buckets konfigurieren
+
+[role="quick-margin-para"]
+Standardmäßig verwendet der Buckets Astra Control Service für das Speichern von Azure Kubernetes Service-Backups die LRS-Redundanzoption (lokal Redundant Storage). Als optionaler Schritt können Sie einen langlebigen Grad an Redundanz für Azure Buckets konfigurieren. <<Optional: Redundanz für Azure Backup Buckets konfigurieren,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 

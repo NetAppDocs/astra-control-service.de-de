@@ -51,6 +51,7 @@ Sie können bis zu 10 Benutzer gleichzeitig einladen. Sie können zwischen den N
 . Wählen Sie *Benutzer einladen*.
 
 
+.Ergebnis
 Der Benutzer oder die Benutzer erhalten eine E-Mail, die sie dazu einlädt, Ihrem Konto beizutreten.
 
 
@@ -71,6 +72,7 @@ Weitere Informationen zum Hinzufügen von Einschränkungen finden Sie unter link
 . Wählen Sie *Bestätigen*.
 
 
+.Ergebnis
 Astra Control aktualisiert die Benutzerberechtigungen auf der Grundlage der neuen Rolle, die Sie ausgewählt haben.
 
 
@@ -86,4 +88,5 @@ Ein Benutzer mit der Owner-Rolle kann andere Benutzer jederzeit aus dem Konto en
 . Wenn Sie aufgefordert werden, bestätigen Sie den Löschvorgang, indem Sie „Entfernen“ eingeben und dann *Ja, Benutzer entfernen* wählen.
 
 
+.Ergebnis
 Astra Control entfernt den Benutzer aus dem Konto.

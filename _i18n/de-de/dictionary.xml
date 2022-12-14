@@ -123,17 +123,14 @@
   <block id="d819b60633fd5eee6a163e88aa81da4e" category="paragraph">Astra Control Service kann Amazon Elastic Block Store (EBS) oder Amazon FSX für NetApp ONTAP als Storage-Back-Ends für Amazon Elastic Kubernetes Service (EKS) Cluster nutzen.</block>
   <block id="8e276a5c4eecb9cd5c1fbb0729744eb5" category="section-title">Amazon Elastic Block Store (EBS)</block>
   <block id="f83a0018c18787e63139822b6dc279ca" category="inline-link">Die Kubernetes-Dokumentation</block>
-  <block id="2cdb953d683ebf31f5a647fee041dc98" category="paragraph">Wenn Sie EBS als Speicher-Backend für EKS-Cluster verwenden, können Sie einige Speicherklassenparameter konfigurieren. Weitere Informationen über die Bedeutung der Parameter und deren Konfiguration finden Sie unter<block ref="efa17ec338493b6d9caef44d32a8989a" category="inline-link-rx"></block>.</block>
   <block id="7de084a73e1235e817952e00c38561e0" category="paragraph">Sie können mit EBS mehrere verschiedene Volume-Typen verwenden:</block>
   <block id="6b69488d82bbe2d01d166e7d12047938" category="list-text">Solid State-Laufwerke (SSD)</block>
   <block id="fa78e672adc4de65a148d9255690ef20" category="list-text">Festplattenlaufwerke (HDD)</block>
   <block id="4d7d62280a9a403c050aed16a866aafe" category="list-text">Vorherige Generation</block>
   <block id="6719d755d62147c2001683fc5b6abfa2" category="inline-link">Die Dokumentation zu Amazon EBS</block>
   <block id="978b82e4298231e68c6ac005c5e649aa" category="inline-link">Amazon EBS Preis</block>
-  <block id="7cdf2c25ad58c3d19ca28eed712858d2" category="paragraph">Weitere Informationen zu den einzelnen Volume-Typen und ihrer Performance finden Sie unter<block ref="7ac340f30d3ddae2dcb4baa266ef78ba" category="inline-link-rx"></block>. Preisinformationen finden Sie unter<block ref="7729091ef10325fb607ffe76c346cfed" category="inline-link-rx"></block>.</block>
   <block id="bc4bb24d5e702fb79be623b84e7cf47e" category="inline-link">Amazon FSX für die Performance von NetApp ONTAP</block>
   <block id="86305be6273e5fd50120867e93897613" category="inline-link">Amazon FSX für NetApp ONTAP-Preise</block>
-  <block id="216deec4f66c1acc8529a06df42142b8" category="paragraph">Wenn Sie FSX für NetApp ONTAP als Storage-Backend für AWS Cluster verwenden, hängt die I/O-Performance von der Konfiguration des Dateisystems und den Eigenschaften Ihrer Workloads ab. Weitere Informationen zur NetApp ONTAP-Performance finden Sie unter FSX<block ref="45a884cbefaf34ae6fd7defa1c6be8c3" category="inline-link-rx"></block>. Preisinformationen finden Sie unter<block ref="1fe52440a36dc241abcf36facca2f97a" category="inline-link-rx"></block>.</block>
   <block id="242b16009698fe8de90e3b0966885de7" category="summary">Lernen Sie die verfügbaren Datensicherungsarten im Astra Control Center kennen und erfahren Sie, wie Sie diese am besten für den Schutz Ihrer Applikationen nutzen.</block>
   <block id="8b3d0f4732164acbbcf0546961e00939" category="doc">Benutzerrollen und Namespaces</block>
   <block id="f26ee8a93c95de7a50a14b73f85172c5" category="paragraph">Informieren Sie sich über Benutzerrollen und Namespaces in Astra Control und darüber, wie Sie mit ihnen den Zugriff auf Ressourcen in Ihrem Unternehmen steuern können.</block>
@@ -163,7 +160,6 @@
   <block id="aebb9cdcb362fa09289e4128c30bb35b" category="paragraph">Einige Schritte sind zur Vorbereitung Ihres Microsoft Azure Abonnements erforderlich, bevor Sie Azure Kubernetes Service-Cluster mit Astra Control Service managen können. Folgen Sie diesen Anweisungen, wenn Sie Azure NetApp Files als Storage-Back-End verwenden möchten.</block>
   <block id="dc76c51bff59af0886e7f54ab9ef049d" category="section-title">Schnellstart für die Einrichtung von Azure</block>
   <block id="2433628c53fed80ea9d352a1bcd9ce45" category="paragraph">Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.</block>
-  <block id="6114e8a8f2850be98581400acbf88b6f" category="section-title">Astra Control Service-Anforderungen für Azure Kubernetes Service prüfen</block>
   <block id="276169ccd2a2393a29e9402ab483c9e7" category="inline-xref">Erfahren Sie mehr zu diesem Schritt</block>
   <block id="6e882caaeb7621de2de43e6764e4c46b" category="paragraph">Vergewissern Sie sich, dass die Cluster ordnungsgemäß sind und eine unterstützte Version von Kubernetes ausführen, dass Node-Pools unter Linux verfügbar sind und unter anderem. <block ref="9395dc33116d67c7ef7cce28cc804b43" category="inline-xref-macro-rx"></block>.</block>
   <block id="8aa1542b70e952ef5856c8311f2c94f8" category="section-title">Melden Sie sich für Microsoft Azure an</block>
@@ -172,7 +168,6 @@
   <block id="d8222de1aa927c141b3a208e534e2164" category="paragraph">Registrieren Sie den NetApp Resource Provider. <block ref="1a6283ac5652ee1365a6604fb78e9fc4" category="inline-xref-macro-rx"></block>.</block>
   <block id="1a58284cd0ffb72aa1652378f4ae9b61" category="section-title">Erstellen Sie einen NetApp Account</block>
   <block id="007f76469d94ff452fb5a960473f4697" category="paragraph">Erstellen Sie im Azure-Portal unter Azure NetApp Files einen NetApp Account. <block ref="d2becf07b74daf6c832034271db73d53" category="inline-xref-macro-rx"></block>.</block>
-  <block id="e82e5070cbce17a76f8a1282c7e2df78" category="section-title">Einrichten von Kapazitäts-Pools</block>
   <block id="fc5cc13d4c63e16c62deed1c25a97cfa" category="paragraph">Richten Sie einen oder mehrere Kapazitäts-Pools für Ihre persistenten Volumes ein. <block ref="e481f2b64bd3b8137ad15772007d7292" category="inline-xref-macro-rx"></block>.</block>
   <block id="42e9b5ee697da49886fd18e89e6ab1af" category="section-title">Delegieren eines Subnetzes an Azure NetApp Files</block>
   <block id="a5c5eef72d8371c545403ac8f92f1188" category="paragraph">Delegieren Sie ein Subnetz an Azure NetApp Files, damit der Astra Control Service persistente Volumes in diesem Subnetz erstellen kann. <block ref="246c727b900a21096813106e7733a9c4" category="inline-xref-macro-rx"></block>.</block>
@@ -262,13 +257,10 @@
   <block id="e42b53a05e4dc8d35c19c6e591938326" category="list-text">Erstellen Sie ein Azure-Storage-Konto, das die erforderliche Redundanzstufe verwendet<block ref="c9a7cb9a074b3428e720b565b7629c69" category="inline-link-rx"></block>.</block>
   <block id="71f57bd63430dbba34c12daa373f7996" category="list-text">Erstellen Sie einen Azure-Container auf dem neuen Storage-Konto mit<block ref="ba03a3cb851c493aa05900ed20930895" category="inline-link-rx"></block>.</block>
   <block id="97051796d8399cbd22e680d3212aa1c0" category="inline-link-macro">Fügen Sie einen zusätzlichen Bucket hinzu</block>
-  <block id="4a9b46e4514936c3267b624e9c48f76b" category="list-text">Fügen Sie den Container als Eimer zum Astra Control Service hinzu. Siehe <block ref="3ecbb82ace41389a409b1cc92181a5a8" category="inline-link-macro-rx"></block>.</block>
   <block id="05cec507b249987c2956da6a81ee5bfc" category="inline-link-macro">Ändern des Standard-Bucket</block>
-  <block id="695f1c0a89ac16190399389b6dfdcb1b" category="list-text">(Optional) um den neu erstellten Bucket als Standard-Bucket für Azure Backups zu verwenden, setzen Sie ihn als Standard-Bucket für Azure fest. Siehe <block ref="d1523cf11113b501cc0e7216254bf527" category="inline-link-macro-rx"></block>.</block>
   <block id="74b741fc3d54baf9d97610b2ee78aaef" category="summary">Nach der Einrichtung der Umgebung erstellen Sie sofort einen Kubernetes Cluster und fügen ihn dann dem Astra Control Service hinzu.</block>
   <block id="2e0924d60f841b17b95f6a2808bdd804" category="doc">Managen Sie private Cluster über den Astra Control Service</block>
   <block id="3cedfb797d3e1bc073ba2b0b4d2502cf" category="inline-link">Azure-Dokumentation</block>
-  <block id="c8fcc51aeb3108d7803f70ec023b3a68" category="paragraph">Sie können Astra Control Service verwenden, um private AKS-Cluster zu verwalten. In diesen Anweisungen wird davon ausgegangen, dass Sie bereits einen privaten AKS-Cluster erstellt und eine sichere Methode für den Remote-Zugriff vorbereitet haben. Weitere Informationen zum Erstellen und Abrufen privater AKS-Cluster finden Sie im<block ref="bfdd887fc5c3338c9209fd10a121cfd7" category="inline-link-rx"></block>.</block>
   <block id="9e4605ceac83f35027fa891eaf2bb9eb" category="list-text"><block ref="05078d418bde535da37d6932b80e8a20" category="inline-xref-macro-rx"></block></block>
   <block id="e8ce2464bf37469ae2c62738acfbb711" category="list-text"><block ref="5e32b52882fb881cccde1bbea6854039" category="inline-xref-macro-rx"></block></block>
   <block id="4279e57b0ffd5584ad9180bad366d154" category="list-text"><block ref="a43da73cfccd4e57608242913dee505f" category="inline-xref-macro-rx"></block></block>
@@ -286,7 +278,6 @@
   <block id="138db2318815f6b9fc7cc55dd6a6ad32" category="list-text">Überprüfen Sie den Status des Astra Connectors.</block>
   <block id="d0848afd8553c34945705222a97a4553" category="paragraph">Sie sollten eine Ausgabe wie die folgende sehen:</block>
   <block id="61ddd26ba79b5e63c1e52be1beb28889" category="section-title">Einrichtung von persistentem Storage</block>
-  <block id="238fef6639bfc4fa1851b172d5f2391f" category="paragraph">Konfigurieren Sie persistenten Storage für das Cluster. Sie können gemanagte Azure NetApp Files oder Azure Festplatten verwenden. In der Dokumentation Get Started finden Sie weitere Informationen zur Konfiguration von Azure mit diesen Optionen:</block>
   <block id="395e3e6bfbbde5a5e2d5c7679dcc81e9" category="list-text"><block ref="395e3e6bfbbde5a5e2d5c7679dcc81e9" category="inline-link-rx"></block></block>
   <block id="87716101cfca255da11056a624dbce47" category="inline-link">Richten Sie Microsoft Azure mit von Azure gemanagten Festplatten ein</block>
   <block id="19d863b4572c9f53c276383bbf2540e0" category="list-text"><block ref="19d863b4572c9f53c276383bbf2540e0" category="inline-link-rx"></block></block>
@@ -319,7 +310,6 @@
   <block id="5e580ebcce969330228846574f827aa7" category="paragraph">Private EKS-Cluster werden derzeit im Astra Control Service nicht unterstützt.</block>
   <block id="5802142fb14713d93859bda03cc52eb3" category="section-title">Azure Kubernetes Service-Cluster (AKS) werden registriert</block>
   <block id="970cfe22b76fecaa99669dbc6dd2643e" category="paragraph">*Kann ich einen privaten AKS-Cluster zum Astra Control Service hinzufügen?*</block>
-  <block id="dc20c422489ccc5588373c1641e476be" category="paragraph">Ja, Sie können private AKS-Cluster zu Astra Control Service hinzufügen. Informationen zum Hinzufügen eines privaten AKS-Clusters finden Sie unter <block ref="d51718998c7312025a3cf72e62416cc2" category="inline-link-macro-rx"></block>.</block>
   <block id="2dd2a1bdae3516df1950c153f6135366" category="paragraph">*Kann ich Active Directory zur Verwaltung der Authentifizierung für meine AKS-Cluster verwenden?*</block>
   <block id="54d90be7ed2f484693994a0a44b349d2" category="inline-link">Offizielle Dokumentation</block>
   <block id="e4b4463df81090495a7820578ac936d9" category="paragraph">Ja, Sie können Ihre AKS-Cluster so konfigurieren, dass sie Azure Active Directory (Azure AD) zur Authentifizierung und Identitätsverwaltung verwenden. Wenn Sie das Cluster erstellen, befolgen Sie die Anweisungen im<block ref="ba1ce5a57a4d347a0e1e2ecf2a2c91ba" category="inline-link-rx"></block> Um den Cluster mit Azure AD zu konfigurieren. Stellen Sie sicher, dass Ihre Cluster die Anforderungen für die AKS-verwaltete Azure AD-Integration erfüllen.</block>
@@ -356,7 +346,6 @@
   <block id="f75d983d4bc87e1a244c894a4357e93a" category="section-title">Management von Applikationen</block>
   <block id="eaeb56aabe324b7270ae7355bb58edcb" category="paragraph">*Kann Astra Control eine Anwendung bereitstellen?*</block>
   <block id="48df7f09a242df239385ebae869133b8" category="paragraph">Astra Control implementiert keine Applikationen. Applikationen müssen außerhalb von Astra Control bereitgestellt werden.</block>
-  <block id="395007096dc9e0b54c09749dc82a8941" category="paragraph">*Ich sehe keine PVCs meiner Anwendung, die an GCP CVS gebunden sind. Was ist falsch?*</block>
   <block id="a90204b381b7967a04938156531da34e" category="paragraph">Der Operator Astra Trident setzt die Standard-Storage-Klasse auf<block ref="cb56125f258291d2d25e0797165c0e2c" prefix=" " category="inline-code"></block> Nach dem erfolgreichen Hinzufügen zum Astra Control. Wenn PVCs einer Anwendung nicht an Cloud Volumes Service für Google Cloud gebunden sind, gibt es einige Schritte, die Sie durchführen können:</block>
   <block id="baaf63e6e2361e11fa4ae44151218b4e" category="list-text">Laufen<block ref="f7a6266d561ed7e94ff1f45bb43a2f5d" prefix=" " category="inline-code"></block> Und überprüfen Sie die Standard-Speicherklasse.</block>
   <block id="c5f298a00c4f6a85ebf65b24eef94a12" category="list-text">Prüfen Sie die yaml-Datei oder das Helm-Diagramm, das zum Bereitstellen der Anwendung verwendet wurde, und sehen Sie, ob eine andere Speicherklasse definiert ist.</block>
@@ -437,7 +426,6 @@
   <block id="457022d51f2e6150dfa70037b30d57b5" category="section-title">Cluster-Zugriff für andere Benutzer bereitstellen</block>
   <block id="436e78c3dd196f680aab83eb69543658" category="paragraph">Optional können Sie angeben<block ref="0f12ee5c9f1dd90158580f1c292b0d37" prefix=" " category="inline-code"></block> Befehlszugriff für ein Cluster für andere IAM-Benutzer, die nicht der Ersteller des Clusters sind.</block>
   <block id="043e32602230f742d954f613b7b5ce25" category="inline-link">Wie erhalte ich Zugriff auf andere IAM-Benutzer und Rollen nach der Cluster-Erstellung in Amazon EKS?</block>
-  <block id="093a92b145f56040f6587b882873553a" category="paragraph">Anweisungen hierzu finden Sie unter<block ref="47c83e7583e126455b2245655ede1c60" category="inline-link-rx"></block>.</block>
   <block id="3664703675e6ea0fab0e620eb7c74fb0" category="section-title">Ändern der Standard-Storage-Klasse</block>
   <block id="38219c9a076c4f4be6883cf24fcb296d" category="paragraph">Sie können die Standard-Storage-Klasse für ein Cluster ändern.</block>
   <block id="f78a360808495385816bde20028f4ed7" category="list-text">Wählen Sie in der Astra Control Service-UI *Cluster* aus.</block>
@@ -452,7 +440,6 @@
   <block id="d55b05877d0dd6743f47d3442323323e" category="doc">Einrichten von Amazon Web Services</block>
   <block id="fb10da4ac3f6d496bf8994feb7a9260a" category="paragraph">Zur Vorbereitung Ihres Amazon Web Services Projekts sind einige Schritte erforderlich, bevor Sie Amazon Elastic Kubernetes Service (EKS) Cluster mit Astra Control Service managen können.</block>
   <block id="21ddeedfeb4fe63a0174daa1cdf3f918" category="section-title">Schnellstart für die Einrichtung von Amazon Web Services</block>
-  <block id="db5cb6099819813775320e6db9122409" category="section-title">Astra Control Service-Anforderungen für Amazon Web Services überprüfen</block>
   <block id="341834e3353602e1a37c88a86b97ca5e" category="paragraph">Stellen Sie sicher, dass die Cluster ordnungsgemäß sind und eine unterstützte Version von Kubernetes ausführen, dass Worker-Nodes unter anderem Linux oder Windows online sind. <block ref="90f42ed2b1d825a48f1b470bf3220e90" category="inline-xref-macro-rx"></block>.</block>
   <block id="8b21b2a5aa0ab4306661248f68c1404c" category="section-title">Erstellen Sie ein Amazon-Konto</block>
   <block id="111efdc979f2ffefe4c216f07093039e" category="paragraph">Wenn Sie noch kein Amazon-Konto haben, müssen Sie ein Konto erstellen, damit Sie EKS verwenden können. <block ref="dd5a6c6e5aa2a8e0057f2f400ec690dc" category="inline-xref-macro-rx"></block>.</block>
@@ -474,10 +461,8 @@
   <block id="73faaa1b4bb064878667455dd879f4ba" category="list-text">Astra Trident für Amazon FSX für NetApp ONTAP</block>
   <block id="7c7909b36280dd94e57f2ee6a575a583" category="inline-link">Astra Trident – Übersicht über die Implementierung</block>
   <block id="337de5d45c69b1e4dcf87a8e7ec9ff76" category="inline-link">Setzen Sie Astra Trident mit Amazon FSX für NetApp ONTAP ein</block>
-  <block id="4a22a3053e036485081d787be11fdcae" category="list-text">Wenn Sie das Backend von Amazon FSX für NetApp ONTAP Storage nutzen, müssen Sie Astra Trident installieren. Anweisungen hierzu finden Sie unter<block ref="f6fce076fe7d8cd53c920b1f42e7a384" category="inline-link-rx"></block>. Weitere Informationen zur Verwendung von Astra Trident mit FSX für NetApp ONTAP finden Sie unter<block ref="720d51d7c9f57e4a266e8e3a5ab469c6" category="inline-link-rx"></block>.</block>
   <block id="0377220eb132179cb3e77bfec468b6e7" category="list-text">CSI-Treiber für Amazon Elastic Block Store (EBS)</block>
   <block id="45a3701ecc9be7702921ca0e93420bfb" category="list-text">Wenn Sie das Amazon EBS Storage-Backend verwenden, müssen Sie den Container Storage Interface (CSI)-Treiber für EBS installieren (dieser wird nicht automatisch installiert).</block>
-  <block id="8bfa23c838ad7a955dfb8629f1cbb4f4" category="paragraph">Anweisungen zur Installation des CSI-Treibers finden Sie in den entsprechenden Einzelheiten.</block>
   <block id="ffb90b59a71f73d5ffa61affe6f83805" category="list-title">Installieren Sie einen externen Schnappschussfilter</block>
   <block id="469f7ca16938508b5dcb777767828b70" category="list-text">Erstellen von Volume Snapshot-CRDs.</block>
   <block id="cb9d6d1ca0b4fda3b1206ae38a007824" category="paragraph">Verwenden Sie für Kubernetes ab Version 1.20 v1 Snapshot-CRDs mit Snapshot-Komponenten von v5.0.</block>
@@ -539,14 +524,12 @@
   <block id="163a9a2de2c53fd4caa470a2d7b49ba6" category="paragraph"><block ref="ae585ba9e035dc3bebfa255ad19291f2" category="inline-link-macro-rx"></block>.</block>
   <block id="f2314bb09d0efb96ec542b1e8f42798f" category="inline-link-macro">Erfahren Sie mehr über die von Microsoft Azure und Azure gemanagten Festplattenanforderungen</block>
   <block id="f3ada5ea7cbb146f87a40c9504f78e3b" category="paragraph"><block ref="a30c1b7efa0b121d09606b1ba764054c" category="inline-link-macro-rx"></block>.</block>
-  <block id="5cc7c722edeff02a4b01646c0e3fa3ad" category="section-title">Schließen Sie die Registrierung für den Astra Control ab</block>
   <block id="49fc376ed35249f3841846ede4dab884" category="inline-link">NetApp Cloud Central</block>
   <block id="d4e2866a87cb36aa53ac9d94e7402e45" category="list-text">Erstellen Sie ein<block ref="acbb6886c35e57125998fe7d6c5eea1f" category="inline-link-rx"></block> Konto.</block>
   <block id="ecefaf3209c4e5c804b1d3c466a9d510" category="inline-link">Von der Astra-Produktseite</block>
   <block id="fdcff977492d72bd4bad80358b5b7d99" category="list-text">Geben Sie Ihre NetApp Cloud Central E-Mail-ID an, wenn Sie Ihr Astra Control Konto erstellen<block ref="778ba27a5b5fe872bd25f23635cb760f" category="inline-link-rx"></block>.</block>
   <block id="8c14e4dec27dea8a5cc533eb50aa8d6e" category="inline-link-macro">Erfahren Sie mehr über den Registrierungsprozess</block>
   <block id="f2785b884437a4abfaf84ef4de8f60db" category="paragraph"><block ref="2f8c311f1f0fe130dd944321a6337c35" category="inline-link-macro-rx"></block>.</block>
-  <block id="94eecee45e93b07731a5b0419e759fd0" category="section-title">Fügen Sie Cluster zum Astra Control hinzu</block>
   <block id="a4a0f2c30880c790b9dbbfa923350694" category="paragraph">Nachdem Sie sich angemeldet haben, wählen Sie *Cluster hinzufügen*, um das Cluster mit Astra Control zu verwalten.</block>
   <block id="ce22cdbaf9c7b2a84e52b372cf44f51d" category="inline-link-macro">Erfahren Sie mehr über das Hinzufügen von Clustern</block>
   <block id="83a7557c5cbaf7c83dfb60426a040f0d" category="paragraph"><block ref="08870732ab38e40fc73b515a443d25f4" category="inline-link-macro-rx"></block>.</block>
@@ -700,10 +683,7 @@
   <block id="40b96cc305f26bed96812c2920065f5d" category="doc">Google Cloud einrichten</block>
   <block id="17bdc960e77c5de3d2f3da5e6e1affeb" category="admonition">Wenn Sie Google Cloud Volumes Service for Google Cloud nicht als Speicher-Backend nutzen, sondern zu einem späteren Zeitpunkt nutzen möchten, sollten Sie die notwendigen Schritte ausführen, um Google Cloud Volumes Service für Google Cloud jetzt zu konfigurieren. Das Erstellen eines Service-Kontos im späteren Verlauf bedeutet, dass der Zugriff auf die vorhandenen Storage-Buckets verloren geht.</block>
   <block id="34d2a25ad50e70e09e72aeff2a894d06" category="section-title">Schnellstart für die Einrichtung von Google Cloud</block>
-  <block id="04696f5c6f9ab48b84d14152c7d2d9e0" category="section-title">Astra Control Service-Anforderungen für Google Kubernetes Engine prüfen</block>
-  <block id="fbbc27547284c3072e2071336248818b" category="section-title">(Optional): Kaufen Sie Cloud Volumes Service für Google Cloud</block>
   <block id="e6413dede33ba057958606adbc17422c" category="paragraph">Wenn Sie Cloud Volumes Service für Google Cloud als Storage-Back-End verwenden möchten, gehen Sie zur NetApp Cloud Volumes Service Seite im Google Cloud Marketplace und wählen Sie „Kaufen“. <block ref="6c203046e996ae2c8ae4ca5118a1c856" category="inline-xref-macro-rx"></block>.</block>
-  <block id="877504ffbacff5a936df5d8b9380d0d7" category="section-title">Aktivieren Sie APIs in Ihrem Google Cloud-Projekt</block>
   <block id="0b6062af6539588bd15a413087b36a5d" category="paragraph">Aktivieren Sie die folgenden Google Cloud APIs:</block>
   <block id="f366dda7f9a232a211cc6ca9117b457e" category="list-text">Google Kubernetes Engine</block>
   <block id="5928c3e44960a9a5a42f9bc9303998af" category="list-text">Cloud-Storage</block>
@@ -717,7 +697,6 @@
   <block id="0625c0f8e7743736bda160aacb0f80c2" category="list-text">Service Networking API</block>
   <block id="a6fe26cb7a788bd1273103368fd7da8b" category="list-text">Service-Management-API</block>
   <block id="f32f6cbeaae00eede51aaf17d478b6a2" category="paragraph"><block ref="6ae62877e87e210bd21c8227bd1a036c" category="inline-xref-macro-rx"></block>.</block>
-  <block id="cd3646ae9a4a0c77ad84c8ef07aaae21" category="section-title">Erstellen Sie ein Dienstkonto mit den erforderlichen Berechtigungen</block>
   <block id="4bde2ad0fc4c457bbd9bd7d7748c1e09" category="paragraph">Erstellen Sie ein Google Cloud-Servicekonto mit folgenden Berechtigungen:</block>
   <block id="1760c8696f1d16c5ea53ed6387edd1bb" category="list-text">Kubernetes Engine-Administrator</block>
   <block id="fcb1826d2de1027ddf306a73178428c2" category="list-text">NetApp Cloud Volumes Admin</block>
@@ -726,7 +705,6 @@
   <block id="f8008ac76d4621b9f2f6615375a92b6b" category="list-text">Network Viewer Für Computing</block>
   <block id="524fbd145cf3cdca1d220812627f3c91" category="paragraph"><block ref="78300681b17866ce24ea7fd24331d746" category="inline-xref-macro-rx"></block>.</block>
   <block id="a5eb14e5f96b7cf86fe3afd8fc1eea47" category="paragraph">Erstellen Sie einen Schlüssel für das Servicekonto, und speichern Sie die Schlüsseldatei an einem sicheren Speicherort. <block ref="b6688736f50b847cb10f631c83eb3d23" category="inline-xref-macro-rx"></block>.</block>
-  <block id="6598aaca4a8279b1c9ab7c8c82b638d8" category="section-title">(Optional): Netzwerk-Peering für Ihr VPC einrichten</block>
   <block id="502c97679b307d8faeec7ed0f21ab494" category="paragraph">Wenn Sie Cloud Volumes Service für Google Cloud als Storage-Back-End verwenden möchten, richten Sie Netzwerk-Peering von Ihrem VPC zu Cloud Volumes Service für Google Cloud ein. <block ref="84845d5f135e6176b7fdf68b375d684b" category="inline-xref-macro-rx"></block>.</block>
   <block id="ff7c3dae8ad736b0186cac18877f5e34" category="section-title">GKE-Clusteranforderungen</block>
   <block id="7f89d8636a0619ff67eeed64dfc8e783" category="paragraph">Ein Kubernetes-Cluster muss folgende Anforderungen erfüllen, damit Sie ihn über den Astra Control Service erkennen und managen können. Einige dieser Anforderungen gelten nur, wenn Sie Cloud Volumes Service für Google Cloud als Storage-Backend verwenden möchten.</block>
@@ -842,14 +820,12 @@
   <block id="482723983a4f2af954e36ff41e567451" category="doc">Bekannte Einschränkungen</block>
   <block id="1ac484b7039a7a63fa107c6b607c9db1" category="section-title">Allgemeine Einschränkungen</block>
   <block id="623db30e78541159ce87dfd621c82f08" category="paragraph">Die folgenden Einschränkungen wirken sich auf das Management von Kubernetes-Clustern des Astra Control Service in jeder unterstützten Kubernetes-Implementierung aus.</block>
-  <block id="82adec1884becbf1b5df647fed914628" category="section-title">Astra Trident ist nicht von einem Cluster deinstalliert</block>
   <block id="2ffc1b9c31ec02503b31e837127256d6" category="inline-link">Folgen Sie den Schritten in der Dokumentation von Astra Trident</block>
   <block id="684d9922c22d027489e3cb0caa3d50ca" category="paragraph">Wenn Sie einen Cluster vom Astra Control Service aus verwalten, wird Astra Trident nicht automatisch aus dem Cluster deinstalliert. Um Astra Trident zu deinstallieren, müssen Sie es benötigen<block ref="63f898d0a9f06a9c415a80b9d724603c" category="inline-link-rx"></block>.</block>
   <block id="52613a0e2a34040faff2fa3713d61414" category="section-title">Bestehende Verbindungen zu einem Postgres-Pod führen zu Fehlern</block>
   <block id="b9f8e20735440b893e92df9f8f191ee9" category="paragraph">Wenn Sie Vorgänge auf Postgres-Pods durchführen, sollten Sie nicht direkt innerhalb des Pods verbinden, um den psql-Befehl zu verwenden. Astra Control Service erfordert psql-Zugriff, um die Datenbanken einzufrieren und zu tauen. Wenn eine bereits vorhandene Verbindung besteht, schlägt der Snapshot, die Sicherung oder der Klon fehl.</block>
   <block id="6bfe142cec74b24abd2888a936579280" category="section-title">Einschränkungen für die Verwaltung von GKE-Clustern</block>
   <block id="3265b2231bbb5d69811830c739f49e98" category="paragraph">Die folgenden Einschränkungen gelten für das Management von Kubernetes-Clustern in der Google Kubernetes Engine (GKE).</block>
-  <block id="339effc40f2ec827523a251742b3ca79" category="section-title">Google Marketplace Apps wurden nicht validiert</block>
   <block id="bd0e1e2eb280afdefcb2b4c6f1a09515" category="paragraph">NetApp hat keine über Google Marketplace bereitgestellten Applikationen validiert. Einige Benutzer berichten über Probleme bei der Erkennung oder Sicherung von Postgres-, MariaDB- und MySQL-Apps, die über den Google Marketplace bereitgestellt wurden.</block>
   <block id="43056e2e7b2e99afa90bfb5acff55921" category="paragraph">Unabhängig von der Art der Applikation, die Sie mit Astra Control Service verwenden, sollten Sie den Backup- und Restore-Workflow immer selbst testen, um sicherzustellen, dass Sie Ihre Disaster-Recovery-Anforderungen erfüllen.</block>
   <block id="ec566a7ae96d8d40feeed984810bbeaa" category="section-title">Einschränkungen beim Applikationsmanagement</block>
@@ -1093,7 +1069,6 @@
   <block id="d8fcf72bfd3b99486c35821d3f2e44f4" category="paragraph">Die Anmeldedaten stehen jetzt zur Verfügung, wenn Sie ein Cluster zu Astra Control hinzufügen.</block>
   <block id="25f033e226552b2f5ae002edb8e5fd2f" category="section-title">Anmeldedaten entfernen</block>
   <block id="82f2b96e6fd3cf7bfa88172cb51c9afc" category="inline-link-macro">Verwalten aller Cluster aufheben</block>
-  <block id="ae67f9136c5a827541839e278a3b8b0a" category="paragraph">Entfernen Sie die Anmeldeinformationen jederzeit aus einem Konto. Sie sollten erst nach dem Entfernen von Anmeldeinformationen verwenden <block ref="7193f1b7f27bd5505d89cc1e5724fb4b" category="inline-link-macro-rx"></block>, Sofern Sie die Anmeldeinformationen nicht ändern (siehe <block ref="029b7394eded829c95ca3b86c4cd802d" category="inline-xref-macro-rx"></block>).</block>
   <block id="12fce85c2a771804bf71c2607b90e479" category="admonition">Der erste Satz von Anmeldeinformationen, die Sie Astra Control hinzufügen, wird immer verwendet, da Astra Control die Zugangsdaten für die Authentifizierung im Backup-Bucket verwendet. Diese Anmeldedaten sollten am besten nicht entfernt werden.</block>
   <block id="1a5f98a95779208d9234fca9491f7096" category="list-text">Wählen Sie die Dropdown-Liste in der Spalte *Status* für die Anmeldeinformationen aus, die Sie entfernen möchten.</block>
   <block id="6f99fa9b2e1f4893851a8aeb82d171f9" category="list-text">Wählen Sie *Entfernen*.</block>
@@ -1110,27 +1085,7 @@
   <block id="35165f9b14f6cde03fa7f6f9b03732ba" category="list-text">Wählen Sie *Aktualisieren*.</block>
   <block id="fe7fbb88eb579dd44896aecd5e694bc8" category="list-text">Wiederholen Sie die Schritte *b* bis *e* für alle übrigen Eimer auf Ihrem System.</block>
   <block id="83a2a676c481bd5eeebf1ca2831091df" category="paragraph">Astra Control nutzt die Zugangsdaten für den neuen Cloud-Provider.</block>
-  <block id="a77683ae8edcb3cd1537700411834ab9" category="summary">Nutzen Sie die folgenden Beispiele, um eine Vorstellung davon zu erhalten, wie Sie Ihre Testausführungshaken strukturieren.</block>
   <block id="f1ec6389b6d19d3be02f29f4a7d29051" category="doc">Beispiele für Testausführungshaken</block>
-  <block id="3a93b0a9cf88ddc06d563489a2895c27" category="paragraph">Nutzen Sie die folgenden Beispiele, um eine Vorstellung davon zu erhalten, wie Sie Ihre Testausführungshaken strukturieren. Sie können diese Haken als Vorlagen oder als Testskripte verwenden.</block>
-  <block id="4080d94759fa38e6a6b1dba142b2c090" category="section-title">Einfaches Erfolgsbeispiel</block>
-  <block id="0633de588be1b9b7ef2ce544cc43b805" category="paragraph">Dies ist ein Beispiel für einen einfachen Haken, der erfolgreich ist und eine Nachricht in die Standardausgabe und Standardfehler schreibt.</block>
-  <block id="2140ca0b50b65cc33e13b1693e8f7d29" category="section-title">Einfaches Erfolgsbeispiel (Bash-Version)</block>
-  <block id="ef53d64aad9e1800233c6ff7ad7659a6" category="paragraph">Dies ist ein Beispiel für einen einfachen Haken, der erfolgreich ist und eine Nachricht in die Standardausgabe und Standardfehler schreibt, für bash geschrieben.</block>
-  <block id="d803bd21292822cc57f6cea1b26277a6" category="section-title">Einfaches Erfolgsbeispiel (zsh-Version)</block>
-  <block id="66b0025d5aab9045e3b45a4d66a48753" category="paragraph">Dies ist ein Beispiel für einen einfachen Haken, der erfolgreich ist und eine Nachricht in Standardausgabe und Standardfehler schreibt, geschrieben für Z Shell.</block>
-  <block id="404a19c311e695f744083ec2c8a6a1aa" category="section-title">Erfolg mit Argumenten Beispiel</block>
-  <block id="824760aa066fdf7d7264404530eab6de" category="paragraph">Das folgende Beispiel zeigt, wie Sie in einem Haken Aargliste verwenden können.</block>
-  <block id="82319328d67378fb8ea8de76b217a7b1" category="section-title">Beispiel für Haken vor dem Snapshot/nach dem Snapshot</block>
-  <block id="98fa2db3a9b66ee5684a718840275afc" category="paragraph">Das folgende Beispiel zeigt, wie dasselbe Skript sowohl für einen Pre-Snapshot als auch für einen Post-Snapshot-Haken verwendet werden kann.</block>
-  <block id="07feeb75b51e9098527fcce368e18ba4" category="section-title">Fehlerbeispiel</block>
-  <block id="76214508e53f6a5210da5d087deabd64" category="paragraph">Das folgende Beispiel zeigt, wie Sie Fehler in einem Haken handhaben können.</block>
-  <block id="3619ce0a3177781c10d45dcef727f469" category="section-title">Beispiel für ausführlichen Fehler</block>
-  <block id="e29a5c052b79db2027518d6f91a1bf51" category="paragraph">Das folgende Beispiel zeigt, wie Sie Fehler in einem Haken mit detaillierteren Protokollierung behandeln können.</block>
-  <block id="b1eef973caa0256ee30c734876bbea52" category="section-title">Fehler bei einem Beispiel für den Exit-Code</block>
-  <block id="72a1fa5b5d8898a40469febc542a9fb1" category="paragraph">Das folgende Beispiel zeigt, dass ein Haken mit einem Exit-Code ausfällt.</block>
-  <block id="19913f9a3a2b84a8e9235b0b3b542efb" category="section-title">Beispiel Erfolg nach Ausfall</block>
-  <block id="bb2f4bbf1bdeef5e734446fc84fd577d" category="paragraph">Das folgende Beispiel zeigt, dass bei der ersten Ausführung ein Haken versagt, der jedoch nach dem zweiten Lauf erfolgreich ist.</block>
   <block id="ad37cec77527ba2b72ebad59937415a8" category="summary">Entfernen Sie alle Applikationen oder Cluster, die Sie nicht mehr über Astra Control managen möchten.</block>
   <block id="e22a0ea89c99a70578a25d6819a17c5e" category="doc">Heben Sie das Management von Applikationen und Clustern auf</block>
   <block id="bf8c1c55cd29562d4dd4520d4e2fb45a" category="section-title">Verwaltung einer Anwendung beenden</block>
@@ -1285,7 +1240,6 @@
   <block id="0f024621e0673f1f4e657983682d6e72" category="list-text">Wählen Sie *Löschen*.</block>
   <block id="9dd5d4388456b71f9b71c1021d390f06" category="admonition">Wenn das Skript mit einem oder mehreren Testsuiten verknüpft ist, ist die Aktion *Löschen* nicht verfügbar. Um das Skript zu löschen, bearbeiten Sie zunächst die zugehörigen Testausführungshaken und ordnen Sie sie einem anderen Skript zu.</block>
   <block id="c45dea86b5befe190795d48755984936" category="section-title">Erstellen Sie einen benutzerdefinierten Testsuite-Haken</block>
-  <block id="accd1f6705376b7c94fe544977e50545" category="paragraph">Sie können einen benutzerdefinierten Testsuite-Haken für eine App erstellen. Siehe <block ref="6d8239255f3b956e54f6aae8a56a0ae9" category="inline-link-macro-rx"></block> Beispiele für Haken. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken zu erstellen.</block>
   <block id="88cf147ac90a429c61c32e7ab09e79bd" category="admonition">Wenn Sie ein benutzerdefiniertes Shell-Skript erstellen, das als Execution Hook verwendet werden soll, denken Sie daran, die entsprechende Shell am Anfang der Datei anzugeben, es sei denn, Sie führen bestimmte Befehle aus oder geben den vollständigen Pfad zu einer ausführbaren Datei an.</block>
   <block id="646a0acc29f56871519ed10b81ce1989" category="list-text">Legen Sie im Bereich *Hook Details* fest, wann der Haken ausgeführt werden soll, indem Sie im Dropdown-Menü *Operation* einen Operationstyp auswählen.</block>
   <block id="4069b8bd7c11bc17efc85c9bb6d794c1" category="list-text">Geben Sie einen eindeutigen Namen für den Haken ein.</block>
@@ -1327,12 +1281,10 @@
   <block id="5a9a54223f08ece3bf609ecd8d391185" category="list-text">Die E-Mail-Adresse muss mit der E-Mail-Adresse übereinstimmen, die der Benutzer für die Anmeldung bei Cloud Central verwendet hat.</block>
   <block id="07bb712636ed13b638d72bb327675777" category="list-text">Jede Rolle bietet die folgenden Berechtigungen:</block>
   <block id="7db390618915f5cf14f0a045ddccc95f" category="list-text">Um einem Benutzer mit einer Mitglied- oder Viewer-Rolle Einschränkungen hinzuzufügen, aktivieren Sie das Kontrollkästchen * Rolle auf Einschränkungen beschränken*.</block>
-  <block id="42adeb90b0f3a4a988d809b0aa25dd99" category="paragraph">Weitere Informationen zum Hinzufügen von Einschränkungen finden Sie unter <block ref="f9b0c5590ff6fff298698f3844cae23c" category="inline-link-macro-rx"></block>.</block>
   <block id="fc578ea915be6294495556998e7ae8b8" category="list-text">Um einen anderen Benutzer einzuladen, wählen Sie *Weitere Benutzer hinzufügen* und geben Sie Informationen für den neuen Benutzer ein.</block>
   <block id="bea14784e79282fdab76fc601ca83f89" category="paragraph">Sie können bis zu 10 Benutzer gleichzeitig einladen. Sie können zwischen den Nutzern, die Sie einladen, auf der linken Seite des Dialogfelds * Benutzer einladen* navigieren.</block>
   <block id="b9e9a0596a083c96a1f0e81b4b4439db" category="list-text">Wählen Sie *Benutzer einladen*.</block>
   <block id="89d3892e4e90a543b941b074c0aad94a" category="paragraph">Der Benutzer oder die Benutzer erhalten eine E-Mail, die sie dazu einlädt, Ihrem Konto beizutreten.</block>
-  <block id="a3f6d57c07e3d951867e570c6f3e5028" category="section-title">Ändern Sie die Rolle eines Benutzers</block>
   <block id="b0f57f653f46b0fd636400edc6408e25" category="paragraph">Ein Kontoinhaber kann die Rolle aller Benutzer ändern, während ein Kontoadministrator die Rolle von Benutzern ändern kann, die über die Rolle „Administrator“, „Mitglied“ oder „Viewer“ verfügen.</block>
   <block id="abbfbf0df36b4fe4990353c5af13ef6b" category="list-text">Wählen Sie auf der Registerkarte *Benutzer* das Menü in der Spalte *Aktionen* für den Benutzer aus.</block>
   <block id="8b950be10553ca14d8752cc7cbea7834" category="list-text">Wählen Sie *Rolle bearbeiten*.</block>
@@ -1365,7 +1317,6 @@
   <block id="5d2bbbb5e8eadfe7beda56382db3b48e" category="paragraph">Die Liste der verfügbaren Buckets für den Astra Control Service wird angezeigt.</block>
   <block id="9c6ebb12d9cd173ee88e3b73cabe77b4" category="paragraph">Nachdem Sie mit dem Management eines Clusters bei Ihrem Cloud-Provider begonnen haben, können Sie jederzeit weitere Buckets hinzufügen. Damit können Sie beim Erstellen einer Sicherungsrichtlinie zwischen Buckets wählen und den Standard-Bucket für Ad-hoc-Backups und Klone ändern.</block>
   <block id="59eaa325284587d87d8a183c0fcffbdf" category="paragraph">Beachten Sie, dass der Astra Control Service Ihnen nicht ermöglicht, einen Bucket zu entfernen, nachdem Sie ihn hinzugefügt haben.</block>
-  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">Was Sie und#8217;ll benötigen</block>
   <block id="dd6354a9b0182f27b3ea1d07811a3bdd" category="list-text">Der Name eines vorhandenen Buckets bei Ihrem Cloud-Provider.</block>
   <block id="69655d7e1814b014798597363d3d2639" category="list-text">Wenn Ihr Bucket in Azure ist, muss er zur Ressourcengruppe namens _astra-Backup-rg_ gehören.</block>
   <block id="b21aa3a75aa9fe5b7c4320c651dd6004" category="list-text">Wählen Sie *Hinzufügen* und folgen Sie den Anweisungen, um den Eimer hinzuzufügen.</block>
@@ -1375,7 +1326,6 @@
   <block id="2748cc7be12db184f15633496762281f" category="list-text">*Beschreibung*: Geben Sie optional eine Beschreibung des Eimers ein.</block>
   <block id="0e7f3e02eec3115e69bf39331337aa40" category="list-text">*Storage-Konto* (nur Azure): Geben Sie den Namen Ihres Azure-Speicherkontos ein. Dieser Bucket muss zur Ressourcengruppe namens _astra-Backup-rg_ gehören.</block>
   <block id="46c53b029194c1de2930d506c617135a" category="inline-link">Die Amazon-Dokumentation</block>
-  <block id="67923dd978919e4cfb6eefb99c5e9b2b" category="list-text">*S3-Servername oder IP-Adresse* (nur AWS): Geben Sie ohne den vollständig qualifizierten Domainnamen des S3-Endpunkts ein, der Ihrer Region entspricht<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block>. Siehe<block ref="398d47c523652edc934ec11e2f213d87" category="inline-link-rx"></block> Finden Sie weitere Informationen.</block>
   <block id="833ccc7f60627a26323104a362bc1335" category="list-text">*Select Credentials*: Wählen Sie die Anmeldeinformationen aus, die den Astra Control Service mit den Berechtigungen zur Verwaltung des Buckets bereitstellen.</block>
   <block id="621fd3eeb2e69c8bf3ab93a1c00d4627" category="list-text">Wählen Sie *Hinzufügen*, um den Eimer hinzuzufügen.</block>
   <block id="eca980095ee0892315ee71b705935c75" category="paragraph">Astra Control Service fügt den zusätzlichen Bucket hinzu. Sie können jetzt beim Erstellen einer Schutzrichtlinie den Bucket auswählen.</block>
@@ -1446,8 +1396,6 @@
   <block id="c3443c90c9a8c8ae70d0708cc778b7b2" category="list-text">Eine oder mehrere installierte Applikationen auf dem Cluster. <block ref="9a14b35f09704dd5c457f47f10cb55d6" category="inline-xref-macro-rx"></block>.</block>
   <block id="c7ba9d64e9c385851048858df4e26ef6" category="list-text">Ein oder mehrere aktive Pods.</block>
   <block id="6f2886ca9812fade1ff2d6197498a80b" category="inline-link-macro">Unterstützte Kubernetes-Ressourcen</block>
-  <block id="a24daf3d2d584a2ee6adcd097ffde406" category="inline-link">In der offiziellen Kubernetes-Dokumentation finden Sie weitere Informationen</block>
-  <block id="0de4b069ef42dc2162b352a8d0c79120" category="admonition">Eine Bezeichnung ist ein Schlüssel-/Wertpaar, das Sie Kubernetes-Objekten zur Identifizierung zuweisen können. Etiketten erleichtern das Sortieren, Organisieren und Auffinden Ihrer Kubernetes-Objekte. Weitere Informationen zu Kubernetes-Labels:<block ref="52425cbbdd8e653f3efe28de3861375f" category="inline-link-rx"></block>.</block>
   <block id="a7d4d20683a8972d07170d4ce5f3329b" category="inline-link-macro">Verwalten von Standard- und Systemnames</block>
   <block id="eeda690c7ce6ed8c1c0aa2b723a685bf" category="inline-link-macro">Astra Automation und API-Informationen</block>
   <block id="8e53ab6973e348c5dae1439036057fb9" category="list-title">Optionen für Applikationsmanagement</block>
@@ -1461,7 +1409,6 @@
   <block id="3e88b428d08b8d89b8283702d678db03" category="list-text">Wählen Sie auf der Seite Anwendungen die Option *Definieren*.</block>
   <block id="e2d8d6d70aac2542d44827bfcb764051" category="list-text">Geben Sie im Fenster *Anwendung definieren* den App-Namen ein.</block>
   <block id="331f43fe2f77c6a01f41be4dfb5ef6c2" category="list-text">Wählen Sie den Cluster aus, auf dem Ihre Anwendung ausgeführt wird, in der Dropdown-Liste * Cluster* aus.</block>
-  <block id="a3c68e5320b67f406e968a257b3689d7" category="admonition">Weitere Informationen zu Kubernetes-Labels:<block ref="52425cbbdd8e653f3efe28de3861375f" category="inline-link-rx"></block>.</block>
   <block id="2aca38aa389f0e98ff0647310552fcae" category="list-text">Nachdem Sie *Definieren* ausgewählt haben, wiederholen Sie den Vorgang für andere Apps, je nach Bedarf.</block>
   <block id="4ea4809229f58272b813b2c68b742bc5" category="admonition">Die gerade hinzugefügte App verfügt möglicherweise über ein Warnsymbol unter der Spalte „geschützt“, das angibt, dass sie nicht gesichert ist und noch keine Backups geplant sind.</block>
   <block id="21bc83f1a45ccd9ced02ab96641c2f58" category="admonition">Um Details zu einer bestimmten App anzuzeigen, wählen Sie den App-Namen aus.</block>
@@ -1635,7 +1582,6 @@
   <block id="77f724b0450d887ae90354dc86af187f" category="section-title">Anzeigen von Snapshots und Backups</block>
   <block id="89ce96bd0da29cf41a1d1e5a1e31750c" category="paragraph">Sie können die Snapshots und Backups einer Anwendung auf der Registerkarte Datenschutz anzeigen.</block>
   <block id="ba422de2b441f28df52aa1523655128b" category="paragraph">Die Snapshots werden standardmäßig angezeigt.</block>
-  <block id="21edb917a28989ae581923ea55405922" category="list-text">Wählen Sie *Backups*, um die Liste der Backups anzuzeigen.</block>
   <block id="8500d6221925869568fd1f2e92a1c01c" category="section-title">Snapshots löschen</block>
   <block id="a37bf6328466dc531288498c6041de5f" category="paragraph">Löschen Sie die geplanten oder On-Demand Snapshots, die Sie nicht mehr benötigen.</block>
   <block id="c8f1b20b930375870e81fc1e06d3da08" category="paragraph">Astra Control löscht den Snapshot.</block>
@@ -1737,8 +1683,6 @@
   <block id="ba1383f60e0d2536b7ceee7e21cbf214" category="paragraph">Sie haben auch die Möglichkeit, einen lokalen oder Cloud-gehosteten Cluster zu erstellen, den Sie selbst managen möchten. Sie können einen selbstverwalteten Cluster zum Astra Control Service hinzufügen, indem Sie ein hochladen<block ref="ea46161c66978a87802bc5b44682cbe0" prefix=" " category="inline-code"></block> Datei: Sie müssen sicherstellen, dass der Cluster die in aufgeführten Anforderungen erfüllt <block ref="fedf37c1e98889c2b8f08b9cf9723656" category="inline-xref-macro-rx"></block>.</block>
   <block id="a30241413c2751b1ad5c5a00e914e0a1" category="paragraph">Nachdem Sie sich beim Astra Control Service angemeldet haben, beginnen Sie zunächst mit dem Verwalten Ihrer Cluster. Sie können ein von einem Cloud-Provider gemanagtes Cluster oder einen Self-Managed Cluster hinzufügen. Bevor Sie dem Astra Control Service einen Cluster hinzufügen, müssen Sie bestimmte Aufgaben ausführen und sicherstellen, dass der Cluster bestimmte Anforderungen erfüllt.</block>
   <block id="75cea9c777f72349fb550387eafc09c1" category="example-title">Was Sie&amp;#8217;ll benötigen Cluster, die von einem Cloud-Provider verwaltet werden</block>
-  <block id="e256d39ed41526a8b51a32a968630d6d" category="list-text">Astra Trident ist für Amazon FSX für NetApp ONTAP erforderlich. Wenn Sie Amazon FSX für NetApp ONTAP als Storage-Backend für Ihren EKS-Cluster verwenden möchten, finden Sie in den Informationen zu Astra Trident im <block ref="e68d00178a10629977a40b55006d1823" category="inline-link-macro-rx"></block>.</block>
-  <block id="d945cbaf850b022774182345b64bf993" category="list-text">Private AKS-Cluster finden Sie unter <block ref="104a7dd39d72f9f66f9cd954ba655942" category="inline-link-macro-rx"></block>.</block>
   <block id="9eecb04f40bc3e3811b2fcfff6ea5b4f" category="example-title">Was Sie&amp;#8217;ll benötigen für selbstverwaltete Cluster</block>
   <block id="8795dc03295c2ac742d1936726a56ab0" category="paragraph">Ihr Cluster muss die folgenden Anforderungen erfüllen:</block>
   <block id="14f50fdd763a95c364923f6466b1bdfe" category="list-text">Der Cluster muss über das Internet zugänglich sein</block>
@@ -1762,9 +1706,7 @@
   <block id="617eb1530b145e1d6b1e3a0d2ec1478d" category="list-text">Testen Sie die Version von Astra Trident.</block>
   <block id="296a853ce5b2af1089a92d18fb98dbf2" category="paragraph">Wenn Astra Trident installiert ist, wird die Ausgabe wie folgt ausgegeben:</block>
   <block id="ffcc0feca3c8cd069d4965c88a5c1ebb" category="paragraph">Wenn Astra Trident nicht installiert ist, wird die Ausgabe wie folgt angezeigt:</block>
-  <block id="ebd6653aa1aac0d874d63044391eda8f" category="admonition">Wenn Astra Trident nicht oder nicht aktuell installiert ist und der Cluster Astra Trident für Storage-Services verwenden soll, müssen Sie vor dem Fortfahren die neueste Version von Astra Trident installieren. Siehe<block ref="0a4eeddcb63a166e3ea6149a4a33d4e7" category="inline-link-rx"></block> Weitere Anweisungen.</block>
   <block id="6c8bc25bbb383bdd569b3a8b67462c4a" category="list-text">Stellen Sie sicher, dass die Pods ausgeführt werden:</block>
-  <block id="92010309b57bb643c5fe3dd115c6b2e3" category="list-text">Prüfen Sie, ob die Storage-Klassen die unterstützten Astra Trident Treiber verwenden. Der bereitstellungsname sollte lauten<block ref="08044207e9f63bb0fd474dab347a776c" prefix=" " category="inline-code"></block>. Das folgende Beispiel zeigt:</block>
   <block id="6d55356ca8cb9b27cfa6e2bb46ebb089" category="paragraph">Beispielantwort:</block>
   <block id="7e4e5121275b933eab9a9d5689c80875" category="paragraph">Stellen Sie sicher, dass Sie die folgenden Schritte auf Ihrem Gerät ausführen:</block>
   <block id="f6ca4dc4443aea5e0b0f91e229709c7c" category="list-text">Kubectl v1.19 oder höher installiert</block>
@@ -1787,13 +1729,10 @@
   <block id="aae2bc70406cacace4dfa6be8d857f2c" category="list-text">*Provider*: Wählen Sie Ihren Cloud-Provider aus und geben Sie dann entweder die erforderlichen Anmeldedaten für die Erstellung einer neuen Cloud-Instanz an, oder wählen Sie eine vorhandene Cloud-Instanz aus.</block>
   <block id="38e2b31fd3dcdd65304ac201efd17f06" category="list-text">*Other*: Geben Sie Details über Ihren selbstverwalteten Cluster durch das Hochladen eines<block ref="ea46161c66978a87802bc5b44682cbe0" prefix=" " category="inline-code"></block> Datei oder durch Einfügen des Inhalts des<block ref="ea46161c66978a87802bc5b44682cbe0" prefix=" " category="inline-code"></block> Datei aus der Zwischenablage.</block>
   <block id="d9348d075dc7b3c91cff99d56dfc327b" category="inline-link">Kubernetes-Dokumentation</block>
-  <block id="04b7edd723480f6d26b90b3374f8646b" category="admonition">Wenn Sie Ihre eigenen erstellen<block ref="deabc6332aa53495b56c51d2e3eca54f" prefix=" " category="inline-code"></block> Datei, Sie sollten nur ein *ein*-Kontext-Element darin definieren. Siehe<block ref="54676762f2eb4e7149fe4e9996a20b1c" category="inline-link-rx"></block> Weitere Informationen zum Erstellen<block ref="deabc6332aa53495b56c51d2e3eca54f" prefix=" " category="inline-code"></block> Dateien:</block>
   <block id="9fc84d64f86a2fb623a35c5692c96941" category="inline-link-macro">Cloud-Instanzen</block>
   <block id="6d19112b98ccacfb730d0287c99eb91c" category="list-text">*Cloud-Name* (für Provider-verwaltete Cluster): Geben Sie einen Namen für die neue Cloud-Instanz an, die beim Hinzufügen dieses Clusters erstellt wird. Weitere Informationen zu <block ref="32e60ef2ecbf9cc1dffc20ea8b07ceea" category="inline-link-macro-rx"></block>.</block>
   <block id="5621ce04305fabeb5c1385e8b31521fa" category="admonition">Wenn Sie aus der Cluster-Liste auswählen, achten Sie auf die entsprechende Registerkarte. Wenn eine Warnung angezeigt wird, fahren Sie mit der Warnmeldung über die Warnmeldung, um festzustellen, ob es ein Problem mit dem Cluster gibt. Beispielsweise kann sie erkennen, dass für das Cluster kein Worker Node vorhanden ist.</block>
   <block id="26b17225b626fb9238849fd60eabdf60" category="paragraph">+</block>
-  <block id="17987e30da56ea153df5aba55c493f7c" category="inline-link-macro">Siehe diese Anweisungen</block>
-  <block id="031c3e239320004bd86aa60fd1a30539" category="admonition">Wenn Sie einen Cluster auswählen, der mit einem „Private“-Symbol gekennzeichnet ist, verwendet er private IP-Adressen, und der Astra Connector ist erforderlich, damit Astra Control den Cluster verwalten kann. Wenn Sie eine Meldung sehen, dass Sie den Astra Connector installieren müssen, <block ref="266cc2dad673b77f83caf5ff93c48e8a" category="inline-link-macro-rx"></block> Um den Astra Connector zu installieren und die Verwaltung des Clusters zu ermöglichen. Nach der Installation des Astra Connectors sollte der Cluster geeignet sein und Sie können das Hinzufügen des Clusters fortsetzen.</block>
   <block id="81fab8b5f502e0434de09d4adc1d85c4" category="list-text">*Credential Name* (für selbstverwaltete Cluster): Geben Sie einen Namen für die selbst verwalteten Cluster-Anmeldeinformationen an, die Sie auf Astra Control hochladen. Standardmäßig wird der Name der Anmeldeinformationen automatisch als Name des Clusters ausgefüllt.</block>
   <block id="a9b424a4da712ff7a9f830c88c906e74" category="paragraph">*Für Provider-verwaltete Cluster*: Wenn dies der erste Cluster ist, den Sie für diesen Cloud-Provider hinzugefügt haben, erstellt Astra Control Service einen Objektspeicher für den Cloud-Provider für Applikations-Backups auf geeigneten Clustern. (Wenn Sie nachfolgende Cluster für diesen Cloud-Provider hinzufügen, werden keine weiteren Objektspeicher erstellt.) Astra Control Service setzt außerdem die von Ihnen angegebene Standard-Storage-Klasse. Für Cluster, die in Amazon Web Services oder Google Cloud Platform gemanagt werden, erstellt Astra Control Service auch ein Administratorkonto auf dem Cluster. Diese Vorgänge können mehrere Minuten dauern.</block>
   <block id="4af7310d5b749c4b7d353363bda2d5c4" category="section-title">Ändern Sie die Standard-Storage-Klasse mit Astra Control</block>
@@ -1902,7 +1841,6 @@
   <block id="5c227ef4d58eed958f28dbf199bfbaad" category="list-text">Bevor Sie beginnen, sollten Sie auch verstehen <block ref="8168216ca124f830e0a917cd26a29d8e" category="inline-link-macro-rx"></block>.</block>
   <block id="9c2493f3c86c9672c359e50cc2e1f743" category="inline-link-macro">Ändern von Benutzerrollen mit Namespace-Einschränkungen</block>
   <block id="64443e478ec258a769dbd46a51e212af" category="list-text">Wenn Sie in Astra Control mehrere Namespaces mit Ihren Apps verwenden möchten, sollten Sie dies in Betracht ziehen <block ref="f6ecb96773fcc25458fe25947dd92e28" category="inline-link-macro-rx"></block> Vor dem Definieren von Apps.</block>
-  <block id="b04ceef112f40532368c375404526534" category="list-text">Anweisungen zum Verwalten von Apps mit der Astra Control API finden Sie im <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>.</block>
   <block id="23933fe5cfee8cef6dcf2e9c76674773" category="example-title">&lt;strong&gt; &lt;/strong&gt; über das Hinzufügen von Ressourcen im Cluster-Umfang zu Ihren Namespaces für Apps.</block>
   <block id="42eb29ab06c150f146256489fbb31f3d" category="paragraph">Sie können Cluster-Ressourcen importieren, die den Ressourcen des Namensvetter-Pacer zugeordnet sind, zusätzlich zu den automatisch enthaltenen Astra Control. Sie können eine Regel hinzufügen, die Ressourcen einer bestimmten Gruppe, Art, Version und optional eine Bezeichnung enthält. Dies sollten Sie tun, wenn Astra Control nicht automatisch Ressourcen enthält.</block>
   <block id="86584cfcf6ac47eda80aaeeb3808d02b" category="paragraph">Sie können keine Ressourcen mit Cluster-Umfang ausschließen, die automatisch von Astra Control enthalten sind.</block>
@@ -1936,7 +1874,6 @@
   <block id="b68c0c3e6ec8a786f9d88def11c0d22c" category="paragraph">Um die Ressourcen anzuzeigen, die dieser App hinzugefügt wurden, wählen Sie die Registerkarte *Ressourcen* aus. Wählen Sie in der Spalte „Ressource“ die Nummer nach dem Ressourcennamen aus, oder geben Sie den Ressourcennamen in „Suche“ ein, um die zusätzlichen Ressourcen anzuzeigen, die im Cluster-Umfang enthalten sind.</block>
   <block id="5f7e5cb76a5113fa38e3b934c6a4623f" category="inline-link-macro">Alle Ressourcen in einem bestimmten Namespace managen und schützen sollen</block>
   <block id="dec3469ee6690fc78725637f5f9ea5f5" category="paragraph">Sie können alle Kubernetes-Ressourcen im Namespace zum Astra Control Management hinzufügen, indem Sie die Ressourcen dieses Namespace als Applikation definieren. Diese Methode ist vorzuziehen, Apps einzeln zu definieren, wenn Sie <block ref="94b1a34d6d3c751b2fbc11fdaaa51f20" category="inline-link-macro-rx"></block> Auf ähnliche Weise und in gemeinsamen Abständen.</block>
-  <block id="8dc42906386c941a51c185152af36f0b" category="admonition">Wenn Sie mehrere Anwendungen definieren möchten, wählen Sie in der Namensliste die Schaltfläche *Aktionen* in der linken oberen Ecke aus und wählen Sie *als Anwendung definieren* aus. Damit werden mehrere einzelne Anwendungen in ihren einzelnen Namespaces definiert. Informationen zu Multi-Namespace-Anwendungen finden Sie unter <block ref="7befd9a72212c345f0396ef5748860f3" category="inline-xref-macro-rx"></block>.</block>
   <block id="0aac11ed4d1a1befcac30cb330cd159e" category="paragraph">Eine vorhandene Applikation kann geklont werden, um eine doppelte Applikation auf demselben Kubernetes-Cluster oder einem anderen Cluster zu erstellen. Wenn Astra Control eine Applikation klonen, wird ein Klon Ihrer Applikationskonfiguration und des persistenten Storage erstellt.</block>
   <block id="43448f8497139ffbc9a461d85db8c731" category="paragraph">Das Klonen kann sich leisten, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen. So möchten Sie beispielsweise Workloads über eine CI/CD-Pipeline und über Kubernetes-Namespaces verschieben.</block>
   <block id="7d754e7d4f4a324710302cf0fc4d80c2" category="list-text">Um Applikationen in einem anderen Cluster zu klonen, müssen Sie sicherstellen, dass die Cloud-Instanzen, die die Quell- und Ziel-Cluster enthalten (wenn sie nicht identisch sind), einen Standard-Bucket haben. Für jede Cloud-Instanz müssen Sie einen Standard-Bucket zuweisen.</block>
@@ -2009,7 +1946,6 @@
   <block id="0031b900a9efa545dbce2d1b75e6fecf" category="paragraph">Sie können Details über die Ausführung von Aufgaben und Aufgaben anzeigen, die in den letzten 24 Stunden in Astra Control abgeschlossen, fehlgeschlagen oder abgebrochen wurden. Beispielsweise können Sie den Status eines laufenden Backups, Restores oder Klonvorgangs anzeigen, und Details wie den Prozentsatz abgeschlossen und die geschätzte verbleibende Zeit angezeigt werden. Sie können den Status eines geplanten Vorgangs anzeigen, der ausgeführt wurde, oder einen manuell gestarteten Vorgang.</block>
   <block id="de7882146042c47043f628bf68dc31c6" category="paragraph">Während Sie eine laufende oder abgeschlossene Aufgabe anzeigen, können Sie die Aufgabendetails erweitern, um den Status der einzelnen Unteraufgaben anzuzeigen. Die Fortschrittsleiste der Aufgabe ist grün für laufende oder abgeschlossene Aufgaben, blau für stornierte Aufgaben und rot für Aufgaben, die aufgrund eines Fehlers fehlgeschlagen sind.</block>
   <block id="fd8bbaa51e80fe3b6399fc78854ea9db" category="admonition">Bei Klonvorgängen bestehen die Unteraufgaben der Aufgabe aus einem Snapshot und einem Snapshot-Wiederherstellungsvorgang.</block>
-  <block id="6852d13b7b09322b98ac2f44c85545c8" category="paragraph">Weitere Informationen zu fehlgeschlagenen Aufgaben finden Sie unter <block ref="a18f0b9d9f08915c2171339d482533ca" category="inline-link-macro-rx"></block>.</block>
   <block id="9a40aef29913209f341068678ecca423" category="list-text">Während eine Aufgabe ausgeführt wird, gehen Sie zu *Anwendungen*.</block>
   <block id="006fd45348a570db3c757ac6023ab537" category="list-text">Wählen Sie den Namen einer Anwendung aus der Liste aus.</block>
   <block id="58ac13bbbf31fdfc6209f295d87d6f8c" category="list-text">Wählen Sie in den Details der Anwendung die Registerkarte *Aufgaben* aus.</block>
@@ -2019,7 +1955,6 @@
   <block id="ab5f5e22a67bb95be323d14eb496768a" category="paragraph">Eine Cloud-Instanz ist eine eindeutige Domäne innerhalb eines Cloud-Providers. Sie können für jeden Cloud-Provider mehrere Cloud-Instanzen erstellen, wobei jede Cloud-Instanz ihren eigenen Namen, ihre Anmeldedaten und zugehörigen Cluster hat.</block>
   <block id="17b729b98794e7751851e44999370d04" category="paragraph">Wenn Sie dem Astra Control ein neues Cluster hinzufügen, erstellen Sie eine Cloud-Instanz. Sie können eine Cloud-Instanz bearbeiten, um mit der Astra Control UI den Namen oder den Standard-Bucket zu ändern, und mithilfe der Astra Control API andere Aktionen mit der Cloud-Instanz durchführen.</block>
   <block id="a9bc6d8e4d782bc598e38b2000d38494" category="section-title">Cloud-Instanz hinzufügen</block>
-  <block id="b665a96baa55a9ed7c372c2d7796a7d9" category="paragraph">Wenn Sie dem Astra Control ein neues Cluster hinzufügen, können Sie eine neue Cloud-Instanz hinzufügen. Siehe <block ref="957d53ce26004606b67720b5be4bf2a4" category="inline-link-macro-rx"></block> Finden Sie weitere Informationen.</block>
   <block id="ac724f89da6e1ee891ad387ee705b990" category="section-title">Bearbeiten einer Cloud-Instanz</block>
   <block id="fcc50ead8c65d9b32d8108741495ac8a" category="paragraph">Sie können eine vorhandene Cloud-Instanz für einen Cloud-Provider ändern.</block>
   <block id="d5fd16efc8cbbd38442158f7b709dce9" category="list-text">Wählen Sie in der Liste der Cloud-Instanzen das Menü *Aktionen* für die Cloud-Instanz aus, die Sie bearbeiten möchten.</block>
@@ -2037,4 +1972,81 @@
   <block id="55a5776613a7a49b0fb7fc4800c3065f" category="list-text">Wenn Sie ein Cloud-Service-Storage-Angebot von NetApp als Storage-Back-End verwenden, verwendet der Astra Control Service Astra Trident zur Bereitstellung persistenter Volumes für Ihre Applikationen. Wenn Sie von Amazon EBS oder Azure gemanagte Festplatten als Storage-Backend verwenden, müssen Sie einen Provider-spezifischen CSI-Treiber installieren. Installationsanweisungen finden Sie in <block ref="ebf2a7f1b6295b0b8e4d97b888cb809e" category="inline-link-macro-rx"></block> Und <block ref="1938f6af50a8259a0bb98bac4f34eeeb" category="inline-link-macro-rx"></block>.</block>
   <block id="43e71b094d6e4df1d87b41898754d340" category="paragraph">In einer Cloud-vernetzten Umgebung nutzt Astra Control Center erweiterte Monitoring- und Telemetriedaten mithilfe von Cloud Insights. Liegt keine Cloud Insights-Verbindung vor, ist das Monitoring und die Telemetrie nur begrenzt (7 Tage Metriken) im Astra Control Center verfügbar und wird auch über offene Endpunkt in native Kubernetes-Monitoring-Tools (wie Prometheus und Grafana) exportiert.</block>
   <block id="736df34727d37ee0029df106be139889" category="paragraph">Sie können Applikationen zu Ihrem Cluster hinzufügen. Wenn auch einige Applikationen bereits im Cluster gemanagt werden, können Sie sie mit Astra Control Center managen. Nutzen Sie dann das Astra Control Center, um Snapshots, Backups, Klone und Replizierungsbeziehungen zu erstellen.</block>
+  <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">Ergebnis</block>
+  <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">Eins</block>
+  <block id="34038b55331e81eb37ab84fa2523cace" category="section-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Richten Sie Ihren Cloud-Provider ein</block>
+  <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">Zwei</block>
+  <block id="91080aa55c36cb692c23826d45bd6b2d" category="section-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Schließen Sie die Registrierung für den Astra Control ab</block>
+  <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">Drittens</block>
+  <block id="45fa555347c1a658490523d14396d6f7" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Fügen Sie Cluster zum Astra Control hinzu</block>
+  <block id="672560be9cf97dc26e5d58123e1236bd" category="list-text">Astra Trident ist für Amazon FSX für NetApp ONTAP erforderlich. Wenn Sie Amazon FSX für NetApp ONTAP als Storage-Backend für Ihren EKS-Cluster verwenden möchten, finden Sie die Informationen zu Astra Trident im <block ref="e68d00178a10629977a40b55006d1823" category="inline-link-macro-rx"></block>.</block>
+  <block id="055c68f4a4baed3cf8af5f0b817d97aa" category="list-text">Informationen zu privaten AKS-Clustern finden Sie unter <block ref="104a7dd39d72f9f66f9cd954ba655942" category="inline-link-macro-rx"></block>.</block>
+  <block id="f18a26b9b45443052e0fe2464848258b" category="paragraph-title">(Optional) Überprüfen Sie die Astra Trident-Version</block>
+  <block id="133059778c759500900ac3e31f9124f6" category="admonition">Wenn Astra Trident nicht oder nicht aktuell installiert ist und der Cluster Astra Trident für Storage-Services verwenden soll, müssen Sie vor dem Fortfahren die neueste Version von Astra Trident installieren. Siehe<block ref="0a4eeddcb63a166e3ea6149a4a33d4e7" category="inline-link-rx"></block> Weitere Anweisungen.</block>
+  <block id="ceb1396f571b46844bfc0042be1d74da" category="list-text">Prüfen Sie, ob die Storage-Klassen die unterstützten Astra Trident Treiber verwenden. Der bereitstellungsname sollte lauten<block ref="08044207e9f63bb0fd474dab347a776c" prefix=" " category="inline-code"></block>. Im folgenden Beispiel finden Sie weitere Informationen:</block>
+  <block id="212d0ab7b4f4eaebfa2a2c425d0fcbe3" category="paragraph-title">Erstellen Sie ein „admin-Role“-kubeconfig</block>
+  <block id="275b3f11dca994bdaad9403b50379839" category="admonition">Wenn Sie Ihre eigenen erstellen<block ref="deabc6332aa53495b56c51d2e3eca54f" prefix=" " category="inline-code"></block> Datei, Sie sollten nur ein *ein*-Kontext-Element darin definieren. Siehe<block ref="54676762f2eb4e7149fe4e9996a20b1c" category="inline-link-rx"></block> Weitere Informationen zum Erstellen<block ref="deabc6332aa53495b56c51d2e3eca54f" prefix=" " category="inline-code"></block> Dateien:</block>
+  <block id="053447830bdec16f5986aceb9a1d7b50" category="inline-link-macro">Beachten Sie diese Anweisungen</block>
+  <block id="a89f4b04c3ea15221d38351ec9978a7f" category="admonition">Wenn Sie einen Cluster auswählen, der mit einem „Private“-Symbol gekennzeichnet ist, verwendet er private IP-Adressen, und der Astra Connector ist erforderlich, damit Astra Control den Cluster verwalten kann. Wenn Sie eine Meldung sehen, dass Sie den Astra Connector installieren müssen, <block ref="fe5ffc6a80a56380f9f1d2cc32d84537" category="inline-link-macro-rx"></block> Um den Astra Connector zu installieren und die Verwaltung des Clusters zu ermöglichen. Nach der Installation des Astra Connectors sollte der Cluster geeignet sein und Sie können das Hinzufügen des Clusters fortsetzen.</block>
+  <block id="ddd9f256d0cb9275fee543e9928cec5a" category="paragraph">Anweisungen finden Sie unter<block ref="47c83e7583e126455b2245655ede1c60" category="inline-link-rx"></block>.</block>
+  <block id="d5d383f59aff1fd56faf3bc99a5e7447" category="section-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Astra Control Service-Anforderungen für Google Kubernetes Engine prüfen</block>
+  <block id="ca3936801cc983f962aeed971f35e927" category="section-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> (Optional): Kaufen Sie Cloud Volumes Service für Google Cloud</block>
+  <block id="4ec76e316010fbd32edca0840bff69ab" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Aktivieren Sie APIs in Ihrem Google Cloud-Projekt</block>
+  <block id="981b8fcee42e1e726a67a2b9a98ea6e9" category="inline-image-macro">Vier</block>
+  <block id="53ffc364ad2946f902718e3758079557" category="section-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Erstellen Sie ein Dienstkonto mit den erforderlichen Berechtigungen</block>
+  <block id="e5d9de39f7ca1ba2637e5640af3ae8aa" category="inline-image-macro">Fünf</block>
+  <block id="92c5eff50359c1858703b16b15aa983f" category="section-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> Erstellen eines Service-Kontokonschlüssels</block>
+  <block id="e6fbc0b9673f8c86726688d7607fc8f5" category="inline-image-macro">Sechs</block>
+  <block id="0a0732da8f501abbcb3d81c193e30e1a" category="section-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block> (Optional): Netzwerk-Peering für Ihr VPC einrichten</block>
+  <block id="aaaa2a57035fcac6c05c4d3fcfef6d66" category="section-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Astra Control Service-Anforderungen für Azure Kubernetes Service prüfen</block>
+  <block id="b5f98a3948cbf41b10381992031b841b" category="section-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Melden Sie sich für Microsoft Azure an</block>
+  <block id="6631c325afb5caec102b5838b8a8c42c" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Für Azure NetApp Files anmelden</block>
+  <block id="34fb5759426c79dd12db71b5fcc55ff7" category="section-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Erstellen Sie einen NetApp Account</block>
+  <block id="3b172caf7ab477be61fc6aee93cb1ede" category="section-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> Einrichten von Kapazitäts-Pools</block>
+  <block id="8fb147c41cb9fd7f2136f1bf8e8545ae" category="section-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block> Delegieren eines Subnetzes an Azure NetApp Files</block>
+  <block id="12e67aac3e7f9227cc35f8f047d7dc74" category="inline-image-macro">Sieben</block>
+  <block id="e65bff663c62ab37fe0ce5a0b58c3994" category="section-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block> Erstellen Sie einen Azure Service Principal</block>
+  <block id="baca0ca6729684fd54206793ae4b5bd5" category="inline-image-macro">Acht</block>
+  <block id="7833e2038681f7512fcb636d57db0649" category="section-title"><block ref="430057c670c01688e904ed2ba129a0b5" category="inline-image-macro-rx" type="image"></block> Optional: Redundanz für Azure Backup Buckets konfigurieren</block>
+  <block id="7acb8defb656ebd5f9decf15c05926ca" category="paragraph-title">Nachdem Sie fertig sind</block>
+  <block id="08f1e852f149dc9bdf3a724bc95ed61a" category="list-text">Fügen Sie den Container als Eimer zum Astra Control Service hinzu. Siehe <block ref="3ecbb82ace41389a409b1cc92181a5a8" category="inline-link-macro-rx"></block>.</block>
+  <block id="1d7c1d2f297451f6eaf4e76901db96d2" category="list-text">(Optional) um den neu erstellten Bucket als Standard-Bucket für Azure Backups zu verwenden, setzen Sie ihn als Standard-Bucket für Azure fest. Siehe <block ref="d1523cf11113b501cc0e7216254bf527" category="inline-link-macro-rx"></block>.</block>
+  <block id="463f412773d00aae6c4b3709aadd2b57" category="paragraph">Ja, Sie können private AKS-Cluster zu Astra Control Service hinzufügen. Informationen zum Hinzufügen eines privaten AKS-Clusters finden Sie unter <block ref="d51718998c7312025a3cf72e62416cc2" category="inline-link-macro-rx"></block>.</block>
+  <block id="0f0939624ea35d3dd7896d9216bee5d4" category="paragraph">*Ich sehe keine PVCs meiner Anwendung, die an GCP CVS gebunden sind. Was ist falsch?*</block>
+  <block id="00a0b131703dda75b87dad59c7d9a56f" category="paragraph">Sie können Astra Control Service verwenden, um private AKS-Cluster zu verwalten. In diesen Anweisungen wird davon ausgegangen, dass Sie bereits einen privaten AKS-Cluster erstellt und eine sichere Methode für den Remote-Zugriff vorbereitet haben. Weitere Informationen zum Erstellen und Abrufen privater AKS-Cluster finden Sie im<block ref="bfdd887fc5c3338c9209fd10a121cfd7" category="inline-link-rx"></block>.</block>
+  <block id="6a1ee7a7d4b8f2fc793568f158af438f" category="paragraph">Sie sollten sich auf die Ausgabe beziehen, die der folgenden ähnelt:</block>
+  <block id="2497006a3d717fa05f4253255b4682d2" category="paragraph">Konfigurieren Sie persistenten Storage für das Cluster. Sie können gemanagte Azure NetApp Files oder Azure Festplatten verwenden. Weitere Informationen zur Konfiguration von Azure mit diesen Optionen finden Sie in der Dokumentation zu Einstieg:</block>
+  <block id="0ab04539adb80fe9a1c9f5dc0be183d2" category="section-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Astra Control Service-Anforderungen für Amazon Web Services überprüfen</block>
+  <block id="dd8153a2eaefa2ca6b22e74080a45577" category="section-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Erstellen Sie ein Amazon-Konto</block>
+  <block id="d2d49f8b074c326544953d30a666756a" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Installieren Sie die Amazon Web Services-CLI</block>
+  <block id="de0e0b190913ddd9905dc28e44369b4e" category="section-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Optional: Erstellen Sie einen IAM-Benutzer</block>
+  <block id="c16b65c89a8a5d66f3283ff98e331948" category="section-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> Erstellen Sie eine Berechtigungsrichtlinie und fügen Sie sie an</block>
+  <block id="bb6a13b106e48f792ea57b231c6c8429" category="section-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block> Speichern Sie die Anmeldeinformationen für den IAM-Benutzer</block>
+  <block id="3ea391c9e6fd8068a48c5105ab95e68f" category="list-text">Wenn Sie das Backend von Amazon FSX für NetApp ONTAP Storage nutzen, müssen Sie Astra Trident installieren. Anweisungen finden Sie unter<block ref="f6fce076fe7d8cd53c920b1f42e7a384" category="inline-link-rx"></block>. Weitere Informationen zur Verwendung von Astra Trident mit FSX für NetApp ONTAP finden Sie unter<block ref="720d51d7c9f57e4a266e8e3a5ab469c6" category="inline-link-rx"></block>.</block>
+  <block id="20fc0f0b676e68d276bd1ffa1267ac50" category="paragraph">Anweisungen zur Installation des CSI-Treibers finden Sie in den Details.</block>
+  <block id="adb43c383a88e1f2946ab2e72ac03918" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Erstellen Sie einen Azure Service Principal</block>
+  <block id="115d465e8b862905dee97dfc00687f80" category="section-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Konfigurieren Sie die Treiberdetails für die Container-Storage-Schnittstelle (CSI)</block>
+  <block id="4ba43802facfe67533d744cbe8965137" category="section-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> Optional: Redundanz für Azure Backup Buckets konfigurieren</block>
+  <block id="c969f450a50c240b276b1959fc3eb534" category="paragraph">Wenn Sie EBS als Speicher-Backend für EKS-Cluster verwenden, können Sie einige Speicherklassenparameter konfigurieren. Weitere Informationen über die Bedeutung der Parameter und deren Konfiguration finden Sie unter<block ref="efa17ec338493b6d9caef44d32a8989a" category="inline-link-rx"></block>.</block>
+  <block id="37a9edbcd89980d7a6ec52943de6e692" category="paragraph">Weitere Informationen zu den einzelnen Volume-Typen und ihrer Performance finden Sie unter<block ref="7ac340f30d3ddae2dcb4baa266ef78ba" category="inline-link-rx"></block>. Preisinformationen finden Sie unter<block ref="7729091ef10325fb607ffe76c346cfed" category="inline-link-rx"></block>.</block>
+  <block id="573eae71a4ffbba9a137bcf0add56e46" category="paragraph">Wenn Sie FSX für NetApp ONTAP als Storage-Backend für AWS Cluster verwenden, hängt die I/O-Performance von der Konfiguration des Dateisystems und den Eigenschaften Ihrer Workloads ab. Weitere Informationen zur Performance von NetApp ONTAP finden Sie unter FSX<block ref="45a884cbefaf34ae6fd7defa1c6be8c3" category="inline-link-rx"></block>. Preisinformationen finden Sie unter<block ref="1fe52440a36dc241abcf36facca2f97a" category="inline-link-rx"></block>.</block>
+  <block id="676a48d63ffa9fc8110c816cc1f05f58" category="section-title">Astra Trident ist nicht von einem Cluster deinstalliert</block>
+  <block id="5353c8647d31220e244ffd816499d2bb" category="section-title">Google Marketplace Apps wurden nicht validiert</block>
+  <block id="d59db7846bd10b6d60d21543df9faa9e" category="list-title">Was Sie benötigen</block>
+  <block id="2c5ea53cfeb8ab57dc70815f0a2146ab" category="inline-link">In der offiziellen Kubernetes-Dokumentation finden Sie weitere Informationen</block>
+  <block id="3877208b21ae15f0f4b867591555f309" category="admonition">Eine Bezeichnung ist ein Schlüssel-/Wertpaar, das Sie Kubernetes-Objekten zur Identifizierung zuweisen können. Etiketten erleichtern das Sortieren, Organisieren und Auffinden Ihrer Kubernetes-Objekte. Weitere Informationen zu Kubernetes-Labels:<block ref="6258ba1c56e61c3e07dc318965d7f24b" category="inline-link-rx"></block>.</block>
+  <block id="307510f97d5f134d0b9ee5ee86d6a53f" category="list-text">Anweisungen zum Verwalten von Apps mit der Astra Control API finden Sie im <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>.</block>
+  <block id="b5e44ee7e6c2c0ee0f81c8df96014092" category="admonition">Weitere Informationen zu Kubernetes-Labels:<block ref="6258ba1c56e61c3e07dc318965d7f24b" category="inline-link-rx"></block>.</block>
+  <block id="e4b1bae16e2dcbf3661583ef6a1d3b0f" category="admonition">Wenn Sie mehrere Anwendungen definieren möchten, wählen Sie in der Namensliste die Schaltfläche *Aktionen* in der linken oberen Ecke aus und wählen Sie *als Anwendung definieren* aus. Damit werden mehrere einzelne Anwendungen in ihren einzelnen Namespaces definiert. Informationen zu Applikationen mit mehreren Namespaces finden Sie unter <block ref="7befd9a72212c345f0396ef5748860f3" category="inline-xref-macro-rx"></block>.</block>
+  <block id="f3ed27964ccf64e77e1488f7d2a16145" category="paragraph">Wenn Sie dem Astra Control ein neues Cluster hinzufügen, können Sie eine neue Cloud-Instanz hinzufügen. Siehe <block ref="957d53ce26004606b67720b5be4bf2a4" category="inline-link-macro-rx"></block> Finden Sie weitere Informationen.</block>
+  <block id="f500108e4498090784d5a65b95413035" category="paragraph">Weitere Informationen zu fehlgeschlagenen Aufgaben finden Sie unter <block ref="a18f0b9d9f08915c2171339d482533ca" category="inline-link-macro-rx"></block>.</block>
+  <block id="0370124d48bfc5af2def19c48f433283" category="inline-link">NetApp Verda GitHub Projekt</block>
+  <block id="a59e4fa5cc01a3a4bdebbff4cec60b47" category="paragraph">Besuchen Sie das<block ref="84d9961ef5a89731849bc2055780d0b6" category="inline-link-rx"></block> Zum Herunterladen von Real-Execution-Hooks für beliebte Apps wie Apache Cassandra und Elasticsearch. Sie können auch Beispiele sehen und Ideen für die Strukturierung Ihrer eigenen benutzerdefinierten Execution Hooks erhalten.</block>
+  <block id="f7dab4c8b3608b84fa8e0c583d18f33a" category="paragraph">Sie können einen benutzerdefinierten Testsuite-Haken für eine App erstellen. Siehe <block ref="17e166b6ef6242446312ff693caa559b" category="inline-xref-macro-rx"></block> Beispiele für Haken. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken zu erstellen.</block>
+  <block id="9ad3989601b59e755170866a5329554c" category="list-text"><block ref="9ad3989601b59e755170866a5329554c" category="inline-link-rx"></block></block>
+  <block id="fca22970b2f5908598868bf4b1bbda3b" category="list-text">Wählen Sie *Backups* aus, um auf die Liste der Backups zu verweisen.</block>
+  <block id="3bbb62d82d2439f5a711823da7c1b762" category="paragraph">Weitere Informationen zum Hinzufügen von Einschränkungen finden Sie unter <block ref="f9b0c5590ff6fff298698f3844cae23c" category="inline-link-macro-rx"></block>.</block>
+  <block id="edb74efc05972c268b6cccf83996ac3e" category="section-title">Ändern Sie die Rolle eines Benutzers</block>
+  <block id="bfba5acdae4cf2cfa2c86cce302038d4" category="paragraph">Entfernen Sie die Anmeldeinformationen jederzeit aus einem Konto. Sie sollten erst nach dem Entfernen von Anmeldeinformationen verwenden <block ref="7193f1b7f27bd5505d89cc1e5724fb4b" category="inline-link-macro-rx"></block>, Sofern Sie die Anmeldeinformationen nicht ändern (siehe <block ref="029b7394eded829c95ca3b86c4cd802d" category="inline-xref-macro-rx"></block>).</block>
+  <block id="df1dd0475d7e25b9e368f8f45f636062" category="list-text">*S3-Servername oder IP-Adresse* (nur AWS): Geben Sie ohne den vollständig qualifizierten Domainnamen des S3-Endpunkts ein, der Ihrer Region entspricht<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block>. Siehe<block ref="398d47c523652edc934ec11e2f213d87" category="inline-link-rx"></block> Finden Sie weitere Informationen.</block>
 </blocks>

@@ -14,9 +14,9 @@ summary: Nach der Einrichtung der Umgebung erstellen Sie sofort einen Kubernetes
 [role="lead"]
 Sie können Astra Control Service verwenden, um private AKS-Cluster zu verwalten. In diesen Anweisungen wird davon ausgegangen, dass Sie bereits einen privaten AKS-Cluster erstellt und eine sichere Methode für den Remote-Zugriff vorbereitet haben. Weitere Informationen zum Erstellen und Abrufen privater AKS-Cluster finden Sie im https://docs.microsoft.com/azure/aks/private-clusters["Azure-Dokumentation"^].
 
-*  the Astra Connector operator
-*  up persistent storage
-*  the private cluster to Astra Control Service
+* <<Installieren Sie den Astra Connector Operator>>
+* <<Einrichtung von persistentem Storage>>
+* <<Fügen Sie den privaten Cluster zum Astra Control Service hinzu>>
 
 
 
@@ -66,7 +66,7 @@ kubectl apply -f config/samples/astraconnector_v1.yaml -n astra-connector
 kubectl get astraconnector astra-connector -n astra-connector
 ----
 +
-Sie sollten eine Ausgabe wie die folgende sehen:
+Sie sollten sich auf die Ausgabe beziehen, die der folgenden ähnelt:
 
 +
 [source, console]
@@ -80,7 +80,7 @@ astra-connector   true         22b839aa-8b85-445a-85dd-0b1f53b5ea19
 
 == Einrichtung von persistentem Storage
 
-Konfigurieren Sie persistenten Storage für das Cluster. Sie können gemanagte Azure NetApp Files oder Azure Festplatten verwenden. In der Dokumentation Get Started finden Sie weitere Informationen zur Konfiguration von Azure mit diesen Optionen:
+Konfigurieren Sie persistenten Storage für das Cluster. Sie können gemanagte Azure NetApp Files oder Azure Festplatten verwenden. Weitere Informationen zur Konfiguration von Azure mit diesen Optionen finden Sie in der Dokumentation zu Einstieg:
 
 * https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html["Microsoft Azure mit Azure NetApp Files einrichten"]
 * https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-amd.html["Richten Sie Microsoft Azure mit von Azure gemanagten Festplatten ein"]

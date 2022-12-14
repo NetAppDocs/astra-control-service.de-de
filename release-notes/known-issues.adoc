@@ -17,20 +17,20 @@ Bekannte Probleme identifizieren Probleme, die Sie daran hindern könnten, diese
 Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
 
 .Anwendungen
-*  clones fail after an application is deployed with a set storage class
-*  page loads forever when trying to restore an application belonging to a deleted cluster
-*  to define an app on a namespace that has been deleted and recreated
+* <<Applikationsklone scheitern, nachdem eine Applikation mit einer festgelegten Storage-Klasse implementiert wurde>>
+* <<Die Anwendungsseite wird dauerhaft geladen, wenn versucht wird, eine Applikation, die zu einem gelöschten Cluster gehört, wiederherzustellen>>
+* <<Eine App kann nicht in einem Namespace definiert werden, der gelöscht und neu erstellt wurde>>
 
 
 .Backup, Wiederherstellung und Klonen
-*  of an app results in PV size larger than original PV
-*  clones fail using a specific version of PostgreSQL
-*  backups and snapshots fail if the volumesnapshotclass is added after a cluster is managed
+* <<Die Wiederherstellung einer App führt zu einer PV-Größe, die größer ist als das ursprüngliche PV>>
+* <<Applikationsklone können nicht mit einer bestimmten Version von PostgreSQL verwendet werden>>
+* <<App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird>>
 
 
 .Andere Probleme
-*  eventually begin to fail when using external-snapshotter version 4.2.0
-*  data management operations fail with Internal Service Error (500) when Astra Trident is offline
+* <<Snapshots beginnen schließlich beim Einsatz von External-Snapshotter Version 4.2.0 fehlschlagen>>
+* <<Das Management der App-Daten schlägt mit Fehler des internen Service (500) fehl, wenn Astra Trident offline ist>>
 
 
 

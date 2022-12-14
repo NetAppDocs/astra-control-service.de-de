@@ -33,4 +33,4 @@ Weitere Informationen zu den einzelnen Volume-Typen und ihrer Performance finden
 
 == Amazon FSX für NetApp ONTAP
 
-Wenn Sie FSX für NetApp ONTAP als Storage-Backend für AWS Cluster verwenden, hängt die I/O-Performance von der Konfiguration des Dateisystems und den Eigenschaften Ihrer Workloads ab. Weitere Informationen zur NetApp ONTAP-Performance finden Sie unter FSX https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/performance.html["Amazon FSX für die Performance von NetApp ONTAP"^]. Preisinformationen finden Sie unter https://aws.amazon.com/fsx/netapp-ontap/pricing/["Amazon FSX für NetApp ONTAP-Preise"^].
+Wenn Sie FSX für NetApp ONTAP als Storage-Backend für AWS Cluster verwenden, hängt die I/O-Performance von der Konfiguration des Dateisystems und den Eigenschaften Ihrer Workloads ab. Weitere Informationen zur Performance von NetApp ONTAP finden Sie unter FSX https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/performance.html["Amazon FSX für die Performance von NetApp ONTAP"^]. Preisinformationen finden Sie unter https://aws.amazon.com/fsx/netapp-ontap/pricing/["Amazon FSX für NetApp ONTAP-Preise"^].

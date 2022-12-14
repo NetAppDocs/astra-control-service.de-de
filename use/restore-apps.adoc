@@ -59,6 +59,7 @@ NOTE: Astra Control erstellt als Teil dieser Wiederherstellungsoption neue Ziel-
 
 
 
+.Ergebnis
 Astra Control stellt die App basierend auf den von Ihnen angegebenen Informationen wieder her. Wenn Sie die Applikation bereits wiederhergestellt haben, wird der Inhalt vorhandener persistenter Volumes durch den Inhalt persistenter Volumes aus der wiederhergestellten App ersetzt.
 
 

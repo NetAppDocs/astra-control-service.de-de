@@ -75,6 +75,7 @@ image:screenshot-existing-registration.gif["Bestehendes Registrierungsformular F
 
 
 
+.Ergebnis
 Sie sollten auf eine Seite „Registrierung erfolgreich übermittelt“ umgeleitet werden. Die E-Mail-Adresse für Ihre Registrierung erhält innerhalb weniger Minuten eine E-Mail mit der Angabe „Ihr Produkt ist jetzt für Support berechtigt“.
 
 Dies ist eine einmalige Support-Registrierung für die entsprechende Seriennummer.

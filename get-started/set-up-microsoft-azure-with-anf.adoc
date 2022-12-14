@@ -22,59 +22,59 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 
 
 
-=== Astra Control Service-Anforderungen für Azure Kubernetes Service prüfen
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Astra Control Service-Anforderungen für Azure Kubernetes Service prüfen
 
 [role="quick-margin-para"]
-Vergewissern Sie sich, dass die Cluster ordnungsgemäß sind und eine unterstützte Version von Kubernetes ausführen, dass Node-Pools unter Linux verfügbar sind und unter anderem.  Kubernetes Service cluster requirements,Erfahren Sie mehr zu diesem Schritt.
+Vergewissern Sie sich, dass die Cluster ordnungsgemäß sind und eine unterstützte Version von Kubernetes ausführen, dass Node-Pools unter Linux verfügbar sind und unter anderem. <<Anforderungen für den Azure Kubernetes Service-Cluster,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
-=== Melden Sie sich für Microsoft Azure an
-
-[role="quick-margin-para"]
-Erstellen Sie ein Microsoft Azure Konto.  up for Microsoft Azure,Erfahren Sie mehr zu diesem Schritt.
-
-
-
-=== Für Azure NetApp Files anmelden
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Melden Sie sich für Microsoft Azure an
 
 [role="quick-margin-para"]
-Registrieren Sie den NetApp Resource Provider.  for Azure NetApp Files,Erfahren Sie mehr zu diesem Schritt.
+Erstellen Sie ein Microsoft Azure Konto. <<Melden Sie sich für Microsoft Azure an,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
-=== Erstellen Sie einen NetApp Account
-
-[role="quick-margin-para"]
-Erstellen Sie im Azure-Portal unter Azure NetApp Files einen NetApp Account.  a NetApp account,Erfahren Sie mehr zu diesem Schritt.
-
-
-
-=== Einrichten von Kapazitäts-Pools
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Für Azure NetApp Files anmelden
 
 [role="quick-margin-para"]
-Richten Sie einen oder mehrere Kapazitäts-Pools für Ihre persistenten Volumes ein.  up a capacity pool,Erfahren Sie mehr zu diesem Schritt.
+Registrieren Sie den NetApp Resource Provider. <<Für Azure NetApp Files anmelden,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
-=== Delegieren eines Subnetzes an Azure NetApp Files
-
-[role="quick-margin-para"]
-Delegieren Sie ein Subnetz an Azure NetApp Files, damit der Astra Control Service persistente Volumes in diesem Subnetz erstellen kann.  a subnet to Azure NetApp Files,Erfahren Sie mehr zu diesem Schritt.
-
-
-
-=== Erstellen Sie einen Azure Service Principal
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Erstellen Sie einen NetApp Account
 
 [role="quick-margin-para"]
-Erstellen Sie einen Azure-Serviceprincipal mit der Rolle „Contributor“.  an Azure service principal,Erfahren Sie mehr zu diesem Schritt.
+Erstellen Sie im Azure-Portal unter Azure NetApp Files einen NetApp Account. <<Erstellen Sie einen NetApp Account,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
-=== Optional: Redundanz für Azure Backup Buckets konfigurieren
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"] Einrichten von Kapazitäts-Pools
 
 [role="quick-margin-para"]
-Standardmäßig verwendet der Buckets Astra Control Service für das Speichern von Azure Kubernetes Service-Backups die LRS-Redundanzoption (lokal Redundant Storage). Als optionaler Schritt können Sie einen langlebigen Grad an Redundanz für Azure Buckets konfigurieren.  Configure redundancy for Azure backup buckets,Erfahren Sie mehr zu diesem Schritt.
+Richten Sie einen oder mehrere Kapazitäts-Pools für Ihre persistenten Volumes ein. <<Richten Sie einen Kapazitäts-Pool ein,Erfahren Sie mehr zu diesem Schritt>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sechs"] Delegieren eines Subnetzes an Azure NetApp Files
+
+[role="quick-margin-para"]
+Delegieren Sie ein Subnetz an Azure NetApp Files, damit der Astra Control Service persistente Volumes in diesem Subnetz erstellen kann. <<Delegieren eines Subnetzes an Azure NetApp Files,Erfahren Sie mehr zu diesem Schritt>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sieben"] Erstellen Sie einen Azure Service Principal
+
+[role="quick-margin-para"]
+Erstellen Sie einen Azure-Serviceprincipal mit der Rolle „Contributor“. <<Erstellen Sie einen Azure Service Principal,Erfahren Sie mehr zu diesem Schritt>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Acht"] Optional: Redundanz für Azure Backup Buckets konfigurieren
+
+[role="quick-margin-para"]
+Standardmäßig verwendet der Buckets Astra Control Service für das Speichern von Azure Kubernetes Service-Backups die LRS-Redundanzoption (lokal Redundant Storage). Als optionaler Schritt können Sie einen langlebigen Grad an Redundanz für Azure Buckets konfigurieren. <<Optional: Redundanz für Azure Backup Buckets konfigurieren,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
@@ -86,11 +86,11 @@ Kubernetes-Version:: Auf Clustern muss die Kubernetes-Version 1.23 bis 1.25 ausg
 Bildtyp:: Der Image-Typ für alle Node-Pools muss Linux sein.
 Der Cluster-Status:: Cluster müssen in einem ordnungsgemäßen Zustand ausgeführt werden und mindestens einen Online-Worker-Node ohne „Worker“-Nodes im ausgefallenen Status aufweisen.
 Azure Region:: Cluster müssen in einer Region residieren, in der Azure NetApp Files verfügbar ist. https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp["Hier finden Sie Azure Produkte nach Region"^].
-Abonnement:: Cluster müssen in einem Abonnement gespeichert werden, in dem Azure NetApp Files aktiviert ist. Sie wählen ein Abonnement, wenn Sie  for Azure NetApp Files,für Azure NetApp Files anmelden.
+Abonnement:: Cluster müssen in einem Abonnement gespeichert werden, in dem Azure NetApp Files aktiviert ist. Sie wählen ein Abonnement, wenn Sie <<Für Azure NetApp Files anmelden,für Azure NetApp Files anmelden>>.
 Vnet:: Folgende vnet-Anforderungen sind zu berücksichtigen:
 +
 --
-* Cluster müssen sich in einem vnet befinden, das direkten Zugriff auf ein für Azure NetApp Files delegiertes Subnetz hat.  a subnet to Azure NetApp Files,Erfahren Sie, wie Sie ein delegiertes Subnetz einrichten.
+* Cluster müssen sich in einem vnet befinden, das direkten Zugriff auf ein für Azure NetApp Files delegiertes Subnetz hat. <<Delegieren eines Subnetzes an Azure NetApp Files,Erfahren Sie, wie Sie ein delegiertes Subnetz einrichten>>.
 * Wenn sich Ihre Kubernetes Cluster in einem vnet befinden, das über das von Azure NetApp Files delegierte Subnetz in einem anderen vnet verfügt, müssen beide Seiten der Peering-Verbindung online sein.
 * Beachten Sie, dass die Standardgrenze für die Anzahl der IP-Adressen, die in einem vnet (einschließlich sofort gepedierter VNets) mit Azure NetApp Files verwendet werden, 1,000 ist. https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-resource-limits["Zeigen Sie Einschränkungen für Azure NetApp Files-Ressourcen an"^].
 +
@@ -177,6 +177,7 @@ Wenn Sie Peered VNets verwenden, müssen beide Seiten der Peering-Verbindung onl
 . https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-delegate-subnet["Folgen Sie der Azure NetApp Files-Dokumentation, um ein Subnetz an Azure NetApp Files zu delegieren"^].
 
 
+.Nachdem Sie fertig sind
 Warten Sie ungefähr 10 Minuten, bevor Sie den im delegierten Subnetz ausgeführten Cluster ermitteln.
 
 

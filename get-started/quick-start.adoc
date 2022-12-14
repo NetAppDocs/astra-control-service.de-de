@@ -16,10 +16,11 @@ Diese Seite bietet einen grundlegenden Überblick über die Schritte, die Sie f�
 
 
 
-== Richten Sie Ihren Cloud-Provider ein
+== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Richten Sie Ihren Cloud-Provider ein
 
 ifdef::gcp[]
 
+[role="quick-margin-list"]
 . Google Cloud:
 +
 ** Google Kubernetes Engine-Cluster-Anforderungen prüfen.
@@ -76,8 +77,9 @@ Wenn Sie ein eigenes Cluster managen und nicht von einem Cloud-Provider gehostet
 
 
 
-== Schließen Sie die Registrierung für den Astra Control ab
+== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Schließen Sie die Registrierung für den Astra Control ab
 
+[role="quick-margin-list"]
 . Erstellen Sie ein https://cloud.netapp.com["NetApp Cloud Central"^] Konto.
 . Geben Sie Ihre NetApp Cloud Central E-Mail-ID an, wenn Sie Ihr Astra Control Konto erstellen https://cloud.netapp.com/astra["Von der Astra-Produktseite"^].
 
@@ -87,7 +89,7 @@ link:register.html["Erfahren Sie mehr über den Registrierungsprozess"].
 
 
 
-== Fügen Sie Cluster zum Astra Control hinzu
+== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Fügen Sie Cluster zum Astra Control hinzu
 
 [role="quick-margin-para"]
 Nachdem Sie sich angemeldet haben, wählen Sie *Cluster hinzufügen*, um das Cluster mit Astra Control zu verwalten.

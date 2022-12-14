@@ -16,9 +16,6 @@ entries:
     url: "/use/clone-apps.html"
   - title: Anwendungsausführungshaken verwalten
     url: "/use/manage-app-execution-hooks.html"
-    entries:
-    - title: Beispiele für Testausführungshaken
-      url: "/use/execution-hook-examples.html"
 - title: Zeigen Sie den Zustand von Applikationen und Computing an
   entries:
   - title: Dashboard-Übersicht

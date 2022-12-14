@@ -22,54 +22,54 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 
 
 
-=== Astra Control Service-Anforderungen für Amazon Web Services überprüfen
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Astra Control Service-Anforderungen für Amazon Web Services überprüfen
 
 [role="quick-margin-para"]
-Stellen Sie sicher, dass die Cluster ordnungsgemäß sind und eine unterstützte Version von Kubernetes ausführen, dass Worker-Nodes unter anderem Linux oder Windows online sind.  cluster requirements,Erfahren Sie mehr zu diesem Schritt.
+Stellen Sie sicher, dass die Cluster ordnungsgemäß sind und eine unterstützte Version von Kubernetes ausführen, dass Worker-Nodes unter anderem Linux oder Windows online sind. <<EKS-Clusteranforderungen,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
-=== Erstellen Sie ein Amazon-Konto
-
-[role="quick-margin-para"]
-Wenn Sie noch kein Amazon-Konto haben, müssen Sie ein Konto erstellen, damit Sie EKS verwenden können.  an Amazon account,Erfahren Sie mehr zu diesem Schritt.
-
-
-
-=== Installieren Sie die Amazon Web Services-CLI
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Erstellen Sie ein Amazon-Konto
 
 [role="quick-margin-para"]
-Installieren Sie die AWS CLI, sodass Sie AWS über die Befehlszeile managen können.  the Amazon Web Services CLI,Befolgen Sie die Schritt-für-Schritt-Anweisungen.
+Wenn Sie noch kein Amazon-Konto haben, müssen Sie ein Konto erstellen, damit Sie EKS verwenden können. <<Erstellen Sie ein Amazon-Konto,Erfahren Sie mehr zu diesem Schritt>>.
 
 
 
-=== Optional: Erstellen Sie einen IAM-Benutzer
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Installieren Sie die Amazon Web Services-CLI
+
+[role="quick-margin-para"]
+Installieren Sie die AWS CLI, sodass Sie AWS über die Befehlszeile managen können. <<Installieren Sie die Amazon Web Services-CLI,Befolgen Sie die Schritt-für-Schritt-Anweisungen>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Optional: Erstellen Sie einen IAM-Benutzer
 
 [role="quick-margin-para"]
 Erstellen Sie einen Amazon IAM-Benutzer (Identity and Access Management). Sie können diesen Schritt auch überspringen und einen vorhandenen IAM-Benutzer mit Astra Control Service verwenden.
 
 [role="quick-margin-para"]
- Create an IAM user,Lesen Sie Schritt-für-Schritt-Anleitungen.
+<<Optional: Erstellen Sie einen IAM-Benutzer,Lesen Sie Schritt-für-Schritt-Anleitungen>>.
 
 
 
-=== Erstellen Sie eine Berechtigungsrichtlinie und fügen Sie sie an
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"] Erstellen Sie eine Berechtigungsrichtlinie und fügen Sie sie an
 
 [role="quick-margin-para"]
 Erstellen einer Richtlinie mit den erforderlichen Berechtigungen für den Astra Control Service zur Interaktion mit Ihrem AWS Konto
 
 [role="quick-margin-para"]
- and attach a permissions policy,Lesen Sie Schritt-für-Schritt-Anleitungen.
+<<Erstellen Sie eine Berechtigungsrichtlinie und fügen Sie sie an,Lesen Sie Schritt-für-Schritt-Anleitungen>>.
 
 
 
-=== Speichern Sie die Anmeldeinformationen für den IAM-Benutzer
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sechs"] Speichern Sie die Anmeldeinformationen für den IAM-Benutzer
 
 [role="quick-margin-para"]
 Speichern Sie die Anmeldeinformationen für den IAM-Benutzer, damit Sie die Anmeldeinformationen in den Astra Control Service importieren können.
 
 [role="quick-margin-para"]
- the credentials for the IAM user,Lesen Sie Schritt-für-Schritt-Anleitungen.
+<<Speichern Sie die Anmeldeinformationen für den IAM-Benutzer,Lesen Sie Schritt-für-Schritt-Anleitungen>>.
 
 
 
@@ -82,11 +82,11 @@ Bildtyp:: Der Bildtyp für jeden Arbeiterknoten muss Linux sein.
 Der Cluster-Status:: Cluster müssen in einem ordnungsgemäßen Zustand ausgeführt werden und mindestens einen Online-Worker-Node ohne „Worker“-Nodes im ausgefallenen Status aufweisen.
 
 
-Astra Trident für Amazon FSX für NetApp ONTAP:: Wenn Sie das Backend von Amazon FSX für NetApp ONTAP Storage nutzen, müssen Sie Astra Trident installieren. Anweisungen hierzu finden Sie unter https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident – Übersicht über die Implementierung"^]. Weitere Informationen zur Verwendung von Astra Trident mit FSX für NetApp ONTAP finden Sie unter https://docs.netapp.com/us-en/trident/trident-use/trident-fsx.html["Setzen Sie Astra Trident mit Amazon FSX für NetApp ONTAP ein"^].
+Astra Trident für Amazon FSX für NetApp ONTAP:: Wenn Sie das Backend von Amazon FSX für NetApp ONTAP Storage nutzen, müssen Sie Astra Trident installieren. Anweisungen finden Sie unter https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident – Übersicht über die Implementierung"^]. Weitere Informationen zur Verwendung von Astra Trident mit FSX für NetApp ONTAP finden Sie unter https://docs.netapp.com/us-en/trident/trident-use/trident-fsx.html["Setzen Sie Astra Trident mit Amazon FSX für NetApp ONTAP ein"^].
 CSI-Treiber für Amazon Elastic Block Store (EBS):: Wenn Sie das Amazon EBS Storage-Backend verwenden, müssen Sie den Container Storage Interface (CSI)-Treiber für EBS installieren (dieser wird nicht automatisch installiert).
 +
 --
-Anweisungen zur Installation des CSI-Treibers finden Sie in den entsprechenden Einzelheiten.
+Anweisungen zur Installation des CSI-Treibers finden Sie in den Details.
 
 [%collapsible%open]
 ====
@@ -279,4 +279,5 @@ aws iam create-access-key --user-name <IAM-USER-NAME> --output json > credential
 ----
 
 
+.Ergebnis
 Der `credential.json` Datei ist erstellt, und Sie können die Anmeldeinformationen in Astra Control Service importieren.
