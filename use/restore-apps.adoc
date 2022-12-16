@@ -28,9 +28,11 @@ Astra Control kann Ihre Applikation aus einem Snapshot oder einem Backup wiederh
 +
 ** *Wiederherstellen auf ursprünglichen Namespaces*: Verwenden Sie dieses Verfahren, um die App an Ort und Stelle auf dem ursprünglichen Cluster wiederherzustellen.
 +
+[CAUTION]
+====
+Die Durchführung einer in-Place-Wiederherstellung in einer Anwendung, in der Ressourcen mit einer anderen Anwendung geteilt werden, kann unbeabsichtigte Ergebnisse haben. Alle Ressourcen, die von den Applikationen gemeinsam genutzt werden, werden ersetzt, wenn eine in-Place-Wiederherstellung für eine der Applikationen durchgeführt wird.
 
-CAUTION: Die Durchführung einer in-Place-Wiederherstellung in einer Anwendung, in der Ressourcen mit einer anderen Anwendung geteilt werden, kann unbeabsichtigte Ergebnisse haben.
-
+====
 +
 ... Wählen Sie den Snapshot aus, mit dem die Anwendung wiederhergestellt werden soll, die auf eine frühere Version von selbst zurückgesetzt wird.
 ... Wählen Sie *Weiter*.

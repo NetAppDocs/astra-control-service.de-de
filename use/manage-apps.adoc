@@ -163,9 +163,11 @@ Mit der Definition einer App haben Sie eine granularere Kontrolle über die Ausw
 
 WARNING: Stellen Sie bei der Definition von Applikationen sicher, dass Sie keine Kubernetes-Ressource in mehrere Applikationen mit Sicherungsrichtlinien aufnehmen. Überlappende Sicherungsrichtlinien für Kubernetes-Ressourcen können zu Datenkonflikten führen.
 
+[CAUTION]
+====
+Die Durchführung einer in-Place-Wiederherstellung in einer Anwendung, in der Ressourcen mit einer anderen Anwendung geteilt werden, kann unbeabsichtigte Ergebnisse haben. Alle Ressourcen, die von den Applikationen gemeinsam genutzt werden, werden ersetzt, wenn eine in-Place-Wiederherstellung für eine der Applikationen durchgeführt wird.
 
-CAUTION: Die Durchführung einer in-Place-Wiederherstellung in einer Anwendung, in der Ressourcen mit einer anderen Anwendung geteilt werden, kann unbeabsichtigte Ergebnisse haben.
-
+====
 .<strong> </strong> über das Hinzufügen von Ressourcen im Cluster-Umfang zu Ihren Namespaces für Apps.
 [%collapsible]
 ====
