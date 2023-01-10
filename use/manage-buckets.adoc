@@ -60,15 +60,18 @@ Die Liste der verfügbaren Buckets für den Astra Control Service wird angezeigt
 
 Nachdem Sie mit dem Management eines Clusters bei Ihrem Cloud-Provider begonnen haben, können Sie jederzeit weitere Buckets hinzufügen. Damit können Sie beim Erstellen einer Sicherungsrichtlinie zwischen Buckets wählen und den Standard-Bucket für Ad-hoc-Backups und Klone ändern.
 
-Beachten Sie, dass der Astra Control Service Ihnen nicht ermöglicht, einen Bucket zu entfernen, nachdem Sie ihn hinzugefügt haben.
-
 .Was Sie benötigen
 * Der Name eines vorhandenen Buckets bei Ihrem Cloud-Provider.
 
 
 ifdef::azure[]
 
-* Wenn Ihr Bucket in Azure ist, muss er zur Ressourcengruppe namens _astra-Backup-rg_ gehören.
+* Wenn Ihr Bucket in Azure ist:
++
+** Der Bucket muss zur Ressourcengruppe _astra-Backup-rg_ gehören.
+** Wenn die Performance der Azure Storage-Kontoinstanz auf „Premium“ eingestellt ist, muss die Einstellung „Premium-Kontotyp“ auf „Block-Blobs“ gesetzt werden.
+
+
 
 
 endif::azure[]
