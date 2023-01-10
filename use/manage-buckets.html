@@ -1215,7 +1215,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-14 18:12:41 +0000">12/14/2022</time>
+    <time datetime="2023-01-10 17:23:43 +0000">01/10/2023</time>
     
   
 
@@ -1312,9 +1312,6 @@ Astra Control Service überprüft vor dem Start eines Backups oder Klons, ob auf
 <div class="paragraph">
 <p>Nachdem Sie mit dem Management eines Clusters bei Ihrem Cloud-Provider begonnen haben, können Sie jederzeit weitere Buckets hinzufügen. Damit können Sie beim Erstellen einer Sicherungsrichtlinie zwischen Buckets wählen und den Standard-Bucket für Ad-hoc-Backups und Klone ändern.</p>
 </div>
-<div class="paragraph">
-<p>Beachten Sie, dass der Astra Control Service Ihnen nicht ermöglicht, einen Bucket zu entfernen, nachdem Sie ihn hinzugefügt haben.</p>
-</div>
 <div class="ulist">
 <div class="title">Was Sie benötigen</div>
 <ul>
@@ -1322,7 +1319,17 @@ Astra Control Service überprüft vor dem Start eines Backups oder Klons, ob auf
 <p>Der Name eines vorhandenen Buckets bei Ihrem Cloud-Provider.</p>
 </li>
 <li>
-<p>Wenn Ihr Bucket in Azure ist, muss er zur Ressourcengruppe namens <em>astra-Backup-rg</em> gehören.</p>
+<p>Wenn Ihr Bucket in Azure ist:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Der Bucket muss zur Ressourcengruppe <em>astra-Backup-rg</em> gehören.</p>
+</li>
+<li>
+<p>Wenn die Performance der Azure Storage-Kontoinstanz auf „Premium“ eingestellt ist, muss die Einstellung „Premium-Kontotyp“ auf „Block-Blobs“ gesetzt werden.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1504,7 +1511,7 @@ Astra Control stellt zunächst sicher, dass es keine Planungsrichtlinien gibt, d
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2023 NetApp, Inc.</a>
             </li>
             <li class="n-footer__copyright-link">
               <a href="https://www.netapp.com/company/legal/terms-of-use/">Allgemeine Geschäftsbedingungen</a>
