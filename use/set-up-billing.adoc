@@ -94,6 +94,9 @@ endif::aws[]
 
 Astra Control Service können Sie über den Azure Marketplace abonnieren. Ihre Konto- und Rechnungsdaten werden über den Marketplace verwaltet.
 
+
+NOTE: Einen Video-Überblick über den Azure Marketplace-Abonnementprozess finden Sie unter https://www.netapp.tv/details/29979["NetApp TV"^].
+
 .Schritte
 . Wechseln Sie zum https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-astra-acs?tab=Overview["Azure Marketplace"^].
 . Wählen Sie *Jetzt Holen*.
