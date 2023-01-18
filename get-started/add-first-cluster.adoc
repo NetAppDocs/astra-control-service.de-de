@@ -433,6 +433,9 @@ ifdef::aws[]
 
 endif::aws[]
 
+** NetApp Cloud Volumes ONTAP: Keine Informationen zu Preis, Performance oder Ausfallsicherheit verfügbar
+
+
 ====
 +
 Jede Storage-Klasse kann einen der folgenden Services nutzen:
@@ -463,9 +466,14 @@ ifdef::aws[]
 
 endif::aws[]
 
-+ Weitere Informationen zu link:../learn/aws-storage.html["Storage-Klassen für Amazon Web Services Cluster"]. Weitere Informationen zu link:../learn/azure-storage.html["Speicherklassen für AKS-Cluster"]. Weitere Informationen zu link:../learn/choose-class-and-size.html["Speicherklassen für GKE-Cluster"].
+* https://www.netapp.com/cloud-services/cloud-volumes-ontap/what-is-cloud-volumes/["NetApp Cloud Volumes ONTAP"^]
++
+Weitere Informationen zu link:../learn/aws-storage.html["Storage-Klassen für Amazon Web Services Cluster"]. Weitere Informationen zu link:../learn/azure-storage.html["Speicherklassen für AKS-Cluster"]. Weitere Informationen zu link:../learn/choose-class-and-size.html["Speicherklassen für GKE-Cluster"].
 
-. *Überprüfen & Genehmigen*: Prüfen Sie die Konfigurationsdetails und wählen Sie *Cluster hinzufügen*.
++
+.. *Überprüfen & Genehmigen*: Prüfen Sie die Konfigurationsdetails und wählen Sie *Cluster hinzufügen*.
+
+
 
 
 .Ergebnis

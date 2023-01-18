@@ -32,6 +32,16 @@ Wenn Sie einen Cluster vom Astra Control Service aus verwalten, wird Astra Tride
 
 Wenn Sie Vorgänge auf Postgres-Pods durchführen, sollten Sie nicht direkt innerhalb des Pods verbinden, um den psql-Befehl zu verwenden. Astra Control Service erfordert psql-Zugriff, um die Datenbanken einzufrieren und zu tauen. Wenn eine bereits vorhandene Verbindung besteht, schlägt der Snapshot, die Sicherung oder der Klon fehl.
 
+ifdef::aws[]
+
+
+
+=== NetApp Cloud Volumes ONTAP wird für Amazon Web Services offiziell nicht unterstützt
+
+Ab der Version 17. Januar 2023 des Astra Control Service wird NetApp Cloud Volumes ONTAP für Amazon Web Services noch nicht offiziell unterstützt.
+
+endif::aws[]
+
 ifdef::gcp[]
 
 

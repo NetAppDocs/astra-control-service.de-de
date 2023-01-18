@@ -4,7 +4,6 @@
   <block id="ef22ff17624b3faeed227ce5c717eb5f" category="doc">Dokumentation des Astra Control Service</block>
   <block id="2938a5725f8de8bc6cfbe9bdd59f796f" category="summary">Astra Control Service verwendet Azure NetApp Files als Storage-Backend für Azure Kubernetes Service-Cluster (AKS). Sie sollten verstehen, wie Sie mithilfe einer Storage-Klasse und einer persistenten Volume-Größe Ihre Performance-Ziele erreichen können.</block>
   <block id="7aaaeb3c621282cab2d3ea9432c3fbe0" category="doc">Speicherklassen und PV-Größe für AKS-Cluster</block>
-  <block id="b2cd1a47d11cab60dfbd0e59e1c5cdaa" category="paragraph">Astra Control Service unterstützt gemanagte Azure NetApp Files oder Azure Festplatten als Storage-Backend für Azure Kubernetes Service-Cluster (AKS).</block>
   <block id="7450cfde7058dc5e1f7909d0280fd7ae" category="section-title">Azure NetApp Dateien</block>
   <block id="45f2ca5e315e585458c55fea41d5b448" category="paragraph">Astra Control Service unterstützt Azure NetApp Files als Storage-Backend für Azure Kubernetes Service-Cluster (AKS). Sie sollten verstehen, wie Sie mithilfe einer Storage-Klasse und einer persistenten Volume-Größe Ihre Performance-Ziele erreichen können.</block>
   <block id="45b76beee2cc117208c893ba100df166" category="section-title">Service Levels und Storage-Klassen</block>
@@ -35,12 +34,9 @@
   <block id="51d249216b03414f10b242b851af7951" category="section-title">Komponenten des Astra Control</block>
   <block id="a8d77bbb11d2e1a349811767d194e9ba" category="list-text">*Kubernetes-Cluster*: Kubernetes ist eine portable, erweiterbare Open-Source-Plattform für das Management von Workloads und Services in Containern, die sowohl deklarative Konfigurationen als auch Automatisierung ermöglicht. Astra bietet Managementservices für Applikationen, die in einem Kubernetes-Cluster gehostet werden.</block>
   <block id="951fe18cc6e59e05fca3c0ca7de399fa" category="list-text">*Speicher-Backend*:</block>
-  <block id="64871be4acf54750c11b07ff3203cf03" category="list-text">Astra Control Service verwendet<block ref="9e2d15731749abbc242896b41a1be2ef" category="inline-link-rx"></block> Oder von Azure gemanagte Festplatten als Storage-Back-Ends für AKS-Cluster.</block>
   <block id="a3b5183ae6f5c3f1d6644448f795b5cb" category="inline-link">NetApp Cloud Volumes Service für Google Cloud</block>
-  <block id="bc808c2dc319f0278e897f16cfe24a95" category="list-text">Astra Control Service verwendet<block ref="d804c793f302b1f3285300e6253aaac6" category="inline-link-rx"></block> Oder Google Persistent Disk als Storage Back-Ends für GKE-Cluster.</block>
   <block id="4b6ccd94421822eaaf7bd027992018af" category="inline-link">Amazon Elastic Block Store</block>
   <block id="4d82a1ec1af02725042c8c785564ee7a" category="inline-link">Amazon FSX für NetApp ONTAP</block>
-  <block id="1574db16d74f7537711f20b07293065e" category="list-text">Astra Control Service verwendet<block ref="a65cb6c91d35e755c3763fe01aedac72" category="inline-link-rx"></block> Und<block ref="789fe92e2b55f108a4e50dd78da73d71" category="inline-link-rx"></block> Als Speicher-Back-Ends für EKS-Cluster.</block>
   <block id="dd069ab6d74011bb108bf219e092a2d0" category="list-text">Astra Control Center nutzt folgende Storage-Back-Ends:</block>
   <block id="fc8adf6067b9e369fbebc9abf2891bce" category="list-text">ONTAP AFF und FAS Storage Back-End Als Storage-Software- und Hardware-Plattform bietet ONTAP wichtige Storage-Services, Unterstützung für mehrere Storage-Zugriffsprotokolle und Storage-Managementfunktionen wie Snapshots und Spiegelung.</block>
   <block id="570fa99ce4fbf8deb198b97a6931d63a" category="list-text">Cloud Volumes ONTAP Storage Back-End</block>
@@ -64,7 +60,6 @@
   <block id="8217522f2b9eea86f1099a2aba54aebd" category="list-text"><block ref="8217522f2b9eea86f1099a2aba54aebd" category="inline-link-rx"></block></block>
   <block id="bd5cde8fc544622a3633d73962bcd705" category="summary">Astra Control Service nutzt Cloud Volumes Service für Google Cloud als Storage-Back-End für persistente Volumes. Sie sollten verstehen, wie die Auswahl eines Service-Levels, einer Storage-Klasse und einer persistenten Volume-Größe Sie dabei unterstützen kann, Ihre Performance-Ziele zu erreichen.</block>
   <block id="afd5c3412d8aaa89e4ade2ddff8cac9b" category="doc">Servicetyp, Speicherklassen und PV-Größe für GKE-Cluster</block>
-  <block id="9a2e6b3f1f716d445d67874207aea6af" category="paragraph">Astra Control Service unterstützt Cloud Volumes Service für Google Cloud oder Google Persistent Disk als Storage-Backend-Optionen für persistente Volumes.</block>
   <block id="b0cee72642f5457a71ddd0b49efb6d93" category="section-title">Cloud Volumes Service für Google Cloud</block>
   <block id="2cafdb551953c7afd397b12eee1ce505" category="paragraph">Astra Control Service kann Cloud Volumes Service für Google Cloud als Storage-Backend für persistente Volumes nutzen. Sie sollten verstehen, wie die Wahl eines Service-Typs, einer Storage-Klasse und einer persistenten Volume-Größe Sie dabei unterstützen kann, Ihre Performance-Ziele zu erreichen.</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="section-title">Überblick</block>
@@ -421,7 +416,6 @@
   <block id="37cb798eeadd3da7723607246ebf2339" category="inline-link-macro">Storage-Klassen für Amazon Web Services Cluster</block>
   <block id="388b49ca6772164d2fe62455b28ba25e" category="inline-link-macro">Speicherklassen für AKS-Cluster</block>
   <block id="b03ad30a5cf7205451cf9d1c28fb3b46" category="inline-link-macro">Speicherklassen für GKE-Cluster</block>
-  <block id="516e3f0030567c9bbad612df88d2db95" category="paragraph">+ Weitere Informationen zu <block ref="669f060d339cad3efcb29baff91fd410" category="inline-link-macro-rx"></block>. Weitere Informationen zu <block ref="b4547358b744ca3b28812f444dc5a38f" category="inline-link-macro-rx"></block>. Weitere Informationen zu <block ref="fd0a3bed584d87df18438d86772a2aaf" category="inline-link-macro-rx"></block>.</block>
   <block id="dfcef21edccf773f1b20e5811f0fb5ba" category="list-text">*Überprüfen &amp; Genehmigen*: Prüfen Sie die Konfigurationsdetails und wählen Sie *Cluster hinzufügen*.</block>
   <block id="457022d51f2e6150dfa70037b30d57b5" category="section-title">Cluster-Zugriff für andere Benutzer bereitstellen</block>
   <block id="436e78c3dd196f680aab83eb69543658" category="paragraph">Optional können Sie angeben<block ref="0f12ee5c9f1dd90158580f1c292b0d37" prefix=" " category="inline-code"></block> Befehlszugriff für ein Cluster für andere IAM-Benutzer, die nicht der Ersteller des Clusters sind.</block>
@@ -1141,7 +1135,6 @@
   <block id="870305fca27f62b3e2f62ab8aadb0791" category="list-title">Zeigen Sie die Kontoaktivität für Cluster an</block>
   <block id="957102c47a44d84e6d367c6810150ef5" category="list-text">Wählen Sie *Cluster* und dann den Namen des Clusters aus.</block>
   <block id="9d8f2c43275b418d0a8bb43287edc93a" category="summary">Ein Execution Hook ist ein benutzerdefiniertes Skript, das Sie vor oder nach einem Snapshot einer verwalteten App ausführen können.</block>
-  <block id="d77a72056cdc02124a845066bec0d946" category="paragraph">Ein Execution Hook ist eine benutzerdefinierte Aktion, die Sie so konfigurieren können, dass sie zusammen mit einem Datenschutzvorgang einer verwalteten App ausgeführt wird. Wenn Sie beispielsweise über eine Datenbank-App verfügen, können Sie mithilfe von Testsuiten alle Datenbanktransaktionen vor dem Snapshot anhalten und die Transaktionen nach Abschluss des Snapshots fortsetzen. Dies gewährleistet applikationskonsistente Snapshots.</block>
   <block id="83fbf1604bedff410ea11872b40ab9f0" category="section-title">Arten von Ausführungshaken</block>
   <block id="2e0239d0ab48ff8e287445ee24093e64" category="paragraph">Astra Control unterstützt die folgenden Arten von Ausführungshaken, je nachdem, wann sie ausgeführt werden können:</block>
   <block id="9c6a9cc04a4d5840a5d237b232190a35" category="list-text">Vor dem Snapshot</block>
@@ -1156,7 +1149,6 @@
   <block id="7ca576bd037d81bea6107c8128e012fa" category="list-text">Um Testsuiten zu erstellen, zu bearbeiten oder zu löschen, müssen Sie Benutzer mit den Berechtigungen Eigentümer, Administrator oder Mitglied sein.</block>
   <block id="47d4976e0ab766da5e5bc33c2e81992f" category="list-text">Wenn ein Execution Hook länger als 25 Minuten dauert, schlägt der Hook fehl und erstellt einen Ereignisprotokolleintrag mit einem Rückgabecode von „N/A“. Jeder betroffene Snapshot wird als fehlgeschlagen markiert, und ein resultierender Eintrag im Ereignisprotokoll weist auf das Timeout hin.</block>
   <block id="7b1a9d930edd4676e6aca05c81245d86" category="list-text">Bei Ad-hoc-Datenschutzvorgängen werden alle Hook-Ereignisse im Ereignisprotokoll auf der Seite * erzeugt und gespeichert. Bei geplanten Datenschutzvorgängen werden jedoch nur Hook-Failure-Ereignisse im Ereignisprotokoll aufgezeichnet (Ereignisse, die von den geplanten Datenschutzvorgängen selbst generiert werden, werden noch aufgezeichnet).</block>
-  <block id="e44e874b44364a30ee06654e352ede59" category="paragraph">Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt. Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass ein Testinaper nach dem Backup nicht davon ausgehen kann, dass die Sicherung abgeschlossen wurde.</block>
   <block id="a9f57378169166a88acf61a71442e5fb" category="section-title">Ausführungsreihenfolge</block>
   <block id="e8132483e0cae3565c87c193b3fd8f57" category="paragraph">Wenn ein Datenschutzvorgang ausgeführt wird, finden Hakenereignisse in der folgenden Reihenfolge statt:</block>
   <block id="4a6ccf1757fd10978b3fb28d81187dcc" category="list-text">Alle entsprechenden benutzerdefinierten Testhaken für die Ausführung vor dem Betrieb werden auf den entsprechenden Containern ausgeführt. Sie können beliebig viele benutzerdefinierte Hooks für die Vorbedienung erstellen und ausführen, aber die Reihenfolge der Ausführung dieser Haken vor der Operation ist weder garantiert noch konfigurierbar.</block>
@@ -1214,14 +1206,12 @@
   <block id="d77b4a468fb488142be1db1cb4f3b30a" category="paragraph">Sie können vorhandene benutzerdefinierte Testsuiten für eine App anzeigen.</block>
   <block id="c91b53b026773d149cd03ed154f3e929" category="list-text">Gehen Sie zu *Anwendungen* und wählen Sie dann den Namen einer verwalteten App aus.</block>
   <block id="4a921c3efaab8bbadecfb6a807d12e69" category="list-text">Wählen Sie die Registerkarte *Testsuitehaschen* aus.</block>
-  <block id="f8394306e8105b9804b880be5da4e874" category="paragraph">In der Ergebnisliste können Sie alle aktivierten oder deaktivierten Testausführungshaken anzeigen. Sie sehen den Status, die Quelle und den Ablauf eines Hakens (vor oder nach dem Betrieb). Um Ereignisprotokolle zu den Testausführungshaken anzuzeigen, gehen Sie zur Seite *Aktivität* im linken Navigationsbereich.</block>
   <block id="348d9142b6e812d430105231b6b22f7b" category="section-title">Vorhandene Skripte anzeigen</block>
   <block id="9a25c0423497a3b78185a1dcbd83ee56" category="paragraph">Sie können die bereits hochgeladenen Skripte anzeigen. Auf dieser Seite können Sie auch sehen, welche Skripte verwendet werden und welche Haken sie verwenden.</block>
   <block id="9847e9d0ad4bd0b4ebd33ef807c5de85" category="list-text">Gehen Sie zu *Konto*.</block>
   <block id="38f83cc7b29ed2a740a9c8456659a293" category="list-text">Wählen Sie die Registerkarte *Skripts* aus.</block>
   <block id="8c9fd3633020b4d6c051241f7be9c138" category="paragraph">Auf dieser Seite sehen Sie eine Liste mit bereits hochgeladenen Skripten. Die Spalte *used by* zeigt an, welche Testsuitehaoks die einzelnen Skripte verwenden.</block>
   <block id="6efeb013da42bda9a0b005c8fb3d9e7b" category="section-title">Fügen Sie ein Skript hinzu</block>
-  <block id="52bf2b6b8ab697098c999c634d60de41" category="paragraph">Sie können einen oder mehrere Skripte hinzufügen, auf die Testausführungshaken verweisen können. Viele Testsuitehaoks können auf dasselbe Skript verweisen. So können Sie viele Testsuiten aktualisieren, indem Sie nur ein Skript ändern.</block>
   <block id="fa12509cfb8e8ccded16e2a254e988c4" category="list-text">Wählen Sie *Hinzufügen*.</block>
   <block id="365d382b2d9ecca9b0d40171c69b38ff" category="list-text">Führen Sie einen der folgenden Schritte aus:</block>
   <block id="489a27c3b545dfadcd33d3ce67932718" category="list-text">Laden Sie ein benutzerdefiniertes Skript hoch.</block>
@@ -1241,15 +1231,12 @@
   <block id="9dd5d4388456b71f9b71c1021d390f06" category="admonition">Wenn das Skript mit einem oder mehreren Testsuiten verknüpft ist, ist die Aktion *Löschen* nicht verfügbar. Um das Skript zu löschen, bearbeiten Sie zunächst die zugehörigen Testausführungshaken und ordnen Sie sie einem anderen Skript zu.</block>
   <block id="c45dea86b5befe190795d48755984936" category="section-title">Erstellen Sie einen benutzerdefinierten Testsuite-Haken</block>
   <block id="88cf147ac90a429c61c32e7ab09e79bd" category="admonition">Wenn Sie ein benutzerdefiniertes Shell-Skript erstellen, das als Execution Hook verwendet werden soll, denken Sie daran, die entsprechende Shell am Anfang der Datei anzugeben, es sei denn, Sie führen bestimmte Befehle aus oder geben den vollständigen Pfad zu einer ausführbaren Datei an.</block>
-  <block id="646a0acc29f56871519ed10b81ce1989" category="list-text">Legen Sie im Bereich *Hook Details* fest, wann der Haken ausgeführt werden soll, indem Sie im Dropdown-Menü *Operation* einen Operationstyp auswählen.</block>
   <block id="4069b8bd7c11bc17efc85c9bb6d794c1" category="list-text">Geben Sie einen eindeutigen Namen für den Haken ein.</block>
   <block id="cc56ac336e2ae46c348055eabdb31910" category="list-text">(Optional) Geben Sie alle Argumente ein, um während der Ausführung an den Haken weiterzuleiten. Drücken Sie nach jedem eingegebenen Argument die Eingabetaste, um jedes Argument aufzuzeichnen.</block>
-  <block id="bdc506e89ee9aec709d8e40132db20f3" category="list-text">Wenn der Haken im Bereich *Container Images* auf alle Container-Bilder in der Anwendung laufen soll, aktivieren Sie das Kontrollkästchen *auf alle Container-Bilder* anwenden. Sollte der Haken stattdessen nur auf ein oder mehrere angegebene Container-Images wirken, geben Sie die Container-Bildnamen in das Feld *Container-Bildnamen ein, die mit* übereinstimmen.</block>
   <block id="1144b2f2ea8eccb66bf20cdea686b3d2" category="list-text">Führen Sie im Bereich *Script* einen der folgenden Schritte aus:</block>
   <block id="be22134446ec0047c1f901e0ef639bba" category="list-text">Fügen Sie ein neues Skript hinzu.</block>
   <block id="8b7f83d064fa53247eb45928442a6628" category="list-text">Wählen Sie ein vorhandenes Skript aus der Liste aus.</block>
   <block id="35517af1363cb45c60a97af004151365" category="paragraph">Hiermit wird der Testsuitelink angewiesen, dieses Skript zu verwenden.</block>
-  <block id="6d4a5ef582e95d5022946acc47ce0f2e" category="list-text">Wählen Sie *Haken hinzufügen*.</block>
   <block id="6b8dd1e3d90ea41ecc0080c1e210d997" category="section-title">Überprüfen Sie den Status eines Testablaufanhängees</block>
   <block id="1fc77ab9ac6a173006c9fe06bae7719c" category="paragraph">Nachdem ein Snapshot-, Backup- oder Wiederherstellungsvorgang abgeschlossen wurde, können Sie den Status der Testsuiten überprüfen, die im Rahmen des Vorgangs ausgeführt wurden. Mit diesen Statusinformationen können Sie festlegen, ob der Testsuite beibehalten, geändert oder gelöscht werden soll.</block>
   <block id="457c4d41d1a1f4610a377873cfed8d2d" category="list-text">Wählen Sie die Registerkarte *Datenschutz* aus.</block>
@@ -1763,20 +1750,12 @@
   <block id="a54ffcf601d3cad8846bb3488b0fc812" category="admonition">Während Klonvorgängen müssen Applikationen, die eine Ressource oder Webhooks der ProgresClass benötigen, nicht über die Ressourcen verfügen, die bereits auf dem Ziel-Cluster definiert sind.</block>
   <block id="d187001d501dee0ac96f1c4520418b01" category="section-title">22. November 2022</block>
   <block id="9ed67fb9a4ad2ebd97ca13fe2eb81541" category="list-title">Neue Funktionen und Support</block>
-  <block id="8a839dbb28e85696069bbc2c4085cb75" category="list-text">Unterstützung von Applikationen, die mehrere Namespaces umfassen</block>
   <block id="4eba5ba43cc624385f276658a22c51a8" category="inline-link-macro">Definieren von Apps</block>
   <block id="615bfdde03d6ca17ceb25db1da7a8950" category="paragraph"><block ref="615bfdde03d6ca17ceb25db1da7a8950" category="inline-link-macro-rx"></block></block>
-  <block id="fbed0a0742c59aa2f0516e302eb19172" category="list-text">Unterstützung, um Cluster-Ressourcen in eine Applikationsdefinition zu enthalten</block>
-  <block id="a75cc842b54759877cde075e6d7b123b" category="list-text">Verbesserte Fortschrittsberichte für Backup-, Restore- und Klonvorgänge</block>
   <block id="92131ec58f7cefa34d38f2fee2e98c42" category="inline-link-macro">Überwachen Sie laufende Aufgaben</block>
   <block id="7ae618b5d6c1a9768cb0ddc2627b32d0" category="paragraph"><block ref="7ae618b5d6c1a9768cb0ddc2627b32d0" category="inline-link-macro-rx"></block></block>
-  <block id="ffcef21176963cb229c78971c4867b5e" category="list-text">Unterstützung für das Management von Clustern, auf denen bereits eine kompatible Version von Astra Trident installiert ist</block>
-  <block id="0c26609d927c6fd9f0a23dd079134b80" category="list-text">Unterstützung für das Managen mehrerer Cloud-Provider-Abonnements in einem einzigen Astra Control Service-Konto</block>
   <block id="e0b7652da21db7cd16f8155afc64e87b" category="inline-link-macro">Managen Sie Cloud-Instanzen</block>
   <block id="9df52d082eaf22280b9667a382b64298" category="paragraph"><block ref="9df52d082eaf22280b9667a382b64298" category="inline-link-macro-rx"></block></block>
-  <block id="8800f5d275e5928d65cbcb5f023cb6a8" category="list-text">Unterstützung für das Hinzufügen selbst verwalteter Kubernetes-Cluster zum Astra Control Service.</block>
-  <block id="c34eb65732649a4231a17e2623c9a979" category="list-text">Die Abrechnung für den Astra Control Service erfolgt jetzt mit gemessene Namensräume anstatt je Applikation.</block>
-  <block id="ebd7baa8bca4e519b3b1dcc85e15069b" category="list-text">Unterstützung bei der Anmeldung zu den Term-basierten Angeboten des Astra Control Service über AWS Marketplace</block>
   <block id="3a3b7ac2e39541ea05707ccd6eb054d4" category="list-title">Bekannte Probleme und Einschränkungen</block>
   <block id="740eb4189d3efee5546cc5fba4fded77" category="inline-link-macro">Bekannte Probleme in diesem Release</block>
   <block id="d1dd5fb317ad23b395c8c846c80e0e5f" category="list-text"><block ref="d1dd5fb317ad23b395c8c846c80e0e5f" category="inline-link-macro-rx"></block></block>
@@ -2052,4 +2031,58 @@
   <block id="88bdaf7536fdf70e3c93df4a9b10bb82" category="list-text">Wenn die Performance der Azure Storage-Kontoinstanz auf „Premium“ eingestellt ist, muss die Einstellung „Premium-Kontotyp“ auf „Block-Blobs“ gesetzt werden.</block>
   <block id="ceeca391c3348d53722ec9783ba88430" category="inline-link">NetApp TV</block>
   <block id="b504b02d5498a8b09080b1e621f4d1aa" category="admonition">Einen Video-Überblick über den Azure Marketplace-Abonnementprozess finden Sie unter<block ref="bfd2f59ca3f14f5fb5037b1bda5b7515" category="inline-link-rx"></block>.</block>
+  <block id="ccd62d676165e34c2e9c6d088c06e70f" category="paragraph">Ein Execution Hook ist eine benutzerdefinierte Aktion, die Sie so konfigurieren können, dass sie zusammen mit einem Datenschutzvorgang einer verwalteten App ausgeführt wird. Wenn Sie beispielsweise über eine Datenbank-App verfügen, können Sie mit einem Execution-Hook alle Datenbanktransaktionen vor einem Snapshot anhalten und die Transaktionen nach Abschluss des Snapshots wieder aufnehmen. Dies gewährleistet applikationskonsistente Snapshots.</block>
+  <block id="99dc882fc0f61d1db87631ed9f156913" category="section-title">Filter für Testausführungshaken</block>
+  <block id="d335f82eb07728e66330e5d345123e4e" category="paragraph">Wenn Sie einer Anwendung einen Testsuite-Haken hinzufügen oder bearbeiten, können Sie einem Testsuite Filter hinzufügen, um zu verwalten, welche Container der Haken entsprechen. Filter sind für Applikationen nützlich, die in allen Containern dasselbe Container-Image nutzen. Jedes Image kann jedoch für einen anderen Zweck (wie Elasticsearch) verwendet werden. Mithilfe von Filtern können Sie Szenarien erstellen, in denen die Testsuitehaoks auf einigen der identischen Container ausgeführt werden, aber nicht unbedingt alle. Wenn Sie mehrere Filter für einen einzelnen Testausführungshaken erstellen, werden diese mit einem logischen UND einem Operator kombiniert. Pro Testsuite können Sie bis zu 10 aktive Filter haben.</block>
+  <block id="1f7268b251b886be0fbed048e85fcbae" category="paragraph">Jeder Filter, den Sie einem Execution Hook hinzufügen, verwendet einen regulären Ausdruck, um Container in Ihrem Cluster zu entsprechen. Wenn ein Haken einem Container entspricht, führt der Haken sein zugehöriges Skript auf diesem Container aus.</block>
+  <block id="8f00b1ba5cf1b5159598a4201b24c485" category="admonition">Reguläre Ausdrücke für Filter verwenden die Syntax des regulären Ausdrucks 2 (RE2), die das Erstellen eines Filters nicht unterstützt, der Container aus der Liste der Übereinstimmungen ausschließt.</block>
+  <block id="7caae75448dbc59fcadd621099e170b3" category="inline-link">Syntaxunterstützung für regulären Ausdruck 2 (RE2)</block>
+  <block id="348be7b5ea322b3d9f3cc7f3638347e8" category="paragraph">Informationen zur Syntax, die Astra Control für regelmäßige Ausdrücke in Hook-Filter unterstützt, finden Sie unter<block ref="d4d0dd655d04b2dc5b031206e1febd50" category="inline-link-rx"></block>.</block>
+  <block id="a00c0d5dc029d521b5d82eba2c9f84ec" category="paragraph">Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt. Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass die in einem Testsuite nach dem Backup verwendete Logik nicht davon ausgehen kann, dass das Backup abgeschlossen wurde.</block>
+  <block id="ad06e01fed5c441edb22a5ad730a28c4" category="paragraph">In der Ergebnisliste können Sie alle aktivierten oder deaktivierten Testausführungshaken anzeigen. Sie sehen den Status eines Hakens, die Anzahl der passenden Container, die Erstellungszeit und den Ablauf (vor- oder Nachbetrieb). Sie können die auswählen<block ref="26b17225b626fb9238849fd60eabdf60" prefix=" " category="inline-code"></block> Symbol neben dem Hook-Namen, um die Liste der Container, auf denen es ausgeführt wird, zu erweitern. Um die Ereignisprotokolle zu den Testausführungshaken für diese Anwendung anzuzeigen, gehen Sie zur Registerkarte *Aktivität*.</block>
+  <block id="fdccfeac6686fcf9ef3545d27c98ebd9" category="paragraph">Jeder Execution Hook muss ein Skript verwenden, um Aktionen durchzuführen. Sie können einen oder mehrere Skripte hinzufügen, auf die Testausführungshaken verweisen können. Viele Testsuitehaoks können auf dasselbe Skript verweisen. So können Sie viele Testsuiten aktualisieren, indem Sie nur ein Skript ändern.</block>
+  <block id="730e56f4151d257d4be9b69d500491b1" category="list-text">Im Bereich *Klettdetails*:</block>
+  <block id="754306132541c264b899699072715a8d" category="list-text">Bestimmen Sie, wann der Haken ausgeführt werden soll, indem Sie im Dropdown-Menü * Operation* einen Operationstyp auswählen.</block>
+  <block id="b3bf4b7c4fe4ab9fd4c927146b958c29" category="list-text">(Optional) im Bereich *Hook Filter Details* können Sie Filter hinzufügen, um zu steuern, auf welchen Behältern der Execution Hook läuft:</block>
+  <block id="26e5ad6aeb15088310dc7f5f94ac6b1c" category="list-text">Wählen Sie *Filter hinzufügen*.</block>
+  <block id="046bbeb096523a6c2a52a82b7a1a144a" category="list-text">Wählen Sie in der Spalte *Hook Filtertyp* ein Attribut aus, nach dem Sie im Dropdown-Menü filtern möchten.</block>
+  <block id="7f5c33cf7bc03894aef7093b46c50ba3" category="inline-link">Regex-Syntax für regulären Ausdruck 2 (RE2)</block>
+  <block id="40bf80a4152341fe23b78ee81bdae830" category="list-text">Geben Sie in der Spalte *Regex* einen regulären Ausdruck ein, der als Filter verwendet werden soll. Astra Control verwendet den<block ref="5a0c17cee4b408e519a995b1f313a559" category="inline-link-rx"></block>.</block>
+  <block id="f3ed8a73ba34dec99a6dc46c809c190b" category="admonition">Wenn Sie den genauen Namen eines Attributs (z. B. einen Pod-Namen) ohne anderen Text im Feld „regulärer Ausdruck“ filtern, wird ein Teilstring-Match durchgeführt. Verwenden Sie zum Abgleich eines genauen Namens und nur des Namens die exakte Syntax für die Übereinstimmung der Zeichenfolge (z. B.<block ref="008d171d630f0108aa5ebd55b36c9d01" prefix=" " category="inline-code"></block>).</block>
+  <block id="f587a978a9522295d00811bafac25b74" category="list-text">Um weitere Filter hinzuzufügen, wählen Sie *Filter hinzufügen*.</block>
+  <block id="e45aa7d1b7841e860b561b3f17ed3626" category="admonition">Mehrere Filter für einen Execution Hook werden mit einem logischen UND einem Operator kombiniert. Pro Testsuite können Sie bis zu 10 aktive Filter haben.</block>
+  <block id="d3b15dd314c60647e826dddaf876252c" category="list-text">Wählen Sie anschließend *Weiter* aus.</block>
+  <block id="245ac12acb7bc3829b2f5656f25ce8f9" category="list-text">Überprüfen Sie die Konfiguration der Testsuite.</block>
+  <block id="e7e278b27ed2ba8a9f0a89cea227a0aa" category="section-title">Bearbeiten Sie einen Testsuite-Haken</block>
+  <block id="48077e8945995c9af9cf3beb5a95e222" category="paragraph">Sie können einen Testsuite-Haken bearbeiten, wenn Sie die Attribute, Filter oder das verwendete Skript ändern möchten. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken bearbeiten zu können.</block>
+  <block id="1dbaed14db949844ab67cca7fa804ec9" category="list-text">Wählen Sie in der Spalte *Aktionen* das Menü Optionen für einen Haken, den Sie bearbeiten möchten.</block>
+  <block id="d6b31513755644b14ff0352ed78ee5d0" category="list-text">Nehmen Sie alle erforderlichen Änderungen vor, und wählen Sie nach Abschluss jedes Abschnitts *Weiter* aus.</block>
+  <block id="4c5848fdf558a402deead01b3a7267ca" category="list-text">Geben Sie im Dialogfeld „Ergebnis“ zur Bestätigung „Löschen“ ein.</block>
+  <block id="4bc73956dcf3b9d92b687a0e41330027" category="list-text">Wählen Sie *Ja, Testsuite löschen*.</block>
+  <block id="cd9365bcc5200e0100ab1291e25e536a" category="section-title">17 Januar 2023</block>
+  <block id="dc76043b82b478d28285ae514fece7b7" category="list-text">Verbesserte Funktionalität der Testsuitehasen mit zusätzlichen Filteroptionen</block>
+  <block id="a02fef9177dafc1ed65c31506043a788" category="list-text">Unterstützung von NetApp Cloud Volumes ONTAP als Storage-Backend (offiziell auf Microsoft Azure und Google Cloud Plattformen unterstützt)</block>
+  <block id="9873d3282f5b305c09e3384bd4cc642f" category="paragraph"><block ref="9873d3282f5b305c09e3384bd4cc642f" category="inline-link-macro-rx"></block></block>
+  <block id="3aed836d77f6857f6adf310ab3a489e9" category="list-text">Unterstützung von Applikationen, die mehrere Namespaces umfassen</block>
+  <block id="71e6b5ca832527695b724cd4030ff69f" category="list-text">Unterstützung, um Cluster-Ressourcen in eine Applikationsdefinition zu enthalten</block>
+  <block id="d57729d6a002792bd1640f00b3c60a6d" category="list-text">Verbesserte Fortschrittsberichte für Backup-, Restore- und Klonvorgänge</block>
+  <block id="ee22ee616d03d0b788bbae8035a8d53d" category="list-text">Unterstützung für das Management von Clustern, auf denen bereits eine kompatible Version von Astra Trident installiert ist</block>
+  <block id="22289318dae293d59005c72969da78c0" category="list-text">Unterstützung für das Managen mehrerer Cloud-Provider-Abonnements in einem einzigen Astra Control Service-Konto</block>
+  <block id="16522d4241295dd4aacfffd076bdab35" category="list-text">Unterstützung für das Hinzufügen selbst verwalteter Kubernetes-Cluster zum Astra Control Service</block>
+  <block id="340fb7807661130b471c746bcb32778d" category="list-text">Die Abrechnung für den Astra Control Service erfolgt jetzt mit gemessene Namensräume anstatt je Applikation</block>
+  <block id="7c560ce667e00f7fb7277e3e40274958" category="list-text">Unterstützung bei der Anmeldung zu den Term-basierten Angeboten des Astra Control Service über AWS Marketplace</block>
+  <block id="1825b9e766e0b0cdba1d02a62126146f" category="section-title">NetApp Cloud Volumes ONTAP wird für Amazon Web Services offiziell nicht unterstützt</block>
+  <block id="06a37277cf290af4d70f99c3def289f6" category="paragraph">Ab der Version 17. Januar 2023 des Astra Control Service wird NetApp Cloud Volumes ONTAP für Amazon Web Services noch nicht offiziell unterstützt.</block>
+  <block id="0bf305437e764438b0cefa4feeab361a" category="paragraph">Astra Control Service unterstützt Cloud Volumes Service für Google Cloud, Google Persistent Disk oder NetApp Cloud Volumes ONTAP als Storage-Backend-Optionen für persistente Volumes.</block>
+  <block id="0f0b99ea2f70cd363c2c6a279f74e760" category="section-title">NetApp Cloud Volumes ONTAP</block>
+  <block id="e472e0844cec8046d5a3eed1d37de0ed" category="inline-link">NetApp Cloud Volumes ONTAP-Dokumentation</block>
+  <block id="b311f4f89f8edf2c494c59166cea789e" category="paragraph">Genaue Informationen zur Konfiguration von NetApp Cloud Volumes ONTAP, einschließlich Performance-Empfehlungen, finden Sie im<block ref="c94772fe83b69960a6ebea80e6f83cf2" category="inline-link-rx"></block>.</block>
+  <block id="1da547253b2bff6a97f16457ba6c7659" category="list-text">Astra Control Service verwendet<block ref="9e2d15731749abbc242896b41a1be2ef" category="inline-link-rx"></block>, Von Azure verwaltete Festplatten und<block ref="3d43fd73820648564776fa140e465af6" category="inline-link-rx"></block> Als Storage-Back-Ends für AKS-Cluster.</block>
+  <block id="068755ba9601ac78582444cf9563d28b" category="list-text">Astra Control Service verwendet<block ref="d804c793f302b1f3285300e6253aaac6" category="inline-link-rx"></block>, Google Persistent Disk, und<block ref="3d43fd73820648564776fa140e465af6" category="inline-link-rx"></block> Als Speicher-Back-Ends für GKE-Cluster.</block>
+  <block id="9ff64e735ff169bd9cc9554b0d5d8108" category="list-text">Astra Control Service verwendet<block ref="a65cb6c91d35e755c3763fe01aedac72" category="inline-link-rx"></block> Und<block ref="789fe92e2b55f108a4e50dd78da73d71" category="inline-link-rx"></block> Als Storage-Back-Ends für AWS Cluster.</block>
+  <block id="88ede18f1c4b4384b20f2ce56a75bd80" category="paragraph">Astra Control Service unterstützt Azure NetApp Files, gemanagte Azure Festplatten oder NetApp Cloud Volumes ONTAP als Storage-Backend für Azure Kubernetes Service-Cluster (AKS).</block>
+  <block id="2281a4480d392ba38bb5a7a535c3d0a6" category="list-text">Cloud Volumes ONTAP-Storage-Back-End (offiziell auf Azure und Google Cloud Plattformen unterstützt)</block>
+  <block id="cf2023b42357e47bef18c127980bd1c6" category="list-text">NetApp Cloud Volumes ONTAP: Keine Informationen zu Preis, Performance oder Ausfallsicherheit verfügbar</block>
+  <block id="d52e07d1d595c838fa6dd650fe711cd0" category="list-text"><block ref="d52e07d1d595c838fa6dd650fe711cd0" category="inline-link-rx"></block></block>
+  <block id="ec9e8ebd4a4bf176cd70f6a24863b17a" category="paragraph">Weitere Informationen zu <block ref="669f060d339cad3efcb29baff91fd410" category="inline-link-macro-rx"></block>. Weitere Informationen zu <block ref="b4547358b744ca3b28812f444dc5a38f" category="inline-link-macro-rx"></block>. Weitere Informationen zu <block ref="fd0a3bed584d87df18438d86772a2aaf" category="inline-link-macro-rx"></block>.</block>
 </blocks>

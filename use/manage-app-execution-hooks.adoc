@@ -12,7 +12,7 @@ summary: Ein Execution Hook ist ein benutzerdefiniertes Skript, das Sie vor oder
 
 
 [role="lead"]
-Ein Execution Hook ist eine benutzerdefinierte Aktion, die Sie so konfigurieren können, dass sie zusammen mit einem Datenschutzvorgang einer verwalteten App ausgeführt wird. Wenn Sie beispielsweise über eine Datenbank-App verfügen, können Sie mithilfe von Testsuiten alle Datenbanktransaktionen vor dem Snapshot anhalten und die Transaktionen nach Abschluss des Snapshots fortsetzen. Dies gewährleistet applikationskonsistente Snapshots.
+Ein Execution Hook ist eine benutzerdefinierte Aktion, die Sie so konfigurieren können, dass sie zusammen mit einem Datenschutzvorgang einer verwalteten App ausgeführt wird. Wenn Sie beispielsweise über eine Datenbank-App verfügen, können Sie mit einem Execution-Hook alle Datenbanktransaktionen vor einem Snapshot anhalten und die Transaktionen nach Abschluss des Snapshots wieder aufnehmen. Dies gewährleistet applikationskonsistente Snapshots.
 
 
 
@@ -26,6 +26,19 @@ Astra Control unterstützt die folgenden Arten von Ausführungshaken, je nachdem
 * Nach dem Backup
 * Nach dem Wiederherstellen
 
+
+
+
+== Filter für Testausführungshaken
+
+Wenn Sie einer Anwendung einen Testsuite-Haken hinzufügen oder bearbeiten, können Sie einem Testsuite Filter hinzufügen, um zu verwalten, welche Container der Haken entsprechen. Filter sind für Applikationen nützlich, die in allen Containern dasselbe Container-Image nutzen. Jedes Image kann jedoch für einen anderen Zweck (wie Elasticsearch) verwendet werden. Mithilfe von Filtern können Sie Szenarien erstellen, in denen die Testsuitehaoks auf einigen der identischen Container ausgeführt werden, aber nicht unbedingt alle. Wenn Sie mehrere Filter für einen einzelnen Testausführungshaken erstellen, werden diese mit einem logischen UND einem Operator kombiniert. Pro Testsuite können Sie bis zu 10 aktive Filter haben.
+
+Jeder Filter, den Sie einem Execution Hook hinzufügen, verwendet einen regulären Ausdruck, um Container in Ihrem Cluster zu entsprechen. Wenn ein Haken einem Container entspricht, führt der Haken sein zugehöriges Skript auf diesem Container aus.
+
+
+NOTE: Reguläre Ausdrücke für Filter verwenden die Syntax des regulären Ausdrucks 2 (RE2), die das Erstellen eines Filters nicht unterstützt, der Container aus der Liste der Übereinstimmungen ausschließt.
+
+Informationen zur Syntax, die Astra Control für regelmäßige Ausdrücke in Hook-Filter unterstützt, finden Sie unter https://github.com/google/re2/wiki/Syntax["Syntaxunterstützung für regulären Ausdruck 2 (RE2)"^].
 
 
 
@@ -45,7 +58,7 @@ Bei der Planung von Testausführungshooks für Ihre Apps sollten Sie Folgendes b
 
 [NOTE]
 ====
-Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt. Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass ein Testinaper nach dem Backup nicht davon ausgehen kann, dass die Sicherung abgeschlossen wurde.
+Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt. Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass die in einem Testsuite nach dem Backup verwendete Logik nicht davon ausgehen kann, dass das Backup abgeschlossen wurde.
 
 ====
 
@@ -145,7 +158,7 @@ Sie können vorhandene benutzerdefinierte Testsuiten für eine App anzeigen.
 . Gehen Sie zu *Anwendungen* und wählen Sie dann den Namen einer verwalteten App aus.
 . Wählen Sie die Registerkarte *Testsuitehaschen* aus.
 +
-In der Ergebnisliste können Sie alle aktivierten oder deaktivierten Testausführungshaken anzeigen. Sie sehen den Status, die Quelle und den Ablauf eines Hakens (vor oder nach dem Betrieb). Um Ereignisprotokolle zu den Testausführungshaken anzuzeigen, gehen Sie zur Seite *Aktivität* im linken Navigationsbereich.
+In der Ergebnisliste können Sie alle aktivierten oder deaktivierten Testausführungshaken anzeigen. Sie sehen den Status eines Hakens, die Anzahl der passenden Container, die Erstellungszeit und den Ablauf (vor- oder Nachbetrieb). Sie können die auswählen `+` Symbol neben dem Hook-Namen, um die Liste der Container, auf denen es ausgeführt wird, zu erweitern. Um die Ereignisprotokolle zu den Testausführungshaken für diese Anwendung anzuzeigen, gehen Sie zur Registerkarte *Aktivität*.
 
 
 
@@ -167,7 +180,7 @@ Auf dieser Seite sehen Sie eine Liste mit bereits hochgeladenen Skripten. Die Sp
 
 == Fügen Sie ein Skript hinzu
 
-Sie können einen oder mehrere Skripte hinzufügen, auf die Testausführungshaken verweisen können. Viele Testsuitehaoks können auf dasselbe Skript verweisen. So können Sie viele Testsuiten aktualisieren, indem Sie nur ein Skript ändern.
+Jeder Execution Hook muss ein Skript verwenden, um Aktionen durchzuführen. Sie können einen oder mehrere Skripte hinzufügen, auf die Testausführungshaken verweisen können. Viele Testsuitehaoks können auf dasselbe Skript verweisen. So können Sie viele Testsuiten aktualisieren, indem Sie nur ein Skript ändern.
 
 .Schritte
 . Gehen Sie zu *Konto*.
@@ -229,10 +242,30 @@ NOTE: Wenn Sie ein benutzerdefiniertes Shell-Skript erstellen, das als Execution
 . Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
 . Wählen Sie die Registerkarte *Testsuitehaschen* aus.
 . Wählen Sie *Hinzufügen*.
-. Legen Sie im Bereich *Hook Details* fest, wann der Haken ausgeführt werden soll, indem Sie im Dropdown-Menü *Operation* einen Operationstyp auswählen.
-. Geben Sie einen eindeutigen Namen für den Haken ein.
-. (Optional) Geben Sie alle Argumente ein, um während der Ausführung an den Haken weiterzuleiten. Drücken Sie nach jedem eingegebenen Argument die Eingabetaste, um jedes Argument aufzuzeichnen.
-. Wenn der Haken im Bereich *Container Images* auf alle Container-Bilder in der Anwendung laufen soll, aktivieren Sie das Kontrollkästchen *auf alle Container-Bilder* anwenden. Sollte der Haken stattdessen nur auf ein oder mehrere angegebene Container-Images wirken, geben Sie die Container-Bildnamen in das Feld *Container-Bildnamen ein, die mit* übereinstimmen.
+. Im Bereich *Klettdetails*:
++
+.. Bestimmen Sie, wann der Haken ausgeführt werden soll, indem Sie im Dropdown-Menü * Operation* einen Operationstyp auswählen.
+.. Geben Sie einen eindeutigen Namen für den Haken ein.
+.. (Optional) Geben Sie alle Argumente ein, um während der Ausführung an den Haken weiterzuleiten. Drücken Sie nach jedem eingegebenen Argument die Eingabetaste, um jedes Argument aufzuzeichnen.
+
+
+. (Optional) im Bereich *Hook Filter Details* können Sie Filter hinzufügen, um zu steuern, auf welchen Behältern der Execution Hook läuft:
++
+.. Wählen Sie *Filter hinzufügen*.
+.. Wählen Sie in der Spalte *Hook Filtertyp* ein Attribut aus, nach dem Sie im Dropdown-Menü filtern möchten.
+.. Geben Sie in der Spalte *Regex* einen regulären Ausdruck ein, der als Filter verwendet werden soll. Astra Control verwendet den https://github.com/google/re2/wiki/Syntax["Regex-Syntax für regulären Ausdruck 2 (RE2)"^].
++
+
+NOTE: Wenn Sie den genauen Namen eines Attributs (z. B. einen Pod-Namen) ohne anderen Text im Feld „regulärer Ausdruck“ filtern, wird ein Teilstring-Match durchgeführt. Verwenden Sie zum Abgleich eines genauen Namens und nur des Namens die exakte Syntax für die Übereinstimmung der Zeichenfolge (z. B. `^exact_podname$`).
+
+.. Um weitere Filter hinzuzufügen, wählen Sie *Filter hinzufügen*.
++
+
+NOTE: Mehrere Filter für einen Execution Hook werden mit einem logischen UND einem Operator kombiniert. Pro Testsuite können Sie bis zu 10 aktive Filter haben.
+
+
+
+. Wählen Sie anschließend *Weiter* aus.
 . Führen Sie im Bereich *Script* einen der folgenden Schritte aus:
 +
 ** Fügen Sie ein neues Skript hinzu.
@@ -267,7 +300,9 @@ Hiermit wird der Testsuitelink angewiesen, dieses Skript zu verwenden.
 
 
 
-. Wählen Sie *Haken hinzufügen*.
+. Wählen Sie *Weiter*.
+. Überprüfen Sie die Konfiguration der Testsuite.
+. Wählen Sie *Hinzufügen*.
 
 
 
@@ -305,6 +340,21 @@ Eine detailliertere Liste mit den Namen der Haken, die das Skript verwenden, und
 
 
 
+== Bearbeiten Sie einen Testsuite-Haken
+
+Sie können einen Testsuite-Haken bearbeiten, wenn Sie die Attribute, Filter oder das verwendete Skript ändern möchten. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken bearbeiten zu können.
+
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie die Registerkarte *Testsuitehaschen* aus.
+. Wählen Sie in der Spalte *Aktionen* das Menü Optionen für einen Haken, den Sie bearbeiten möchten.
+. Wählen Sie *Bearbeiten*.
+. Nehmen Sie alle erforderlichen Änderungen vor, und wählen Sie nach Abschluss jedes Abschnitts *Weiter* aus.
+. Wählen Sie *Speichern*.
+
+
+
+
 == Deaktivieren Sie einen Testsuite-Haken
 
 Sie können einen Testsuite-Hook deaktivieren, wenn Sie ihn vorübergehend vor oder nach einem Snapshot einer App nicht ausführen möchten. Sie müssen über die Berechtigung Eigentümer, Administrator oder Mitglied verfügen, um Testsuiten zu deaktivieren.
@@ -327,6 +377,8 @@ Sie können einen Execution Hook ganz entfernen, wenn Sie ihn nicht mehr benöti
 . Wählen Sie die Registerkarte *Testsuitehaschen* aus.
 . Wählen Sie in der Spalte *Aktionen* das Menü Optionen für einen Haken, den Sie löschen möchten.
 . Wählen Sie *Löschen*.
+. Geben Sie im Dialogfeld „Ergebnis“ zur Bestätigung „Löschen“ ein.
+. Wählen Sie *Ja, Testsuite löschen*.
 
 
 

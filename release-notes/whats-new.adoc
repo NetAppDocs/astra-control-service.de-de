@@ -16,6 +16,21 @@ NetApp aktualisiert regelmäßig den Astra Control Service, um Ihnen neue Funkti
 
 
 
+== 17 Januar 2023
+
+.Neue Funktionen und Support
+* Verbesserte Funktionalität der Testsuitehasen mit zusätzlichen Filteroptionen
++
+link:../use/manage-app-execution-hooks.html["Anwendungsausführungshaken verwalten"]
+
+* Unterstützung von NetApp Cloud Volumes ONTAP als Storage-Backend (offiziell auf Microsoft Azure und Google Cloud Plattformen unterstützt)
++
+link:../learn/architecture.html#astra-control-components["Architektur und Komponenten"]
+
+
+
+
+
 == 22. November 2022
 
 .Neue Funktionen und Support
@@ -39,11 +54,11 @@ link:../get-started/add-first-cluster.html["Managen Sie Kubernetes Cluster über
 +
 link:../use/manage-cloud-instances.html["Managen Sie Cloud-Instanzen"]
 
-* Unterstützung für das Hinzufügen selbst verwalteter Kubernetes-Cluster zum Astra Control Service.
+* Unterstützung für das Hinzufügen selbst verwalteter Kubernetes-Cluster zum Astra Control Service
 +
 link:../get-started/add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"]
 
-* Die Abrechnung für den Astra Control Service erfolgt jetzt mit gemessene Namensräume anstatt je Applikation.
+* Die Abrechnung für den Astra Control Service erfolgt jetzt mit gemessene Namensräume anstatt je Applikation
 +
 link:../use/set-up-billing.html["Abrechnung einrichten"]
 
