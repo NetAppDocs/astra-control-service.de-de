@@ -24,12 +24,11 @@ Astra Control bietet entscheidende Funktionen für das Lifecycle Management von 
 * Erstellen Sie applikationsorientierte Snapshots und Backups nach Bedarf
 * Automatisierung von richtlinienbasierten Snapshot- und Backup-Vorgängen
 * Migrieren Sie Applikationen und Daten von einem Kubernetes-Cluster zu einem anderen
-* Einfaches Klonen von Applikationen aus der Produktion bis hin zur Staging
+* Klonen einer Applikation vom Staging zur Produktion
+* Replizierung von Applikationen auf ein Remote-System mit NetApp SnapMirror Technologie
 * Darstellung des Anwendungszustands und des Schutzstatus
-* Verwenden Sie eine Benutzeroberfläche oder eine API zur Implementierung Ihrer Backup- und Migrations-Workflows
+* Verwenden Sie eine Web-Oberfläche oder eine API zur Implementierung Ihrer Backup- und Migration-Workflows
 
-
-Astra Control überwacht Ihre Computing-Ressourcen kontinuierlich auf Zustandsänderungen, sodass Sie sich über neue Applikationen im Klaren sind, die Sie unterwegs hinzufügen.
 
 
 
@@ -37,8 +36,8 @@ Astra Control überwacht Ihre Computing-Ressourcen kontinuierlich auf Zustandsä
 
 Astra Control ist in zwei Implementierungsmodellen erhältlich:
 
-* *Astra Control Service*: Ein von NetApp gemanagter Service, der applikationsgerechtes Datenmanagement für Kubernetes Cluster in Umgebungen mit mehreren Cloud-Providern ermöglicht.
-* *Astra Control Center*: Gemanagte Software für applikationsgerechtes Datenmanagement von Kubernetes-Clustern, die in Ihrer On-Premises-Umgebung ausgeführt werden.
+* *Astra Control Service*: Ein von NetApp gemanagter Service, der applikationskonsistentes Datenmanagement von Kubernetes Clustern in Umgebungen mehrerer Cloud-Provider sowie selbst gemanagte Kubernetes Cluster bietet.
+* *Astra Control Center*: Gemanagte Software für applikationsgerechtes Datenmanagement von Kubernetes-Clustern, die in Ihrer On-Premises-Umgebung ausgeführt werden. Astra Control Center kann auch auf mehreren Cloud-Provider-Umgebungen mit einem NetApp Cloud Volumes ONTAP Storage-Backend installiert werden.
 
 
 [cols="1h,2d,2a"]
@@ -47,12 +46,12 @@ Astra Control ist in zwei Implementierungsmodellen erhältlich:
 
 
 | Wie wird das angeboten? | Vollständig gemanagter Cloud-Service von NetApp  a| 
-Als Software, die Sie herunterladen, installieren und verwalten
+Als Software, die Sie herunterladen, installieren und verwalten können
 
 
 
 | Wo wird sie gehostet? | In einer Public Cloud von NetApp ihrer Wahl  a| 
-In Ihrem bereitgestellten Kubernetes-Cluster
+In Ihrem eigenen Kubernetes-Cluster
 
 
 
@@ -61,12 +60,12 @@ Sie verwalten jegliche Updates
 
 
 
-| Welche Funktionen stehen für das Applikationsdatenmanagement zur Verfügung? | Auf beiden Plattformen laufen dieselben Funktionen, mit Ausnahme des Storage-Backend oder zu externen Services  a| 
-Auf beiden Plattformen laufen dieselben Funktionen, mit Ausnahme des Storage-Backend oder zu externen Services
+| Welche Funktionen stehen für das Applikationsdatenmanagement zur Verfügung? | Dieselben Funktionen auf beiden Plattformen, mit Ausnahme des Storage-Backend oder zu externen Services (siehe <<Funktionen>>)  a| 
+Dieselben Funktionen auf beiden Plattformen, mit Ausnahme des Storage-Backend oder zu externen Services (siehe <<Funktionen>>)
 
 
 
-| Was ist die Back-End-Unterstützung für Storage?  a| 
+| Welche Storage-Back-Ends werden unterstützt?  a| 
 * Amazon Web Services:
 +
 ** Amazon EBS
@@ -77,18 +76,20 @@ Auf beiden Plattformen laufen dieselben Funktionen, mit Ausnahme des Storage-Bac
 +
 ** Google Persistent Disk
 ** NetApp Cloud Volumes Service
+** Cloud Volumes ONTAP
 
 
 * Microsoft Azure:
 +
 ** Über Azure Gemanagte Festplatten
 ** Azure NetApp Dateien
+** Cloud Volumes ONTAP
 
 
 
  a| 
 * NetApp ONTAP AFF und FAS Systeme
-* Cloud Volumes ONTAP-Storage-Back-End (offiziell auf Azure und Google Cloud Plattformen unterstützt)
+* Cloud Volumes ONTAP
 
 
 |===
@@ -138,7 +139,7 @@ endif::azure[]
 * Verwendet diese neue Administratorrolle für die Installation https://docs.netapp.com/us-en/trident/index.html["Astra Trident"^] Auf dem Cluster und um eine oder mehrere Storage-Klassen zu erstellen.
 * Wenn Sie ein Cloud-Service-Storage-Angebot von NetApp als Storage-Back-End verwenden, verwendet der Astra Control Service Astra Trident zur Bereitstellung persistenter Volumes für Ihre Applikationen. Wenn Sie von Amazon EBS oder Azure gemanagte Festplatten als Storage-Backend verwenden, müssen Sie einen Provider-spezifischen CSI-Treiber installieren. Installationsanweisungen finden Sie in link:set-up-amazon-web-services.html["Einrichten von Amazon Web Services"^] Und link:set-up-microsoft-azure-with-amd.html["Richten Sie Microsoft Azure mit von Azure gemanagten Festplatten ein"^].
 +
-** An dieser Stelle können Sie Ihrem Cluster Apps hinzufügen. Persistente Volumes werden auf der neuen Standard-Storage-Klasse bereitgestellt.
+** An diesem Punkt können Sie Apps aus Ihrem Cluster definieren. Persistente Volumes werden auf dem Storage-Back-End über die neue Standard-Storage-Klasse bereitgestellt.
 ** Anschließend verwalten Sie diese Applikationen mithilfe des Astra Control Service und erstellen Snapshots, Backups und Klone.
 +
 Astra Control Service überwacht Ihr Computing kontinuierlich auf Statusänderungen, sodass Sie sich über neue Applikationen im Klaren sind, die Sie unterwegs hinzufügen.

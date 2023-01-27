@@ -528,27 +528,19 @@
   <block id="0a5245490d6d6f511bbdb3db35acfe54" category="list-text">Erstellen Sie applikationsorientierte Snapshots und Backups nach Bedarf</block>
   <block id="f107a6e34d3d0df36d460bc5b3a5fe8b" category="list-text">Automatisierung von richtlinienbasierten Snapshot- und Backup-Vorgängen</block>
   <block id="ae3099cc177fc161f80c6965fe89a71a" category="list-text">Migrieren Sie Applikationen und Daten von einem Kubernetes-Cluster zu einem anderen</block>
-  <block id="053d6e036cc8c9d7a8c57234d6bfc574" category="list-text">Einfaches Klonen von Applikationen aus der Produktion bis hin zur Staging</block>
   <block id="1c26e7db082840fcbfcd87527c92e1aa" category="list-text">Darstellung des Anwendungszustands und des Schutzstatus</block>
-  <block id="3e09a55ad40337db37927865855151a9" category="list-text">Verwenden Sie eine Benutzeroberfläche oder eine API zur Implementierung Ihrer Backup- und Migrations-Workflows</block>
   <block id="6762973af9b127d271f0d2b2aea0bc96" category="section-title">Implementierungsmodelle</block>
   <block id="db1905d057dd6fde6f8b7bd6afe60e41" category="paragraph">Astra Control ist in zwei Implementierungsmodellen erhältlich:</block>
-  <block id="26816f4f023579253517240a64829a70" category="list-text">*Astra Control Service*: Ein von NetApp gemanagter Service, der applikationsgerechtes Datenmanagement für Kubernetes Cluster in Umgebungen mit mehreren Cloud-Providern ermöglicht.</block>
-  <block id="ddbf9f0ee6e908772df862b9cb9312d3" category="list-text">*Astra Control Center*: Gemanagte Software für applikationsgerechtes Datenmanagement von Kubernetes-Clustern, die in Ihrer On-Premises-Umgebung ausgeführt werden.</block>
   <block id="35b46e301702b6fcb16192f9f4cf4533" category="cell">Astra Control Service</block>
   <block id="9c634046a90a62883b122e76b9afcef2" category="cell">Astra Control Center</block>
   <block id="72fa0b165b80dd423c3cca71e56e6e85" category="cell">Wie wird das angeboten?</block>
   <block id="f7b1d494056b7a9289f329a721d9f318" category="cell">Vollständig gemanagter Cloud-Service von NetApp</block>
-  <block id="aff53210beade5ba79414ae13eb6b73d" category="paragraph">Als Software, die Sie herunterladen, installieren und verwalten</block>
   <block id="7cae1429bdc4131db46365e8fc893a77" category="cell">Wo wird sie gehostet?</block>
   <block id="7ab48d8d90e46b91aa73c1832b7681f9" category="cell">In einer Public Cloud von NetApp ihrer Wahl</block>
-  <block id="6cc0042ffe94d2cdea2bf7b80705f4ef" category="paragraph">In Ihrem bereitgestellten Kubernetes-Cluster</block>
   <block id="a564f860d9dd9df279c4ea80b08d026a" category="cell">Wie wird sie aktualisiert?</block>
   <block id="b2929741e98ca2c366d8d7dfda36e2b9" category="cell">Gemanagt von NetApp</block>
   <block id="091f846d60c1037c90ba7580f37ef9fa" category="paragraph">Sie verwalten jegliche Updates</block>
   <block id="cef5c6ab0b7d20ab7cd426689afb9fa5" category="cell">Welche Funktionen stehen für das Applikationsdatenmanagement zur Verfügung?</block>
-  <block id="1598aaab2cb9865732925d064c6978c2" category="cell">Auf beiden Plattformen laufen dieselben Funktionen, mit Ausnahme des Storage-Backend oder zu externen Services</block>
-  <block id="c1d5f7fc5daa2ea9189ee2df5ca15da2" category="cell">Was ist die Back-End-Unterstützung für Storage?</block>
   <block id="d6fc0eb1930e7e56affc953c237c5514" category="list-text">NetApp ONTAP AFF und FAS Systeme</block>
   <block id="5f4b9e6660ba4e73dc9c6aa214e60cde" category="section-title">Funktionsweise des Astra Control Service</block>
   <block id="972dbc054c14df6a8a668ad2c71b9afa" category="paragraph">Astra Control Service ist ein von NetApp gemanagter Cloud-Service, der ständig verfügbar und mit den neuesten Funktionen aktualisiert ist. Verschiedene Komponenten unterstützen das Lifecycle-Management von Applikationsdaten.</block>
@@ -563,7 +555,6 @@
   <block id="c2fd5ecb26eed8762bfa518199e6199f" category="list-text">Erstellt eine neue Administratorrolle und ein Kubernetes-Servicekonto auf dem Cluster.</block>
   <block id="086e6c16e3fe8e13c336612ef636aa02" category="inline-link">Astra Trident</block>
   <block id="51fbabc51080a419e6a5019a1c169ab4" category="list-text">Verwendet diese neue Administratorrolle für die Installation<block ref="0ff0cd427dac64ddc62afadc9a52e9d0" category="inline-link-rx"></block> Auf dem Cluster und um eine oder mehrere Storage-Klassen zu erstellen.</block>
-  <block id="a853ecb1e1044a3ae5762294407c0fda" category="list-text">An dieser Stelle können Sie Ihrem Cluster Apps hinzufügen. Persistente Volumes werden auf der neuen Standard-Storage-Klasse bereitgestellt.</block>
   <block id="67d2a2db6f77778acc532b68658f63cc" category="list-text">Anschließend verwalten Sie diese Applikationen mithilfe des Astra Control Service und erstellen Snapshots, Backups und Klone.</block>
   <block id="a7eb0ba32f9706a479c6037bea16e1ca" category="paragraph">Astra Control Service überwacht Ihr Computing kontinuierlich auf Statusänderungen, sodass Sie sich über neue Applikationen im Klaren sind, die Sie unterwegs hinzufügen.</block>
   <block id="b714fdd25acef8e71be758de7ff02f0b" category="section-title">So funktioniert Astra Control Center</block>
@@ -1926,7 +1917,6 @@
   <block id="f4e39691a17b55519cdcd9b3fe953c77" category="paragraph">Mit der Astra Control API können Sie eine Cloud-Instanz vom Cloud-Provider entfernen. Weitere Informationen<block ref="bfa33a3653b9adb3eeffbdd741a1c8dc" category="inline-link-rx"></block>.</block>
   <block id="2af1f66f8f47d8339a96c1cd543cd3a8" category="list-text">*Astra Trident*: Als vollständig unterstützte Open-Source-Storage-bereitstellung und -Orchestrierung mit NetApp ermöglicht Ihnen Astra Trident die Erstellung von Storage Volumes für Container-Applikationen, die von Docker und Kubernetes verwaltet werden. Astra Trident ist mit dem Astra Control Center implementiert und umfasst ein konfiguriertes ONTAP Storage-Back-End.</block>
   <block id="934c5edffa8e732ecb866cb319c8454a" category="doc">Applikationsmanagement</block>
-  <block id="eb7e7a3aeccca526c3baa843ca15c287" category="paragraph">Astra Control überwacht Ihre Computing-Ressourcen kontinuierlich auf Zustandsänderungen, sodass Sie sich über neue Applikationen im Klaren sind, die Sie unterwegs hinzufügen.</block>
   <block id="516729a7c0562425406a22cfe6a2c163" category="list-text">Amazon EBS</block>
   <block id="79c9c43a409053927cc323915dbf1c06" category="list-text">Über Azure Gemanagte Festplatten</block>
   <block id="55a5776613a7a49b0fb7fc4800c3065f" category="list-text">Wenn Sie ein Cloud-Service-Storage-Angebot von NetApp als Storage-Back-End verwenden, verwendet der Astra Control Service Astra Trident zur Bereitstellung persistenter Volumes für Ihre Applikationen. Wenn Sie von Amazon EBS oder Azure gemanagte Festplatten als Storage-Backend verwenden, müssen Sie einen Provider-spezifischen CSI-Treiber installieren. Installationsanweisungen finden Sie in <block ref="ebf2a7f1b6295b0b8e4d97b888cb809e" category="inline-link-macro-rx"></block> Und <block ref="1938f6af50a8259a0bb98bac4f34eeeb" category="inline-link-macro-rx"></block>.</block>
@@ -2063,7 +2053,6 @@
   <block id="068755ba9601ac78582444cf9563d28b" category="list-text">Astra Control Service verwendet<block ref="d804c793f302b1f3285300e6253aaac6" category="inline-link-rx"></block>, Google Persistent Disk, und<block ref="3d43fd73820648564776fa140e465af6" category="inline-link-rx"></block> Als Speicher-Back-Ends für GKE-Cluster.</block>
   <block id="9ff64e735ff169bd9cc9554b0d5d8108" category="list-text">Astra Control Service verwendet<block ref="a65cb6c91d35e755c3763fe01aedac72" category="inline-link-rx"></block> Und<block ref="789fe92e2b55f108a4e50dd78da73d71" category="inline-link-rx"></block> Als Storage-Back-Ends für AWS Cluster.</block>
   <block id="88ede18f1c4b4384b20f2ce56a75bd80" category="paragraph">Astra Control Service unterstützt Azure NetApp Files, gemanagte Azure Festplatten oder NetApp Cloud Volumes ONTAP als Storage-Backend für Azure Kubernetes Service-Cluster (AKS).</block>
-  <block id="2281a4480d392ba38bb5a7a535c3d0a6" category="list-text">Cloud Volumes ONTAP-Storage-Back-End (offiziell auf Azure und Google Cloud Plattformen unterstützt)</block>
   <block id="cf2023b42357e47bef18c127980bd1c6" category="list-text">NetApp Cloud Volumes ONTAP: Keine Informationen zu Preis, Performance oder Ausfallsicherheit verfügbar</block>
   <block id="d52e07d1d595c838fa6dd650fe711cd0" category="list-text"><block ref="d52e07d1d595c838fa6dd650fe711cd0" category="inline-link-rx"></block></block>
   <block id="ec9e8ebd4a4bf176cd70f6a24863b17a" category="paragraph">Weitere Informationen zu <block ref="669f060d339cad3efcb29baff91fd410" category="inline-link-macro-rx"></block>. Weitere Informationen zu <block ref="b4547358b744ca3b28812f444dc5a38f" category="inline-link-macro-rx"></block>. Weitere Informationen zu <block ref="fd0a3bed584d87df18438d86772a2aaf" category="inline-link-macro-rx"></block>.</block>
@@ -2086,4 +2075,15 @@
   <block id="17fc42c08affacba5657de8d171ed30e" category="list-text">*Cloud-Instanzname* (für vom Provider verwaltete Cluster): Geben Sie einen Namen für die neue Cloud-Instanz an, die beim Hinzufügen dieses Clusters erstellt wird. Weitere Informationen zu <block ref="32e60ef2ecbf9cc1dffc20ea8b07ceea" category="inline-link-macro-rx"></block>.</block>
   <block id="1fe883570039bf797197aff2f9905e79" category="list-text">(Optional) *Storage*: Wählen Sie die Storage-Klasse aus, die Kubernetes-Anwendungen in diesem Cluster standardmäßig verwenden sollen.</block>
   <block id="a0652b7f26bfa45b4a805218ab132fd2" category="paragraph">*Für Provider-verwaltete Cluster*: Wenn dies der erste Cluster ist, den Sie für diesen Cloud-Provider hinzugefügt haben, erstellt Astra Control Service einen Objektspeicher für den Cloud-Provider für Backups von Anwendungen, die auf geeigneten Clustern ausgeführt werden. (Wenn Sie nachfolgende Cluster für diesen Cloud-Provider hinzufügen, werden keine weiteren Objektspeicher erstellt.) Wenn Sie eine Standard-Storage-Klasse angegeben haben, setzt Astra Control Service die von Ihnen angegebene Standard-Storage-Klasse ein. Für Cluster, die in Amazon Web Services oder Google Cloud Platform gemanagt werden, erstellt Astra Control Service auch ein Administratorkonto auf dem Cluster. Diese Vorgänge können mehrere Minuten dauern.</block>
+  <block id="f22cb7c9b8713326a930c00edca70cee" category="list-text">Klonen einer Applikation vom Staging zur Produktion</block>
+  <block id="5ec023826f488423d711ac0df1d9f4c5" category="list-text">Replizierung von Applikationen auf ein Remote-System mit NetApp SnapMirror Technologie</block>
+  <block id="6c4ff7542dcef16bc12bbbab0c160e9a" category="list-text">Verwenden Sie eine Web-Oberfläche oder eine API zur Implementierung Ihrer Backup- und Migration-Workflows</block>
+  <block id="662f909cd182f2c19a1b5da86174d75f" category="list-text">*Astra Control Service*: Ein von NetApp gemanagter Service, der applikationskonsistentes Datenmanagement von Kubernetes Clustern in Umgebungen mehrerer Cloud-Provider sowie selbst gemanagte Kubernetes Cluster bietet.</block>
+  <block id="a301d7b978ad27dd47b48aac714d81ef" category="list-text">*Astra Control Center*: Gemanagte Software für applikationsgerechtes Datenmanagement von Kubernetes-Clustern, die in Ihrer On-Premises-Umgebung ausgeführt werden. Astra Control Center kann auch auf mehreren Cloud-Provider-Umgebungen mit einem NetApp Cloud Volumes ONTAP Storage-Backend installiert werden.</block>
+  <block id="8b9e0c5eab1aafdd0008e7d94a979a00" category="paragraph">Als Software, die Sie herunterladen, installieren und verwalten können</block>
+  <block id="384c577b472799aa8cd781ce64f2bb34" category="paragraph">In Ihrem eigenen Kubernetes-Cluster</block>
+  <block id="a9cfaa106aeba8d791f3fcc6358b3523" category="cell">Dieselben Funktionen auf beiden Plattformen, mit Ausnahme des Storage-Backend oder zu externen Services (siehe <block ref="b220d1e640409729fcaa15aadea51a52" category="inline-xref-macro-rx"></block>)</block>
+  <block id="a3060d8563d84f399ad045a8f074e953" category="cell">Welche Storage-Back-Ends werden unterstützt?</block>
+  <block id="117bdbda976fe8b3212bc3b6327a0a1b" category="list-text">Cloud Volumes ONTAP</block>
+  <block id="e76d01158a51318d708ef8185fb06b2d" category="list-text">An diesem Punkt können Sie Apps aus Ihrem Cluster definieren. Persistente Volumes werden auf dem Storage-Back-End über die neue Standard-Storage-Klasse bereitgestellt.</block>
 </blocks>
