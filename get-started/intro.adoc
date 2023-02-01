@@ -25,7 +25,6 @@ Astra Control bietet entscheidende Funktionen für das Lifecycle Management von 
 * Automatisierung von richtlinienbasierten Snapshot- und Backup-Vorgängen
 * Migrieren Sie Applikationen und Daten von einem Kubernetes-Cluster zu einem anderen
 * Klonen einer Applikation vom Staging zur Produktion
-* Replizierung von Applikationen auf ein Remote-System mit NetApp SnapMirror Technologie
 * Darstellung des Anwendungszustands und des Schutzstatus
 * Verwenden Sie eine Web-Oberfläche oder eine API zur Implementierung Ihrer Backup- und Migration-Workflows
 
@@ -57,11 +56,6 @@ In Ihrem eigenen Kubernetes-Cluster
 
 | Wie wird sie aktualisiert? | Gemanagt von NetApp  a| 
 Sie verwalten jegliche Updates
-
-
-
-| Welche Funktionen stehen für das Applikationsdatenmanagement zur Verfügung? | Dieselben Funktionen auf beiden Plattformen, mit Ausnahme des Storage-Backend oder zu externen Services (siehe <<Funktionen>>)  a| 
-Dieselben Funktionen auf beiden Plattformen, mit Ausnahme des Storage-Backend oder zu externen Services (siehe <<Funktionen>>)
 
 
 
@@ -163,9 +157,6 @@ endif::azure[]
 +
 ** An diesem Punkt können Sie Apps aus Ihrem Cluster definieren. Persistente Volumes werden auf dem Storage-Back-End über die neue Standard-Storage-Klasse bereitgestellt.
 ** Anschließend verwalten Sie diese Applikationen mithilfe des Astra Control Service und erstellen Snapshots, Backups und Klone.
-+
-Astra Control Service überwacht Ihr Computing kontinuierlich auf Statusänderungen, sodass Sie sich über neue Applikationen im Klaren sind, die Sie unterwegs hinzufügen.
-
 
 
 
