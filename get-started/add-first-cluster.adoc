@@ -57,6 +57,7 @@ ifdef::azure[]
 Außerdem benötigen Sie Ihre Azure Abonnement-ID, wenn Sie sie nicht zur JSON-Datei hinzugefügt haben.
 
 * Informationen zu privaten AKS-Clustern finden Sie unter link:manage-private-cluster.html["Managen Sie private Cluster über den Astra Control Service"^].
+* Wenn Sie NetApp Cloud Volumes ONTAP als Storage-Backend verwenden möchten, müssen Sie Cloud Volumes ONTAP für die Zusammenarbeit mit Microsoft Azure konfigurieren. Weitere Informationen finden Sie im Cloud Volumes ONTAP https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Setup-Dokumentation"^].
 
 
 endif::azure[]
@@ -65,6 +66,7 @@ ifdef::gcp[]
 
 .Google Cloud
 * Sie sollten die Servicekontoschlüsseldatei für ein Servicekonto haben, das über die erforderlichen Berechtigungen verfügt. link:../get-started/set-up-google-cloud.html#create-a-service-account["Erfahren Sie, wie Sie ein Service-Konto einrichten"].
+* Wenn Sie NetApp Cloud Volumes ONTAP als Storage-Backend verwenden möchten, müssen Sie Cloud Volumes ONTAP für die Zusammenarbeit mit Google Cloud konfigurieren. Weitere Informationen finden Sie im Cloud Volumes ONTAP https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Setup-Dokumentation"^].
 
 
 endif::gcp[]

@@ -72,24 +72,46 @@ Dieselben Funktionen auf beiden Plattformen, mit Ausnahme des Storage-Backend od
 ** Amazon FSX für NetApp ONTAP
 
 
+
+
+endif::aws[]
+
+ifdef::gcp[]
+
 * Google Cloud:
 +
 ** Google Persistent Disk
 ** NetApp Cloud Volumes Service
-** Cloud Volumes ONTAP
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP"^]
 
+
+
+
+endif::gcp[]
+
+ifdef::azure[]
 
 * Microsoft Azure:
 +
 ** Über Azure Gemanagte Festplatten
 ** Azure NetApp Dateien
-** Cloud Volumes ONTAP
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Cloud Volumes ONTAP"^]
+
+
+
+
+endif::azure[]
+
+* Self-Managed Cluster:
++
+** NetApp ONTAP AFF und FAS Systeme
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 
 
  a| 
 * NetApp ONTAP AFF und FAS Systeme
-* Cloud Volumes ONTAP
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 
 |===
