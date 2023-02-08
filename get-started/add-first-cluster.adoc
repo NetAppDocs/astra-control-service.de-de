@@ -88,7 +88,7 @@ Ihr Self-Managed-Cluster muss folgende Anforderungen erfüllen:
 
 * Der Cluster muss über das Internet zugänglich sein.
 * Wenn Sie Speicher mit CSI-Treibern verwenden oder planen, diese zu verwenden, müssen auf dem Cluster die entsprechenden CSI-Treiber installiert sein. Weitere Informationen zur Verwendung von CSI-Treibern zur Integration von Speicher finden Sie in der Dokumentation Ihres Speicherservices.
-* Wenn Sie NetApp Storage nutzen oder nutzen möchten, stellen Sie sicher, dass Sie eine Version von Astra Trident installiert haben link:../get-started/requirements.html#operational-environment-requirements["Unterstützt durch den Astra Control Service"^]:
+* Wenn Sie NetApp Storage nutzen oder nutzen möchten, stellen Sie sicher, dass Sie die neueste Version von Astra Trident installiert haben:
 +
 
 NOTE: Das können Sie https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#choose-the-deployment-method["Implementieren Sie Astra Trident"^] Mit dem Trident-Operator (manuell oder mit Hilfe des Helm-Diagramms) oder `tridentctl`. Vor der Installation oder dem Upgrade von Astra Trident sollten Sie sich die https://docs.netapp.com/us-en/trident/trident-get-started/requirements.html["Unterstützte Frontends, Back-Ends und Host-Konfigurationen"^].
