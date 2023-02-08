@@ -22,38 +22,38 @@ Astra Control verfügt über folgende Anforderungen an das Applikationsmanagemen
 
 * *Lizenzierung*: Um mehr als 10 Namespaces zu verwalten, benötigen Sie ein Astra Control Center-Abonnement.
 * *Namesaces*: Apps können mit Astra Control innerhalb eines oder mehrerer spezifizierter Namespaces auf einem einzigen Cluster definiert werden. Eine App kann Ressourcen enthalten, die mehrere Namespaces innerhalb desselben Clusters umfassen. Astra Control unterstützt nicht die Möglichkeit, Applikationen über mehrere Cluster hinweg zu definieren.
-* *StorageClass*: Wenn Sie eine App mit einem explizit eingestellten StorageClass installieren und die App klonen müssen, muss das Zielcluster für den Klonvorgang die ursprünglich angegebene StorageClass haben. Das Klonen einer Applikation, deren StorageClass explizit auf ein Cluster festgelegt ist, das nicht über dieselbe StorageClass verfügt, schlägt fehl.
+* *Speicherklasse*: Wenn Sie eine App installieren, die eine Speicherklasse explizit festgelegt hat und Sie die App klonen müssen, muss das Zielcluster für den Klonvorgang die ursprünglich angegebene Speicherklasse haben. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl.
 * *Kubernetes-Ressourcen*: Applikationen, die nicht von Astra Control gesammelte Kubernetes-Ressourcen verwenden, verfügen unter Umständen nicht über umfassende Funktionen zum App-Datenmanagement. Astra Control sammelt die folgenden Kubernetes-Ressourcen:
 +
 [cols="1,1,1"]
 |===
 
 
-| ClusterCole | ClusterrollenBding | Konfigmap 
+| `ClusterRole` | `ClusterRoleBinding` | `ConfigMap` 
 
 
-| Kronjob | KundenressourcenDefinition | Benutzerressource 
+| `CronJob` | `CustomResourceDefinition` | `CustomResource` 
 
 
-| DemonSet | BereitstellungConfig | Horizon PodAutoscaler 
+| `DaemonSet` | `DeploymentConfig` | `HorizontalPodAutoscaler` 
 
 
-| Eindringen | MutatingWebhook | Netzwerkrichtlinie 
+| `Ingress` | `MutatingWebhook` | `NetworkPolicy` 
 
 
-| PersistentVolumeClaim | Pod | PodDisruptionBudget 
+| `PersistentVolumeClaim` | `Pod` | `PodDisruptionBudget` 
 
 
-| PodTemplate | ReplicaSet | Rolle 
+| `PodTemplate` | `ReplicaSet` | `Role` 
 
 
-| Rollenverschwarten | Route | Geheim 
+| `RoleBinding` | `Route` | `Secret` 
 
 
-| Service | Service Account | StatfulSet 
+| `Service` | `ServiceAccount` | `StatefulSet` 
 
 
-| ValidierenWebhook |  |  
+| `ValidatingWebhook` |  |  
 |===
 
 
@@ -168,10 +168,10 @@ WARNING: Stellen Sie bei der Definition von Applikationen sicher, dass Sie keine
 Die Durchführung einer in-Place-Wiederherstellung in einer Anwendung, in der Ressourcen mit einer anderen Anwendung geteilt werden, kann unbeabsichtigte Ergebnisse haben. Alle Ressourcen, die von den Applikationen gemeinsam genutzt werden, werden ersetzt, wenn eine in-Place-Wiederherstellung für eine der Applikationen durchgeführt wird.
 
 ====
-.<strong> </strong> über das Hinzufügen von Ressourcen im Cluster-Umfang zu Ihren Namespaces für Apps.
+.Erfahren Sie mehr über das Hinzufügen von Ressourcen im Cluster-Umfang zu Ihren Applikationsnamensräumen.
 [%collapsible]
 ====
-Sie können Cluster-Ressourcen importieren, die den Ressourcen des Namensvetter-Pacer zugeordnet sind, zusätzlich zu den automatisch enthaltenen Astra Control. Sie können eine Regel hinzufügen, die Ressourcen einer bestimmten Gruppe, Art, Version und optional eine Bezeichnung enthält. Dies sollten Sie tun, wenn Astra Control nicht automatisch Ressourcen enthält.
+Außerdem können Sie Clusterressourcen importieren, die den Namespace-Ressourcen zugeordnet sind und die automatisch mit Astra Control integriert sind. Sie können eine Regel hinzufügen, die Ressourcen einer bestimmten Gruppe, Art, Version und optional eine Bezeichnung enthält. Dies sollten Sie tun, wenn Astra Control nicht automatisch Ressourcen enthält.
 
 Sie können keine Ressourcen mit Cluster-Umfang ausschließen, die automatisch von Astra Control enthalten sind.
 

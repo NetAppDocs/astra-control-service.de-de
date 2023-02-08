@@ -1312,33 +1312,7 @@
   <block id="a41861b6e8134096202b0c039ad91943" category="inline-link-macro">Fügen Sie zum Astra Control ein Kubernetes Cluster hinzu</block>
   <block id="7b7f260c982647b3aee51c681be792ef" category="section-title">Anforderungen für das Applikationsmanagement</block>
   <block id="07eb1eefb9996b52d1fdfe23101a2b03" category="paragraph">Astra Control verfügt über folgende Anforderungen an das Applikationsmanagement:</block>
-  <block id="a23e8e619b2ffd1ec1e37fd1f16eee74" category="list-text">*StorageClass*: Wenn Sie eine App mit einem explizit eingestellten StorageClass installieren und die App klonen müssen, muss das Zielcluster für den Klonvorgang die ursprünglich angegebene StorageClass haben. Das Klonen einer Applikation, deren StorageClass explizit auf ein Cluster festgelegt ist, das nicht über dieselbe StorageClass verfügt, schlägt fehl.</block>
   <block id="7a9f49c6cd6dca3bc35b755523c76570" category="list-text">*Kubernetes-Ressourcen*: Applikationen, die nicht von Astra Control gesammelte Kubernetes-Ressourcen verwenden, verfügen unter Umständen nicht über umfassende Funktionen zum App-Datenmanagement. Astra Control sammelt die folgenden Kubernetes-Ressourcen:</block>
-  <block id="d7d354d0f9d0780e168c895c92a32c24" category="cell">ClusterCole</block>
-  <block id="e866afd8290d5c73cda6260e04e6eef0" category="cell">ClusterrollenBding</block>
-  <block id="a941f8adb5ae079ebc739cb59407fd30" category="cell">Konfigmap</block>
-  <block id="99bc4b850e05bafd67cf5f5f49344c1e" category="cell">KundenressourcenDefinition</block>
-  <block id="2597d86efa761b80f198c7208e859dd7" category="cell">Benutzerressource</block>
-  <block id="639125955d3128c08b048bc254433dbf" category="cell">Kronjob</block>
-  <block id="0d4eb61dc57afc7f3f8d51439c96eedd" category="cell">DemonSet</block>
-  <block id="f82570cd8dd080fcb0fe525f9b081bdb" category="cell">Horizon PodAutoscaler</block>
-  <block id="7d05c708b92b4809bfe9bf66edf8f765" category="cell">Eindringen</block>
-  <block id="788c34b60baf42eb1cac433ba1f0b64a" category="cell">BereitstellungConfig</block>
-  <block id="1fcd027e4be180b1536eba3afa93e6be" category="cell">MutatingWebhook</block>
-  <block id="2b3f8e4d49589c4452db0a07d619d824" category="cell">PersistentVolumeClaim</block>
-  <block id="8a0813c70cf4bf1529f25c411a039130" category="cell">Pod</block>
-  <block id="d8babd242bd93046572e7f50a3fbb394" category="cell">PodDisruptionBudget</block>
-  <block id="3f4dbf8b7a689375f651090e7a111098" category="cell">PodTemplate</block>
-  <block id="c794a682153b998c6dca3efddf650512" category="cell">Netzwerkrichtlinie</block>
-  <block id="3f402161942e4154684cf3f56c76cead" category="cell">ReplicaSet</block>
-  <block id="bbbabdbe1b262f75d99d62880b953be1" category="cell">Rolle</block>
-  <block id="ec7eab019566cfca91934ab1e0073511" category="cell">Rollenverschwarten</block>
-  <block id="9405c3aff9112c3c60d03b94792877dc" category="cell">Route</block>
-  <block id="1e6947ac7fb3a9529a9726eb692c8cc5" category="cell">Geheim</block>
-  <block id="c2ba7e785c49050f48da9aacc45c2b85" category="cell">Service</block>
-  <block id="5c24ffd6438853b537bd99b3fccd3340" category="cell">Service Account</block>
-  <block id="f202d1133673fa6cfe280880cbc3ee66" category="cell">StatfulSet</block>
-  <block id="91e292ade0a336af19f1ac0977215b91" category="cell">ValidierenWebhook</block>
   <block id="b8f3bc1c4097cf013ff9bb82ec30af2e" category="section-title">Unterstützte Installationsmethoden für Anwendungen</block>
   <block id="1633320139361ee32414ab0910725238" category="list-text">*Manifest-Datei*: Astra Control unterstützt Apps, die aus einer Manifest-Datei mit kubectl installiert wurden. Beispiel:</block>
   <block id="a117e5ae155bb69285242a4c89875dd6" category="list-text">*Helm 3*: Wenn Sie Helm zur Installation von Apps verwenden, benötigt Astra Control Helm Version 3. Das Management und Klonen von Apps, die mit Helm 3 installiert sind (oder ein Upgrade von Helm 2 auf Helm 3), werden vollständig unterstützt. Das Verwalten von mit Helm 2 installierten Apps wird nicht unterstützt.</block>
@@ -1785,8 +1759,6 @@
   <block id="5c227ef4d58eed958f28dbf199bfbaad" category="list-text">Bevor Sie beginnen, sollten Sie auch verstehen <block ref="8168216ca124f830e0a917cd26a29d8e" category="inline-link-macro-rx"></block>.</block>
   <block id="9c2493f3c86c9672c359e50cc2e1f743" category="inline-link-macro">Ändern von Benutzerrollen mit Namespace-Einschränkungen</block>
   <block id="64443e478ec258a769dbd46a51e212af" category="list-text">Wenn Sie in Astra Control mehrere Namespaces mit Ihren Apps verwenden möchten, sollten Sie dies in Betracht ziehen <block ref="f6ecb96773fcc25458fe25947dd92e28" category="inline-link-macro-rx"></block> Vor dem Definieren von Apps.</block>
-  <block id="23933fe5cfee8cef6dcf2e9c76674773" category="example-title">&lt;strong&gt; &lt;/strong&gt; über das Hinzufügen von Ressourcen im Cluster-Umfang zu Ihren Namespaces für Apps.</block>
-  <block id="42eb29ab06c150f146256489fbb31f3d" category="paragraph">Sie können Cluster-Ressourcen importieren, die den Ressourcen des Namensvetter-Pacer zugeordnet sind, zusätzlich zu den automatisch enthaltenen Astra Control. Sie können eine Regel hinzufügen, die Ressourcen einer bestimmten Gruppe, Art, Version und optional eine Bezeichnung enthält. Dies sollten Sie tun, wenn Astra Control nicht automatisch Ressourcen enthält.</block>
   <block id="86584cfcf6ac47eda80aaeeb3808d02b" category="paragraph">Sie können keine Ressourcen mit Cluster-Umfang ausschließen, die automatisch von Astra Control enthalten sind.</block>
   <block id="8b3aa3648af6fe384bf33e5384fcc7b4" category="paragraph">Sie können Folgendes hinzufügen<block ref="aec49c7ac598bde0d65853ea9807c58f" prefix=" " category="inline-code"></block> (Welche Gruppen sind mit der API-Version kombiniert):</block>
   <block id="3ba5d3eff61255f7c7727fb4ed8cdbc6" category="cell">RessourcArt</block>
@@ -1822,7 +1794,6 @@
   <block id="43448f8497139ffbc9a461d85db8c731" category="paragraph">Das Klonen kann sich leisten, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen. So möchten Sie beispielsweise Workloads über eine CI/CD-Pipeline und über Kubernetes-Namespaces verschieben.</block>
   <block id="7d754e7d4f4a324710302cf0fc4d80c2" category="list-text">Um Applikationen in einem anderen Cluster zu klonen, müssen Sie sicherstellen, dass die Cloud-Instanzen, die die Quell- und Ziel-Cluster enthalten (wenn sie nicht identisch sind), einen Standard-Bucket haben. Für jede Cloud-Instanz müssen Sie einen Standard-Bucket zuweisen.</block>
   <block id="81eb21a03d5ee9fbe847337ca76b57dc" category="list-title">Einschränkungen beim Klonen</block>
-  <block id="676ff7d1c1d92284765be9dd54f79974" category="list-text">*Explicit Storage Classes*: Wenn Sie eine App mit einem explizit festgelegten StorageClass bereitstellen und die App klonen müssen, muss das Ziel-Cluster die ursprünglich angegebene StorageClass haben. Das Klonen einer Applikation, deren StorageClass explizit auf ein Cluster festgelegt ist, das nicht über dieselbe StorageClass verfügt, schlägt fehl.</block>
   <block id="d32d7bd30d168502b9d4ee99b9925378" category="list-text">*Klone und Benutzerbeschränkungen*: Jeder Mitgliedsbenutzer mit Namespace-Beschränkungen durch Namespace-Name/ID oder durch Namespace-Labels kann eine Anwendung in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto ihres Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer das Mitglied-Benutzerkonto bearbeiten und Rolleneinschränkungen für den betroffenen Benutzer aktualisieren, um dem neuen Namespace Zugriff zu gewähren.</block>
   <block id="c65bdc145f9acf12c31ad3d52e08fe52" category="list-text">*Klone verwenden Standardcontainer*:</block>
   <block id="1ade1b88410965a836b19fcf7588f87f" category="list-text">Während eines Applikations-Backups oder Applikations-Restores können Sie einen Bucket angeben, der verwendet werden soll. Sie müssen einen Standard-Bucket angeben, wenn Sie über die Cluster hinweg klonen, aber die Angabe eines Buckets ist optional, wenn Sie innerhalb desselben Clusters klonen.</block>
@@ -2081,4 +2052,29 @@
   <block id="e7f7ae1f9423fb8774a02e2ae647e158" category="list-text">Wenn Sie NetApp Cloud Volumes ONTAP als Storage-Backend verwenden möchten, müssen Sie Cloud Volumes ONTAP für die Zusammenarbeit mit Microsoft Azure konfigurieren. Weitere Informationen finden Sie im Cloud Volumes ONTAP<block ref="8bd14818004729c0926343811de7e4e9" category="inline-link-rx"></block>.</block>
   <block id="d75122947e3b2c3b0a4b44dfa3966432" category="list-text">Wenn Sie NetApp Cloud Volumes ONTAP als Storage-Backend verwenden möchten, müssen Sie Cloud Volumes ONTAP für die Zusammenarbeit mit Google Cloud konfigurieren. Weitere Informationen finden Sie im Cloud Volumes ONTAP<block ref="3a89728ad1d2dcbb16e661d8af8129b1" category="inline-link-rx"></block>.</block>
   <block id="cac25a8107e0ae4e458a81d1cd3dc8d2" category="list-text">Wenn Sie NetApp Storage nutzen oder nutzen möchten, stellen Sie sicher, dass Sie die neueste Version von Astra Trident installiert haben:</block>
+  <block id="972bcf4ffaa6d6b2c50833f0c86517d2" category="list-text">*Speicherklasse*: Wenn Sie eine App installieren, die eine Speicherklasse explizit festgelegt hat und Sie die App klonen müssen, muss das Zielcluster für den Klonvorgang die ursprünglich angegebene Speicherklasse haben. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl.</block>
+  <block id="e5de374e1d369bfc7e8ec51b5b744933" category="cell"><block ref="a941f8adb5ae079ebc739cb59407fd30" prefix="" category="inline-code"></block></block>
+  <block id="be5e0e20ce0e311437852c90af7c8276" category="cell"><block ref="639125955d3128c08b048bc254433dbf" prefix="" category="inline-code"></block></block>
+  <block id="0302c657e0585c41f2f6278beec1daa8" category="cell"><block ref="0d4eb61dc57afc7f3f8d51439c96eedd" prefix="" category="inline-code"></block></block>
+  <block id="3ef1c1f8bb4a9f17e4c3be129db67366" category="cell"><block ref="788c34b60baf42eb1cac433ba1f0b64a" prefix="" category="inline-code"></block></block>
+  <block id="fd8848399c1c55827bc0b79969e1e4a0" category="cell"><block ref="f82570cd8dd080fcb0fe525f9b081bdb" prefix="" category="inline-code"></block></block>
+  <block id="965155af507b897bd6e77dffd6aa0722" category="cell"><block ref="7d05c708b92b4809bfe9bf66edf8f765" prefix="" category="inline-code"></block></block>
+  <block id="77a106c2fd00e72732b9ca603f027479" category="cell"><block ref="1fcd027e4be180b1536eba3afa93e6be" prefix="" category="inline-code"></block></block>
+  <block id="e4fee35090e28014a028d2aacbc2dfd5" category="cell"><block ref="c794a682153b998c6dca3efddf650512" prefix="" category="inline-code"></block></block>
+  <block id="663d2d3603ff41da6cc6ee0a9ff5b975" category="cell"><block ref="2b3f8e4d49589c4452db0a07d619d824" prefix="" category="inline-code"></block></block>
+  <block id="82873de0f5b2ce17a8ae3c45fcdec32d" category="cell"><block ref="8a0813c70cf4bf1529f25c411a039130" prefix="" category="inline-code"></block></block>
+  <block id="11a7948f05eed04b034eed441c4f1d17" category="cell"><block ref="d8babd242bd93046572e7f50a3fbb394" prefix="" category="inline-code"></block></block>
+  <block id="93bca2ba13d4fcb7387baa5778fc009d" category="cell"><block ref="3f4dbf8b7a689375f651090e7a111098" prefix="" category="inline-code"></block></block>
+  <block id="2670a6aa236e5c7b5bd441bb5649af10" category="cell"><block ref="3f402161942e4154684cf3f56c76cead" prefix="" category="inline-code"></block></block>
+  <block id="b4686556afaf1bba0c5270574ca15c54" category="cell"><block ref="bbbabdbe1b262f75d99d62880b953be1" prefix="" category="inline-code"></block></block>
+  <block id="048d158959fcf004be385e1567033fe6" category="cell"><block ref="ec7eab019566cfca91934ab1e0073511" prefix="" category="inline-code"></block></block>
+  <block id="256f986a2a64bf0d93697e4176b13a4a" category="cell"><block ref="9405c3aff9112c3c60d03b94792877dc" prefix="" category="inline-code"></block></block>
+  <block id="793e5af2d1d35f01083c2714054795ba" category="cell"><block ref="1e6947ac7fb3a9529a9726eb692c8cc5" prefix="" category="inline-code"></block></block>
+  <block id="4074550b4bbee6a4267a989b94eb3c28" category="cell"><block ref="c2ba7e785c49050f48da9aacc45c2b85" prefix="" category="inline-code"></block></block>
+  <block id="650c66e0a27f30ae0cf2d7b83b772b35" category="cell"><block ref="5c24ffd6438853b537bd99b3fccd3340" prefix="" category="inline-code"></block></block>
+  <block id="9c396e0c60d319972f63a0023186f42a" category="cell"><block ref="f202d1133673fa6cfe280880cbc3ee66" prefix="" category="inline-code"></block></block>
+  <block id="e69175cacbe45336f1df22a8b3b32254" category="cell"><block ref="91e292ade0a336af19f1ac0977215b91" prefix="" category="inline-code"></block></block>
+  <block id="dcb9a5ddd39d8514ddcd5a64c129a6b0" category="example-title">Erfahren Sie mehr über das Hinzufügen von Ressourcen im Cluster-Umfang zu Ihren Applikationsnamensräumen.</block>
+  <block id="9497a649f72a465537e088cd33f63b26" category="paragraph">Außerdem können Sie Clusterressourcen importieren, die den Namespace-Ressourcen zugeordnet sind und die automatisch mit Astra Control integriert sind. Sie können eine Regel hinzufügen, die Ressourcen einer bestimmten Gruppe, Art, Version und optional eine Bezeichnung enthält. Dies sollten Sie tun, wenn Astra Control nicht automatisch Ressourcen enthält.</block>
+  <block id="b9e5ceb3ee51c79795e57043d65ace4f" category="list-text">*Explicit Storage Classes*: Wenn Sie eine App mit einer explizit eingestellten Speicherklasse bereitstellen und die App klonen müssen, muss der Zielcluster über die ursprünglich angegebene Speicherklasse verfügen. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl.</block>
 </blocks>
