@@ -14,6 +14,9 @@ summary: Astra Control kann Ihre Applikationskonfiguration und Ihren persistente
 [role="lead"]
 Astra Control kann Ihre Applikation aus einem Snapshot oder einem Backup wiederherstellen. Das Wiederherstellen aus einem vorhandenen Snapshot erfolgt schneller, wenn die Anwendung auf dasselbe Cluster wiederhergestellt wird. Sie können die Astra Control UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Zur Wiederherstellung von Applikationen.
 
+
+NOTE: Wenn Sie eine in-Place-Wiederherstellung einer Applikation durchführen, die NetApp ONTAP Storage verwendet, kann der von der wiederhergestellten Applikation verwendete Speicherplatz verdoppelt werden. Nachdem Sie eine in-Place-Wiederherstellung durchgeführt haben, entfernen Sie alle unerwünschten Snapshots aus der wiederhergestellten Applikation, um Speicherplatz freizugeben.
+
 .Über diese Aufgabe
 * *Schützen Sie Ihre Apps zuerst*: Es wird dringend empfohlen, einen Schnappschuss von Ihrer Anwendung zu machen oder zu sichern, bevor Sie sie wiederherstellen. Dadurch können Sie den Snapshot oder die Datensicherung klonen, wenn die Wiederherstellung nicht erfolgreich war.
 * *Zielspeicherklasse* prüfen: Wenn Sie auf einem anderen Cluster wiederherstellen, stellen Sie sicher, dass die Speicherklasse des Zielclusters denselben persistenten Zugriffsmodus (z. B. ReadWriteManche) verwendet, wie die Speicherklasse auf dem Quellcluster. Der Wiederherstellungsvorgang schlägt fehl, wenn der Zugriffsmodus des Ziel-persistenten Volumes anders ist.
