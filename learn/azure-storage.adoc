@@ -51,9 +51,9 @@ Astra Control Service stellt persistente Volumes mit einer minimalen Volume-Grö
 
 
 
-== Von Azure gemanagte Festplatten
+== Über Azure Gemanagte Festplatten
 
-Astra Control Service unterstützt von Azure verwaltete Festplatten als Storage-Backend-Option. Dieser Service bietet Storage auf Block-Ebene, der von Azure gemanagt wird.
+Astra Control Service kann über Container Storage Interface (CSI)-Treiber eine Schnittstelle zu Azure Managed Disks als Storage-Backend verwenden. Dieser Service bietet Storage auf Block-Ebene, der von Azure gemanagt wird.
 
 https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview["Weitere Informationen über von Azure gemanagte Festplatten"^].
 

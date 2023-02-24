@@ -76,7 +76,7 @@ endif::gcp[]
 .Was Sie&#8217;ll benötigen für selbstverwaltete Cluster
 [%collapsible]
 ====
-Die Self-Managed Cluster können über Astra Trident eine Schnittstelle zu NetApp Storage-Services oder über Container Storage Interface (CSI)-Treiber mit anderen Storage-Services verbunden werden.
+Selbstverwaltete Cluster können über Astra Trident eine Schnittstelle zu NetApp Storage-Services aufbauen oder über CSI-Treiber (Container Storage Interface) eine Schnittstelle zu Amazon Elastic Block Store (EBS), Azure Managed Disks und Google Persistent Disk aufbauen.
 
 Astra Control Service unterstützt selbst gemanagte Cluster mithilfe der folgenden Kubernetes-Distributionen:
 

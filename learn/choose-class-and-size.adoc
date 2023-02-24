@@ -113,7 +113,7 @@ Wenn ein PVC ein Volumen zwischen 700-999 gib anfordert, stellt der Astra Contro
 
 == Google Persistent Disk
 
-Astra Control Service unterstützt Google Persistent Disk als Storage-Backend-Option. Dieser Service bietet Storage auf Blockebene, der von Google gemanagt wird.
+Astra Control Service kann über CSI-Treiber (Container Storage Interface) eine Schnittstelle zu Google Persistent Disk als Storage-Backend erstellen. Dieser Service bietet Storage auf Blockebene, der von Google gemanagt wird.
 
 https://cloud.google.com/persistent-disk/["Erfahren Sie mehr über Google Persistent Disk"^].
 
