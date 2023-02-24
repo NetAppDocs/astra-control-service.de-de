@@ -54,7 +54,7 @@ link:../get-started/add-first-cluster.html["Managen Sie Kubernetes Cluster über
 +
 link:../use/manage-cloud-instances.html["Managen Sie Cloud-Instanzen"]
 
-* Unterstützung für das Hinzufügen selbst verwalteter Kubernetes-Cluster zum Astra Control Service
+* Unterstützt das Hinzufügen selbstverwalteter Kubernetes-Cluster, die in Public-Cloud-Umgebungen dem Astra Control Service gehostet werden
 +
 link:../get-started/add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"]
 

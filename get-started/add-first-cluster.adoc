@@ -28,13 +28,17 @@ Wenn Sie noch keinen Cluster haben, können Sie ein Cluster erstellen, das erfü
 
 NOTE: Astra Control Service unterstützt AKS-Cluster, die Azure Active Directory (Azure AD) zur Authentifizierung und Identitätsverwaltung nutzen. Wenn Sie das Cluster erstellen, befolgen Sie die Anweisungen im https://docs.microsoft.com/en-us/azure/aks/managed-aad["Offizielle Dokumentation"^] Um den Cluster mit Azure AD zu konfigurieren. Stellen Sie sicher, dass Ihre Cluster die Anforderungen für die AKS-verwaltete Azure AD-Integration erfüllen.
 
-Sie können einen selbstverwalteten Cluster zum Astra Control Service hinzufügen, indem Sie ein hochladen `kubeconfig.yaml` Datei: Sie müssen sicherstellen, dass der Cluster die in aufgeführten Anforderungen erfüllt <<Verwalten Sie Kubernetes-Cluster>>.
+
+
+=== Selbstverwaltete Cluster
+
+Ein selbstverwalteter Cluster ist ein Cluster, den Sie direkt bereitstellen und managen können. Astra Control Service unterstützt selbst gemanagte Cluster, die in einer Public-Cloud-Umgebung ausgeführt werden. Sie können einen selbstverwalteten Cluster zum Astra Control Service hinzufügen, indem Sie ein hochladen `kubeconfig.yaml` Datei: Sie müssen sicherstellen, dass der Cluster die in aufgeführten Anforderungen erfüllt <<Verwalten Sie Kubernetes-Cluster>>.
 
 
 
 == Verwalten Sie Kubernetes-Cluster
 
-Nachdem Sie sich beim Astra Control Service angemeldet haben, beginnen Sie zunächst mit dem Verwalten Ihrer Cluster. Sie können ein von einem Cloud-Provider gemanagtes Cluster oder einen Self-Managed Cluster hinzufügen. Bevor Sie dem Astra Control Service einen Cluster hinzufügen, müssen Sie bestimmte Aufgaben ausführen und sicherstellen, dass der Cluster bestimmte Anforderungen erfüllt.
+Nachdem Sie sich beim Astra Control Service angemeldet haben, beginnen Sie zunächst mit dem Verwalten Ihrer Cluster. Sie können ein von einem Cloud-Provider gemanagtes Cluster oder einen Self-Managed Cluster hinzufügen. Bevor Sie Astra Control Service ein Cluster hinzufügen, müssen Sie bestimmte Aufgaben ausführen und sicherstellen, dass das Cluster bestimmte Anforderungen erfüllt.
 
 .Was Sie&#8217;ll benötigen Cluster, die von einem Cloud-Provider verwaltet werden
 [%collapsible]
@@ -76,9 +80,9 @@ endif::gcp[]
 .Was Sie&#8217;ll benötigen für selbstverwaltete Cluster
 [%collapsible]
 ====
-Selbstverwaltete Cluster können über Astra Trident eine Schnittstelle zu NetApp Storage-Services aufbauen oder über CSI-Treiber (Container Storage Interface) eine Schnittstelle zu Amazon Elastic Block Store (EBS), Azure Managed Disks und Google Persistent Disk aufbauen.
+Ein selbstverwalteter Cluster ist ein Cluster, den Sie direkt bereitstellen und managen können. Astra Control Service unterstützt selbst gemanagte Cluster, die in einer Public-Cloud-Umgebung ausgeführt werden. Selbstverwaltete Cluster können über Astra Trident eine Schnittstelle zu NetApp Storage-Services aufbauen oder über CSI-Treiber (Container Storage Interface) eine Schnittstelle zu Amazon Elastic Block Store (EBS), Azure Managed Disks und Google Persistent Disk aufbauen.
 
-Astra Control Service unterstützt selbst gemanagte Cluster mithilfe der folgenden Kubernetes-Distributionen:
+Astra Control Service unterstützt selbst gemanagte Cluster, die die folgenden Kubernetes-Distributionen verwenden:
 
 * Red hat OpenShift Container Platform
 * Rancher Kubernetes Engine
@@ -88,6 +92,7 @@ Astra Control Service unterstützt selbst gemanagte Cluster mithilfe der folgend
 Ihr Self-Managed-Cluster muss folgende Anforderungen erfüllen:
 
 * Der Cluster muss über das Internet zugänglich sein.
+* Der Cluster kann nicht in Ihrem On-Premises-Netzwerk gehostet werden, sondern muss in einer Public-Cloud-Umgebung gehostet werden.
 * Wenn Sie Speicher mit CSI-Treibern verwenden oder planen, diese zu verwenden, müssen auf dem Cluster die entsprechenden CSI-Treiber installiert sein. Weitere Informationen zur Verwendung von CSI-Treibern zur Integration von Speicher finden Sie in der Dokumentation Ihres Speicherservices.
 * Wenn Sie NetApp Storage nutzen oder nutzen möchten, stellen Sie sicher, dass Sie die neueste Version von Astra Trident installiert haben:
 +
