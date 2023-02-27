@@ -12,19 +12,21 @@ summary: Managen Sie die Buckets, die Astra für Backups und Klone verwendet, in
 
 
 [role="lead"]
-Managen Sie die Buckets, die Astra für Backups und Klone verwendet, indem Sie zusätzliche Buckets hinzufügen und den Standard-Bucket für die Kubernetes-Cluster in Ihrer Cloud-Instanz ändern.
+Sie können die Buckets managen, die Astra für Backups und Klone verwendet. Sie können zusätzliche Buckets hinzufügen, vorhandene Buckets entfernen und den Standard-Bucket für die Kubernetes-Cluster in einer Cloud-Instanz ändern.
 
-Nur Administratoren können Buckets hinzufügen und ändern.
+Nur Eigentümer und Administratoren können Buckets managen.
 
 
 
 == So verwendet Astra Control Buckets
 
-Wenn Sie mit dem Management des ersten Kubernetes-Clusters beginnen, erstellt Astra Control Service den Standard-Bucket Ihres Cloud-Providers in derselben Region wie das gemanagte Cluster.
+Wenn Sie Ihr erstes Kubernetes-Cluster für eine Cloud-Instanz managen, erstellt Astra Control Service den ersten Bucket dafür link:manage-cloud-instances.html["Cloud-Instanz"^].
 
-Astra Control Service verwendet diesen Standard-Bucket für die Backups und Klone, die Sie erstellen. Anschließend können Sie die Backups verwenden, um Applikationen zwischen Clustern wiederherzustellen und zu klonen.
+Sie können einen Bucket manuell als Standardbucket für eine Cloud-Instanz festlegen. Astra Control Service verwendet diesen Bucket standardmäßig für die Backups und Klone, die Sie auf einem beliebigen gemanagten Cluster in dieser Cloud-Instanz erstellen (Sie können einen anderen Bucket für Backups auswählen). Wenn Sie einen Live-Klon einer Applikation von einem der gemanagten Cluster in einer Cloud-Instanz in ein anderes Cluster ausführen, verwendet Astra Control Service den Standard-Bucket für die Cloud-Quell-Instanz, um den Klonvorgang auszuführen.
 
-Wenn Sie dem Astra Control Service zusätzliche Buckets hinzufügen, können Sie beim Erstellen einer Schutzrichtlinie aus diesen Buckets auswählen. Außerdem können Sie den Standard-Bucket von Astra Control Service für Ad-hoc-Backups und Klone ändern. Sie können kein Bucket von einem Cloud-Provider zu einem anderen Cloud-Provider klonen. Um Daten von einem Cloud-Provider zu einem anderen zu migrieren, klonen Sie stattdessen die zugehörige Applikation.
+Sie können denselben Bucket wie den Standard-Bucket für mehrere Cloud-Instanzen festlegen.
+
+Sie können aus beliebigen Buckets auswählen, wenn Sie eine Schutzrichtlinie erstellen oder ein Ad-hoc-Backup starten.
 
 
 TIP: Astra Control Service überprüft vor dem Start eines Backups oder Klons, ob auf einen Ziel-Bucket zugegriffen werden kann.
@@ -33,11 +35,11 @@ TIP: Astra Control Service überprüft vor dem Start eines Backups oder Klons, o
 
 == Vorhandene Buckets anzeigen
 
-In dieser Liste der verfügbaren Buckets für den Astra Control Service können Sie den Status des Service bestimmen und den Standard-Bucket Ihres Cloud-Providers festlegen.
+In der Liste der Buckets, die für Astra Control Service verfügbar sind, können Sie ihren Status ermitteln und den Standard-Bucket (sofern definiert) für Ihre Cloud-Instanz identifizieren.
 
 Ein Bucket kann einen der folgenden Zustände haben:
 
-Ausstehend:: Nachdem Sie einen Eimer hinzugefügt haben, beginnt er im ausstehenden Zustand, während Astra Control ihn zum ersten Mal anschaut.
+Ausstehend:: Nachdem Sie einen Bucket hinzugefügt haben, wird er im ausstehenden Status gestartet, während Astra Control ihn erkennt.
 Verfügbar:: Der Eimer ist für Astra Control verfügbar.
 Entfernt:: Der Bucket ist momentan nicht einsatzbereit. Bewegen Sie die Maus über das Statussymbol, um zu ermitteln, was das Problem ist.
 +
@@ -50,7 +52,7 @@ Wenn ein Bucket den Status „entfernt“ aufweist, können Sie ihn immer noch a
 .Schritt
 . Gehen Sie zu *Buckets*.
 +
-Die Liste der verfügbaren Buckets für den Astra Control Service wird angezeigt.
+Die Liste der für Astra Control Service verfügbaren Buckets wird angezeigt.
 
 
 
@@ -58,15 +60,26 @@ Die Liste der verfügbaren Buckets für den Astra Control Service wird angezeigt
 
 == Fügen Sie einen zusätzlichen Bucket hinzu
 
-Nachdem Sie mit dem Management eines Clusters bei Ihrem Cloud-Provider begonnen haben, können Sie jederzeit weitere Buckets hinzufügen. Damit können Sie beim Erstellen einer Sicherungsrichtlinie zwischen Buckets wählen und den Standard-Bucket für Ad-hoc-Backups und Klone ändern.
+Sie können jederzeit weitere Buckets hinzufügen. Dadurch können Sie beim Erstellen einer Sicherungsrichtlinie oder beim Starten eines Ad-hoc-Backups zwischen Buckets wählen und den Standard-Bucket ändern, den eine Cloud-Instanz verwendet.
+
+Sie können die folgenden Buckets hinzufügen:
+
+* Amazon Web Services
+* Allgemein S3
+* Google Cloud Platform
+* Microsoft Azure
+* NetApp ONTAP S3
+* NetApp StorageGRID S3
+
 
 .Was Sie benötigen
-* Der Name eines vorhandenen Buckets bei Ihrem Cloud-Provider.
+* Der Name eines vorhandenen Buckets.
+* Die Anmeldeinformationen für den Bucket, der Astra Control Service die Berechtigungen zur Verwaltung des Buckets zur Verfügung stellt
 
 
 ifdef::azure[]
 
-* Wenn Ihr Bucket in Azure ist:
+* Wenn sich Ihr Bucket in Microsoft Azure befindet:
 +
 ** Der Bucket muss zur Ressourcengruppe _astra-Backup-rg_ gehören.
 ** Wenn die Performance der Azure Storage-Kontoinstanz auf „Premium“ eingestellt ist, muss die Einstellung „Premium-Kontotyp“ auf „Block-Blobs“ gesetzt werden.
@@ -81,9 +94,6 @@ endif::azure[]
 . Wählen Sie *Hinzufügen* und folgen Sie den Anweisungen, um den Eimer hinzuzufügen.
 +
 ** *Typ*: Wählen Sie Ihren Cloud-Anbieter.
-+
-Ihr Cloud-Provider ist erst verfügbar, nachdem Astra Control Service mit dem Management eines Clusters begonnen hat, der bei diesem Cloud-Provider ausgeführt wird.
-
 ** *Vorhandener Bucket-Name*: Geben Sie den Namen des Buckets ein.
 ** *Beschreibung*: Geben Sie optional eine Beschreibung des Eimers ein.
 
@@ -99,12 +109,12 @@ endif::azure[]
 
 ifdef::aws[]
 
-* *S3-Servername oder IP-Adresse* (nur AWS): Geben Sie ohne den vollständig qualifizierten Domainnamen des S3-Endpunkts ein, der Ihrer Region entspricht `https://`. Siehe https://docs.aws.amazon.com/general/latest/gr/s3.html["Die Amazon-Dokumentation"^] Finden Sie weitere Informationen.
+* *S3-Servername oder IP-Adresse* (nur AWS- und S3-Bucket-Typen): Geben Sie den vollständig qualifizierten Domainnamen des S3-Endpunkts ein, der Ihrer Region entspricht, ohne `https://`. Siehe https://docs.aws.amazon.com/general/latest/gr/s3.html["Die Amazon-Dokumentation"^] Finden Sie weitere Informationen.
 
 
 endif::aws[]
 
-* *Select Credentials*: Wählen Sie die Anmeldeinformationen aus, die den Astra Control Service mit den Berechtigungen zur Verwaltung des Buckets bereitstellen.
+* *Select credentials*: Geben Sie die Zugangsdaten ein, die Astra Control Service mit den Berechtigungen zur Verwaltung des Buckets zur Verfügung stellen. Die Informationen, die Sie bereitstellen müssen, hängen vom Bucket-Typ ab.
 +
 .. Wählen Sie *Hinzufügen*, um den Eimer hinzuzufügen.
 
@@ -112,15 +122,13 @@ endif::aws[]
 
 
 .Ergebnis
-Astra Control Service fügt den zusätzlichen Bucket hinzu. Sie können jetzt beim Erstellen einer Schutzrichtlinie den Bucket auswählen.
+Der Bucket wird mit Astra Control Service hinzugefügt. Sie können diesen Bucket jetzt auswählen, wenn Sie eine Schutzrichtlinie erstellen oder ein Ad-hoc-Backup durchführen. Sie können diesen Bucket auch als Standardbucket für eine Cloud-Instanz festlegen.
 
 
 
 == Ändern des Standard-Bucket
 
-Ändern Sie den Standard-Bucket, den Astra Control Service für Backups und Klone verwenden sollte. Jede Cloud-Instanz verfügt über einen eigenen Standard-Bucket.
-
-Astra Control Service verwendet den Standard-Bucket für Cloud-Instanzen für Ad-hoc-Backups oder für Ad-hoc-Klone, wenn Sie nicht aus einem vorhandenen Backup klonen möchten.
+Sie können den Standard-Bucket für eine Cloud-Instanz ändern. Astra Control Service verwendet diesen Bucket standardmäßig für Backups und Klone. Jede Cloud-Instanz verfügt über einen eigenen Standard-Bucket.
 
 
 NOTE: Astra Control weist keinem Cloud-Instanz automatisch einen Standard-Bucket zu. Sie müssen einen Standard-Bucket für eine Cloud-Instanz manuell festlegen, bevor Sie Applikationsklonvorgänge zwischen zwei Clustern durchführen.
