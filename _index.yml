@@ -28,7 +28,7 @@ indexpage:
     - title: Los geht's
       url: https://docs.netapp.com/us-en/astra-automation/get-started/before_get_started.html
     - title: API-Referenz
-      url: https://docs.netapp.com/us-en/astra-automation/reference/api_reference.html
+      url: https://docs.netapp.com/us-en/astra-automation/reference/overview.html
     - title: API-Workflows
       url: https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html
   - title: Demos Tutorials
