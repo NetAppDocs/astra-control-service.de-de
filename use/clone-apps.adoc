@@ -16,6 +16,9 @@ Eine vorhandene Applikation kann geklont werden, um eine doppelte Applikation au
 
 Das Klonen kann sich leisten, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen. So möchten Sie beispielsweise Workloads über eine CI/CD-Pipeline und über Kubernetes-Namespaces verschieben.
 
+
+NOTE: Wenn Sie einem Ausführungs-Hook einen Namespace-Filter hinzufügen, der nach einer Wiederherstellung oder einem Klonvorgang ausgeführt wird, und die Wiederherstellungs- oder Klonquelle und das Ziel in verschiedenen Namespaces liegen, wird der Namespace-Filter nur auf den Ziel-Namespace angewendet.
+
 .Was Sie benötigen
 * Um Apps einem anderen Cluster zu klonen, müssen Sie sicherstellen, dass Sie einen Standard-Bucket für die Cloud-Instanz zugewiesen haben, die das Quell-Cluster enthält. Wenn die Quell-Cloud-Instanz keinen Standard-Bucket-Satz hat, schlägt der Cluster-übergreifende Klonvorgang fehl.
 * Während Klonvorgängen müssen Applikationen, die eine Ressource oder Webhooks der ProgresClass benötigen, nicht über die Ressourcen verfügen, die bereits auf dem Ziel-Cluster definiert sind.

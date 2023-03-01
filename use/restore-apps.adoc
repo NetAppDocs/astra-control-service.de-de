@@ -17,6 +17,9 @@ Astra Control kann Ihre Applikation aus einem Snapshot oder einem Backup wiederh
 
 NOTE: Wenn Sie eine in-Place-Wiederherstellung einer Applikation durchführen, die NetApp ONTAP Storage verwendet, kann der von der wiederhergestellten Applikation verwendete Speicherplatz verdoppelt werden. Nachdem Sie eine in-Place-Wiederherstellung durchgeführt haben, entfernen Sie alle unerwünschten Snapshots aus der wiederhergestellten Applikation, um Speicherplatz freizugeben.
 
+
+NOTE: Wenn Sie einem Ausführungs-Hook einen Namespace-Filter hinzufügen, der nach einer Wiederherstellung oder einem Klonvorgang ausgeführt wird, und die Wiederherstellungs- oder Klonquelle und das Ziel in verschiedenen Namespaces liegen, wird der Namespace-Filter nur auf den Ziel-Namespace angewendet.
+
 .Über diese Aufgabe
 * *Schützen Sie Ihre Apps zuerst*: Es wird dringend empfohlen, einen Schnappschuss von Ihrer Anwendung zu machen oder zu sichern, bevor Sie sie wiederherstellen. Dadurch können Sie den Snapshot oder die Datensicherung klonen, wenn die Wiederherstellung nicht erfolgreich war.
 * *Zielspeicherklasse* prüfen: Wenn Sie auf einem anderen Cluster wiederherstellen, stellen Sie sicher, dass die Speicherklasse des Zielclusters denselben persistenten Zugriffsmodus (z. B. ReadWriteManche) verwendet, wie die Speicherklasse auf dem Quellcluster. Der Wiederherstellungsvorgang schlägt fehl, wenn der Zugriffsmodus des Ziel-persistenten Volumes anders ist.
