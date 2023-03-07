@@ -99,7 +99,9 @@ endif::azure[]
 
 * Self-Managed Cluster:
 +
-** NetApp ONTAP AFF und FAS Systeme
+** Amazon EBS
+** Google Persistent Disk
+** Über Azure Gemanagte Festplatten
 ** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 
