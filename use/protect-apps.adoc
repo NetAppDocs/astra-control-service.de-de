@@ -14,19 +14,7 @@ summary: Schützen Sie Ihre Applikationen, indem Sie Snapshots und Backups über
 [role="lead"]
 Schützen Sie Ihre Applikationen, indem Sie Snapshots und Backups über eine automatisierte Sicherungsrichtlinie oder Ad-hoc-Erstellung erstellen. Sie können die Astra UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Um Anwendungen zu schützen.
 
-
-
-== Snapshots und Backups
-
-A _Snapshot_ ist eine zeitpunktgenaue Kopie einer Applikation, die auf demselben bereitgestellten Volume wie die Applikation gespeichert ist. In der Regel sind sie schnell. Lokale Snapshots werden verwendet, um die Applikation zu einem früheren Zeitpunkt wiederherzustellen.
-
-Ein _Backup_ wird im Objekt-Storage in der Cloud gespeichert. Das Backup kann im Vergleich zu den lokalen Snapshots langsamer erstellt werden. Allerdings ist der Zugriff über Regionen in der Cloud hinweg möglich, um Applikationsmigrationen zu ermöglichen. Sie können auch eine längere Aufbewahrungsdauer für Backups wählen.
-
-
-CAUTION: _Sie können erst dann vollständig geschützt sein, wenn Sie ein kürzlich gesichertes Backup haben. Das ist wichtig, da Backups abseits der persistenten Volumes in einem Objektspeicher gespeichert werden. Falls ein Ausfall des Clusters und der persistente Storage beschädigt werden, muss ein Backup wiederhergestellt werden. Ein Snapshot würde es Ihnen nicht ermöglichen, eine Wiederherstellung durchzuführen.
-
-
-NOTE: Wenn Sie einen Snapshot oder eine Sicherung durchführen, aber der Vorgang mit dem Fehler „die Ressource wurde nicht wegen eines internen Serverproblems erstellt“ fehlschlägt, überprüfen Sie, ob im verwendeten Speicher-Backend die richtigen Treiber installiert sind. Einige Storage-Back-Ends benötigen Container-CSI-Treiber (Storage Interface), während andere einen externen Snapshot-Controller benötigen.
+Weitere Informationen zu link:../learn/data-protection.html["Datensicherung in Astra Control"^].
 
 Sie können die folgenden Aufgaben zum Schutz Ihrer Applikationsdaten ausführen:
 

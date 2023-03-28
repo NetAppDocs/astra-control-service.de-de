@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: learn/data-protection.html 
+keywords: backup, back up, backup apps, back up apps, snapshots, snapshot an app, take a snapshot, take a backup, view backups, view snapshots, set policy, set schedule, schedule backups, schedule snapshots, protect data 
+summary: Informieren Sie sich über die verfügbaren Datensicherungsarten in Astra Control Service und über deren optimale Nutzung zum Schutz Ihrer Applikationen. 
+---
+= Datensicherung
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/learn/
+
+
+[role="lead"]
+Informieren Sie sich über die verfügbaren Datensicherungsarten in Astra Control Service und über deren optimale Nutzung zum Schutz Ihrer Applikationen.
+
+
+
+== Snapshots, Backups und Sicherungsrichtlinien
+
+Sowohl Snapshots als auch Backups sichern die folgenden Datentypen:
+
+* Der Applikation selbst.
+* Alle persistenten Daten-Volumes, die mit der Applikation in Verbindung stehen
+* Alle zu der Applikation gehörenden Ressourcenartefakte
+
+
+A _Snapshot_ ist eine zeitpunktgenaue Kopie einer Applikation, die auf demselben bereitgestellten Volume wie die Applikation gespeichert ist. In der Regel sind sie schnell. Sie können lokale Snapshots verwenden, um die Anwendung auf einen früheren Zeitpunkt wiederherzustellen. Snapshots sind nützlich für schnelle Klone. Snapshots enthalten alle Kubernetes-Objekte für die App, einschließlich Konfigurationsdateien. Snapshots sind nützlich zum Klonen oder Wiederherstellen einer Anwendung innerhalb desselben Clusters.
+
+Ein _Backup_ basiert auf einem Snapshot. Er wird im externen Objektspeicher gespeichert und kann daher im Vergleich zu lokalen Snapshots langsamer erstellt werden. Sie können ein Applikations-Backup in demselben Cluster wiederherstellen oder eine Applikation migrieren, indem Sie dessen Backup auf ein anderes Cluster wiederherstellen. Sie können auch eine längere Aufbewahrungsdauer für Backups wählen. Da diese im externen Objektspeicher gespeichert werden, bieten Backups in der Regel besseren Schutz als Snapshots bei Serverausfällen oder Datenverlusten.
+
+Eine _Schutzrichtlinie_ ist eine Möglichkeit zum Schutz einer App, indem automatisch Snapshots, Backups oder beides gemäß einem von Ihnen für die App definierten Zeitplan erstellt werden. Eine Sicherungsrichtlinie erlaubt Ihnen außerdem festzulegen, wie viele Snapshots und Backups im Zeitplan aufbewahrt werden sollen, und verschiedene granulare Zeitplanebenen festzulegen. Die Automatisierung von Backups und Snapshots mit einer Sicherungsrichtlinie ist die beste Methode, um sicherzustellen, dass jede Applikation gemäß den Anforderungen Ihres Unternehmens und der SLA-Anforderungen (Service Level Agreement) geschützt ist.
+
+
+CAUTION: _Sie können erst dann vollständig geschützt sein, wenn Sie ein kürzlich gesichertes Backup haben. Das ist wichtig, da Backups abseits der persistenten Volumes in einem Objektspeicher gespeichert werden. Wenn ein Ausfall das Cluster und der damit verbundene persistente Storage entfernt, muss ein Backup wiederhergestellt werden. Ein Snapshot würde es Ihnen nicht ermöglichen, eine Wiederherstellung durchzuführen.
+
+
+NOTE: Wenn Sie einen Snapshot oder eine Sicherung durchführen, aber der Vorgang mit dem Fehler „die Ressource wurde nicht wegen eines internen Serverproblems erstellt“ fehlschlägt, überprüfen Sie, ob im verwendeten Speicher-Backend die richtigen Treiber installiert sind. Einige Storage-Back-Ends benötigen Container-CSI-Treiber (Storage Interface), während andere einen externen Snapshot-Controller benötigen.
+
+
+
+== Klone
+
+Ein _Clone_ ist ein exaktes Duplikat einer App, ihrer Konfiguration und ihrer persistenten Daten-Volumes. Sie können einen Klon entweder manuell auf demselben Kubernetes-Cluster oder auf einem anderen Cluster erstellen. Das Klonen einer Applikation kann nützlich sein, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen.
