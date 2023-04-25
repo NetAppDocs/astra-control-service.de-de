@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: learn/user-roles-namespaces.html 
 keywords: users, roles, user roles, namespace, namespaces, account, accounts, permissions, restriction, restrict, constraint 
-summary: Lernen Sie die verfügbaren Datensicherungsarten im Astra Control Center kennen und erfahren Sie, wie Sie diese am besten für den Schutz Ihrer Applikationen nutzen. 
+summary: Informieren Sie sich über die verfügbaren Datensicherungstypen in Astra Control und über deren optimale Nutzung zum Schutz Ihrer Applikationen. 
 ---
 = Benutzerrollen und Namespaces
 :hardbreaks:

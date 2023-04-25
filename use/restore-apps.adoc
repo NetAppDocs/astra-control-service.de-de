@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/restore-apps.html 
-keywords: restore app, restoring an app, restore an app, restore 
+keywords: restore app, restoring an app, restore an app, restore, migrate nas-economy 
 summary: Astra Control kann Ihre Applikationskonfiguration und Ihren persistenten Storage aus einem Snapshot oder Backup wiederherstellen. Persistente Storage-Backups werden von Ihrem Objektspeicher übertragen, sodass die Wiederherstellung aus einem bestehenden Backup möglichst schnell erfolgt. 
 ---
 = Wiederherstellung von Applikationen
@@ -15,42 +15,37 @@ summary: Astra Control kann Ihre Applikationskonfiguration und Ihren persistente
 Astra Control kann Ihre Applikation aus einem Snapshot oder einem Backup wiederherstellen. Das Wiederherstellen aus einem vorhandenen Snapshot erfolgt schneller, wenn die Anwendung auf dasselbe Cluster wiederhergestellt wird. Sie können die Astra Control UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Zur Wiederherstellung von Applikationen.
 
 
-NOTE: Wenn Sie eine in-Place-Wiederherstellung einer Applikation durchführen, die NetApp ONTAP Storage verwendet, kann der von der wiederhergestellten Applikation verwendete Speicherplatz verdoppelt werden. Nachdem Sie eine in-Place-Wiederherstellung durchgeführt haben, entfernen Sie alle unerwünschten Snapshots aus der wiederhergestellten Applikation, um Speicherplatz freizugeben.
-
-
 NOTE: Wenn Sie einem Ausführungs-Hook einen Namespace-Filter hinzufügen, der nach einer Wiederherstellung oder einem Klonvorgang ausgeführt wird, und die Wiederherstellungs- oder Klonquelle und das Ziel in verschiedenen Namespaces liegen, wird der Namespace-Filter nur auf den Ziel-Namespace angewendet.
 
 .Über diese Aufgabe
-* *Schützen Sie Ihre Apps zuerst*: Es wird dringend empfohlen, einen Schnappschuss von Ihrer Anwendung zu machen oder zu sichern, bevor Sie sie wiederherstellen. Dadurch können Sie den Snapshot oder die Datensicherung klonen, wenn die Wiederherstellung nicht erfolgreich war.
-* *Zielspeicherklasse* prüfen: Wenn Sie auf einem anderen Cluster wiederherstellen, stellen Sie sicher, dass die Speicherklasse des Zielclusters denselben persistenten Zugriffsmodus (z. B. ReadWriteManche) verwendet, wie die Speicherklasse auf dem Quellcluster. Der Wiederherstellungsvorgang schlägt fehl, wenn der Zugriffsmodus des Ziel-persistenten Volumes anders ist.
+* *Schützen Sie Ihre Anwendungen zuerst*: Es wird dringend empfohlen, dass Sie einen Snapshot oder ein Backup Ihrer Anwendung vor der Wiederherstellung machen. Dadurch können Sie den Snapshot oder die Datensicherung klonen, wenn die Wiederherstellung nicht erfolgreich war.
+* *Zielvolumen prüfen*: Wenn Sie auf einem anderen Cluster wiederherstellen, stellen Sie sicher, dass der Cluster denselben Zugriffsmodus für persistente Volumes verwendet (z. B. ReadWriteManche). Der Wiederherstellungsvorgang schlägt fehl, wenn der Zugriffsmodus des Ziel-persistenten Volumes anders ist.
+* *Planung des Platzbedarfs*: Wenn Sie eine in-Place-Wiederherstellung einer Applikation durchführen, die NetApp ONTAP Storage nutzt, kann sich der von der wiederhergestellten Applikation genutzte Speicherplatz verdoppeln. Nachdem Sie eine in-Place-Wiederherstellung durchgeführt haben, entfernen Sie alle unerwünschten Snapshots aus der wiederhergestellten Applikation, um Speicherplatz freizugeben.
 
 
-.Schritte
-. Wählen Sie *Anwendungen* und dann den Namen einer App aus.
-. Wählen Sie *Datenschutz*.
-. Wenn Sie von einem Snapshot wiederherstellen möchten, behalten Sie *Snapshots* ausgewählt. Andernfalls wählen Sie *Backups* aus, um aus einem Backup wiederherzustellen.
-. Wählen Sie im Menü Optionen in der Spalte *Aktionen* für den Snapshot oder die Datensicherung, aus der Sie wiederherstellen möchten, *Anwendung wiederherstellen* aus.
-. Wählen Sie den Wiederherstellungstyp aus:
-+
-** *Wiederherstellen auf ursprünglichen Namespaces*: Verwenden Sie dieses Verfahren, um die App an Ort und Stelle auf dem ursprünglichen Cluster wiederherzustellen.
-+
 [CAUTION]
 ====
 Die Durchführung einer in-Place-Wiederherstellung in einer Anwendung, in der Ressourcen mit einer anderen Anwendung geteilt werden, kann unbeabsichtigte Ergebnisse haben. Alle Ressourcen, die von den Applikationen gemeinsam genutzt werden, werden ersetzt, wenn eine in-Place-Wiederherstellung für eine der Applikationen durchgeführt wird.
 
 ====
+.Schritte
+. Wählen Sie *Anwendungen* und dann den Namen einer App aus.
+. Wählen Sie im Menü Optionen in der Spalte Aktionen die Option *Wiederherstellen* aus.
+. Wählen Sie den Wiederherstellungstyp aus:
 +
-... Wählen Sie den Snapshot aus, mit dem die Anwendung wiederhergestellt werden soll, die auf eine frühere Version von selbst zurückgesetzt wird.
+** *Wiederherstellen auf ursprünglichen Namespaces*: Verwenden Sie dieses Verfahren, um die App an Ort und Stelle auf dem ursprünglichen Cluster wiederherzustellen.
++
+... Wählen Sie den Snapshot oder das Backup aus, mit dem die App direkt wiederhergestellt werden soll. Dadurch wird die App auf eine frühere Version von selbst zurückgesetzt.
 ... Wählen Sie *Weiter*.
 +
 
 NOTE: Wenn Sie in einem zuvor gelöschten Namespace wiederherstellen, wird im Rahmen des Wiederherstellungsprozesses ein neuer Namespace mit demselben Namen erstellt. Alle Benutzer, die über Berechtigungen zum Verwalten von Apps im zuvor gelöschten Namespace verfügen, müssen die Rechte für den neu erstellten Namespace manuell wiederherstellen.
 
-... Überprüfen Sie die Details zur Wiederherstellungsaktion, geben Sie „Wiederherstellen“ ein, und wählen Sie *Wiederherstellen*.
 
 
 ** *Wiederherstellen auf neuen Namespaces*: Verwenden Sie dieses Verfahren, um die App auf einem anderen Cluster oder mit verschiedenen Namespaces von der Quelle wiederherzustellen.
 +
+... Geben Sie den Namen für die wiederhergestellte App an.
 ... Wählen Sie das Ziel-Cluster für die Anwendung aus, die Sie wiederherstellen möchten.
 ... Geben Sie für jeden mit der App verknüpften Quell-Namespace einen Ziel-Namespace ein.
 +
@@ -58,17 +53,94 @@ NOTE: Wenn Sie in einem zuvor gelöschten Namespace wiederherstellen, wird im Ra
 NOTE: Astra Control erstellt als Teil dieser Wiederherstellungsoption neue Ziel-Namespaces. Die angegebenen Ziel-Namespaces dürfen nicht bereits im Ziel-Cluster vorhanden sein.
 
 ... Wählen Sie *Weiter*.
-... Wählen Sie den Snapshot aus, mit dem die Anwendung wiederhergestellt werden soll.
+... Wählen Sie den Snapshot oder das Backup aus, mit dem die App wiederhergestellt werden soll.
 ... Wählen Sie *Weiter*.
-... Überprüfen Sie die Details zur Wiederherstellungsaktion und wählen Sie *Wiederherstellen*.
 
 
 
 
+. Wählen Sie die Ressourcen aus, die gefiltert werden sollen:
++
+** *Alle Ressourcen wiederherstellen*: Alle mit der ursprünglichen App verknüpften Ressourcen wiederherstellen.
+** *Ressourcen filtern*: Geben Sie Regeln an, um einen Untersatz der ursprünglichen Anwendungsressourcen wiederherzustellen:
++
+... Wählen Sie diese Option, um Ressourcen aus der wiederhergestellten Anwendung einzuschließen oder auszuschließen.
+... Wählen Sie entweder *Include rule* oder *Add exclude rule* aus und konfigurieren Sie die Regel, um die richtigen Ressourcen während der Anwendungswiederherstellung zu filtern. Sie können eine Regel bearbeiten oder entfernen und eine Regel erneut erstellen, bis die Konfiguration korrekt ist.
++
+
+NOTE: Weitere Informationen zum Konfigurieren von Einschließen- und Ausschlussregeln finden Sie unter <<Filtern Sie Ressourcen während einer Anwendungswiederherstellung>>.
+
+
+
+
+
+. Wählen Sie *Weiter*.
+. Lesen Sie die Details zur Wiederherstellungsaktion sorgfältig durch, geben Sie „Restore“ ein (falls Sie dazu aufgefordert werden), und wählen Sie *Restore*.
 
 
 .Ergebnis
 Astra Control stellt die App basierend auf den von Ihnen angegebenen Informationen wieder her. Wenn Sie die Applikation bereits wiederhergestellt haben, wird der Inhalt vorhandener persistenter Volumes durch den Inhalt persistenter Volumes aus der wiederhergestellten App ersetzt.
 
 
+NOTE: Nach einer Datensicherungsoperation (Klonen, Backup oder Wiederherstellung) und einer anschließenden Anpassung des persistenten Volumes beträgt die Verzögerung bis zu zwanzig Minuten, bevor die neue Volume-Größe in der Web-Benutzeroberfläche angezeigt wird. Der Datensicherungsvorgang ist innerhalb von Minuten erfolgreich und Sie können mit der Management Software für das Storage-Backend die Änderung der Volume-Größe bestätigen.
+
+
 NOTE: Jeder Mitgliedsbenutzer mit Namespace-Einschränkungen nach Namespace-Name/ID oder anhand von Namespace-Bezeichnungen kann eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster in seinem Unternehmenskonto klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer das Mitglied-Benutzerkonto bearbeiten und Rolleneinschränkungen für den betroffenen Benutzer aktualisieren, um dem neuen Namespace Zugriff zu gewähren.
+
+
+
+== Filtern Sie Ressourcen während einer Anwendungswiederherstellung
+
+Sie können eine Filterregel zu einem hinzufügen link:../use/restore-apps.html["Wiederherstellen"] Vorgang, bei dem vorhandene Anwendungsressourcen angegeben werden, die in die wiederhergestellte Anwendung einbezogen oder von ihr ausgeschlossen werden sollen. Sie können Ressourcen basierend auf einem bestimmten Namespace, Label oder GVK (GroupVersionRind) ein- oder ausschließen.
+
+.Lesen Sie mehr über ein- und Ausschlussszenarien
+[%collapsible]
+====
+* *Sie wählen eine Include-Regel mit ursprünglichen Namespaces (in-Place-Wiederherstellung)*: Vorhandene Anwendungsressourcen, die Sie in der Regel definieren, werden gelöscht und durch jene aus dem ausgewählten Snapshot oder Backup ersetzt, den Sie für die Wiederherstellung verwenden. Alle Ressourcen, die Sie nicht in der Include-Regel angeben, bleiben unverändert.
+* *Sie wählen eine Include-Regel mit neuen Namespaces*: Verwenden Sie die Regel, um die spezifischen Ressourcen auszuwählen, die Sie in der wiederhergestellten Anwendung benötigen. Alle Ressourcen, die Sie nicht in der Include-Regel angeben, werden nicht in die wiederhergestellte Anwendung aufgenommen.
+* *Sie wählen eine Ausschlussregel mit ursprünglichen Namespaces (in-Place-Wiederherstellung)*: Die von Ihnen angegebenen Ressourcen werden nicht wiederhergestellt und bleiben unverändert. Ressourcen, die Sie nicht ausschließen möchten, werden vom Snapshot oder Backup wiederhergestellt. Alle Daten auf persistenten Volumes werden gelöscht und neu erstellt, wenn das entsprechende StatefulSet Teil der gefilterten Ressourcen ist.
+* *Sie wählen eine Ausschlussregel mit neuen Namespaces* aus: Wählen Sie mit der Regel die Ressourcen aus, die Sie aus der wiederhergestellten Anwendung entfernen möchten. Ressourcen, die Sie nicht ausschließen möchten, werden vom Snapshot oder Backup wiederhergestellt.
+
+
+====
+Regeln sind entweder Einschließen oder Ausschließen von Typen. Regeln, die Ressourceneinschluss und -Ausschluss kombinieren, sind nicht verfügbar.
+
+.Schritte
+. Nachdem Sie die Option Ressourcen filtern und im Assistenten zum Wiederherstellen von Apps eine Option ein- oder ausschließen ausgewählt haben, wählen Sie *Einschlussregel hinzufügen* oder *Ausschlussregel hinzufügen* aus.
++
+
+NOTE: Sie können keine im Cluster enthaltenen Ressourcen ausschließen, die von Astra Control automatisch berücksichtigt werden.
+
+. Konfigurieren Sie die Filterregel:
++
+
+NOTE: Sie müssen mindestens einen Namespace, eine Bezeichnung oder GVK angeben. Stellen Sie sicher, dass alle Ressourcen, die Sie behalten, nachdem die Filterregeln angewendet wurden, ausreichend sind, um die wiederhergestellte Anwendung in einem ordnungsgemäßen Zustand zu halten.
+
++
+.. Wählen Sie einen bestimmten Namespace für die Regel aus. Wenn Sie keine Auswahl treffen, werden alle Namespaces im Filter verwendet.
++
+
+NOTE: Wenn Ihre Anwendung ursprünglich mehrere Namespaces enthielt und Sie sie in neuen Namespaces wiederherstellen, werden alle Namespaces erstellt, auch wenn sie keine Ressourcen enthalten.
+
+.. (Optional) Geben Sie einen Ressourcennamen ein.
+.. (Optional) *Etikettenauswahl*: A einschließen https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors["Etikettenauswahl"^] Um der Regel hinzuzufügen. Mit der Etikettenauswahl werden nur die Ressourcen gefiltert, die der ausgewählten Bezeichnung entsprechen.
+.. (Optional) Wählen Sie *Use GVK (GroupVersionRind) Set, um Ressourcen zu filtern*, um weitere Filteroptionen zu erhalten.
++
+
+NOTE: Wenn Sie einen GVK-Filter verwenden, müssen Sie Version und Art angeben.
+
++
+... (Optional) *Gruppe*: Wählen Sie aus der Dropdown-Liste die Kubernetes API-Gruppe aus.
+... *Kind*: Wählen Sie aus der Dropdown-Liste das Objektschema für den Kubernetes-Ressourcentyp aus, der im Filter verwendet werden soll.
+... *Version*: Wählen Sie die Kubernetes API Version.
+
+
+
+
+. Überprüfen Sie die Regel, die auf Ihren Einträgen erstellt wird.
+. Wählen Sie *Hinzufügen*.
++
+
+TIP: Sie können beliebig viele Regeln für ein- und Ausschlussressourcen erstellen. Die Regeln werden in der Zusammenfassung der Wiederherstellungsanwendung angezeigt, bevor Sie den Vorgang starten.
+
+

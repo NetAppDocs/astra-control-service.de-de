@@ -20,7 +20,7 @@ Nach Ihnen link:../get-started/add-first-cluster.html["Fügen Sie zum Astra Cont
 
 Astra Control verfügt über folgende Anforderungen an das Applikationsmanagement:
 
-* *Lizenzierung*: Um mehr als 10 Namespaces zu verwalten, benötigen Sie ein Astra Control Center-Abonnement.
+* *Lizenzierung*: Um mehr als 10 Namespaces zu verwalten, benötigen Sie ein Astra Control Abonnement.
 * *Namesaces*: Apps können mit Astra Control innerhalb eines oder mehrerer spezifizierter Namespaces auf einem einzigen Cluster definiert werden. Eine App kann Ressourcen enthalten, die mehrere Namespaces innerhalb desselben Clusters umfassen. Astra Control unterstützt nicht die Möglichkeit, Applikationen über mehrere Cluster hinweg zu definieren.
 * *Speicherklasse*: Wenn Sie eine App installieren, die eine Speicherklasse explizit festgelegt hat und Sie die App klonen müssen, muss das Zielcluster für den Klonvorgang die ursprünglich angegebene Speicherklasse haben. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl.
 * *Kubernetes-Ressourcen*: Applikationen, die nicht von Astra Control gesammelte Kubernetes-Ressourcen verwenden, verfügen unter Umständen nicht über umfassende Funktionen zum App-Datenmanagement. Astra Control sammelt die folgenden Kubernetes-Ressourcen:
@@ -129,10 +129,9 @@ Astra Control ermöglicht es Ihnen zwar, beide Ebenen der Hierarchie (den Namesp
 
 TIP: Beispielsweise könnten Sie eine Backup-Policy für „maria“ setzen, die über ein wöchentliches Kadenz verfügt, aber vielleicht müssen Sie „mariadb“ (die sich im selben Namespace befindet) häufiger sichern. Basierend auf diesen Anforderungen müssen die Applikationen separat gemanagt werden und nicht als Single Namespace App.
 
-.Was Sie benötigen
+.Bevor Sie beginnen
 * Astra Control ist ein Kubernetes Cluster.
 * Eine oder mehrere installierte Applikationen auf dem Cluster. <<Unterstützte Installationsmethoden für Anwendungen,Weitere Informationen zu unterstützten App-Installationsmethoden>>.
-* Ein oder mehrere aktive Pods.
 * Namespaces sind auf dem Kubernetes-Cluster vorhanden, die Sie Astra Control hinzugefügt haben.
 * (Optional) ein Kubernetes-Etikett auf jeder beliebigen link:../use/manage-apps.html#app-management-requirements["Unterstützte Kubernetes-Ressourcen"].
 +
@@ -163,11 +162,6 @@ Mit der Definition einer App haben Sie eine granularere Kontrolle über die Ausw
 
 WARNING: Stellen Sie bei der Definition von Applikationen sicher, dass Sie keine Kubernetes-Ressource in mehrere Applikationen mit Sicherungsrichtlinien aufnehmen. Überlappende Sicherungsrichtlinien für Kubernetes-Ressourcen können zu Datenkonflikten führen.
 
-[CAUTION]
-====
-Die Durchführung einer in-Place-Wiederherstellung in einer Anwendung, in der Ressourcen mit einer anderen Anwendung geteilt werden, kann unbeabsichtigte Ergebnisse haben. Alle Ressourcen, die von den Applikationen gemeinsam genutzt werden, werden ersetzt, wenn eine in-Place-Wiederherstellung für eine der Applikationen durchgeführt wird.
-
-====
 .Erfahren Sie mehr über das Hinzufügen von Ressourcen im Cluster-Umfang zu Ihren Applikationsnamensräumen.
 [%collapsible]
 ====

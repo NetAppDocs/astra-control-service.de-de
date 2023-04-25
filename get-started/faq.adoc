@@ -60,7 +60,7 @@ Ja, die von den Clustern Ihres Cloud-Providers verwendeten persistenten Volumes 
 
 *Muss ich CSI-Treiber auf meinem Cluster installieren, bevor ich den Astra Control Service hinzufüge?*
 
-Nein Wenn Ihr Cluster Astra Control hinzugefügt wird, installiert der Service automatisch den Trident Container Storage Interface (CSI)-Treiber (Trident Container Storage Interface) auf dem Kubernetes Cluster. Dieser CSI-Treiber wird für die Bereitstellung persistenter Volumes für von Ihrem Cloud-Provider unterstützte Cluster verwendet.
+Nein Wenn ein Cluster zu Astra Control hinzugefügt wird, installiert der Service automatisch den Trident-CSI-Treiber (Container Storage Interface) von NetApp auf dem Kubernetes-Cluster. Dieser CSI-Treiber wird für die Bereitstellung persistenter Volumes für von Ihrem Cloud-Provider unterstützte Cluster verwendet.
 
 *Nach dem Hinzufügen zum Astra Control Service muss ich den Worker-Knoten zu meinem Cluster hinzufügen. Was soll ich tun?*
 

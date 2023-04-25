@@ -32,6 +32,12 @@ Wenn Sie einen Cluster vom Astra Control Service aus verwalten, wird Astra Tride
 
 Wenn Sie Vorgänge auf Postgres-Pods durchführen, sollten Sie nicht direkt innerhalb des Pods verbinden, um den psql-Befehl zu verwenden. Astra Control Service erfordert psql-Zugriff, um die Datenbanken einzufrieren und zu tauen. Wenn eine bereits vorhandene Verbindung besteht, schlägt der Snapshot, die Sicherung oder der Klon fehl.
 
+
+
+=== Auf der Seite „Aktivität“ werden bis zu 100,000 Ereignisse angezeigt
+
+Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab link:../rest-api/api-intro.html["Astra Control REST-API"^].
+
 ifdef::gcp[]
 
 
@@ -44,7 +50,7 @@ Die folgenden Einschränkungen gelten für das Management von Kubernetes-Cluster
 
 === Google Marketplace Apps wurden nicht validiert
 
-NetApp hat keine über Google Marketplace bereitgestellten Applikationen validiert. Einige Benutzer berichten über Probleme bei der Erkennung oder Sicherung von Postgres-, MariaDB- und MySQL-Apps, die über den Google Marketplace bereitgestellt wurden.
+NetApp hat keine über Google Marketplace bereitgestellten Applikationen validiert. Einige Benutzer haben Probleme mit der Erkennung oder Sicherung von Postgres, MariaDB und MySQL-Anwendungen gemeldet, die vom Google Marketplace bereitgestellt wurden.
 
 Unabhängig von der Art der Applikation, die Sie mit Astra Control Service verwenden, sollten Sie den Backup- und Restore-Workflow immer selbst testen, um sicherzustellen, dass Sie Ihre Disaster-Recovery-Anforderungen erfüllen.
 

@@ -406,6 +406,11 @@ NOTE: Wenn Sie einen Cluster auswählen, der mit einem „Private“-Symbol geke
 endif::azure[]
 
 . *Credential Name* (für selbstverwaltete Cluster): Geben Sie einen Namen für die selbst verwalteten Cluster-Anmeldeinformationen an, die Sie auf Astra Control hochladen. Standardmäßig wird der Name der Anmeldeinformationen automatisch als Name des Clusters ausgefüllt.
+. (Optional) *Private Route ID*: Geben Sie die private Route ID ein, die Sie vom Astra Connector erhalten können.
++
+
+NOTE: Die ID der privaten Route ist der Name, der dem Astra Connector zugeordnet ist. Damit kann ein privater Kubernetes-Cluster von Astra gemanagt werden. In diesem Kontext ist ein privates Cluster ein Kubernetes-Cluster, das seinen API-Server nicht zum Internet bereitstellt.
+
 . (Optional) *Storage*: Wählen Sie die Storage-Klasse aus, die Kubernetes-Anwendungen in diesem Cluster standardmäßig verwenden sollen.
 +
 [NOTE]

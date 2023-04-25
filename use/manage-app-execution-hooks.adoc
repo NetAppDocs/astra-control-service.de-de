@@ -46,6 +46,11 @@ Informationen zur Syntax, die Astra Control für regelmäßige Ausdrücke in Hoo
 
 Bei der Planung von Testausführungshooks für Ihre Apps sollten Sie Folgendes berücksichtigen:
 
+[NOTE]
+====
+Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt. Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass die in einem Testsuite nach dem Backup verwendete Logik nicht davon ausgehen kann, dass das Backup abgeschlossen wurde.
+
+====
 * Ein Testsuite muss ein Skript verwenden, um Aktionen durchzuführen. Viele Testsuitehaoks können auf dasselbe Skript verweisen.
 * Astra Control erfordert, dass die Skripte, mit denen Ausführungshaken ausgeführt werden, im Format ausführbarer Shell-Skripte geschrieben werden.
 * Die Skriptgröße ist auf 96 KB begrenzt.
@@ -57,11 +62,6 @@ Bei der Planung von Testausführungshooks für Ihre Apps sollten Sie Folgendes b
 * Wenn Sie einem Ausführungs-Hook einen Namespace-Filter hinzufügen, der nach einer Wiederherstellung oder einem Klonvorgang ausgeführt wird, und die Wiederherstellungs- oder Klonquelle und das Ziel in verschiedenen Namespaces liegen, wird der Namespace-Filter nur auf den Ziel-Namespace angewendet.
 
 
-[NOTE]
-====
-Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt. Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass die in einem Testsuite nach dem Backup verwendete Logik nicht davon ausgehen kann, dass das Backup abgeschlossen wurde.
-
-====
 
 
 === Ausführungsreihenfolge
@@ -123,7 +123,7 @@ Wenn Sie starten, aber dann brechen Sie ein Backup, das einen Snapshot enthält 
 | 4 | Klonen oder Wiederherstellen | N | Y | Neu | Gleich | N | N | Y 
 
 
-| 5 | Klonen oder Wiederherstellen | Y | N | Neu | Anders | N | Y | Y 
+| 5 | Klonen oder Wiederherstellen | Y | N | Neu | Anders | N | N | Y 
 
 
 | 6 | Klonen oder Wiederherstellen | N | Y | Neu | Anders | N | N | Y 
@@ -141,7 +141,7 @@ Wenn Sie starten, aber dann brechen Sie ein Backup, das einen Snapshot enthält 
 | 10 | Backup | N | K. A. | K. A. | K. A. | Y | Y | K. A. 
 
 
-| 11 | Backup | Y | K. A. | K. A. | K. A. | N | Y | K. A. 
+| 11 | Backup | Y | K. A. | K. A. | K. A. | N | N | K. A. 
 |===
 
 

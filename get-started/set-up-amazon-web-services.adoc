@@ -77,7 +77,7 @@ Speichern Sie die Anmeldeinformationen für den IAM-Benutzer, damit Sie die Anme
 
 Ein Kubernetes-Cluster muss folgende Anforderungen erfüllen, damit Sie ihn über den Astra Control Service erkennen und managen können.
 
-Kubernetes-Version:: Auf einem Cluster muss eine Kubernetes-Version im Bereich von 1.22 bis 1.24 ausgeführt werden.
+Kubernetes-Version:: Auf einem Cluster muss eine Kubernetes-Version im Bereich von 1.23 bis 1.25 ausgeführt werden.
 Bildtyp:: Der Bildtyp für jeden Arbeiterknoten muss Linux sein.
 Der Cluster-Status:: Cluster müssen in einem ordnungsgemäßen Zustand ausgeführt werden und mindestens einen Online-Worker-Node ohne „Worker“-Nodes im ausgefallenen Status aufweisen.
 

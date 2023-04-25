@@ -51,7 +51,15 @@ Astra Control Service stellt persistente Volumes mit einer minimalen Volume-Grö
 
 
 
-== Über Azure Gemanagte Festplatten
+=== Applikations-Backups
+
+Wenn Sie eine Applikation sichern, die sich auf dem Azure NetApp Files Storage befindet, erweitert Astra Control Service automatisch vorübergehend den Kapazitäts-Pool. Nach Abschluss des Backups verkleinert der Astra Control Service den Kapazitäts-Pool auf die vorherige Größe. Je nach Ihrem Azure-Abonnement fallen bei diesem Vorgang möglicherweise Storage-Gebühren an. Im Ereignisprotokoll der Seite *Aktivität* können Sie einen Verlauf der Größenänderung des Kapazitätspools sehen.
+
+Wenn der Kapazitäts-Pool die maximal zulässige Größe des Azure-Abonnements während des Größenänderungsvorgangs überschreitet, schlägt der Backup-Vorgang fehl, und eine Warnung wird von der Azure-API ausgelöst.
+
+
+
+== Von Azure gemanagte Festplatten
 
 Astra Control Service kann über Container Storage Interface (CSI)-Treiber eine Schnittstelle zu Azure Managed Disks als Storage-Backend verwenden. Dieser Service bietet Storage auf Block-Ebene, der von Azure gemanagt wird.
 

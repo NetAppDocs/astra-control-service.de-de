@@ -67,7 +67,7 @@ Wenn Sie das Management eines Clusters aufheben:
 
 
 .Ergebnis
-Der Status des Clusters ändert sich in *Entfernen*. Danach wird der Cluster aus der Seite *Cluster* entfernt und wird nicht mehr vom Astra Control Center verwaltet.
+Der Status des Clusters ändert sich in *Entfernen*. Danach wird der Cluster von der *Cluster* Seite entfernt und nicht mehr von Astra Control verwaltet.
 
 
 
