@@ -12,7 +12,7 @@ summary: 'Astra Control Service verwendet Azure NetApp Files als Storage-Backend
 
 
 [role="lead"]
-Astra Control Service unterstützt Azure NetApp Files, gemanagte Azure Festplatten oder NetApp Cloud Volumes ONTAP als Storage-Backend für Azure Kubernetes Service-Cluster (AKS).
+Der Astra Control Service unterstützt Azure NetApp Files, von Azure gemanagte Festplatten oder NetApp Cloud Volumes ONTAP als Storage-Back-End für AKS-Cluster (Azure Kubernetes Service).
 
 
 
@@ -69,4 +69,4 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview["
 
 == NetApp Cloud Volumes ONTAP
 
-Genaue Informationen zur Konfiguration von NetApp Cloud Volumes ONTAP, einschließlich Performance-Empfehlungen, finden Sie im https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["NetApp Cloud Volumes ONTAP-Dokumentation"^].
+Genaue Informationen zur Konfiguration von NetApp Cloud Volumes ONTAP, einschließlich Performance-Empfehlungen, finden Sie im https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-performance.html["NetApp Cloud Volumes ONTAP-Dokumentation"^].

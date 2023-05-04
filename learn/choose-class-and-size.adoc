@@ -123,4 +123,4 @@ https://cloud.google.com/compute/docs/disks/performance["Erfahren Sie mehr über
 
 == NetApp Cloud Volumes ONTAP
 
-Genaue Informationen zur Konfiguration von NetApp Cloud Volumes ONTAP, einschließlich Performance-Empfehlungen, finden Sie im https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["NetApp Cloud Volumes ONTAP-Dokumentation"^].
+Genaue Informationen zur Konfiguration von NetApp Cloud Volumes ONTAP, einschließlich Performance-Empfehlungen, finden Sie im https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-performance.html["NetApp Cloud Volumes ONTAP-Dokumentation"^].
