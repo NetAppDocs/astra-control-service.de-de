@@ -20,7 +20,7 @@ Wenn Sie dem Astra Control ein neues Cluster hinzufügen, erstellen Sie eine Clo
 
 == Cloud-Instanz hinzufügen
 
-Wenn Sie dem Astra Control ein neues Cluster hinzufügen, können Sie eine neue Cloud-Instanz hinzufügen. Siehe link:../add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"] Finden Sie weitere Informationen.
+Wenn Sie dem Astra Control ein neues Cluster hinzufügen, können Sie eine neue Cloud-Instanz hinzufügen. Siehe link:../get-started/add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"] Finden Sie weitere Informationen.
 
 
 
