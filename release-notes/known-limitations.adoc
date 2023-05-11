@@ -123,18 +123,3 @@ Benutzer mit rollenbasierten Namespace-Einschränkungen dürfen Cluster nicht hi
 === Ein Member-Benutzer mit Namespace-Einschränkungen kann nicht auf geklonte oder wiederhergestellte Apps zugreifen, bis ein Admin-Benutzer den Namespace zu der Bedingung hinzufügt
 
 Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name/ID können eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto des Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer den bearbeiten `member` Benutzerkonto und Aktualisierung von Rollenbeschränkungen für den betroffenen Benutzer, um den Zugriff auf den neuen Namespace zu gewähren.
-
-
-
-=== Snapshots können bei Clustern mit Amazon EKS 1.25 oder höher fehlschlagen
-
-Snapshots in Amazon EKS-Clustern ab Version 1.25 können fehlschlagen, da der falsche Snapshot-Controller verwendet wird.
-
-Führen Sie als Problemumgehung beim Upgrade vorhandener EKS 1.25- oder höher-Installationen folgende Schritte aus:
-
-. Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.
-. https://["Deinstallieren Sie Astra Trident"^].
-. https://["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
-. https://["Installieren Sie die neueste Version von Astra Trident"^].
-. https://["Erstellen Sie eine VolumeSnapshotClass"^].
-
