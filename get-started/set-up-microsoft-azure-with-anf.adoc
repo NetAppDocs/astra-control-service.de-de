@@ -85,19 +85,19 @@ Ein Kubernetes-Cluster muss folgende Anforderungen erfüllen, damit Sie ihn übe
 Kubernetes-Version:: Auf Clustern muss die Kubernetes-Version 1.23 bis 1.25 ausgeführt werden.
 Bildtyp:: Der Image-Typ für alle Node-Pools muss Linux sein.
 Der Cluster-Status:: Cluster müssen in einem ordnungsgemäßen Zustand ausgeführt werden und mindestens einen Online-Worker-Node ohne „Worker“-Nodes im ausgefallenen Status aufweisen.
-Azure Region:: Cluster müssen in einer Region residieren, in der Azure NetApp Files verfügbar ist. https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp["Hier finden Sie Azure Produkte nach Region"^].
+Azure Region:: Cluster müssen in einer Region residieren, in der Azure NetApp Files verfügbar ist. https://["Hier finden Sie Azure Produkte nach Region"^].
 Abonnement:: Cluster müssen in einem Abonnement gespeichert werden, in dem Azure NetApp Files aktiviert ist. Sie wählen ein Abonnement, wenn Sie <<Für Azure NetApp Files anmelden,für Azure NetApp Files anmelden>>.
 Vnet:: Folgende vnet-Anforderungen sind zu berücksichtigen:
 +
 --
 * Cluster müssen sich in einem vnet befinden, das direkten Zugriff auf ein für Azure NetApp Files delegiertes Subnetz hat. <<Delegieren eines Subnetzes an Azure NetApp Files,Erfahren Sie, wie Sie ein delegiertes Subnetz einrichten>>.
 * Wenn sich Ihre Kubernetes Cluster in einem vnet befinden, das über das von Azure NetApp Files delegierte Subnetz in einem anderen vnet verfügt, müssen beide Seiten der Peering-Verbindung online sein.
-* Beachten Sie, dass die Standardgrenze für die Anzahl der IP-Adressen, die in einem vnet (einschließlich sofort gepedierter VNets) mit Azure NetApp Files verwendet werden, 1,000 ist. https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-resource-limits["Zeigen Sie Einschränkungen für Azure NetApp Files-Ressourcen an"^].
+* Beachten Sie, dass die Standardgrenze für die Anzahl der IP-Adressen, die in einem vnet (einschließlich sofort gepedierter VNets) mit Azure NetApp Files verwendet werden, 1,000 ist. https://["Zeigen Sie Einschränkungen für Azure NetApp Files-Ressourcen an"^].
 +
 Wenn Sie nahe am Limit sind, haben Sie zwei Möglichkeiten:
 
 +
-** Das können Sie https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-resource-limits#request-limit-increase-["Senden Sie eine Anfrage für eine Grenzerhöhung"^]. Wenden Sie sich an Ihren NetApp Ansprechpartner, wenn Sie Hilfe benötigen.
+** Das können Sie https://["Senden Sie eine Anfrage für eine Grenzerhöhung"^]. Wenden Sie sich an Ihren NetApp Ansprechpartner, wenn Sie Hilfe benötigen.
 ** Geben Sie bei der Erstellung eines neuen Amazon Kubernetes Service (AKS)-Clusters ein neues Netzwerk für den Cluster an. Sobald das neue Netzwerk erstellt wurde, stellen Sie ein neues Subnetz bereit und delegieren Sie das Subnetz an Azure NetApp Files.
 
 
@@ -113,7 +113,7 @@ Wenn Sie nahe am Limit sind, haben Sie zwei Möglichkeiten:
 Wenn Sie kein Microsoft Azure Konto haben, melden Sie sich zunächst bei Microsoft Azure an.
 
 .Schritte
-. Wechseln Sie zum https://azure.microsoft.com/en-us/free/["Azure-Abonnementseite"^] Um den Azure Service zu abonnieren.
+. Wechseln Sie zum https://["Azure-Abonnementseite"^] Um den Azure Service zu abonnieren.
 . Wählen Sie einen Plan aus, und befolgen Sie die Anweisungen, um das Abonnement abzuschließen.
 
 
@@ -125,7 +125,7 @@ Erhalten Sie Zugriff auf Azure NetApp Files, indem Sie den NetApp Resource Provi
 
 .Schritte
 . Melden Sie sich beim Azure Portal an.
-. https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-register["Registrieren Sie den NetApp Ressourcenanbieter mithilfe der Azure NetApp Files Dokumentation"^].
+. https://["Registrieren Sie den NetApp Ressourcenanbieter mithilfe der Azure NetApp Files Dokumentation"^].
 
 
 
@@ -135,7 +135,7 @@ Erhalten Sie Zugriff auf Azure NetApp Files, indem Sie den NetApp Resource Provi
 Erstellen Sie einen NetApp Account in Azure NetApp Files.
 
 .Schritt
-. https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-create-netapp-account["Erstellen Sie mit der Azure NetApp Files Dokumentation ein NetApp Konto aus dem Azure Portal"^].
+. https://["Erstellen Sie mit der Azure NetApp Files Dokumentation ein NetApp Konto aus dem Azure Portal"^].
 
 
 
@@ -162,7 +162,7 @@ Durch die Bereitstellung der richtigen Kapazität wird sichergestellt, dass Benu
 
 
 .Schritt
-. https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool["Folgen Sie der Azure NetApp Files Dokumentation, um einen automatischen QoS-Kapazitätspool einzurichten"^].
+. https://["Folgen Sie der Azure NetApp Files Dokumentation, um einen automatischen QoS-Kapazitätspool einzurichten"^].
 
 
 
@@ -174,7 +174,7 @@ Sie müssen ein Subnetz an Azure NetApp Files delegieren, damit der Astra Contro
 Wenn Sie Peered VNets verwenden, müssen beide Seiten der Peering-Verbindung online sein: Die vnet, in der sich Ihre Kubernetes-Cluster befinden, und das vnet mit dem Azure NetApp Files delegierten Subnetz.
 
 .Schritt
-. https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-delegate-subnet["Folgen Sie der Azure NetApp Files-Dokumentation, um ein Subnetz an Azure NetApp Files zu delegieren"^].
+. https://["Folgen Sie der Azure NetApp Files-Dokumentation, um ein Subnetz an Azure NetApp Files zu delegieren"^].
 
 
 .Nachdem Sie fertig sind
@@ -188,7 +188,7 @@ Astra Control Service erfordert einen Azure-Service-Principal, dem die Rolle „
 
 Ein Service-Principal ist eine Identität, die speziell für die Verwendung mit Anwendungen, Services und Tools erstellt wurde. Durch die Zuweisung einer Rolle zum Service-Principal wird der Zugriff auf bestimmte Azure-Ressourcen beschränkt.
 
-Führen Sie die folgenden Schritte aus, um einen Service-Principal mithilfe der Azure CLI zu erstellen. Sie müssen die Ausgabe in einer JSON-Datei speichern und später den Astra Control Service bereitstellen. https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli["Weitere Details zur Verwendung der CLI finden Sie in der Azure Dokumentation"^].
+Führen Sie die folgenden Schritte aus, um einen Service-Principal mithilfe der Azure CLI zu erstellen. Sie müssen die Ausgabe in einer JSON-Datei speichern und später den Astra Control Service bereitstellen. https://["Weitere Details zur Verwendung der CLI finden Sie in der Azure Dokumentation"^].
 
 Bei den folgenden Schritten wird davon ausgegangen, dass Sie die Berechtigung zum Erstellen eines Service-Principal haben und dass das Microsoft Azure SDK (az-Befehl) auf Ihrem Computer installiert ist.
 
@@ -271,8 +271,8 @@ az aks list --subscription SUBSCRIPTION-ID --resource-group RESOURCE-GROUP-ID
 Es besteht die Möglichkeit, eine robuenere Redundanzstufe für Azure Backup Buckets zu konfigurieren. Standardmäßig verwendet der Buckets Astra Control Service für das Speichern von Azure Kubernetes Service-Backups die LRS-Redundanzoption (lokal Redundant Storage). Um eine langlebige Redundanzoption für Azure Buckets zu verwenden, müssen Sie Folgendes tun:
 
 .Schritte
-. Erstellen Sie ein Azure-Storage-Konto, das die erforderliche Redundanzstufe verwendet https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal["Diese Anweisungen"^].
-. Erstellen Sie einen Azure-Container auf dem neuen Storage-Konto mit https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal["Diese Anweisungen"^].
+. Erstellen Sie ein Azure-Storage-Konto, das die erforderliche Redundanzstufe verwendet https://["Diese Anweisungen"^].
+. Erstellen Sie einen Azure-Container auf dem neuen Storage-Konto mit https://["Diese Anweisungen"^].
 . Fügen Sie den Container als Eimer zum Astra Control Service hinzu. Siehe link:../use/manage-buckets.html#add-an-additional-bucket["Fügen Sie einen zusätzlichen Bucket hinzu"].
 . (Optional) um den neu erstellten Bucket als Standard-Bucket für Azure Backups zu verwenden, setzen Sie ihn als Standard-Bucket für Azure fest. Siehe link:../use/manage-buckets.html#change-the-default-bucket["Ändern des Standard-Bucket"].
 

@@ -45,10 +45,10 @@ NOTE: Jede Cloud-Instanz in Astra Control muss über einen eindeutigen Namen ver
 
 == Anmeldedaten für eine Cloud-Instanz rotieren
 
-Mit der Astra Control API können Sie die Anmeldedaten für eine Cloud-Instanz rotieren. Weitere Informationen https://docs.netapp.com/us-en/astra-automation["Besuchen Sie die Astra Automation Dokumentation"^].
+Mit der Astra Control API können Sie die Anmeldedaten für eine Cloud-Instanz rotieren. Weitere Informationen https://["Besuchen Sie die Astra Automation Dokumentation"^].
 
 
 
 == Entfernen einer Cloud-Instanz
 
-Mit der Astra Control API können Sie eine Cloud-Instanz vom Cloud-Provider entfernen. Weitere Informationen https://docs.netapp.com/us-en/astra-automation["Besuchen Sie die Astra Automation Dokumentation"^].
+Mit der Astra Control API können Sie eine Cloud-Instanz vom Cloud-Provider entfernen. Weitere Informationen https://["Besuchen Sie die Astra Automation Dokumentation"^].

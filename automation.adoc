@@ -14,4 +14,4 @@ summary: Astra Control verfügt über EINE REST-API, mit der Sie über eine Prog
 [role="lead"]
 Astra Control verfügt über EINE REST-API, mit der Sie über eine Programmiersprache oder ein Dienstprogramm wie Curl direkt auf die Astra Control-Funktionalität zugreifen können. Astra Control Implementierungen lassen sich auch über Ansible und andere Automatisierungstechnologien managen.
 
-Weitere Informationen https://docs.netapp.com/us-en/astra-automation["Besuchen Sie die Astra Automation Dokumentation"^].
+Weitere Informationen https://["Besuchen Sie die Astra Automation Dokumentation"^].

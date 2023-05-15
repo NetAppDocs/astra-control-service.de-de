@@ -52,11 +52,11 @@ ifdef::gcp[]
 
 Wenn Sie GKE-Cluster mit Astra Control Service verwalten, werden persistente Volumes durch NetApp Cloud Volumes Service gesichert und die Backups Ihrer Apps werden in einem Google Cloud Storage Bucket gespeichert.
 
-* https://cloud.google.com/solutions/partners/netapp-cloud-volumes/costs["Weitere Informationen zur Preisgestaltung für Cloud Volumes Service"^].
+* https://["Weitere Informationen zur Preisgestaltung für Cloud Volumes Service"^].
 +
-Beachten Sie, dass der Astra Control Service alle Servicetypen und Servicelevel unterstützt. Der von Ihnen verwendete Servicetyp hängt von Ihrem ab https://cloud.netapp.com/cloud-volumes-global-regions#cvsGcp["Google Cloud-Region"^].
+Beachten Sie, dass der Astra Control Service alle Servicetypen und Servicelevel unterstützt. Der von Ihnen verwendete Servicetyp hängt von Ihrem ab https://["Google Cloud-Region"^].
 
-* https://cloud.google.com/storage/pricing["Hier finden Sie Preisdetails für Google Cloud Storage Buckets"^].
+* https://["Hier finden Sie Preisdetails für Google Cloud Storage Buckets"^].
 
 
 endif::gcp[]
@@ -69,8 +69,8 @@ ifdef::azure[]
 
 Wenn Sie AKS-Cluster mit Astra Control Service verwalten, werden persistente Volumes durch Azure NetApp Files gesichert und die Backups Ihrer Apps werden in einem Azure Blob-Container gespeichert.
 
-* https://azure.microsoft.com/en-us/pricing/details/netapp["Weitere Informationen zur Preisgestaltung für Azure NetApp Files"^].
-* https://azure.microsoft.com/en-us/pricing/details/storage/blobs["Sehen Sie sich Preisdetails für Microsoft Azure Blob Storage an"^].
+* https://["Weitere Informationen zur Preisgestaltung für Azure NetApp Files"^].
+* https://["Sehen Sie sich Preisdetails für Microsoft Azure Blob Storage an"^].
 
 
 endif::azure[]
@@ -83,7 +83,7 @@ ifdef::aws[]
 
 Wenn Sie AWS Cluster mit Astra Control Service verwalten, werden persistente Volumes auf EBS oder FSX für NetApp ONTAP gesichert und die Backups Ihrer Applikationen werden in einem AWS Bucket gespeichert.
 
-* https://aws.amazon.com/eks/pricing/["Preisdetails zu Amazon Web Services anzeigen"^].
+* https://["Preisdetails zu Amazon Web Services anzeigen"^].
 
 
 endif::aws[]
@@ -95,10 +95,10 @@ endif::aws[]
 Astra Control Service können Sie über den Azure Marketplace abonnieren. Ihre Konto- und Rechnungsdaten werden über den Marketplace verwaltet.
 
 
-NOTE: Einen Video-Überblick über den Azure Marketplace-Abonnementprozess finden Sie unter https://www.netapp.tv/details/29979["NetApp TV"^].
+NOTE: Einen Video-Überblick über den Azure Marketplace-Abonnementprozess finden Sie unter https://["NetApp TV"^].
 
 .Schritte
-. Wechseln Sie zum https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-astra-acs?tab=Overview["Azure Marketplace"^].
+. Wechseln Sie zum https://["Azure Marketplace"^].
 . Wählen Sie *Jetzt Holen*.
 . Befolgen Sie die Anweisungen, um einen Plan zu abonnieren.
 
@@ -110,7 +110,7 @@ NOTE: Einen Video-Überblick über den Azure Marketplace-Abonnementprozess finde
 Sie können den Astra Control Service über den AWS Marketplace abonnieren. Ihre Konto- und Rechnungsdaten werden über den Marketplace verwaltet.
 
 .Schritte
-. Wechseln Sie zum https://aws.amazon.com/marketplace/["AWS Marketplace"^].
+. Wechseln Sie zum https://["AWS Marketplace"^].
 . Wählen Sie *Weiter zur Anmeldung*.
 . Befolgen Sie die Anweisungen, um einen Plan zu abonnieren.
 

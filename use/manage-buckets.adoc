@@ -109,7 +109,7 @@ endif::azure[]
 
 ifdef::aws[]
 
-* *S3-Servername oder IP-Adresse* (nur AWS- und S3-Bucket-Typen): Geben Sie den vollständig qualifizierten Domainnamen des S3-Endpunkts ein, der Ihrer Region entspricht, ohne `https://`. Siehe https://docs.aws.amazon.com/general/latest/gr/s3.html["Die Amazon-Dokumentation"^] Finden Sie weitere Informationen.
+* *S3-Servername oder IP-Adresse* (nur AWS- und S3-Bucket-Typen): Geben Sie den vollständig qualifizierten Domainnamen des S3-Endpunkts ein, der Ihrer Region entspricht, ohne `https://`. Siehe https://["Die Amazon-Dokumentation"^] Finden Sie weitere Informationen.
 
 
 endif::aws[]
@@ -171,5 +171,5 @@ NOTE: Astra Control stellt zunächst sicher, dass es keine Planungsrichtlinien g
 
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
+* https://["Verwenden Sie die Astra Control API"^]
 

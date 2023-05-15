@@ -80,8 +80,8 @@ Wenn Sie ein eigenes Cluster managen und nicht von einem Cloud-Provider gehostet
 == image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Schließen Sie die Registrierung für den Astra Control ab
 
 [role="quick-margin-list"]
-. Erstellen Sie ein https://cloud.netapp.com["NetApp Cloud Central"^] Konto.
-. Geben Sie Ihre NetApp Cloud Central E-Mail-ID an, wenn Sie Ihr Astra Control Konto erstellen https://cloud.netapp.com/astra["Von der Astra-Produktseite"^].
+. Erstellen Sie ein https://["NetApp Cloud Central"^] Konto.
+. Geben Sie Ihre NetApp Cloud Central E-Mail-ID an, wenn Sie Ihr Astra Control Konto erstellen https://["Von der Astra-Produktseite"^].
 
 
 [role="quick-margin-para"]

@@ -82,55 +82,29 @@ Bildtyp:: Der Bildtyp für jeden Arbeiterknoten muss Linux sein.
 Der Cluster-Status:: Cluster müssen in einem ordnungsgemäßen Zustand ausgeführt werden und mindestens einen Online-Worker-Node ohne „Worker“-Nodes im ausgefallenen Status aufweisen.
 
 
-Astra Trident für Amazon FSX für NetApp ONTAP:: Wenn Sie das Backend von Amazon FSX für NetApp ONTAP Storage nutzen, müssen Sie Astra Trident installieren. Anweisungen finden Sie unter https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident – Übersicht über die Implementierung"^]. Weitere Informationen zur Verwendung von Astra Trident mit FSX für NetApp ONTAP finden Sie unter https://docs.netapp.com/us-en/trident/trident-use/trident-fsx.html["Setzen Sie Astra Trident mit Amazon FSX für NetApp ONTAP ein"^].
+Astra Trident:: Astra Trident und ein externer Snapshot-Controller sind für Vorgänge mit Storage-Back-Ends erforderlich. Um sie zu installieren, gehen Sie wie folgt vor:
+
+
+[%collapsible%open]
+====
+. https://["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
+. https://["Installieren Sie die neueste Version von Astra Trident"^].
+. https://["Erstellen Sie eine VolumeSnapshotClass"^].
+
+
+====
 CSI-Treiber für Amazon Elastic Block Store (EBS):: Wenn Sie das Amazon EBS Storage-Backend verwenden, müssen Sie den Container Storage Interface (CSI)-Treiber für EBS installieren (dieser wird nicht automatisch installiert).
 +
 --
-Anweisungen zur Installation des CSI-Treibers finden Sie in den Details.
+Anweisungen zur Installation des CSI-Treibers finden Sie in den Schritten.
 
 [%collapsible%open]
 ====
 .Installieren Sie einen externen Schnappschussfilter
-. Erstellen von Volume Snapshot-CRDs.
-+
-Verwenden Sie für Kubernetes ab Version 1.20 v1 Snapshot-CRDs mit Snapshot-Komponenten von v5.0.
-
-+
-[role="tabbed-block"]
-=====
-.V5.0-Komponenten
---
-[source, yaml]
-----
-$ cat snapshot-setup.sh
-#!/bin/bash
-# Create volume snapshot CRDs
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-5.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-5.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-5.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
-----
---
-=====
-. Erstellen Sie den Snapshot-Controller im gewünschten Namespace. Bearbeiten Sie die YAML-Manifeste unten, um den Namespace zu ändern.
-+
-Für Kubernetes 1.20 und höher verwenden Sie v5.0.
-
-+
-[role="tabbed-block"]
-=====
-.V5.0-Controller
---
-[source, yaml]
-----
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-5.0/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-5.0/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
-----
---
-=====
-
+Falls noch nicht geschehen, https://["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
 
 .Den CSI-Treiber als Amazon EKS-Add-On installieren
-. Erstellen der IAM-Rolle des Amazon EBS CSI-Treibers für Service-Konten Befolgen Sie die Anweisungen https://docs.aws.amazon.com/eks/latest/userguide/csi-iam-role.html["In der Amazon-Dokumentation"^], Verwenden der AWS CLI-Befehle in den Anweisungen.
+. Erstellen der IAM-Rolle des Amazon EBS CSI-Treibers für Service-Konten Befolgen Sie die Anweisungen https://["In der Amazon-Dokumentation"^], Verwenden der AWS CLI-Befehle in den Anweisungen.
 . Fügen Sie das Amazon EBS CSI-Add-on mit dem folgenden AWS-CLI-Befehl hinzu und ersetzen Sie Informationen in Klammern <> durch Werte speziell für Ihre Umgebung. Ersetzen Sie <DRIVER_ROLE> durch den Namen der EBS CSI-Treiberrolle, die Sie im vorherigen Schritt erstellt haben:
 +
 [source, console]
@@ -184,7 +158,7 @@ Sie sollten die Ausgabe sehen, in der die Attribute der Storage-Klasse beschrieb
 Wenn Sie noch kein Amazon-Konto besitzen, müssen Sie ein Konto erstellen, um die Abrechnung für Amazon EKS zu aktivieren.
 
 .Schritte
-. Wechseln Sie zum https://www.amazon.com["Amazon Homepage"^] Wählen Sie oben rechts *Anmelden* und wählen Sie *Hier starten*.
+. Wechseln Sie zum https://["Amazon Homepage"^] Wählen Sie oben rechts *Anmelden* und wählen Sie *Hier starten*.
 . Befolgen Sie die Anweisungen, um ein Konto zu erstellen.
 
 
@@ -195,7 +169,7 @@ Wenn Sie noch kein Amazon-Konto besitzen, müssen Sie ein Konto erstellen, um di
 Installieren Sie die AWS CLI, sodass Sie AWS Ressourcen über die Befehlszeile managen können.
 
 .Schritt
-. Gehen Sie zu https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html["Erste Schritte mit der AWS CLI"^] Und befolgen Sie die Anweisungen zur Installation der CLI.
+. Gehen Sie zu https://["Erste Schritte mit der AWS CLI"^] Und befolgen Sie die Anweisungen zur Installation der CLI.
 
 
 
@@ -205,7 +179,7 @@ Installieren Sie die AWS CLI, sodass Sie AWS Ressourcen über die Befehlszeile m
 Erstellen Sie einen IAM-Benutzer, damit Sie AWS Services und Ressourcen mit erhöhter Sicherheit nutzen und managen können. Sie können diesen Schritt auch überspringen und einen vorhandenen IAM-Benutzer mit Astra Control Service verwenden.
 
 .Schritt
-. Gehen Sie zu https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_cliwpsapi["IAM-Benutzer werden erstellt"^] Und befolgen Sie die Anweisungen zum Erstellen eines IAM-Benutzers.
+. Gehen Sie zu https://["IAM-Benutzer werden erstellt"^] Und befolgen Sie die Anweisungen zum Erstellen eines IAM-Benutzers.
 
 
 

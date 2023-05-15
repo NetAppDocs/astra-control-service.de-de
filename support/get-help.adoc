@@ -24,7 +24,7 @@ Zunächst müssen Sie link:register-support.html["Sie aktivieren den Support fü
 
 Diese Optionen sind rund um die Uhr kostenlos verfügbar:
 
-* https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Project_Astra["Wissensdatenbank"^]
+* https://["Wissensdatenbank"^]
 +
 Suchen Sie nach Artikeln, FAQ oder Break Fix Informationen im Zusammenhang mit Astra Control.
 
@@ -32,7 +32,7 @@ Suchen Sie nach Artikeln, FAQ oder Break Fix Informationen im Zusammenhang mit A
 +
 Dies ist die Dokumentwebsite, die Sie derzeit sehen.
 
-* https://discord.gg/NetApp["Hilfe über Discord erhalten"^]
+* https://["Hilfe über Discord erhalten"^]
 +
 Besuchen Sie Astra in der Kategorie „Pub“, um sich mit Kollegen und Experten auszutauschen.
 
@@ -48,7 +48,7 @@ Senden Sie eine E-Mail an astra.feedback@netapp.com, um uns Ihre Ansichten, Idee
 
 Zusätzlich zu den oben genannten Self-Support-Optionen können Sie gemeinsam mit einem NetApp Support-Techniker mögliche Probleme beheben link:register-support.html["Sie aktivieren den Support für Ihre NetApp Seriennummer"].
 
-Sobald die Seriennummer Ihres Astra Control aktiviert ist, können Sie über Erstellen einer auf die Ressourcen des technischen Supports von NetApp zugreifen https://mysupport.netapp.com/site/cases/mine/create["Support-Ticket"].
+Sobald die Seriennummer Ihres Astra Control aktiviert ist, können Sie über Erstellen einer auf die Ressourcen des technischen Supports von NetApp zugreifen https://["Support-Ticket"].
 
 Wählen Sie *Cloud Data Services > Astra* Aus.
 

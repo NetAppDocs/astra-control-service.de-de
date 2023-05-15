@@ -36,7 +36,7 @@ Astra Control verlangt von Ihnen, im Abschnitt „Onboarding“ genaue Kundeninf
 
 *Was ist die Astra Control Service URL?*
 
-Sie können auf den Astra Control Service zugreifen unter https://astra.netapp.io[].
+Sie können auf den Astra Control Service zugreifen unter https://[].
 
 *Ich habe eine E-Mail-Einladung an einen Kollegen geschickt, aber sie haben sie nicht erhalten. Was soll ich tun?*
 
@@ -90,7 +90,7 @@ Ja, Sie können private AKS-Cluster zu Astra Control Service hinzufügen. Inform
 
 *Kann ich Active Directory zur Verwaltung der Authentifizierung für meine AKS-Cluster verwenden?*
 
-Ja, Sie können Ihre AKS-Cluster so konfigurieren, dass sie Azure Active Directory (Azure AD) zur Authentifizierung und Identitätsverwaltung verwenden. Wenn Sie das Cluster erstellen, befolgen Sie die Anweisungen im https://docs.microsoft.com/en-us/azure/aks/managed-aad["Offizielle Dokumentation"^] Um den Cluster mit Azure AD zu konfigurieren. Stellen Sie sicher, dass Ihre Cluster die Anforderungen für die AKS-verwaltete Azure AD-Integration erfüllen.
+Ja, Sie können Ihre AKS-Cluster so konfigurieren, dass sie Azure Active Directory (Azure AD) zur Authentifizierung und Identitätsverwaltung verwenden. Wenn Sie das Cluster erstellen, befolgen Sie die Anweisungen im https://["Offizielle Dokumentation"^] Um den Cluster mit Azure AD zu konfigurieren. Stellen Sie sicher, dass Ihre Cluster die Anforderungen für die AKS-verwaltete Azure AD-Integration erfüllen.
 
 endif::azure[]
 
@@ -102,9 +102,9 @@ ifdef::gcp[]
 
 *Kann ich einen privaten GKE-Cluster zum Astra Control Service hinzufügen?*
 
-Ja, Sie können private GKE-Cluster zum Astra Control Service hinzufügen. Um ein privates GKE-Cluster zu erstellen, https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Project_Astra/How_to_create_a_private_GKE_cluster_to_work_with_project_Astra["Folgen Sie den Anweisungen in diesem Knowledgebase-Artikel"^].
+Ja, Sie können private GKE-Cluster zum Astra Control Service hinzufügen. Um ein privates GKE-Cluster zu erstellen, https://["Befolgen Sie die Anweisungen in diesem Knowledge Base-Artikel"^].
 
-Private Cluster müssen über die verfügen https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept["Autorisierte Netzwerke"^] Einstellen, um die Astra Control-IP-Adresse zuzulassen:
+Private Cluster müssen über die verfügen https://["Autorisierte Netzwerke"^] Einstellen, um die Astra Control-IP-Adresse zuzulassen:
 
 52.188.218.166/32
 
@@ -114,7 +114,7 @@ Ja, Astra Control kann Cluster managen, die in einer gemeinsamen VPC residieren.
 
 *Wo finde ich meine Service-Konto-Anmeldeinformationen auf GCP?*
 
-Nachdem Sie sich beim angemeldet haben https://console.cloud.google.com/["Google Cloud Console"^], Ihre Angaben zu Ihrem Servicekonto finden Sie im Bereich *IAM und Admin*. Weitere Informationen finden Sie unter link:set-up-google-cloud.html["So richten Sie Google Cloud für Astra Control ein"].
+Nachdem Sie sich beim angemeldet haben https://["Google Cloud Console"^], Ihre Angaben zu Ihrem Servicekonto finden Sie im Bereich *IAM und Admin*. Weitere Informationen finden Sie unter link:set-up-google-cloud.html["So richten Sie Google Cloud für Astra Control ein"].
 
 *Ich möchte verschiedene GKE-Cluster aus verschiedenen GCP-Projekten hinzufügen. Wird dies in Astra Control unterstützt?*
 

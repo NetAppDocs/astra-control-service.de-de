@@ -294,8 +294,6 @@
   <block id="e4b4463df81090495a7820578ac936d9" category="paragraph">Ja, Sie können Ihre AKS-Cluster so konfigurieren, dass sie Azure Active Directory (Azure AD) zur Authentifizierung und Identitätsverwaltung verwenden. Wenn Sie das Cluster erstellen, befolgen Sie die Anweisungen im<block ref="ba1ce5a57a4d347a0e1e2ecf2a2c91ba" category="inline-link-rx"></block> Um den Cluster mit Azure AD zu konfigurieren. Stellen Sie sicher, dass Ihre Cluster die Anforderungen für die AKS-verwaltete Azure AD-Integration erfüllen.</block>
   <block id="2c932845e362039bca422bb4b59eea27" category="section-title">Google Kubernetes Engine (GKE)-Cluster werden registriert</block>
   <block id="af2b33bb637866cca13ababa2653601d" category="paragraph">*Kann ich einen privaten GKE-Cluster zum Astra Control Service hinzufügen?*</block>
-  <block id="31148e03a9c660c9f706cc9a54e83987" category="inline-link">Folgen Sie den Anweisungen in diesem Knowledgebase-Artikel</block>
-  <block id="1713462e90117332b2b20b952ba14379" category="paragraph">Ja, Sie können private GKE-Cluster zum Astra Control Service hinzufügen. Um ein privates GKE-Cluster zu erstellen,<block ref="5476475ab72cd9cb8fccc685eb30acef" category="inline-link-rx"></block>.</block>
   <block id="14404c0506ad155270835b42ac26b048" category="inline-link">Autorisierte Netzwerke</block>
   <block id="51e84df52b4888344ecda584885aaabd" category="paragraph">Private Cluster müssen über die verfügen<block ref="aa255aeede553f15509fbd44536f790e" category="inline-link-rx"></block> Einstellen, um die Astra Control-IP-Adresse zuzulassen:</block>
   <block id="0cc78d43619515d263f8e91071f2ed83" category="paragraph">52.188.218.166/32</block>
@@ -428,18 +426,9 @@
   <block id="b8cf7b94f9e10f41b2b27123989d36fd" category="paragraph"><block ref="188415ab56d6f15363f3a6d3aeeb528e" category="inline-xref-macro-rx"></block>.</block>
   <block id="4df22842e40c5b16d99c626518e253c3" category="section-title">EKS-Clusteranforderungen</block>
   <block id="c7bb46dffdc366e91559a5686fc19862" category="list-text">Der Bildtyp für jeden Arbeiterknoten muss Linux sein.</block>
-  <block id="73faaa1b4bb064878667455dd879f4ba" category="list-text">Astra Trident für Amazon FSX für NetApp ONTAP</block>
-  <block id="7c7909b36280dd94e57f2ee6a575a583" category="inline-link">Astra Trident – Übersicht über die Implementierung</block>
-  <block id="337de5d45c69b1e4dcf87a8e7ec9ff76" category="inline-link">Setzen Sie Astra Trident mit Amazon FSX für NetApp ONTAP ein</block>
   <block id="0377220eb132179cb3e77bfec468b6e7" category="list-text">CSI-Treiber für Amazon Elastic Block Store (EBS)</block>
   <block id="45a3701ecc9be7702921ca0e93420bfb" category="list-text">Wenn Sie das Amazon EBS Storage-Backend verwenden, müssen Sie den Container Storage Interface (CSI)-Treiber für EBS installieren (dieser wird nicht automatisch installiert).</block>
   <block id="ffb90b59a71f73d5ffa61affe6f83805" category="list-title">Installieren Sie einen externen Schnappschussfilter</block>
-  <block id="469f7ca16938508b5dcb777767828b70" category="list-text">Erstellen von Volume Snapshot-CRDs.</block>
-  <block id="cb9d6d1ca0b4fda3b1206ae38a007824" category="paragraph">Verwenden Sie für Kubernetes ab Version 1.20 v1 Snapshot-CRDs mit Snapshot-Komponenten von v5.0.</block>
-  <block id="351d6da9c87ca81d91cd4755e4730d82" category="open-title">V5.0-Komponenten</block>
-  <block id="65b146df7d5c27b212f54a7c9980960b" category="list-text">Erstellen Sie den Snapshot-Controller im gewünschten Namespace. Bearbeiten Sie die YAML-Manifeste unten, um den Namespace zu ändern.</block>
-  <block id="6b4ca223a0a2bf649306756ade54b043" category="paragraph">Für Kubernetes 1.20 und höher verwenden Sie v5.0.</block>
-  <block id="5e393c0ca8392e0c84201770c8b544ca" category="open-title">V5.0-Controller</block>
   <block id="73db78b82b24968c2e543a8ec1d23c90" category="list-title">Den CSI-Treiber als Amazon EKS-Add-On installieren</block>
   <block id="903f43a25b2e943c7c91a266ae7013f7" category="inline-link">In der Amazon-Dokumentation</block>
   <block id="f2dc6df6aaa642be8d7b072b32ced652" category="list-text">Erstellen der IAM-Rolle des Amazon EBS CSI-Treibers für Service-Konten Befolgen Sie die Anweisungen<block ref="c73a2756e5d09198e90fa544bb19a66a" category="inline-link-rx"></block>, Verwenden der AWS CLI-Befehle in den Anweisungen.</block>
@@ -956,7 +945,6 @@
   <block id="07d41912a6ab6b97216f8cf89e93205c" category="section-title">Self-Support</block>
   <block id="6b9b3535d917a5890db4ef00a3718361" category="paragraph">Diese Optionen sind rund um die Uhr kostenlos verfügbar:</block>
   <block id="19111351b69b6b15668130b38b7f6038" category="inline-link">Wissensdatenbank</block>
-  <block id="a6e059ac420affdcffe70328b3d8fa18" category="list-text"><block ref="a6e059ac420affdcffe70328b3d8fa18" category="inline-link-rx"></block></block>
   <block id="1cd3b87947307e63f017eb7a59b02313" category="paragraph">Suchen Sie nach Artikeln, FAQ oder Break Fix Informationen im Zusammenhang mit Astra Control.</block>
   <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">Dokumentation</block>
   <block id="9a4d3fdb6af496c18bc70f14153f8c4f" category="paragraph">Dies ist die Dokumentwebsite, die Sie derzeit sehen.</block>
@@ -977,8 +965,6 @@
   <block id="7a6e75527e8cceba4c18c8c92f04e84c" category="summary">Tipps zur Fehlerbehebung für häufige Probleme</block>
   <block id="231cf4c70d866b616c21baddaeed0696" category="doc">Fehlerbehebung</block>
   <block id="36e2bd9e7950f46d3ea6d2bca4c50ba1" category="paragraph">Lernen Sie, wie Sie mit einigen häufigen Problemen umgehen können.</block>
-  <block id="79c5785e2761673e59d8eea6f1277fe2" category="paragraph"><block ref="79c5785e2761673e59d8eea6f1277fe2" category="inline-link-rx"></block></block>
-  <block id="b35bb2f67f8827a8ec9e7d20a3435980" category="list-text"><block ref="b35bb2f67f8827a8ec9e7d20a3435980" category="inline-link-rx"></block></block>
   <block id="b005e9b87ad09276d866e9369648f426" category="summary">Astra Control kann Ihre Applikationskonfiguration und Ihren persistenten Storage aus einem Snapshot oder Backup wiederherstellen. Persistente Storage-Backups werden von Ihrem Objektspeicher übertragen, sodass die Wiederherstellung aus einem bestehenden Backup möglichst schnell erfolgt.</block>
   <block id="a4f53e5340ac3c6ab0e1234f9f27981c" category="inline-link">Die Astra Control API</block>
   <block id="bd48cb856a5ec10f9c3c2bf8d62fc86c" category="paragraph">Astra Control kann Ihre Applikation aus einem Snapshot oder einem Backup wiederherstellen. Das Wiederherstellen aus einem vorhandenen Snapshot erfolgt schneller, wenn die Anwendung auf dasselbe Cluster wiederhergestellt wird. Sie können die Astra Control UI oder verwenden<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> Zur Wiederherstellung von Applikationen.</block>
@@ -1866,8 +1852,6 @@
   <block id="de0e0b190913ddd9905dc28e44369b4e" category="section-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Optional: Erstellen Sie einen IAM-Benutzer</block>
   <block id="c16b65c89a8a5d66f3283ff98e331948" category="section-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> Erstellen Sie eine Berechtigungsrichtlinie und fügen Sie sie an</block>
   <block id="bb6a13b106e48f792ea57b231c6c8429" category="section-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block> Speichern Sie die Anmeldeinformationen für den IAM-Benutzer</block>
-  <block id="3ea391c9e6fd8068a48c5105ab95e68f" category="list-text">Wenn Sie das Backend von Amazon FSX für NetApp ONTAP Storage nutzen, müssen Sie Astra Trident installieren. Anweisungen finden Sie unter<block ref="f6fce076fe7d8cd53c920b1f42e7a384" category="inline-link-rx"></block>. Weitere Informationen zur Verwendung von Astra Trident mit FSX für NetApp ONTAP finden Sie unter<block ref="720d51d7c9f57e4a266e8e3a5ab469c6" category="inline-link-rx"></block>.</block>
-  <block id="20fc0f0b676e68d276bd1ffa1267ac50" category="paragraph">Anweisungen zur Installation des CSI-Treibers finden Sie in den Details.</block>
   <block id="adb43c383a88e1f2946ab2e72ac03918" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Erstellen Sie einen Azure Service Principal</block>
   <block id="115d465e8b862905dee97dfc00687f80" category="section-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Konfigurieren Sie die Treiberdetails für die Container-Storage-Schnittstelle (CSI)</block>
   <block id="4ba43802facfe67533d744cbe8965137" category="section-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> Optional: Redundanz für Azure Backup Buckets konfigurieren</block>
@@ -2129,4 +2113,27 @@
   <block id="5e45edcd9985e188c258e7b6515feeea" category="paragraph">Der Astra Control Service unterstützt Azure NetApp Files, von Azure gemanagte Festplatten oder NetApp Cloud Volumes ONTAP als Storage-Back-End für AKS-Cluster (Azure Kubernetes Service).</block>
   <block id="6bab6ac71f743f37f154b7b0219c56a8" category="paragraph">Astra Control Service unterstützt Cloud Volumes Service für Google Cloud, Google Persistent Disk oder NetApp Cloud Volumes ONTAP als Storage-Backend-Optionen für persistente Volumes.</block>
   <block id="09a08aa51d9a5d34a5bc6cecdb1f03bf" category="paragraph">Wenn Sie dem Astra Control ein neues Cluster hinzufügen, können Sie eine neue Cloud-Instanz hinzufügen. Siehe <block ref="04d97bec7f4fa11002764129cf40d13a" category="inline-link-macro-rx"></block> Finden Sie weitere Informationen.</block>
+  <block id="3151d43bcd1c27b32e26e2270e5f6365" category="inline-link">Befolgen Sie die Anweisungen in diesem Knowledge Base-Artikel</block>
+  <block id="89ee4e626d8ee5cecc8bc20164109dc0" category="paragraph">Ja, Sie können private GKE-Cluster zum Astra Control Service hinzufügen. Um ein privates GKE-Cluster zu erstellen,<block ref="99bba183cf709d565e021b59be5fb393" category="inline-link-rx"></block>.</block>
+  <block id="84810f606cf208e2aa62628838041ba8" category="list-text">Astra Trident und ein externer Snapshot-Controller sind für Vorgänge mit Storage-Back-Ends erforderlich. Um sie zu installieren, gehen Sie wie folgt vor:</block>
+  <block id="a9b10c3e99be35f3f8a9c7dc7fadd754" category="inline-link">Installieren Sie die Snapshot-CRDs und den Snapshot-Controller</block>
+  <block id="fc49eec2e1350c70e0ee83082938896c" category="list-text"><block ref="40a914e8068809539f086034e13549c6" category="inline-link-rx"></block>.</block>
+  <block id="e5b001692c70f874108d4c3517741181" category="inline-link">Installieren Sie die neueste Version von Astra Trident</block>
+  <block id="a303c00b0d0d4a1b4adf9ac86b7be2cc" category="list-text"><block ref="6b04d2c2cadce52e000fe64978797f65" category="inline-link-rx"></block>.</block>
+  <block id="48d0b044dd9368b2691ff16393a31d86" category="inline-link">Erstellen Sie eine VolumeSnapshotClass</block>
+  <block id="0fa487fe8680011a1e8590273692a729" category="list-text"><block ref="7780c580e1dcefaf97af849cafb81d68" category="inline-link-rx"></block>.</block>
+  <block id="7acbd9a679c6d9e0677acd3b0514110d" category="paragraph">Anweisungen zur Installation des CSI-Treibers finden Sie in den Schritten.</block>
+  <block id="b112804ac2e50d1a247c4e71c3315d8c" category="inline-link">Installieren Sie die Snapshot-CRDs und den Snapshot-Controller</block>
+  <block id="6c190cb8b2ab4bcec637bcea54946bee" category="paragraph">Falls noch nicht geschehen,<block ref="0e5afab18fbd6e0f822d02155d04d2bd" category="inline-link-rx"></block>.</block>
+  <block id="9743b1bac661724fbae098bb88f6131d" category="list-text"><block ref="9743b1bac661724fbae098bb88f6131d" category="inline-link-rx"></block></block>
+  <block id="1012a371df8509745561ebc7fb6c67ed" category="paragraph"><block ref="1012a371df8509745561ebc7fb6c67ed" category="inline-link-rx"></block></block>
+  <block id="ed0a05533716082066f8bcf9280a4c5f" category="list-text"><block ref="ed0a05533716082066f8bcf9280a4c5f" category="inline-link-rx"></block></block>
+  <block id="abfeaf5dc3fa1bf4a2a2cba84c5e546c" category="section-title">15 Mai 2023</block>
+  <block id="7dfc25c1548ba836ed04c79f8fbd1825" category="paragraph">Dies ist ein kleines Bugfix-Release.</block>
+  <block id="8f80a6bba41c8f2f5d1a9b2f5ff1d87b" category="section-title">Snapshots können bei Clustern mit Amazon EKS 1.25 oder höher fehlschlagen</block>
+  <block id="b3794e2a706f8946cd7b6e8c2435538f" category="paragraph">Snapshots in Amazon EKS-Clustern ab Version 1.25 können fehlschlagen, da der falsche Snapshot-Controller verwendet wird.</block>
+  <block id="bfe0bca35535f01b62abdc5459c6610c" category="paragraph">Führen Sie als Problemumgehung beim Upgrade vorhandener EKS 1.25- oder höher-Installationen folgende Schritte aus:</block>
+  <block id="d5d53109cd766da789a263c6e2051051" category="list-text">Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.</block>
+  <block id="43f17763173fe230bdd78477152f5f7d" category="inline-link">Deinstallieren Sie Astra Trident</block>
+  <block id="478393a7bc00211c00b84b91bd7270e1" category="list-text"><block ref="ae36d1cdd520df7c3eaefc0ce2deb814" category="inline-link-rx"></block>.</block>
 </blocks>

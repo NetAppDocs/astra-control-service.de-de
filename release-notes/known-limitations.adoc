@@ -24,7 +24,7 @@ Die folgenden Einschränkungen wirken sich auf das Management von Kubernetes-Clu
 
 === Astra Trident ist nicht von einem Cluster deinstalliert
 
-Wenn Sie einen Cluster vom Astra Control Service aus verwalten, wird Astra Trident nicht automatisch aus dem Cluster deinstalliert. Um Astra Trident zu deinstallieren, müssen Sie es benötigen https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Folgen Sie den Schritten in der Dokumentation von Astra Trident"^].
+Wenn Sie einen Cluster vom Astra Control Service aus verwalten, wird Astra Trident nicht automatisch aus dem Cluster deinstalliert. Um Astra Trident zu deinstallieren, müssen Sie es benötigen https://["Folgen Sie den Schritten in der Dokumentation von Astra Trident"^].
 
 
 
@@ -92,13 +92,13 @@ Nachdem eine Applikation mit einer Storage-Klasse bereitgestellt wurde (z. B. `h
 
 Astra Control unterstützt Applikationen, die mit Betreibern im Namespace-Umfang installiert sind. Diese Betreiber sind in der Regel mit einer "Pass-by-Value"-Architektur statt "Pass-by-reference"-Architektur ausgelegt. Im Folgenden sind einige Bedieneranwendungen aufgeführt, die folgende Muster befolgen:
 
-* https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
+* https://["Apache K8ssandra"^]
 +
 
 NOTE: Für K8ssandra werden in-Place-Wiederherstellungsvorgänge unterstützt. Für einen Restore-Vorgang in einem neuen Namespace oder Cluster muss die ursprüngliche Instanz der Applikation ausgefallen sein. Dadurch soll sichergestellt werden, dass die überführten Peer-Group-Informationen nicht zu einer instanzübergreifenden Kommunikation führen. Das Klonen der App wird nicht unterstützt.
 
-* https://github.com/jenkinsci/kubernetes-operator["Jenkins CI"^]
-* https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB Cluster"^]
+* https://["Jenkins CI"^]
+* https://["Percona XtraDB Cluster"^]
 
 
 Astra Control kann einen Operator, der mit einer „Pass-by-Reference“-Architektur entworfen wurde, möglicherweise nicht klonen (z. B. den CockroachDB-Operator). Während dieser Art von Klonvorgängen versucht der geklonte Operator, Kubernetes Secrets vom Quelloperator zu beziehen, obwohl er im Zuge des Klonens ein eigenes neues Geheimnis hat. Der Klonvorgang kann fehlschlagen, da Astra Control die Kubernetes-Geheimnisse im Quelloperator nicht kennt.
@@ -123,3 +123,18 @@ Benutzer mit rollenbasierten Namespace-Einschränkungen dürfen Cluster nicht hi
 === Ein Member-Benutzer mit Namespace-Einschränkungen kann nicht auf geklonte oder wiederhergestellte Apps zugreifen, bis ein Admin-Benutzer den Namespace zu der Bedingung hinzufügt
 
 Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name/ID können eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto des Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer den bearbeiten `member` Benutzerkonto und Aktualisierung von Rollenbeschränkungen für den betroffenen Benutzer, um den Zugriff auf den neuen Namespace zu gewähren.
+
+
+
+=== Snapshots können bei Clustern mit Amazon EKS 1.25 oder höher fehlschlagen
+
+Snapshots in Amazon EKS-Clustern ab Version 1.25 können fehlschlagen, da der falsche Snapshot-Controller verwendet wird.
+
+Führen Sie als Problemumgehung beim Upgrade vorhandener EKS 1.25- oder höher-Installationen folgende Schritte aus:
+
+. Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.
+. https://["Deinstallieren Sie Astra Trident"^].
+. https://["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
+. https://["Installieren Sie die neueste Version von Astra Trident"^].
+. https://["Erstellen Sie eine VolumeSnapshotClass"^].
+
