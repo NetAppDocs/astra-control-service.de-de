@@ -293,9 +293,7 @@
   <block id="54d90be7ed2f484693994a0a44b349d2" category="inline-link">Offizielle Dokumentation</block>
   <block id="e4b4463df81090495a7820578ac936d9" category="paragraph">Ja, Sie können Ihre AKS-Cluster so konfigurieren, dass sie Azure Active Directory (Azure AD) zur Authentifizierung und Identitätsverwaltung verwenden. Wenn Sie das Cluster erstellen, befolgen Sie die Anweisungen im<block ref="ba1ce5a57a4d347a0e1e2ecf2a2c91ba" category="inline-link-rx"></block> Um den Cluster mit Azure AD zu konfigurieren. Stellen Sie sicher, dass Ihre Cluster die Anforderungen für die AKS-verwaltete Azure AD-Integration erfüllen.</block>
   <block id="2c932845e362039bca422bb4b59eea27" category="section-title">Google Kubernetes Engine (GKE)-Cluster werden registriert</block>
-  <block id="af2b33bb637866cca13ababa2653601d" category="paragraph">*Kann ich einen privaten GKE-Cluster zum Astra Control Service hinzufügen?*</block>
   <block id="14404c0506ad155270835b42ac26b048" category="inline-link">Autorisierte Netzwerke</block>
-  <block id="51e84df52b4888344ecda584885aaabd" category="paragraph">Private Cluster müssen über die verfügen<block ref="aa255aeede553f15509fbd44536f790e" category="inline-link-rx"></block> Einstellen, um die Astra Control-IP-Adresse zuzulassen:</block>
   <block id="0cc78d43619515d263f8e91071f2ed83" category="paragraph">52.188.218.166/32</block>
   <block id="952200664143e727f3f65397759fe5e8" category="paragraph">*Kann mein GKE-Cluster auf einem gemeinsamen VPC residieren?*</block>
   <block id="5d346778751cb328795e29ad6aed29a4" category="inline-link-macro">Erfahren Sie, wie Sie den Astra-Service-Account für eine Shared VPC-Konfiguration einrichten</block>
@@ -2113,11 +2111,7 @@
   <block id="5e45edcd9985e188c258e7b6515feeea" category="paragraph">Der Astra Control Service unterstützt Azure NetApp Files, von Azure gemanagte Festplatten oder NetApp Cloud Volumes ONTAP als Storage-Back-End für AKS-Cluster (Azure Kubernetes Service).</block>
   <block id="6bab6ac71f743f37f154b7b0219c56a8" category="paragraph">Astra Control Service unterstützt Cloud Volumes Service für Google Cloud, Google Persistent Disk oder NetApp Cloud Volumes ONTAP als Storage-Backend-Optionen für persistente Volumes.</block>
   <block id="09a08aa51d9a5d34a5bc6cecdb1f03bf" category="paragraph">Wenn Sie dem Astra Control ein neues Cluster hinzufügen, können Sie eine neue Cloud-Instanz hinzufügen. Siehe <block ref="04d97bec7f4fa11002764129cf40d13a" category="inline-link-macro-rx"></block> Finden Sie weitere Informationen.</block>
-  <block id="3151d43bcd1c27b32e26e2270e5f6365" category="inline-link">Befolgen Sie die Anweisungen in diesem Knowledge Base-Artikel</block>
-  <block id="89ee4e626d8ee5cecc8bc20164109dc0" category="paragraph">Ja, Sie können private GKE-Cluster zum Astra Control Service hinzufügen. Um ein privates GKE-Cluster zu erstellen,<block ref="99bba183cf709d565e021b59be5fb393" category="inline-link-rx"></block>.</block>
   <block id="9743b1bac661724fbae098bb88f6131d" category="list-text"><block ref="9743b1bac661724fbae098bb88f6131d" category="inline-link-rx"></block></block>
-  <block id="1012a371df8509745561ebc7fb6c67ed" category="paragraph"><block ref="1012a371df8509745561ebc7fb6c67ed" category="inline-link-rx"></block></block>
-  <block id="ed0a05533716082066f8bcf9280a4c5f" category="list-text"><block ref="ed0a05533716082066f8bcf9280a4c5f" category="inline-link-rx"></block></block>
   <block id="84810f606cf208e2aa62628838041ba8" category="list-text">Astra Trident und ein externer Snapshot-Controller sind für Vorgänge mit Storage-Back-Ends erforderlich. Um sie zu installieren, gehen Sie wie folgt vor:</block>
   <block id="a9b10c3e99be35f3f8a9c7dc7fadd754" category="inline-link">Installieren Sie die Snapshot-CRDs und den Snapshot-Controller</block>
   <block id="fc49eec2e1350c70e0ee83082938896c" category="list-text"><block ref="40a914e8068809539f086034e13549c6" category="inline-link-rx"></block>.</block>
@@ -2130,10 +2124,12 @@
   <block id="6c190cb8b2ab4bcec637bcea54946bee" category="paragraph">Falls noch nicht geschehen,<block ref="0e5afab18fbd6e0f822d02155d04d2bd" category="inline-link-rx"></block>.</block>
   <block id="abfeaf5dc3fa1bf4a2a2cba84c5e546c" category="section-title">15 Mai 2023</block>
   <block id="7dfc25c1548ba836ed04c79f8fbd1825" category="paragraph">Dies ist ein kleines Bugfix-Release.</block>
-  <block id="8f80a6bba41c8f2f5d1a9b2f5ff1d87b" category="section-title">Snapshots können bei Clustern mit Amazon EKS 1.25 oder höher fehlschlagen</block>
-  <block id="b3794e2a706f8946cd7b6e8c2435538f" category="paragraph">Snapshots in Amazon EKS-Clustern ab Version 1.25 können fehlschlagen, da der falsche Snapshot-Controller verwendet wird.</block>
-  <block id="bfe0bca35535f01b62abdc5459c6610c" category="paragraph">Führen Sie als Problemumgehung beim Upgrade vorhandener EKS 1.25- oder höher-Installationen folgende Schritte aus:</block>
   <block id="d5d53109cd766da789a263c6e2051051" category="list-text">Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.</block>
   <block id="43f17763173fe230bdd78477152f5f7d" category="inline-link">Deinstallieren Sie Astra Trident</block>
   <block id="478393a7bc00211c00b84b91bd7270e1" category="list-text"><block ref="ae36d1cdd520df7c3eaefc0ce2deb814" category="inline-link-rx"></block>.</block>
+  <block id="de6aa62d63707ee7d0d8147e0441da62" category="paragraph"><block ref="de6aa62d63707ee7d0d8147e0441da62" category="inline-link-rx"></block></block>
+  <block id="bbc78db47a3fe23dc96746668da3d287" category="list-text"><block ref="bbc78db47a3fe23dc96746668da3d287" category="inline-link-rx"></block></block>
+  <block id="5a5355eda2f1cf003d25254ee2c311a3" category="section-title">Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise</block>
+  <block id="f9f1ea7c0040d9bdb077f9ce68de31e3" category="paragraph">Snapshots für Kubernetes-Cluster, die Version 1.25 oder höher ausführen, können fehlschlagen, wenn Version v1beta1 der Snapshot-Controller-APIs auf dem Cluster installiert sind.</block>
+  <block id="2ad74d9f76ccccd37e4f9c6cb27f1cbd" category="paragraph">Führen Sie als Workaround beim Upgrade vorhandener Installationen von Kubernetes 1.25 oder höher die folgenden Schritte aus:</block>
 </blocks>

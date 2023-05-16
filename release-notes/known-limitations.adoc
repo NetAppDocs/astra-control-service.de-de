@@ -126,11 +126,11 @@ Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name
 
 
 
-=== Snapshots können bei Clustern mit Amazon EKS 1.25 oder höher fehlschlagen
+=== Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise
 
-Snapshots in Amazon EKS-Clustern ab Version 1.25 können fehlschlagen, da der falsche Snapshot-Controller verwendet wird.
+Snapshots für Kubernetes-Cluster, die Version 1.25 oder höher ausführen, können fehlschlagen, wenn Version v1beta1 der Snapshot-Controller-APIs auf dem Cluster installiert sind.
 
-Führen Sie als Problemumgehung beim Upgrade vorhandener EKS 1.25- oder höher-Installationen folgende Schritte aus:
+Führen Sie als Workaround beim Upgrade vorhandener Installationen von Kubernetes 1.25 oder höher die folgenden Schritte aus:
 
 . Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.
 . https://["Deinstallieren Sie Astra Trident"^].
