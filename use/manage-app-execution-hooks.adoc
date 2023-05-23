@@ -38,7 +38,7 @@ Jeder Filter, den Sie einem Execution Hook hinzufügen, verwendet einen regulär
 
 NOTE: Reguläre Ausdrücke für Filter verwenden die Syntax des regulären Ausdrucks 2 (RE2), die das Erstellen eines Filters nicht unterstützt, der Container aus der Liste der Übereinstimmungen ausschließt.
 
-Informationen zur Syntax, die Astra Control für regelmäßige Ausdrücke in Hook-Filter unterstützt, finden Sie unter https://["Syntaxunterstützung für regulären Ausdruck 2 (RE2)"^].
+Informationen zur Syntax, die Astra Control für regelmäßige Ausdrücke in Hook-Filter unterstützt, finden Sie unter https://github.com/google/re2/wiki/Syntax["Syntaxunterstützung für regulären Ausdruck 2 (RE2)"^].
 
 
 
@@ -147,7 +147,7 @@ Wenn Sie starten, aber dann brechen Sie ein Backup, das einen Snapshot enthält 
 
 == Beispiele für Testausführungshaken
 
-Besuchen Sie das https://["NetApp Verda GitHub Projekt"] Zum Herunterladen von Real-Execution-Hooks für beliebte Apps wie Apache Cassandra und Elasticsearch. Sie können auch Beispiele sehen und Ideen für die Strukturierung Ihrer eigenen benutzerdefinierten Execution Hooks erhalten.
+Besuchen Sie das https://github.com/NetApp/Verda["NetApp Verda GitHub Projekt"] Zum Herunterladen von Real-Execution-Hooks für beliebte Apps wie Apache Cassandra und Elasticsearch. Sie können auch Beispiele sehen und Ideen für die Strukturierung Ihrer eigenen benutzerdefinierten Execution Hooks erhalten.
 
 
 
@@ -254,7 +254,7 @@ NOTE: Wenn Sie ein benutzerdefiniertes Shell-Skript erstellen, das als Execution
 +
 .. Wählen Sie *Filter hinzufügen*.
 .. Wählen Sie in der Spalte *Hook Filtertyp* ein Attribut aus, nach dem Sie im Dropdown-Menü filtern möchten.
-.. Geben Sie in der Spalte *Regex* einen regulären Ausdruck ein, der als Filter verwendet werden soll. Astra Control verwendet den https://["Regex-Syntax für regulären Ausdruck 2 (RE2)"^].
+.. Geben Sie in der Spalte *Regex* einen regulären Ausdruck ein, der als Filter verwendet werden soll. Astra Control verwendet den https://github.com/google/re2/wiki/Syntax["Regex-Syntax für regulären Ausdruck 2 (RE2)"^].
 +
 
 NOTE: Wenn Sie den genauen Namen eines Attributs (z. B. einen Pod-Namen) ohne anderen Text im Feld „regulärer Ausdruck“ filtern, wird ein Teilstring-Match durchgeführt. Verwenden Sie zum Abgleich eines genauen Namens und nur des Namens die exakte Syntax für die Übereinstimmung der Zeichenfolge (z. B. `^exact_podname$`).
@@ -386,5 +386,5 @@ Sie können einen Execution Hook ganz entfernen, wenn Sie ihn nicht mehr benöti
 
 == Finden Sie weitere Informationen
 
-* https://["NetApp Verda GitHub Projekt"]
+* https://github.com/NetApp/Verda["NetApp Verda GitHub Projekt"]
 

@@ -14,10 +14,10 @@ summary: Astra Control Service ist über eine SaaS-basierte Benutzeroberfläche 
 
 
 [role="lead"]
-Der Zugriff auf Astra Control Service erfolgt über eine SaaS-basierte Benutzeroberfläche über die von Ihnen zu bedienende Benutzeroberfläche https://[].
+Der Zugriff auf Astra Control Service erfolgt über eine SaaS-basierte Benutzeroberfläche über die von Ihnen zu bedienende Benutzeroberfläche https://astra.netapp.io[].
 
 
-TIP: Sie können sich mit Single Sign-On über Anmeldedaten aus Ihrem Unternehmensverzeichnis (föderierte Identität) anmelden. Weitere Informationen erhalten Sie im https://["Cloud Central Help Center"^] Und wählen Sie dann *Cloud Central Anmelde-Optionen*.
+TIP: Sie können sich mit Single Sign-On über Anmeldedaten aus Ihrem Unternehmensverzeichnis (föderierte Identität) anmelden. Weitere Informationen erhalten Sie im https://cloud.netapp.com/help-center["Cloud Central Help Center"^] Und wählen Sie dann *Cloud Central Anmelde-Optionen*.
 
 .Bevor Sie beginnen
 * link:../get-started/register.html["Eine Cloud Central Benutzer-ID"].
@@ -29,6 +29,6 @@ Astra Control Service unterstützt aktuelle Versionen von Firefox, Safari und Ch
 
 
 .Schritte
-. Öffnen Sie einen Webbrowser, und gehen Sie zu https://[].
+. Öffnen Sie einen Webbrowser, und gehen Sie zu https://astra.netapp.io[].
 . Melden Sie sich mit Ihren NetApp Cloud Central Anmeldedaten an.
 

@@ -24,7 +24,7 @@ Die folgenden Einschränkungen wirken sich auf das Management von Kubernetes-Clu
 
 === Astra Trident ist nicht von einem Cluster deinstalliert
 
-Wenn Sie einen Cluster vom Astra Control Service aus verwalten, wird Astra Trident nicht automatisch aus dem Cluster deinstalliert. Um Astra Trident zu deinstallieren, müssen Sie es benötigen https://["Folgen Sie den Schritten in der Dokumentation von Astra Trident"^].
+Wenn Sie einen Cluster vom Astra Control Service aus verwalten, wird Astra Trident nicht automatisch aus dem Cluster deinstalliert. Um Astra Trident zu deinstallieren, müssen Sie es benötigen https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Folgen Sie den Schritten in der Dokumentation von Astra Trident"^].
 
 
 
@@ -92,13 +92,13 @@ Nachdem eine Applikation mit einer Storage-Klasse bereitgestellt wurde (z. B. `h
 
 Astra Control unterstützt Applikationen, die mit Betreibern im Namespace-Umfang installiert sind. Diese Betreiber sind in der Regel mit einer "Pass-by-Value"-Architektur statt "Pass-by-reference"-Architektur ausgelegt. Im Folgenden sind einige Bedieneranwendungen aufgeführt, die folgende Muster befolgen:
 
-* https://["Apache K8ssandra"^]
+* https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
 +
 
 NOTE: Für K8ssandra werden in-Place-Wiederherstellungsvorgänge unterstützt. Für einen Restore-Vorgang in einem neuen Namespace oder Cluster muss die ursprüngliche Instanz der Applikation ausgefallen sein. Dadurch soll sichergestellt werden, dass die überführten Peer-Group-Informationen nicht zu einer instanzübergreifenden Kommunikation führen. Das Klonen der App wird nicht unterstützt.
 
-* https://["Jenkins CI"^]
-* https://["Percona XtraDB Cluster"^]
+* https://github.com/jenkinsci/kubernetes-operator["Jenkins CI"^]
+* https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB Cluster"^]
 
 
 Astra Control kann einen Operator, der mit einer „Pass-by-Reference“-Architektur entworfen wurde, möglicherweise nicht klonen (z. B. den CockroachDB-Operator). Während dieser Art von Klonvorgängen versucht der geklonte Operator, Kubernetes Secrets vom Quelloperator zu beziehen, obwohl er im Zuge des Klonens ein eigenes neues Geheimnis hat. Der Klonvorgang kann fehlschlagen, da Astra Control die Kubernetes-Geheimnisse im Quelloperator nicht kennt.
@@ -126,15 +126,15 @@ Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name
 
 
 
-=== Snapshots können bei Clustern mit Amazon EKS 1.25 oder höher fehlschlagen
+=== Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise
 
-Snapshots in Amazon EKS-Clustern ab Version 1.25 können fehlschlagen, da der falsche Snapshot-Controller verwendet wird.
+Snapshots für Kubernetes-Cluster, die Version 1.25 oder höher ausführen, können fehlschlagen, wenn Version v1beta1 der Snapshot-Controller-APIs auf dem Cluster installiert sind.
 
-Führen Sie als Problemumgehung beim Upgrade vorhandener EKS 1.25- oder höher-Installationen folgende Schritte aus:
+Führen Sie als Workaround beim Upgrade vorhandener Installationen von Kubernetes 1.25 oder höher die folgenden Schritte aus:
 
 . Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.
-. https://["Deinstallieren Sie Astra Trident"^].
-. https://["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
-. https://["Installieren Sie die neueste Version von Astra Trident"^].
-. https://["Erstellen Sie eine VolumeSnapshotClass"^].
+. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Deinstallieren Sie Astra Trident"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
+. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Installieren Sie die neueste Version von Astra Trident"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["Erstellen Sie eine VolumeSnapshotClass"^].
 

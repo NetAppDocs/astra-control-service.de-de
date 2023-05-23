@@ -12,7 +12,7 @@ summary: Astra Control kann Ihre Applikationskonfiguration und Ihren persistente
 
 
 [role="lead"]
-Astra Control kann Ihre Applikation aus einem Snapshot oder einem Backup wiederherstellen. Das Wiederherstellen aus einem vorhandenen Snapshot erfolgt schneller, wenn die Anwendung auf dasselbe Cluster wiederhergestellt wird. Sie können die Astra Control UI oder verwenden https://["Die Astra Control API"^] Zur Wiederherstellung von Applikationen.
+Astra Control kann Ihre Applikation aus einem Snapshot oder einem Backup wiederherstellen. Das Wiederherstellen aus einem vorhandenen Snapshot erfolgt schneller, wenn die Anwendung auf dasselbe Cluster wiederhergestellt wird. Sie können die Astra Control UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Zur Wiederherstellung von Applikationen.
 
 
 NOTE: Wenn Sie einem Ausführungs-Hook einen Namespace-Filter hinzufügen, der nach einer Wiederherstellung oder einem Klonvorgang ausgeführt wird, und die Wiederherstellungs- oder Klonquelle und das Ziel in verschiedenen Namespaces liegen, wird der Namespace-Filter nur auf den Ziel-Namespace angewendet.
@@ -123,7 +123,7 @@ NOTE: Sie müssen mindestens einen Namespace, eine Bezeichnung oder GVK angeben.
 NOTE: Wenn Ihre Anwendung ursprünglich mehrere Namespaces enthielt und Sie sie in neuen Namespaces wiederherstellen, werden alle Namespaces erstellt, auch wenn sie keine Ressourcen enthalten.
 
 .. (Optional) Geben Sie einen Ressourcennamen ein.
-.. (Optional) *Etikettenauswahl*: A einschließen https://["Etikettenauswahl"^] Um der Regel hinzuzufügen. Mit der Etikettenauswahl werden nur die Ressourcen gefiltert, die der ausgewählten Bezeichnung entsprechen.
+.. (Optional) *Etikettenauswahl*: A einschließen https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors["Etikettenauswahl"^] Um der Regel hinzuzufügen. Mit der Etikettenauswahl werden nur die Ressourcen gefiltert, die der ausgewählten Bezeichnung entsprechen.
 .. (Optional) Wählen Sie *Use GVK (GroupVersionRind) Set, um Ressourcen zu filtern*, um weitere Filteroptionen zu erhalten.
 +
 

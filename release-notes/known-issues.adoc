@@ -73,7 +73,7 @@ Backups und Snapshots schlagen in diesem Szenario mit einem UI 500-Fehler fehl. 
 
 == Snapshots beginnen schließlich beim Einsatz von External-Snapshotter Version 4.2.0 fehlschlagen
 
-Wenn Sie Kubernetes Snapshot-Controller (auch bekannt als externer Snapshot) Version 4.2.0 mit Kubernetes 1.20 oder 1.21 verwenden, können Snapshots irgendwann fehlschlagen. Um dies zu verhindern, verwenden Sie ein anderes https://["Unterstützte Version"^] Von externen Snapshots, wie Version 4.2.1, mit Kubernetes Versionen 1.20 oder 1.21.
+Wenn Sie Kubernetes Snapshot-Controller (auch bekannt als externer Snapshot) Version 4.2.0 mit Kubernetes 1.20 oder 1.21 verwenden, können Snapshots irgendwann fehlschlagen. Um dies zu verhindern, verwenden Sie ein anderes https://kubernetes-csi.github.io/docs/snapshot-controller.html["Unterstützte Version"^] Von externen Snapshots, wie Version 4.2.1, mit Kubernetes Versionen 1.20 oder 1.21.
 
 
 

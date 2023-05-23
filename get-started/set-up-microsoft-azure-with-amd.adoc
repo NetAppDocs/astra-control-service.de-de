@@ -64,7 +64,7 @@ Ein Kubernetes-Cluster muss folgende Anforderungen erfüllen, damit Sie ihn übe
 Kubernetes-Version:: Auf Clustern muss Kubernetes Version 1.24 bis 1.26 ausgeführt werden.
 Bildtyp:: Der Image-Typ für alle Node-Pools muss Linux sein.
 Der Cluster-Status:: Cluster müssen in einem ordnungsgemäßen Zustand ausgeführt werden und mindestens einen Online-Worker-Node ohne „Worker“-Nodes im ausgefallenen Status aufweisen.
-Azure Region:: Als Best Practice sollte eine Region gewählt werden, die Azure NetApp Files unterstützt, auch wenn Sie sie nicht als Storage-Backend verwenden. Dadurch ist es einfacher, Azure NetApp Files zukünftig als Storage-Backend zu verwenden, wenn sich Ihre Performance-Anforderungen ändern. https://["Hier finden Sie Azure Produkte nach Region"^].
+Azure Region:: Als Best Practice sollte eine Region gewählt werden, die Azure NetApp Files unterstützt, auch wenn Sie sie nicht als Storage-Backend verwenden. Dadurch ist es einfacher, Azure NetApp Files zukünftig als Storage-Backend zu verwenden, wenn sich Ihre Performance-Anforderungen ändern. https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp["Hier finden Sie Azure Produkte nach Region"^].
 
 
 CSI-Treiber:: Auf Clustern müssen die entsprechenden CSI-Treiber installiert sein.
@@ -77,7 +77,7 @@ CSI-Treiber:: Auf Clustern müssen die entsprechenden CSI-Treiber installiert se
 Wenn Sie kein Microsoft Azure Konto haben, melden Sie sich zunächst bei Microsoft Azure an.
 
 .Schritte
-. Wechseln Sie zum https://["Azure-Abonnementseite"^] Um den Azure Service zu abonnieren.
+. Wechseln Sie zum https://azure.microsoft.com/en-us/free/["Azure-Abonnementseite"^] Um den Azure Service zu abonnieren.
 . Wählen Sie einen Plan aus, und befolgen Sie die Anweisungen, um das Abonnement abzuschließen.
 
 
@@ -89,7 +89,7 @@ Astra Control Service erfordert einen Azure-Service-Principal, dem die Rolle „
 
 Ein Service-Principal ist eine Identität, die speziell für die Verwendung mit Anwendungen, Services und Tools erstellt wurde. Durch die Zuweisung einer Rolle zum Service-Principal wird der Zugriff auf bestimmte Azure-Ressourcen beschränkt.
 
-Führen Sie die folgenden Schritte aus, um einen Service-Principal mithilfe der Azure CLI zu erstellen. Sie müssen die Ausgabe in einer JSON-Datei speichern und später den Astra Control Service bereitstellen. https://["Weitere Details zur Verwendung der CLI finden Sie in der Azure Dokumentation"^].
+Führen Sie die folgenden Schritte aus, um einen Service-Principal mithilfe der Azure CLI zu erstellen. Sie müssen die Ausgabe in einer JSON-Datei speichern und später den Astra Control Service bereitstellen. https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli["Weitere Details zur Verwendung der CLI finden Sie in der Azure Dokumentation"^].
 
 Bei den folgenden Schritten wird davon ausgegangen, dass Sie die Berechtigung zum Erstellen eines Service-Principal haben und dass das Microsoft Azure SDK (az-Befehl) auf Ihrem Computer installiert ist.
 
@@ -214,7 +214,7 @@ Sie sollten eine Ausgabe wie die folgende sehen:
 Sie können die Azure CSI Treiber installieren, um Ihre Vorbereitung abzuschließen.
 
 .Schritt
-. Gehen Sie zu https://["Die Microsoft CSI-Treiberdokumentation"^].
+. Gehen Sie zu https://docs.microsoft.com/en-us/azure/aks/csi-storage-drivers["Die Microsoft CSI-Treiberdokumentation"^].
 . Befolgen Sie die Anweisungen zur Installation der erforderlichen CSI-Treiber.
 
 
@@ -225,8 +225,8 @@ Sie können die Azure CSI Treiber installieren, um Ihre Vorbereitung abzuschlie�
 Es besteht die Möglichkeit, eine robuenere Redundanzstufe für Azure Backup Buckets zu konfigurieren. Standardmäßig verwendet der Buckets Astra Control Service für das Speichern von Azure Kubernetes Service-Backups die LRS-Redundanzoption (lokal Redundant Storage). Um eine langlebige Redundanzoption für Azure Buckets zu verwenden, müssen Sie Folgendes tun:
 
 .Schritte
-. Erstellen Sie ein Azure-Storage-Konto, das die erforderliche Redundanzstufe verwendet https://["Diese Anweisungen"^].
-. Erstellen Sie einen Azure-Container auf dem neuen Storage-Konto mit https://["Diese Anweisungen"^].
+. Erstellen Sie ein Azure-Storage-Konto, das die erforderliche Redundanzstufe verwendet https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal["Diese Anweisungen"^].
+. Erstellen Sie einen Azure-Container auf dem neuen Storage-Konto mit https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal["Diese Anweisungen"^].
 . Fügen Sie den Container als Eimer zum Astra Control Service hinzu. Siehe link:../use/manage-buckets.html#add-an-additional-bucket["Fügen Sie einen zusätzlichen Bucket hinzu"].
 . (Optional) um den neu erstellten Bucket als Standard-Bucket für Azure Backups zu verwenden, setzen Sie ihn als Standard-Bucket für Azure fest. Siehe link:../use/manage-buckets.html#change-the-default-bucket["Ändern des Standard-Bucket"].
 

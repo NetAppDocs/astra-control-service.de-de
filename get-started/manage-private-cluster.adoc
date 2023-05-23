@@ -14,8 +14,8 @@ summary: Nach der Einrichtung der Umgebung erstellen Sie sofort einen Kubernetes
 [role="lead"]
 Mit Astra Control Service können Sie private Azure Kubernetes Service (AKS)-Cluster sowie private Red hat OpenShift-Cluster in AKS managen. In diesen Anweisungen wird davon ausgegangen, dass Sie bereits einen privaten AKS- oder OpenShift-Cluster erstellt und eine sichere Methode für den Remote-Zugriff darauf vorbereitet haben. Weitere Informationen zum Erstellen und Zugreifen auf private AKS- oder OpenShift-Cluster finden Sie in der folgenden Dokumentation:
 
-* https://["Azure-Dokumentation für private AKS-Cluster"^]
-* https://["Azure-Dokumentation für private OpenShift-Cluster"^]
+* https://docs.microsoft.com/azure/aks/private-clusters["Azure-Dokumentation für private AKS-Cluster"^]
+* https://learn.microsoft.com/en-us/azure/openshift/howto-create-private-cluster-4x["Azure-Dokumentation für private OpenShift-Cluster"^]
 
 
 
@@ -50,7 +50,7 @@ kubectl apply -f astraconnector_operator.yaml -n astra-connector-operator
 ----
 kubectl create ns astra-connector
 ----
-. Generieren Sie mithilfe der Anweisungen im ein Astra Control API-Token https://["Dokumentation von Astra Automation"^].
+. Generieren Sie mithilfe der Anweisungen im ein Astra Control API-Token https://docs.netapp.com/us-en/astra-automation/get-started/get_api_token.html["Dokumentation von Astra Automation"^].
 . Ändern Sie die Beispielkonfigurationsdatei im Verzeichnis config/Samples des Astra Connector Operator Repository, um den einzuschließen `spec.natssync-client.cloud-bridge-url` Taste. Beispiel:
 +
 [listing]
@@ -106,12 +106,12 @@ astra-connector   true         22b839aa-8b85-445a-85dd-0b1f53b5ea19
 
 Konfigurieren Sie persistenten Storage für das Cluster. Sie können gemanagte Azure NetApp Files oder Azure Festplatten verwenden. Weitere Informationen zur Konfiguration von Azure mit diesen Optionen finden Sie in der Dokumentation zu Einstieg:
 
-* https://["Microsoft Azure mit Azure NetApp Files einrichten"]
-* https://["Richten Sie Microsoft Azure mit von Azure gemanagten Festplatten ein"]
+* https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html["Microsoft Azure mit Azure NetApp Files einrichten"]
+* https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-amd.html["Richten Sie Microsoft Azure mit von Azure gemanagten Festplatten ein"]
 
 
 
 
 == Fügen Sie den privaten Cluster zum Astra Control Service hinzu
 
-Sie können den privaten Cluster jetzt dem Astra Control Service hinzufügen. Folgen Sie dem Standard-Workflow, um dem Astra Control Service ein Cluster hinzuzufügen: https://["Managen Sie Kubernetes Cluster über den Astra Control Service"].
+Sie können den privaten Cluster jetzt dem Astra Control Service hinzufügen. Folgen Sie dem Standard-Workflow, um dem Astra Control Service ein Cluster hinzuzufügen: https://docs.netapp.com/us-en/astra-control-service/get-started/add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"].

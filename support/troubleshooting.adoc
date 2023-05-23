@@ -14,11 +14,11 @@ summary: Tipps zur Fehlerbehebung für häufige Probleme
 [role="lead"]
 Lernen Sie, wie Sie mit einigen häufigen Problemen umgehen können.
 
-https://[]
+https://kb.netapp.com/Cloud/Astra/Control[]
 
 
 
 == Finden Sie weitere Informationen
 
-* https://["Fehlerbehebung"^]
+* https://kb.netapp.com/Cloud/Astra/Control["Fehlerbehebung"^]
 

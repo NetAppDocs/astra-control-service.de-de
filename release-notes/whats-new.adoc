@@ -141,7 +141,7 @@ Unter anderem unterstützt Astra Control jetzt auch die Verwendung desselben Skr
 
 +
 
-NOTE: Die von NetApp bereitgestellten Standard-Hooks für vor- und nach-Snapshot-Ausführung für bestimmte Applikationen wurden in dieser Version entfernt. Wenn Sie keine eigenen Testsuiten für Snapshots bereitstellen, erstellt der Astra Control Service absturzkonsistente Snapshots erst ab dem 4. August 2022. Besuchen Sie das https://["NetApp Verda GitHub Repository"^] Für Beispiel-Hook-Skripte, die Sie an Ihre Umgebung anpassen können.
+NOTE: Die von NetApp bereitgestellten Standard-Hooks für vor- und nach-Snapshot-Ausführung für bestimmte Applikationen wurden in dieser Version entfernt. Wenn Sie keine eigenen Testsuiten für Snapshots bereitstellen, erstellt der Astra Control Service absturzkonsistente Snapshots erst ab dem 4. August 2022. Besuchen Sie das https://github.com/NetApp/Verda["NetApp Verda GitHub Repository"^] Für Beispiel-Hook-Skripte, die Sie an Ihre Umgebung anpassen können.
 
 +
 link:../use/manage-app-execution-hooks.html["Anwendungsausführungshaken verwalten"]
@@ -240,7 +240,7 @@ Diese Version umfasst die folgenden neuen Funktionen und Verbesserungen.
 
 * Astra Control Center Astra Control ist jetzt in einem neuen Implementierungsmodell verfügbar. _Astra Control Center_ ist eine eigenständige Software, die Sie in Ihrem Datacenter installieren und betreiben können. Damit können Sie das Lifecycle Management von Kubernetes-Applikationen für lokale Kubernetes-Cluster managen.
 +
-Weitere Informationen https://["Gehen Sie zur Astra Control Center-Dokumentation"^].
+Weitere Informationen https://docs.netapp.com/us-en/astra-control-center["Gehen Sie zur Astra Control Center-Dokumentation"^].
 
 * Mit eigenem Bucket managen Sie jetzt die Buckets, die Astra für Backups und Klone verwendet, indem Sie zusätzliche Buckets hinzufügen. Außerdem können Sie durch Ändern des Standard-Buckets für die Kubernetes-Cluster bei Ihrem Cloud-Provider das Management übernehmen.
 +
@@ -287,7 +287,7 @@ endif::azure[]
 
 * REST API die Astra Control REST API ist jetzt zur Verwendung verfügbar. Die API basiert auf modernen Technologien und aktuellen Best Practices.
 +
-https://["Erfahren Sie, wie Sie das Lifecycle Management von Applikationsdaten mit der REST-API automatisieren"^].
+https://docs.netapp.com/us-en/astra-automation["Erfahren Sie, wie Sie das Lifecycle Management von Applikationsdaten mit der REST-API automatisieren"^].
 
 * Jahresabonnement Astra Control Service bietet jetzt ein _Premium-Abonnement_.
 +
@@ -328,9 +328,9 @@ link:../use/monitor-account-activity.html["Erfahren Sie mehr über die Anzeige I
 
 ifdef::gcp[]
 
-Der Astra Control Service unterstützt jetzt das https://["_CVS_ Diensttyp"^] Mit Cloud Volumes Service für Google Cloud. Dies unterstützt zusätzlich bereits den Servicetyp _CVS-Performance_. Zur Erinnerung: Astra Control Service nutzt Cloud Volumes Service für Google Cloud als Storage-Backend für Ihre persistenten Volumes.
+Der Astra Control Service unterstützt jetzt das https://cloud.google.com/solutions/partners/netapp-cloud-volumes/service-types["_CVS_ Diensttyp"^] Mit Cloud Volumes Service für Google Cloud. Dies unterstützt zusätzlich bereits den Servicetyp _CVS-Performance_. Zur Erinnerung: Astra Control Service nutzt Cloud Volumes Service für Google Cloud als Storage-Backend für Ihre persistenten Volumes.
 
-Dank dieser Verbesserung kann der Astra Control Service jetzt Applikationsdaten für Kubernetes-Cluster managen, die in _any_ ausgeführt werden https://["Google Cloud-Region, in der Cloud Volumes Service unterstützt wird"^].
+Dank dieser Verbesserung kann der Astra Control Service jetzt Applikationsdaten für Kubernetes-Cluster managen, die in _any_ ausgeführt werden https://cloud.netapp.com/cloud-volumes-global-regions#cvsGcp["Google Cloud-Region, in der Cloud Volumes Service unterstützt wird"^].
 
 Wenn Sie die Flexibilität haben, zwischen Google Cloud Regionen auszuwählen, wählen Sie je nach Performance-Anforderungen entweder CVS oder CVS-Performance. link:../learn/choose-class-and-size.html["Erfahren Sie mehr über die Auswahl eines Servicetyps"].
 

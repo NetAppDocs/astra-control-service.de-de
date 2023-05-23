@@ -31,4 +31,4 @@ Sie können Details zu aktuellen oder früheren Aufgaben anzeigen und nach Aufga
 
 
 
-NOTE: Aufgaben werden bis zu 24 Stunden in der Liste *Aufgaben* aufbewahrt. Sie können diese Begrenzung und andere Einstellungen für die Aufgabenüberwachung mit dem konfigurieren https://["Astra Control API"^].
+NOTE: Aufgaben werden bis zu 24 Stunden in der Liste *Aufgaben* aufbewahrt. Sie können diese Begrenzung und andere Einstellungen für die Aufgabenüberwachung mit dem konfigurieren https://docs.netapp.com/us-en/astra-automation/["Astra Control API"^].

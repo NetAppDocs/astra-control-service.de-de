@@ -2129,7 +2129,7 @@
   <block id="478393a7bc00211c00b84b91bd7270e1" category="list-text"><block ref="ae36d1cdd520df7c3eaefc0ce2deb814" category="inline-link-rx"></block>.</block>
   <block id="de6aa62d63707ee7d0d8147e0441da62" category="paragraph"><block ref="de6aa62d63707ee7d0d8147e0441da62" category="inline-link-rx"></block></block>
   <block id="bbc78db47a3fe23dc96746668da3d287" category="list-text"><block ref="bbc78db47a3fe23dc96746668da3d287" category="inline-link-rx"></block></block>
-  <block id="8f80a6bba41c8f2f5d1a9b2f5ff1d87b" category="section-title">Snapshots können bei Clustern mit Amazon EKS 1.25 oder höher fehlschlagen</block>
-  <block id="b3794e2a706f8946cd7b6e8c2435538f" category="paragraph">Snapshots in Amazon EKS-Clustern ab Version 1.25 können fehlschlagen, da der falsche Snapshot-Controller verwendet wird.</block>
-  <block id="bfe0bca35535f01b62abdc5459c6610c" category="paragraph">Führen Sie als Problemumgehung beim Upgrade vorhandener EKS 1.25- oder höher-Installationen folgende Schritte aus:</block>
+  <block id="5a5355eda2f1cf003d25254ee2c311a3" category="section-title">Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise</block>
+  <block id="f9f1ea7c0040d9bdb077f9ce68de31e3" category="paragraph">Snapshots für Kubernetes-Cluster, die Version 1.25 oder höher ausführen, können fehlschlagen, wenn Version v1beta1 der Snapshot-Controller-APIs auf dem Cluster installiert sind.</block>
+  <block id="2ad74d9f76ccccd37e4f9c6cb27f1cbd" category="paragraph">Führen Sie als Workaround beim Upgrade vorhandener Installationen von Kubernetes 1.25 oder höher die folgenden Schritte aus:</block>
 </blocks>
