@@ -12,11 +12,19 @@ summary: Nach der Einrichtung der Umgebung erstellen Sie sofort einen Kubernetes
 
 
 [role="lead"]
+Mit Astra Control Service können Sie private Azure Kubernetes Service (AKS)- und Red hat OpenShift-Cluster in AKS managen. In diesen Anweisungen wird davon ausgegangen, dass Sie bereits einen privaten AKS- oder OpenShift-Cluster erstellt und eine sichere Methode für den Remote-Zugriff darauf vorbereitet haben. Weitere Informationen zum Erstellen und Zugreifen auf private AKS- oder OpenShift-Cluster finden Sie in der folgenden Dokumentation:
+
+* https://docs.microsoft.com/azure/aks/private-clusters["Azure-Dokumentation für private AKS-Cluster"^]
+* https://learn.microsoft.com/en-us/azure/openshift/howto-create-private-cluster-4x["Azure-Dokumentation für private OpenShift-Cluster"^]
+
+
 Mit Astra Control Service können Sie private Azure Kubernetes Service (AKS)-Cluster sowie private Red hat OpenShift-Cluster in AKS managen. In diesen Anweisungen wird davon ausgegangen, dass Sie bereits einen privaten AKS- oder OpenShift-Cluster erstellt und eine sichere Methode für den Remote-Zugriff darauf vorbereitet haben. Weitere Informationen zum Erstellen und Zugreifen auf private AKS- oder OpenShift-Cluster finden Sie in der folgenden Dokumentation:
 
 * https://docs.microsoft.com/azure/aks/private-clusters["Azure-Dokumentation für private AKS-Cluster"^]
 * https://learn.microsoft.com/en-us/azure/openshift/howto-create-private-cluster-4x["Azure-Dokumentation für private OpenShift-Cluster"^]
 
+
+Mit Astra Control Service können Sie private EKS-Cluster (Amazon Elastic Kubernetes Service) managen. In diesen Anweisungen wird davon ausgegangen, dass Sie bereits einen privaten EKS-Cluster erstellt und eine sichere Methode für den Remote-Zugriff darauf vorbereitet haben. Weitere Informationen zum Erstellen und Zugreifen auf private EKS-Cluster finden Sie im https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html["Amazon EKS-Dokumentation"^].
 
 
 
@@ -51,7 +59,15 @@ kubectl apply -f astraconnector_operator.yaml -n astra-connector-operator
 kubectl create ns astra-connector
 ----
 . Generieren Sie mithilfe der Anweisungen im ein Astra Control API-Token https://docs.netapp.com/us-en/astra-automation/get-started/get_api_token.html["Dokumentation von Astra Automation"^].
-. Ändern Sie die Beispielkonfigurationsdatei im Verzeichnis config/Samples des Astra Connector Operator Repository, um den einzuschließen `spec.natssync-client.cloud-bridge-url` Taste. Beispiel:
+. Ändern Sie die Beispielkonfigurationsdatei im Verzeichnis config/Samples des Astra Connector Operator Repository, um Werte für die folgenden Schlüssel in Ihre Umgebung aufzunehmen:
++
+** `spec.natssync-client.cloud-bridge-url`
+** `spec.astra.token`
+** `spec.astra.clusterName`
+** `spec.astra.accountId`
++
+Beispiel:
+
 +
 [listing]
 ----
@@ -77,6 +93,8 @@ spec:
     accountId: <Astra Control account id>
     acceptEULA: yes
 ----
+
+
 . Wenden Sie die Astra Connector Custom Resource Definition (CRD) an.
 +
 [source, console]
@@ -90,7 +108,7 @@ kubectl apply -f config/samples/astraconnector_v1.yaml -n astra-connector
 kubectl get astraconnector astra-connector -n astra-connector
 ----
 +
-Sie sollten sich auf die Ausgabe beziehen, die der folgenden ähnelt:
+Sie sollten eine Ausgabe wie die folgende sehen:
 
 +
 [source, console]
@@ -104,11 +122,7 @@ astra-connector   true         22b839aa-8b85-445a-85dd-0b1f53b5ea19
 
 == Einrichtung von persistentem Storage
 
-Konfigurieren Sie persistenten Storage für das Cluster. Sie können gemanagte Azure NetApp Files oder Azure Festplatten verwenden. Weitere Informationen zur Konfiguration von Azure mit diesen Optionen finden Sie in der Dokumentation zu Einstieg:
-
-* https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html["Microsoft Azure mit Azure NetApp Files einrichten"]
-* https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-amd.html["Richten Sie Microsoft Azure mit von Azure gemanagten Festplatten ein"]
-
+Konfigurieren Sie persistenten Storage für das Cluster. In der Dokumentation „erste Schritte“ finden Sie weitere Informationen zum Konfigurieren von persistentem Storage:
 
 
 

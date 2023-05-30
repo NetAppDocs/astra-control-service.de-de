@@ -119,6 +119,7 @@ Private Cluster:: Wenn das Cluster privat ist, gilt das https://cloud.google.com
 
 --
 Betriebsmodus für ein GKE-Cluster:: Sie sollten den Standardbetriebsmodus verwenden. Der Autopilot-Modus wurde derzeit nicht getestet. link:https://cloud.google.com/kubernetes-engine/docs/concepts/types-of-clusters#modes["Erfahren Sie mehr über Betriebsmodi"^].
+Storage-Pools:: Wenn Sie NetApp Cloud Volumes Service als Storage-Backend mit dem CVS Servicetyp verwenden, müssen Sie Speicherpools konfigurieren, bevor Sie Volumes bereitstellen können. Siehe link:../learn/choose-class-and-size.html#overview["Servicetyp, Speicherklassen und PV-Größe für GKE-Cluster"^] Finden Sie weitere Informationen.
 
 
 

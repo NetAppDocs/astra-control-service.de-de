@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/clone-apps.html 
-keywords: clone app, clone storage, clone persistent storage, clone data, move workload, clone data, migrate data, data migration, move storage, move application, move data 
+keywords: clone app, clone storage, clone persistent storage, clone data, move workload, clone data, migrate data, data migration, move storage, move application, move data, migrate storage class 
 summary: Eine vorhandene Applikation klonen, um eine doppelte Applikation auf demselben Kubernetes-Cluster oder einem anderen Cluster zu erstellen. Das Klonen kann sich leisten, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen. Beispielsweise möchten Sie Workloads über eine CI-CD-Pipeline und über Kubernetes-Namespaces verschieben. 
 ---
 = Klonen und Migrieren von Applikationen

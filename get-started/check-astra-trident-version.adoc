@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: get-started/check-astra-trident-version.html 
+keywords: astra trident, check, version 
+summary: Bei selbst gemanagten Clustern müssen Sie möglicherweise sicherstellen, dass Sie die korrekte Version von Astra Trident verwenden. 
+---
+= Prüfen Sie die Astra Trident Version
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Wenn Sie einen selbst gemanagten Cluster hinzufügen möchten, der Astra Trident für Storage-Services verwendet, müssen Sie sicherstellen, dass die installierte Version von Astra Trident auf dem neuesten Stand ist.
+
+.Schritte
+. Testen Sie die Version von Astra Trident.
++
+[source, console]
+----
+kubectl get tridentversions -n trident
+----
++
+Wenn Astra Trident installiert ist, wird die Ausgabe wie folgt ausgegeben:
+
++
+[listing]
+----
+NAME      VERSION
+trident   22.10.0
+----
++
+Wenn Astra Trident nicht installiert ist, wird die Ausgabe wie folgt angezeigt:
+
++
+[listing]
+----
+error: the server doesn't have a resource type "tridentversions"
+----
++
+
+NOTE: Wenn Astra Trident nicht oder nicht aktuell installiert ist und der Cluster Astra Trident für Storage-Services verwenden soll, müssen Sie vor dem Fortfahren die neueste Version von Astra Trident installieren. Siehe https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident-Dokumentation"^] Weitere Anweisungen.
+
+. Stellen Sie sicher, dass die Pods ausgeführt werden:
++
+[source, console]
+----
+kubectl get pods -n trident
+----
+. Prüfen Sie, ob die Storage-Klassen die unterstützten Astra Trident Treiber verwenden. Der bereitstellungsname sollte lauten `csi.trident.netapp.io`. Im folgenden Beispiel finden Sie weitere Informationen:
++
+[source, console]
+----
+kubectl get sc
+----
++
+Beispielantwort:
+
++
+[listing]
+----
+NAME                   PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+ontap-gold (default)   csi.trident.netapp.io          Delete          Immediate           true                   5d23h
+----
+

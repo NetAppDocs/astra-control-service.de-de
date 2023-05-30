@@ -71,6 +71,7 @@ Wenn Sie AKS-Cluster mit Astra Control Service verwalten, werden persistente Vol
 
 * https://azure.microsoft.com/en-us/pricing/details/netapp["Weitere Informationen zur Preisgestaltung für Azure NetApp Files"^].
 * https://azure.microsoft.com/en-us/pricing/details/storage/blobs["Sehen Sie sich Preisdetails für Microsoft Azure Blob Storage an"^].
+* https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-astra-acs?tab=PlansAndPrice["Sehen Sie sich die Pläne und Preise für Astra Control Service im Azure Marketplace an"]
 
 
 endif::azure[]
@@ -110,8 +111,9 @@ NOTE: Einen Video-Überblick über den Azure Marketplace-Abonnementprozess finde
 Sie können den Astra Control Service über den AWS Marketplace abonnieren. Ihre Konto- und Rechnungsdaten werden über den Marketplace verwaltet.
 
 .Schritte
-. Wechseln Sie zum https://aws.amazon.com/marketplace/["AWS Marketplace"^].
-. Wählen Sie *Weiter zur Anmeldung*.
+. Wechseln Sie zum https://aws.amazon.com/marketplace/pp/prodview-auupmqjoq43ey?sr=0-1&ref_=beagle&applicationId=AWSMPContessa["AWS Marketplace"^].
+. Wählen Sie *Kaufoptionen anzeigen*.
+. Wenn Sie dazu aufgefordert werden, melden Sie sich bei Ihrem AWS-Konto an, oder erstellen Sie ein neues Konto.
 . Befolgen Sie die Anweisungen, um einen Plan zu abonnieren.
 
 

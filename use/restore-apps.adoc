@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/restore-apps.html 
-keywords: restore app, restoring an app, restore an app, restore, migrate nas-economy 
+keywords: restore app, restoring an app, restore an app, restore, migrate storage class 
 summary: Astra Control kann Ihre Applikationskonfiguration und Ihren persistenten Storage aus einem Snapshot oder Backup wiederherstellen. Persistente Storage-Backups werden von Ihrem Objektspeicher übertragen, sodass die Wiederherstellung aus einem bestehenden Backup möglichst schnell erfolgt. 
 ---
 = Wiederherstellung von Applikationen
@@ -43,7 +43,7 @@ NOTE: Wenn Sie in einem zuvor gelöschten Namespace wiederherstellen, wird im Ra
 
 
 
-** *Wiederherstellen auf neuen Namespaces*: Verwenden Sie dieses Verfahren, um die App auf einem anderen Cluster oder mit verschiedenen Namespaces von der Quelle wiederherzustellen.
+** *Wiederherstellen auf neuen Namespaces*: Verwenden Sie dieses Verfahren, um die App auf einem anderen Cluster oder mit verschiedenen Namespaces von der Quelle wiederherzustellen. Mit diesem Verfahren können Sie auch eine App zu einer anderen Storage-Klasse migrieren.
 +
 ... Geben Sie den Namen für die wiederhergestellte App an.
 ... Wählen Sie das Ziel-Cluster für die Anwendung aus, die Sie wiederherstellen möchten.
@@ -54,6 +54,13 @@ NOTE: Astra Control erstellt als Teil dieser Wiederherstellungsoption neue Ziel-
 
 ... Wählen Sie *Weiter*.
 ... Wählen Sie den Snapshot oder das Backup aus, mit dem die App wiederhergestellt werden soll.
+... Wählen Sie *Weiter*.
+... Folgenden Optionen wählbar:
++
+**** *Wiederherstellung unter Verwendung der ursprünglichen Speicherklassen*: Die Anwendung verwendet die ursprünglich zugeordnete Speicherklasse, es sei denn, sie existiert nicht auf dem Zielcluster. In diesem Fall wird die Standard-Storage-Klasse für das Cluster verwendet.
+**** *Wiederherstellen mit einer anderen Storage-Klasse*: Wählen Sie eine Storage-Klasse aus, die auf dem Ziel-Cluster vorhanden ist. Alle Applikations-Volumes, unabhängig von den ursprünglich zugewiesenen Storage-Klassen, werden im Rahmen der Wiederherstellung in diese andere Storage-Klasse migriert.
+
+
 ... Wählen Sie *Weiter*.
 
 

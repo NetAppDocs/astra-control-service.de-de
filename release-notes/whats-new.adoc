@@ -16,6 +16,21 @@ NetApp aktualisiert regelmäßig den Astra Control Service, um Ihnen neue Funkti
 
 
 
+== 30 Mai 2023
+
+.Neue Funktionen und Support
+* Unterstützung privater Amazon EKS Cluster
++
+link:../get-started/manage-private-cluster.html["Managen Sie private Cluster über den Astra Control Service"]
+
+* Unterstützung für die Auswahl der Ziel-Storage-Klasse während der Wiederherstellung oder Klonvorgänge
++
+link:../use/restore-apps.html["Wiederherstellung von Applikationen"]
+
+
+
+
+
 == 15 Mai 2023
 
 .Neue Funktionen und Support
