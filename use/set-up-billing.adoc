@@ -29,7 +29,7 @@ Mit dem Astra Control Service stehen zwei Kostenarten zur Verfügung: Die Kosten
 Der Astra Control Service umfasst drei Pläne:
 
 Kostenloser Plan:: Verwalten Sie bis zu 10 Namespaces kostenlos.
-Premium-PAYGO:: Sie können eine unbegrenzte Anzahl von Namespaces mit einer bestimmten Rate pro Stunde und Namespace managen.
+Premium-PAYGO:: Managen Sie eine unbegrenzte Anzahl von Namespaces zu einer bestimmten Rate pro Namespace.
 Premium-Abonnement:: Mit einem Jahresabonnement können Sie bis zu 10 Namespaces pro Namespace Pack verwalten. Wenden Sie sich an den NetApp Vertrieb, um so viele Pakete wie nötig zu erwerben. Zum Beispiel: Kaufen Sie 3 Pakete, um 30 Namespaces vom Astra Control Service zu verwalten. Wenn Sie mehr Namespaces verwalten als von Ihrem Jahresabonnement erlaubt, werden Ihnen die Abonnementgebühr für einen zusätzlichen Namespace berechnet.
 +
 --
@@ -50,7 +50,7 @@ ifdef::gcp[]
 
 === Google Cloud Rechnungen
 
-Wenn Sie GKE-Cluster mit Astra Control Service verwalten, werden persistente Volumes durch NetApp Cloud Volumes Service gesichert und die Backups Ihrer Apps werden in einem Google Cloud Storage Bucket gespeichert.
+Persistente Volumes werden durch NetApp Cloud Volumes Service gesichert und Backups von Applikationen werden in einem Google Cloud-Bucket gespeichert.
 
 * https://cloud.google.com/solutions/partners/netapp-cloud-volumes/costs["Weitere Informationen zur Preisgestaltung für Cloud Volumes Service"^].
 +
@@ -67,12 +67,15 @@ ifdef::azure[]
 
 === Microsoft Azure Abrechnung
 
-Wenn Sie AKS-Cluster mit Astra Control Service verwalten, werden persistente Volumes durch Azure NetApp Files gesichert und die Backups Ihrer Apps werden in einem Azure Blob-Container gespeichert.
+Persistente Volumes werden durch Azure NetApp Files gesichert und Backups Ihrer Applikationen werden in einem Azure Blob-Container gespeichert.
 
 * https://azure.microsoft.com/en-us/pricing/details/netapp["Weitere Informationen zur Preisgestaltung für Azure NetApp Files"^].
 * https://azure.microsoft.com/en-us/pricing/details/storage/blobs["Sehen Sie sich Preisdetails für Microsoft Azure Blob Storage an"^].
 * https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-astra-acs?tab=PlansAndPrice["Sehen Sie sich die Pläne und Preise für Astra Control Service im Azure Marketplace an"]
 
+
+
+NOTE: Der Azure-Abrechnungssatz für den Astra Control Service gilt pro Stunde, nach Ablauf der 29 Minuten der Nutzungsstunde beginnt eine neue Abrechnungsstunde.
 
 endif::azure[]
 
@@ -82,7 +85,7 @@ ifdef::aws[]
 
 === Amazon Web Services Abrechnung
 
-Wenn Sie AWS Cluster mit Astra Control Service verwalten, werden persistente Volumes auf EBS oder FSX für NetApp ONTAP gesichert und die Backups Ihrer Applikationen werden in einem AWS Bucket gespeichert.
+Persistente Volumes werden durch EBS oder FSX for NetApp ONTAP gesichert und Backups Ihrer Applikationen werden in einem AWS-Bucket gespeichert.
 
 * https://aws.amazon.com/eks/pricing/["Preisdetails zu Amazon Web Services anzeigen"^].
 
