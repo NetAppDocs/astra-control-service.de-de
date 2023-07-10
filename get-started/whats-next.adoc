@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: get-started/whats-next.html 
 keywords: get started, manage apps, manage account 
-summary: Nachdem Sie sich angemeldet haben und Cluster zu Astra Control hinzugefügt haben, können Sie die Anwendungsdatenmanagement-Funktionen von Astra Control nutzen. 
+summary: Nachdem Sie sich angemeldet und Astra Control Cluster hinzugefügt haben, können Sie jetzt die Funktionen für das Applikations-Datenmanagement von Astra Control nutzen. 
 ---
 = Was kommt als Nächstes?
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Nachdem Sie sich angemeldet haben und Cluster zu Astra Control hinzugef
 
 
 [role="lead"]
-Nachdem Sie sich angemeldet haben und Astra Control um einen Cluster erweitert haben, können Sie die Anwendungsdatenmanagement-Funktionen von Astra Control nutzen.
+Nachdem Sie sich angemeldet und Astra Control ein Cluster hinzugefügt haben, können Sie jetzt die Funktionen für das Applikations-Datenmanagement von Astra Control nutzen.
 
 * link:../use/manage-apps.html["Starten Sie das Anwendungsmanagement"]
 * link:../use/protect-apps.html["Schützen von Applikationen"]

@@ -62,8 +62,8 @@ Wenn Sie das Management eines Clusters aufheben:
 .Schritte
 . Wählen Sie *Cluster*.
 . Aktivieren Sie das Kontrollkästchen für den Cluster, den Sie nicht mehr verwalten möchten.
-. Wählen Sie im Menü Optionen in der Spalte *Aktionen* die Option *Verwaltung aufheben* aus.
-. Bestätigen Sie, dass Sie die Verwaltung des Clusters aufheben möchten und wählen Sie dann *Ja, Cluster verwalten* aus.
+. Wählen Sie aus dem Optionsmenü in der Spalte *Aktionen* die Option *Unmanage*.
+. Bestätigen Sie, dass Sie die Verwaltung des Clusters aufheben möchten, und wählen Sie dann *Yes, unmanage* aus.
 
 
 .Ergebnis
@@ -73,7 +73,7 @@ Der Status des Clusters ändert sich in *Entfernen*. Danach wird der Cluster von
 
 == Cluster werden von Ihrem Cloud-Provider gelöscht
 
-Bevor Sie einen Kubernetes-Cluster mit persistenten Volumes (PV) in NetApp Storage-Klassen löschen, müssen Sie zunächst die Forderungen für das persistente Volume (PVC) löschen, und zwar nach einer der folgenden Methoden. Das Löschen der PVC und PV vor dem Löschen des Clusters stellt sicher, dass Sie keine unerwarteten Rechnungen von Ihrem Cloud-Anbieter erhalten.
+Bevor Sie einen Kubernetes-Cluster mit persistenten Volumes (PV) in NetApp Storage-Klassen löschen, müssen Sie zunächst die Forderungen für das persistente Volume (PVC) löschen, und zwar nach einer der folgenden Methoden. Durch das Löschen der PVC und des PV vor dem Löschen des Clusters wird sichergestellt, dass Sie keine unerwarteten Rechnungen von Ihrem Cloud-Provider erhalten.
 
 * *Methode #1*: Löschen Sie die Anwendungsarbeitslasten aus dem Cluster. Löschen Sie den Trident Namespace _Not_.
 * *Methode #2*: Löschen Sie die VES und die Pods oder die Bereitstellung, an der die VES montiert sind.
@@ -83,4 +83,4 @@ Wenn Sie einen Kubernetes-Cluster über Astra Control managen, verwenden Applika
 
 Mit einer der oben genannten Methoden werden die entsprechenden PVS aus dem Cluster gelöscht. Stellen Sie sicher, dass sich auf NetApp Storage-Klassen im Cluster keine PVS befinden, bevor Sie es löschen.
 
-Wenn Sie nicht die persistenten Volumes löschen, bevor Sie den Cluster gelöscht, dann müssen Sie manuell löschen die Backend-Volumes von Ihrem Cloud-Anbieter.
+Wenn Sie die persistenten Volumes nicht vor dem Löschen des Clusters gelöscht haben, müssen Sie die Backend-Volumes manuell von Ihrem Cloud-Provider löschen.

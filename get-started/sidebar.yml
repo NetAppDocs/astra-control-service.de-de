@@ -24,15 +24,25 @@ entries:
     url: "/get-started/set-up-microsoft-azure-with-amd.html"
 - title: Für ein Konto registrieren
   url: "/get-started/register.html"
-- title: Verwalten von Clustern
+- title: Fügen Sie einen Cluster hinzu
   url: "/get-started/add-first-cluster.html"
   entries:
-  - title: Prüfen Sie die Astra Trident Version
-    url: "/get-started/check-astra-trident-version.html"
-  - title: Erstellen Sie eine kubeconfig-Datei für die Admin-Cluster-Rolle
-    url: "/get-started/create-kubeconfig.html"
-- title: Management privater Cluster
-  url: "/get-started/manage-private-cluster.html"
+  - title: Fügen Sie ein vom Anbieter verwaltetes Cluster hinzu
+    entries:
+    - title: Fügen Sie ein vom öffentlichen Anbieter verwaltetes Cluster hinzu
+      url: "/get-started/add-public-provider-managed-cluster.html"
+    - title: Fügen Sie ein privates Cluster hinzu, das vom Provider gemanagt wird
+      url: "/get-started/add-private-provider-managed-cluster.html"
+  - title: Hinzufügen eines selbstverwalteten Clusters
+    entries:
+    - title: Fügen Sie ein öffentliches selbstverwaltetes Cluster hinzu
+      url: "/get-started/add-public-self-managed-cluster.html"
+    - title: Fügen Sie ein privates, selbstverwaltetes Cluster hinzu
+      url: "/get-started/add-private-self-managed-cluster.html"
+    - title: Prüfen Sie die Astra Trident Version
+      url: "/get-started/check-astra-trident-version.html"
+    - title: Erstellen Sie eine kubeconfig-Datei
+      url: "/get-started/create-kubeconfig.html"
 - title: Was kommt als Nächstes?
   url: "/get-started/whats-next.html"
 - title: Videos

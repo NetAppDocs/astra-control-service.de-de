@@ -26,7 +26,7 @@ Diese Optionen sind rund um die Uhr kostenlos verfügbar:
 
 * https://kb.netapp.com/Cloud/Astra/Control["Wissensdatenbank"^]
 +
-Suchen Sie nach Artikeln, FAQ oder Break Fix Informationen im Zusammenhang mit Astra Control.
+Suchen Sie nach Artikeln, häufig gestellten Fragen oder Informationen zu Problemlösungen in Verbindung mit Astra Control.
 
 * Dokumentation
 +
