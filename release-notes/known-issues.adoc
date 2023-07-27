@@ -17,45 +17,23 @@ Bekannte Probleme identifizieren Probleme, die Sie daran hindern könnten, diese
 Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
 
 .Anwendungen
-* <<Applikationsklone scheitern, nachdem eine Applikation mit einer festgelegten Storage-Klasse implementiert wurde>>
-* <<Die Anwendungsseite wird dauerhaft geladen, wenn versucht wird, eine Applikation, die zu einem gelöschten Cluster gehört, wiederherzustellen>>
 * <<Eine App kann nicht in einem Namespace definiert werden, der gelöscht und neu erstellt wurde>>
 
 
 .Backup, Wiederherstellung und Klonen
-* <<Die Wiederherstellung einer App führt zu einer PV-Größe, die größer ist als das ursprüngliche PV>>
 * <<Applikationsklone können nicht mit einer bestimmten Version von PostgreSQL verwendet werden>>
 * <<App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird>>
 
 
 .Andere Probleme
-* <<Snapshots beginnen schließlich beim Einsatz von External-Snapshotter Version 4.2.0 fehlschlagen>>
 * <<Das Management der App-Daten schlägt mit Fehler des internen Service (500) fehl, wenn Astra Trident offline ist>>
 
-
-
-
-== Applikationsklone scheitern, nachdem eine Applikation mit einer festgelegten Storage-Klasse implementiert wurde
-
-Nachdem eine Applikation mit einer Storage-Klasse bereitgestellt wurde (z. B. `helm install ...-set global.storageClass=netapp-cvs-perf-extreme`). Nachfolgende Klonversuche der Applikation erfordern, dass das Ziel-Cluster die ursprünglich angegebene Storage-Klasse hat. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl. Es gibt keine Wiederherstellungsschritte in diesem Szenario.
-
-
-
-== Die Anwendungsseite wird dauerhaft geladen, wenn versucht wird, eine Applikation, die zu einem gelöschten Cluster gehört, wiederherzustellen
-
-Wenn Sie versuchen, eine Anwendung aus einem gelöschten Cluster von der Seite Anwendungen wiederherzustellen, wird das Laden der Seite Anwendungen nie beendet. Stellen Sie die App als Problemumgehung im Menü Aktionen der App auf der Liste Anwendungen wieder her.
 
 
 
 == Eine App kann nicht in einem Namespace definiert werden, der gelöscht und neu erstellt wurde
 
 Wenn Sie eine Anwendung mit einem Namespace definieren, löschen Sie den Namespace und installieren Sie die App anschließend im selben Namespace neu, schlägt der Vorgang mit einem Fehlercode 409 fehl. Um die App mit dem neu erstellten Namespace zu definieren, löschen Sie zuerst die alte Applikationsinstanz.
-
-
-
-== Die Wiederherstellung einer App führt zu einer PV-Größe, die größer ist als das ursprüngliche PV
-
-Wenn Sie ein persistentes Volume nach der Erstellung eines Backups skalieren und dann aus diesem Backup wiederherstellen, wird die Größe des persistenten Volumes an die neue PV-Größe angepasst, anstatt die Backup-Größe zu verwenden.
 
 
 
@@ -68,12 +46,6 @@ App-Klone innerhalb desselben Clusters schlagen konsequent mit dem Bitnami Postg
 == App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird
 
 Backups und Snapshots schlagen in diesem Szenario mit einem UI 500-Fehler fehl. Aktualisieren Sie die App-Liste als Workaround.
-
-
-
-== Snapshots beginnen schließlich beim Einsatz von External-Snapshotter Version 4.2.0 fehlschlagen
-
-Wenn Sie Kubernetes Snapshot-Controller (auch bekannt als externer Snapshot) Version 4.2.0 mit Kubernetes 1.20 oder 1.21 verwenden, können Snapshots irgendwann fehlschlagen. Um dies zu verhindern, verwenden Sie ein anderes https://kubernetes-csi.github.io/docs/snapshot-controller.html["Unterstützte Version"^] Von externen Snapshots, wie Version 4.2.1, mit Kubernetes Versionen 1.20 oder 1.21.
 
 
 

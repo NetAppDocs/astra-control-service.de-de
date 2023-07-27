@@ -705,31 +705,19 @@
   <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="doc">Bekannte Probleme</block>
   <block id="825cc355a6b503245e0d84d26f0e16d1" category="paragraph">Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:</block>
   <block id="a6f00c82b6eb55a13a1f242313aaf9c9" category="list-title">Anwendungen</block>
-  <block id="b9cce366a2d9d759915518e851cf0665" category="list-text"><block ref="16c16afb381b877e03025eb37da25b48" category="inline-xref-macro-rx"></block></block>
-  <block id="868ecbbbd8b1e28b5199c1b1690c500b" category="list-text"><block ref="9db9aa8838c1418469991d8a206fd28d" category="inline-xref-macro-rx"></block></block>
   <block id="f71e012ed046328c8d64aaabfb2eaac1" category="list-text"><block ref="cbe527e26a3f74a21725a85c9fa46b07" category="inline-xref-macro-rx"></block></block>
   <block id="82e978ba92c76493cce02201d1b04355" category="list-title">Backup, Wiederherstellung und Klonen</block>
-  <block id="b24e23005ed2cadfce9c683ec2b754c5" category="list-text"><block ref="213007433d1a45330875fe1630ec15fa" category="inline-xref-macro-rx"></block></block>
   <block id="d3e9aa65af62841e4f76b512ae2f0bc6" category="list-text"><block ref="b3245371f9a4420028b8568536aa8ffb" category="inline-xref-macro-rx"></block></block>
   <block id="f4c36c8148a1c2baf23d917e226d50fa" category="list-text"><block ref="703e5962f4e6c982183fbea5d4a0ed0f" category="inline-xref-macro-rx"></block></block>
   <block id="c44dd49a83e18cbd27c250a656ebf16d" category="list-title">Andere Probleme</block>
-  <block id="70349fbabd47d30bbfa25bf8e3755abd" category="list-text"><block ref="cc32903e451bee2b84a8f72fefa8ee63" category="inline-xref-macro-rx"></block></block>
   <block id="440441988db4dd1a631f18e5ce228880" category="list-text"><block ref="4791c8debe5295c527a6dd0dc7f0957f" category="inline-xref-macro-rx"></block></block>
   <block id="1af0576f77189b1c71e1d3a9eade995a" category="section-title">Applikationsklone scheitern, nachdem eine Applikation mit einer festgelegten Storage-Klasse implementiert wurde</block>
-  <block id="ea9063ae1f93b97201fb6f5157ef64b8" category="paragraph">Nachdem eine Applikation mit einer Storage-Klasse bereitgestellt wurde (z. B.<block ref="f0318d56e2bef7e2cc1e885347ef6b43" prefix=" " category="inline-code"></block>). Nachfolgende Klonversuche der Applikation erfordern, dass das Ziel-Cluster die ursprünglich angegebene Storage-Klasse hat. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl. Es gibt keine Wiederherstellungsschritte in diesem Szenario.</block>
-  <block id="e43994c24bb8c97f2a5c5d923ac69298" category="section-title">Die Anwendungsseite wird dauerhaft geladen, wenn versucht wird, eine Applikation, die zu einem gelöschten Cluster gehört, wiederherzustellen</block>
-  <block id="f578c128901fc5a492793e5a929e4673" category="paragraph">Wenn Sie versuchen, eine Anwendung aus einem gelöschten Cluster von der Seite Anwendungen wiederherzustellen, wird das Laden der Seite Anwendungen nie beendet. Stellen Sie die App als Problemumgehung im Menü Aktionen der App auf der Liste Anwendungen wieder her.</block>
   <block id="bc2727235d82d8b7c78a69fd565295f3" category="section-title">Eine App kann nicht in einem Namespace definiert werden, der gelöscht und neu erstellt wurde</block>
   <block id="586ace51c405474a5c0172b8c1cf7afd" category="paragraph">Wenn Sie eine Anwendung mit einem Namespace definieren, löschen Sie den Namespace und installieren Sie die App anschließend im selben Namespace neu, schlägt der Vorgang mit einem Fehlercode 409 fehl. Um die App mit dem neu erstellten Namespace zu definieren, löschen Sie zuerst die alte Applikationsinstanz.</block>
-  <block id="ca318d6b4eed133149be28dcaf9203ab" category="section-title">Die Wiederherstellung einer App führt zu einer PV-Größe, die größer ist als das ursprüngliche PV</block>
-  <block id="c1ab420107ece0814547044cc11d2689" category="paragraph">Wenn Sie ein persistentes Volume nach der Erstellung eines Backups skalieren und dann aus diesem Backup wiederherstellen, wird die Größe des persistenten Volumes an die neue PV-Größe angepasst, anstatt die Backup-Größe zu verwenden.</block>
   <block id="cbe80683ce886af66ccaaa3c0870a530" category="section-title">Applikationsklone können nicht mit einer bestimmten Version von PostgreSQL verwendet werden</block>
   <block id="70fc1bae36d48b09899dc323f7fbc3b4" category="paragraph">App-Klone innerhalb desselben Clusters schlagen konsequent mit dem Bitnami PostgreSQL 11.5.0 Diagramm fehl. Um erfolgreich zu klonen, verwenden Sie eine frühere oder höhere Version des Diagramms.</block>
   <block id="3460be97ad18de8f927ac029b73aea1e" category="section-title">App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird</block>
   <block id="671f168669b50eaf41bbc6e57d130fd1" category="paragraph">Backups und Snapshots schlagen in diesem Szenario mit einem UI 500-Fehler fehl. Aktualisieren Sie die App-Liste als Workaround.</block>
-  <block id="277d303328081a08d224ba1791474f8c" category="section-title">Snapshots beginnen schließlich beim Einsatz von External-Snapshotter Version 4.2.0 fehlschlagen</block>
-  <block id="989f15ab4fafcbe33b5c793f7c17921f" category="inline-link">Unterstützte Version</block>
-  <block id="b07ba4d88165e7d28588bdffecc7b23e" category="paragraph">Wenn Sie Kubernetes Snapshot-Controller (auch bekannt als externer Snapshot) Version 4.2.0 mit Kubernetes 1.20 oder 1.21 verwenden, können Snapshots irgendwann fehlschlagen. Um dies zu verhindern, verwenden Sie ein anderes<block ref="4a7fe4e7f109667d1c8972a591d16348" category="inline-link-rx"></block> Von externen Snapshots, wie Version 4.2.1, mit Kubernetes Versionen 1.20 oder 1.21.</block>
   <block id="f64cab133147d09d35d2708459ada555" category="section-title">Das Management der App-Daten schlägt mit Fehler des internen Service (500) fehl, wenn Astra Trident offline ist</block>
   <block id="5ffd50b83740bc0749b40034cddea615" category="paragraph">Wenn Astra Trident auf einem App-Cluster offline geschaltet wird (und wieder online geschaltet wird) und 500 interne Servicefehler auftreten, wenn versucht wird, das App-Datenmanagement zu managen, starten Sie alle Kubernetes-Nodes im App-Cluster neu, um die Funktionalität wiederherzustellen.</block>
   <block id="1eba71d64e6c5e410e558530711e835b" category="summary">Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, die von dieser Version des Produkts nicht unterstützt werden oder nicht korrekt mit dem Produkt zusammenarbeiten. Lesen Sie diese Einschränkungen sorgfältig durch.</block>
@@ -761,8 +749,6 @@
   <block id="5b06c01df203c0160efefa98ada2bcc1" category="paragraph">Die folgenden Einschränkungen gelten für die Art und Weise, wie Astra Control den Benutzerzugriff auf Ressourcen oder Funktionen begrenzt.</block>
   <block id="66ba81be546d7a5973fa02b72f2d22d7" category="section-title">Benutzer mit rollenbasierten Bedingungen für die Namespace-Zugriffssteuerung können ein Cluster hinzufügen und aus dem Management wieder aufheben</block>
   <block id="6d70905dce5a2e1f37d99d5fa5a0fca9" category="paragraph">Benutzer mit rollenbasierten Namespace-Einschränkungen dürfen Cluster nicht hinzufügen oder aus dem Management rückgängig machen. Aufgrund der derzeitigen Beschränkungen verhindert Astra nicht, dass solche Benutzer Cluster nicht mehr verwalten.</block>
-  <block id="bea0a641d1ced5fe318717eadebe7ab8" category="section-title">Ein Member-Benutzer mit Namespace-Einschränkungen kann nicht auf geklonte oder wiederhergestellte Apps zugreifen, bis ein Admin-Benutzer den Namespace zu der Bedingung hinzufügt</block>
-  <block id="33e9a46dfde5bb0f5a8b8327623cb998" category="paragraph">Alle<block ref="aa08769cdcb26674c6706093503ff0a3" prefix=" " category="inline-code"></block> Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name/ID können eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto des Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer den bearbeiten<block ref="aa08769cdcb26674c6706093503ff0a3" prefix=" " category="inline-code"></block> Benutzerkonto und Aktualisierung von Rollenbeschränkungen für den betroffenen Benutzer, um den Zugriff auf den neuen Namespace zu gewähren.</block>
   <block id="598d6fe4e43f08217f8edf064d9a7fa3" category="summary">NetApp aktualisiert regelmäßig den Astra Control Service, um Ihnen neue Funktionen, Verbesserungen und Fehlerbehebungen zu bieten.</block>
   <block id="124d123607fcd1192a3750d68c2110f7" category="doc">Was ist neu bei Astra Control Service</block>
   <block id="bc820d3a1aae6d8ead4b69263979fc38" category="section-title">7. September 2022</block>
@@ -772,7 +758,6 @@
   <block id="b6a9320279ef3d24bad38497af1f9eb9" category="list-text">Verbesserter Applikations-Management-Workflow verbesserte Workflows zum Applikations-Management sorgen für mehr Flexibilität bei der Definition von Applikationen, die von Astra Control gemanagt werden.</block>
   <block id="0fae08f8fcd64cec619ae5065fc2aa88" category="inline-link-macro">Applikationsmanagement</block>
   <block id="177b32024bced380eccf349123cd8965" category="list-text">Der Astra Control Service unterstützt Amazon Web Services Cluster und kann jetzt auch Applikationen managen, die auf Clustern ausgeführt werden, die in Amazon Elastic Kubernetes Service gehostet werden. Sie können die Cluster für die Verwendung von Amazon Elastic Block Store oder Amazon FSX für NetApp ONTAP als Storage-Backend konfigurieren.</block>
-  <block id="e0b52dea31d68bd0cdc1c14efa59da85" category="paragraph"><block ref="e0b52dea31d68bd0cdc1c14efa59da85" category="inline-link-macro-rx"></block></block>
   <block id="1dbb809aab63af6c10fa08a732739c10" category="list-text">Erweiterte Testausführungshaken Zusätzlich zu den Testhooks für vor und nach dem Snapshot können Sie nun die folgenden Arten von Testsuiten konfigurieren:</block>
   <block id="0a2055495a94f091655a2e4d421cffe2" category="list-text">Vor dem Backup</block>
   <block id="cf6e97e89c4b36c29252fcb7b0728d2f" category="list-text">Nach dem Backup</block>
@@ -781,7 +766,6 @@
   <block id="be29f0ac9c1734e9dab2565393c4b0f9" category="inline-link">NetApp Verda GitHub Repository</block>
   <block id="26ae3a5d2c5a3a4f3c4f0b04cfffc752" category="admonition">Die von NetApp bereitgestellten Standard-Hooks für vor- und nach-Snapshot-Ausführung für bestimmte Applikationen wurden in dieser Version entfernt. Wenn Sie keine eigenen Testsuiten für Snapshots bereitstellen, erstellt der Astra Control Service absturzkonsistente Snapshots erst ab dem 4. August 2022. Besuchen Sie das<block ref="69dbcb4811fc57c117bef8c6ba2044f3" category="inline-link-rx"></block> Für Beispiel-Hook-Skripte, die Sie an Ihre Umgebung anpassen können.</block>
   <block id="372ba25517e6092baf2e0abc0ae2ef65" category="inline-link-macro">Anwendungsausführungshaken verwalten</block>
-  <block id="708d69a9cfe8326e5c6ce3c8ad6ac757" category="paragraph"><block ref="708d69a9cfe8326e5c6ce3c8ad6ac757" category="inline-link-macro-rx"></block></block>
   <block id="518c2494a2c756dd2dd87536a60d5143" category="list-text">Support für Azure Marketplace Sie können sich jetzt über Azure Marketplace im Astra Control Service anmelden.</block>
   <block id="9c9f134c049ff9c2a442218abf4331d1" category="list-text">Auswahl an Cloud-Providern während Sie die Dokumentation des Astra Control Service lesen, können Sie Ihren Cloud-Provider jetzt rechts oben auf der Seite auswählen. Sie erhalten die Dokumentation, die nur für den ausgewählten Cloud-Provider relevant ist.</block>
   <block id="15e9aaa51586aa57547422044c2341dc" category="inline-image-macro">Screenshot aus dem Dropdown-Menü des Cloud-Providers, in dem Sie Ihren Cloud-Provider für die spezifische Dokumentation eines Cloud-Providers auswählen können.</block>
@@ -789,43 +773,33 @@
   <block id="ae4d5046a6cc232f0a797ff6885ed980" category="section-title">26. April 2022</block>
   <block id="48bb90ecaac353cdb16c91a6a455b560" category="list-text">Namespace Role-Based Access Control (RBAC) Astra Control Service unterstützt jetzt das Zuweisen von Namespace-Einschränkungen für Mitglieder oder Viewer Benutzer.</block>
   <block id="0097e428776046ceb8cd1fcde6d6fa2e" category="inline-link-macro">Rollenbasierte Zugriffssteuerung (Namespace)</block>
-  <block id="24c3dfd752dd86b23d8384546f638c63" category="paragraph"><block ref="24c3dfd752dd86b23d8384546f638c63" category="inline-link-macro-rx"></block></block>
   <block id="2221301e5f320330a2ff23a7f92dae75" category="list-text">Azure Active Directory-Unterstützung Astra Control Service unterstützt AKS-Cluster, die Azure Active Directory für das Authentifizierungs- und Identitätsmanagement nutzen.</block>
-  <block id="04d97bec7f4fa11002764129cf40d13a" category="paragraph"><block ref="04d97bec7f4fa11002764129cf40d13a" category="inline-link-macro-rx"></block></block>
   <block id="2db9c37d1e2c8254e3a6c338f50945e5" category="list-text">Unterstützung für private AKS-Cluster Sie können jetzt AKS-Cluster verwalten, die private IP-Adressen verwenden.</block>
   <block id="971c8f5be55b8948fecdbae5902f8226" category="list-text">Bucket Entfernung aus Astra Control Sie können jetzt einen Eimer aus Astra Control Service entfernen.</block>
   <block id="52eddccfd67295f46df3a2a0dcec5e44" category="inline-link-macro">Entfernen Sie einen Bucket</block>
-  <block id="aac55694044199d5b6c6c57c331459cc" category="paragraph"><block ref="aac55694044199d5b6c6c57c331459cc" category="inline-link-macro-rx"></block></block>
   <block id="574a814695667d43e14497d0d18ea597" category="section-title">Bis 14. Dezember 2021</block>
   <block id="8f82aca9abb16b6ff389726d5fbe355a" category="list-text">Neue Storage-Back-End-Optionen</block>
   <block id="6375b2643d0c645e023d1f597c848293" category="list-text">In-Place-App-Wiederherstellung – durch Restore im selben Cluster und Namespace können Sie Snapshots, Klone oder Backups einer vorhandenen Applikation wiederherstellen.</block>
   <block id="e07596cf624c6e8c354d1188f9bdb6bb" category="inline-link-macro">Wiederherstellung von Applikationen</block>
-  <block id="57b180faef2287140b0abcde93ffc94f" category="paragraph"><block ref="57b180faef2287140b0abcde93ffc94f" category="inline-link-macro-rx"></block></block>
   <block id="461f26d1f3faec3478ece1e0d794f9cc" category="list-text">Skriptereignisse mit Testausführungshaken Astra Control unterstützt benutzerdefinierte Skripte, die Sie vor oder nach dem Erstellen eines Snapshots einer Anwendung ausführen können. So können Sie Aufgaben wie das Aufstellen von Datenbanktransaktionen durchführen, so dass der Snapshot Ihrer Datenbank-App konsistent ist.</block>
   <block id="a20299ad7f2e64a95e7cc3284a9906a5" category="list-text">Vom Betreiber bereitgestellte Apps Astra Control unterstützt einige Apps, wenn sie mit Betreibern bereitgestellt werden.</block>
-  <block id="2ea11a36f6164d1bd0f8d6a42682dfb9" category="paragraph"><block ref="2ea11a36f6164d1bd0f8d6a42682dfb9" category="inline-link-macro-rx"></block></block>
   <block id="d64b4db98e014f5440d1f843fea08e3e" category="list-text">Service Principals with Resource Group Scope Astra Control Service unterstützt jetzt Service Principals, die den Umfang einer Ressourcengruppen nutzen.</block>
-  <block id="e654c32bea1b21fec8de7bcafdd49dec" category="paragraph"><block ref="e654c32bea1b21fec8de7bcafdd49dec" category="inline-link-macro-rx"></block></block>
   <block id="bf2952986042f5403c53bded609c0d9b" category="section-title">5. August 2021</block>
   <block id="d965fac9eadc89088435d79a0e46882b" category="list-text">Astra Control Center Astra Control ist jetzt in einem neuen Implementierungsmodell verfügbar. _Astra Control Center_ ist eine eigenständige Software, die Sie in Ihrem Datacenter installieren und betreiben können. Damit können Sie das Lifecycle Management von Kubernetes-Applikationen für lokale Kubernetes-Cluster managen.</block>
   <block id="1966afd91050d7e96fceb59f9fd13f32" category="inline-link">Gehen Sie zur Astra Control Center-Dokumentation</block>
   <block id="80bfdf6309549a7797f10098e05bccc1" category="paragraph">Weitere Informationen<block ref="ba5556fa094f10e77f4fa7086cec4749" category="inline-link-rx"></block>.</block>
   <block id="eb98a9a286b93bcf890e03ce1c9063eb" category="list-text">Mit eigenem Bucket managen Sie jetzt die Buckets, die Astra für Backups und Klone verwendet, indem Sie zusätzliche Buckets hinzufügen. Außerdem können Sie durch Ändern des Standard-Buckets für die Kubernetes-Cluster bei Ihrem Cloud-Provider das Management übernehmen.</block>
   <block id="79aa9197dc185dded5eb383a683a5219" category="inline-link-macro">Buckets verwalten</block>
-  <block id="b8e0d8248d4ced7bc854879cb8922db8" category="paragraph"><block ref="b8e0d8248d4ced7bc854879cb8922db8" category="inline-link-macro-rx"></block></block>
   <block id="40e5c10855fbafbea8290f73a6d04f70" category="section-title">Juni 2021</block>
   <block id="0f71f0ee6bed3d528b8e76714ee6a81d" category="paragraph">Diese Version enthält Bugfixes und die folgenden Verbesserungen an der Google Cloud Unterstützung.</block>
   <block id="590485080b61fb4aa0eecd594141c835" category="list-text">Unterstützung für freigegebene VPCs Sie können nun GKE-Cluster in GCP-Projekten mit einer gemeinsamen VPC-Netzwerkkonfiguration managen.</block>
   <block id="3ac7bce9a68f7416551081de0fb809db" category="list-text">Persistente Volume-Größe für den CVS-Servicetyp Astra Control Service erstellt jetzt persistente Volumes mit einer Mindestgröße von 300 gib unter Verwendung des CVS-Servicetyps.</block>
   <block id="8527c0ab84fa8956acb7ba13d5e3ad9d" category="inline-link-macro">Astra Control Service verwendet Cloud Volumes Service für Google Cloud als Storage-Backend für persistente Volumes</block>
-  <block id="033c399986bd3d9b7ef54b989611f70b" category="paragraph"><block ref="ae94f8298ace086e6c054e879241557e" category="inline-link-macro-rx"></block>.</block>
   <block id="0bf2090aa53a447008516a1f0e59ef29" category="list-text">Unterstützung für Container-optimiertes OS Container-optimiertes OS wird jetzt mit GKE Worker-Knoten unterstützt. Dies ist zusätzlich zur Unterstützung für Ubuntu.</block>
   <block id="33b49ba36195927db2411b412cfe0b4c" category="inline-link-macro">Erfahren Sie mehr über die GKE-Clusteranforderungen</block>
-  <block id="94aa6fa7719fbfefbbd46c4b08c22b4b" category="paragraph"><block ref="c3bd8fba045cfa6e89cf51e6e5781d5d" category="inline-link-macro-rx"></block>.</block>
   <block id="12b25d2d9c1a5b6acd85bf6a54697871" category="section-title">15. April 2021</block>
   <block id="70339406f3840508cf82f629e157269a" category="list-text">AKS-Cluster werden unterstützt Astra Control Service kann jetzt auch Apps managen, die auf einem gemanagten Kubernetes Cluster in Azure Kubernetes Service (AKS) ausgeführt werden.</block>
   <block id="7d782479a41a3941b57cc7c2b60d318a" category="inline-link-macro">Erste Schritte</block>
-  <block id="a916818021b3f228baef189d6dcd5538" category="paragraph"><block ref="bc25b49e1030874d11222c9fe6a36711" category="inline-link-macro-rx"></block>.</block>
   <block id="35ab436e138a3881de6d54adede1f476" category="list-text">REST API die Astra Control REST API ist jetzt zur Verwendung verfügbar. Die API basiert auf modernen Technologien und aktuellen Best Practices.</block>
   <block id="d0c288db47307237677ead5ae8dbf32b" category="inline-link">Erfahren Sie, wie Sie das Lifecycle Management von Applikationsdaten mit der REST-API automatisieren</block>
   <block id="9a4e809cf5b98aab76642ac595e658d8" category="paragraph"><block ref="d96242c4026b1863ec2b29df005dc070" category="inline-link-rx"></block>.</block>
@@ -833,10 +807,8 @@
   <block id="9908394cca5993b5d280b7ec9749f2d1" category="paragraph">Mit einem Jahresabonnement können Sie bis zu 10 Apps pro Anwendungspaket verwalten. Wenden Sie sich an den NetApp Sales, um so viele Pakete wie nötig zu erwerben. Beispielsweise können Sie 3 Pakete für das Management von 30 Applikationen über den Astra Control Service erwerben.</block>
   <block id="2a5cf8d74e69ce024c7b1a65f9caeaf7" category="paragraph">Wenn Sie mehr Applikationen verwalten als dies durch Ihr Jahresabonnement erlaubt ist, werden Ihnen die Gebühr in Höhe von 0.005 US-Dollar pro Minute und pro Applikation (entspricht Premium PAYGO) berechnet.</block>
   <block id="e59328f35d0a769573f1f66bb3b269cf" category="inline-link-macro">Erfahren Sie mehr über die Preise des Astra Control Service</block>
-  <block id="2691bc250518e01fc8a64e87887765c4" category="paragraph"><block ref="3315f5b8eeab7eb8e59fe4f651ae450a" category="inline-link-macro-rx"></block>.</block>
   <block id="a5691fb92ce2acabdd947ea4e3dfaa70" category="list-text">Namespace- und App-Visualisierung Wir haben die Seite „entdeckte Apps“ erweitert, um die Hierarchie zwischen Namespaces und Apps besser anzuzeigen. Erweitern Sie einfach einen Namespace, um die Applikationen in diesem Namespace zu sehen.</block>
   <block id="7056b3684820e2ba6827e9d27c85715f" category="inline-link-macro">Erfahren Sie mehr über das Verwalten von Apps</block>
-  <block id="5ee8d4e880da1ab6adf2ef58cad52bc3" category="paragraph"><block ref="b64ad29284518b0972171e8bbb41ea75" category="inline-link-macro-rx"></block>.</block>
   <block id="58a37706ad29b91b5ea0febd18591e9e" category="inline-image-macro">Ein Screenshot der Seite Apps, auf der die Registerkarte entdeckt ausgewählt ist.</block>
   <block id="dc52ad8a88f5c9ee3cb4fe055db4e1dc" category="paragraph"><block ref="dc52ad8a88f5c9ee3cb4fe055db4e1dc" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a13f2262ff8b5ec001ba8f41398e1a6c" category="list-text">Verbesserungen an der Benutzeroberfläche die Assistenten für Datensicherung wurden verbessert und sorgen dadurch für eine höhere Benutzerfreundlichkeit. Zum Beispiel haben wir den Assistenten für Schutzrichtlinien überarbeitet, um den Schutzzeitplan einfacher anzuzeigen, wie Sie ihn definieren.</block>
@@ -847,18 +819,15 @@
   <block id="ed9548dfd7d1dc91cfcaf2dcc939a60a" category="list-text">Laden Sie Ihre Astra Control Kontoaktivität in eine CSV-Datei herunter.</block>
   <block id="2dd8ae234b96a1455259ff84939f6f55" category="list-text">Zeigen Sie Aktivitäten direkt auf der Seite Cluster oder auf der Seite Apps an, nachdem Sie ein Cluster oder eine App ausgewählt haben.</block>
   <block id="44a04d6eee1ac7c339c8312bc5e23831" category="inline-link-macro">Erfahren Sie mehr über die Anzeige Ihrer Kontoaktivität</block>
-  <block id="ca0a782901da0ca119f401851ac90842" category="paragraph"><block ref="78b785a9e2d028de12ce9f3f40284661" category="inline-link-macro-rx"></block>.</block>
   <block id="f0f3d2a56548b1d53077b0b5eff5bb54" category="section-title">März 2021</block>
   <block id="176950460e5100915fe78bc4e6ffe82b" category="inline-link">_CVS_ Diensttyp</block>
   <block id="2c86b251dbdee05a59434e44da5fb462" category="paragraph">Der Astra Control Service unterstützt jetzt das<block ref="1760b78b440a877c4a7a7d217ccc8ada" category="inline-link-rx"></block> Mit Cloud Volumes Service für Google Cloud. Dies unterstützt zusätzlich bereits den Servicetyp _CVS-Performance_. Zur Erinnerung: Astra Control Service nutzt Cloud Volumes Service für Google Cloud als Storage-Backend für Ihre persistenten Volumes.</block>
   <block id="429b81900737e151eef475ff31869fa3" category="inline-link">Google Cloud-Region, in der Cloud Volumes Service unterstützt wird</block>
   <block id="28d262f7686b19b993c8250943518a7f" category="paragraph">Dank dieser Verbesserung kann der Astra Control Service jetzt Applikationsdaten für Kubernetes-Cluster managen, die in _any_ ausgeführt werden<block ref="69fa08b6ef6184ae8dd1a91cecb10b56" category="inline-link-rx"></block>.</block>
   <block id="b536aa5bb92e93036b2454d38b99f56f" category="inline-link-macro">Erfahren Sie mehr über die Auswahl eines Servicetyps</block>
-  <block id="7a5679db41601d3fecb409a68ce4c9b2" category="paragraph">Wenn Sie die Flexibilität haben, zwischen Google Cloud Regionen auszuwählen, wählen Sie je nach Performance-Anforderungen entweder CVS oder CVS-Performance. <block ref="89000b13767f1a83f8086c1cc2e31c7d" category="inline-link-macro-rx"></block>.</block>
   <block id="3bdf2e1f16a21b037f1f56168c9e298b" category="section-title">25 Januar 2021</block>
   <block id="d13993f9f9e60a93ba268e59c921381d" category="paragraph">Wir freuen uns, Ihnen mitteilen zu können, dass der Astra Control Service jetzt allgemein verfügbar ist. Wir haben eine Menge Feedback aus der Beta-Version erhalten und einige weitere bemerkenswerte Verbesserungen vorgenommen.</block>
   <block id="f1b3e68a6481f423fd5c59659b18560d" category="inline-link-macro">Weitere Informationen zur Abrechnung</block>
-  <block id="964a70c45a61f521ea1c4cb06403d4ee" category="list-text">Die Abrechnung ist jetzt verfügbar, sodass Sie vom Freiplan zum Premium-Plan wechseln können. <block ref="2e7d11d76129cc6bc66120b2bffcd33e" category="inline-link-macro-rx"></block>.</block>
   <block id="ebb4cef6e957a3f3db21c2430ef1de91" category="list-text">Astra Control Service erstellt jetzt bei Verwendung des Servicetyps CVS-Performance persistente Volumes mit einer Mindestgröße von 100 gib.</block>
   <block id="00d8253290bc1791dbe2e2f5445579ca" category="list-text">Astra Control Service kann Apps jetzt schneller erkennen.</block>
   <block id="f0823272d746557a316d9b1a6fcb7c28" category="list-text">Sie können jetzt eigene Konten erstellen und löschen.</block>
@@ -1311,7 +1280,6 @@
   <block id="bb2ac0b8da1f64a3498af147ba43fc10" category="inline-link-macro">Wiederherstellen</block>
   <block id="9de0e2b17d7e1e2da6c0ce7e9dc6e377" category="list-text">Wählen Sie *Clone*.</block>
   <block id="e78b0b14ef505bb78e615dad8a884310" category="list-text">Wählen Sie ein Ziel-Cluster für den Klon.</block>
-  <block id="b50343ac8865ee6508570846230e18d5" category="list-text">Wählen Sie aus, ob Sie den Klon aus einem vorhandenen Snapshot oder einem vorhandenen Backup erstellen möchten. Wenn Sie diese Option nicht wählen, erstellt Astra Control den Klon aus dem aktuellen Status der App.</block>
   <block id="5acfa2bc809db5956ea651edbf833ab3" category="summary">Erfahren Sie, wie Sie Benutzerrollen verwalten, indem Sie der Rolle eine Einschränkung hinzufügen.</block>
   <block id="a570617b73a4a19e27f1777e4332cbb0" category="paragraph">Sie können Rollen managen, indem Sie Namespace-Einschränkungen hinzufügen und Benutzerrollen auf diese Einschränkungen beschränken. So können Sie den Zugriff auf Ressourcen in Ihrem Unternehmen kontrollieren. Sie können die Astra Control UI oder verwenden<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> Rollen managen.</block>
   <block id="676588bdedb566aa975286a947887eb5" category="section-title">Fügen Sie einer Rolle eine Namespace-Einschränkung hinzu</block>
@@ -1591,17 +1559,11 @@
   <block id="d187001d501dee0ac96f1c4520418b01" category="section-title">22. November 2022</block>
   <block id="9ed67fb9a4ad2ebd97ca13fe2eb81541" category="list-title">Neue Funktionen und Support</block>
   <block id="4eba5ba43cc624385f276658a22c51a8" category="inline-link-macro">Definieren von Apps</block>
-  <block id="615bfdde03d6ca17ceb25db1da7a8950" category="paragraph"><block ref="615bfdde03d6ca17ceb25db1da7a8950" category="inline-link-macro-rx"></block></block>
   <block id="92131ec58f7cefa34d38f2fee2e98c42" category="inline-link-macro">Überwachen Sie laufende Aufgaben</block>
-  <block id="7ae618b5d6c1a9768cb0ddc2627b32d0" category="paragraph"><block ref="7ae618b5d6c1a9768cb0ddc2627b32d0" category="inline-link-macro-rx"></block></block>
   <block id="e0b7652da21db7cd16f8155afc64e87b" category="inline-link-macro">Managen Sie Cloud-Instanzen</block>
-  <block id="9df52d082eaf22280b9667a382b64298" category="paragraph"><block ref="9df52d082eaf22280b9667a382b64298" category="inline-link-macro-rx"></block></block>
   <block id="3a3b7ac2e39541ea05707ccd6eb054d4" category="list-title">Bekannte Probleme und Einschränkungen</block>
   <block id="740eb4189d3efee5546cc5fba4fded77" category="inline-link-macro">Bekannte Probleme in diesem Release</block>
-  <block id="d1dd5fb317ad23b395c8c846c80e0e5f" category="list-text"><block ref="d1dd5fb317ad23b395c8c846c80e0e5f" category="inline-link-macro-rx"></block></block>
   <block id="609952cd5d8fde0dfe3b1b884bf14558" category="inline-link-macro">Bekannte Einschränkungen für diese Version</block>
-  <block id="9ce2124f29dc4cc07281ecd767336d13" category="list-text"><block ref="9ce2124f29dc4cc07281ecd767336d13" category="inline-link-macro-rx"></block></block>
-  <block id="0a118569e0f55e95cf56c6a9d02d982b" category="paragraph"><block ref="0a118569e0f55e95cf56c6a9d02d982b" category="inline-link-macro-rx"></block></block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="list-title">Über diese Aufgabe</block>
   <block id="8d7c216bc17d281838efafaa3704677b" category="list-text">Wählen Sie den Wiederherstellungstyp aus:</block>
   <block id="90d21d98503ddae05ddf0a1a34b7d790" category="list-text">*Wiederherstellen auf ursprünglichen Namespaces*: Verwenden Sie dieses Verfahren, um die App an Ort und Stelle auf dem ursprünglichen Cluster wiederherzustellen.</block>
@@ -1688,7 +1650,6 @@
   <block id="dd74de0d68eefd1c10bd1501afbc8b46" category="list-text">Geben Sie einen Namen ein.</block>
   <block id="0e4d685dee3fd3a3e1633f70aaeb2691" category="list-text">Geben Sie die Ziel-Namespaces für den Klon ein. Jeder mit der App verknüpfte Quell-Namespace wird einem Ziel-Namespace zugeordnet.</block>
   <block id="411a48d6c0de4b9fbde3de65ac433663" category="admonition">Astra Control erstellt im Rahmen des Klonvorgangs neue Ziel-Namespaces. Die angegebenen Ziel-Namespaces dürfen nicht bereits im Ziel-Cluster vorhanden sein.</block>
-  <block id="d0e721bec5fc1bc7c2e9064111e136f3" category="list-text">Wenn Sie aus einem vorhandenen Snapshot oder Backup klonen möchten, wählen Sie den Snapshot oder das Backup aus, den Sie verwenden möchten.</block>
   <block id="b92d91ea83b6fa7710918e0aa9c334a7" category="list-text">Überprüfen Sie die Informationen über den Klon und wählen Sie *Clone*.</block>
   <block id="388750beff3f33d3945072066707b581" category="paragraph">Astra Control klont die App basierend auf den von Ihnen angegebenen Informationen. Der Klonvorgang ist erfolgreich, wenn der neue Applikationsklon ausgeführt wird<block ref="396d45b57c2fbe3318e7b93272a2686b" prefix=" " category="inline-code"></block> Geben Sie auf der Seite *Anwendungen* an.</block>
   <block id="f661390a0d28c238ffbca34027c731cc" category="paragraph">Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer das Mitglied-Benutzerkonto bearbeiten und Rolleneinschränkungen für den betroffenen Benutzer aktualisieren, um dem neuen Namespace Zugriff zu gewähren.</block>
@@ -1926,7 +1887,6 @@
   <block id="9497a649f72a465537e088cd33f63b26" category="paragraph">Außerdem können Sie Clusterressourcen importieren, die den Namespace-Ressourcen zugeordnet sind und die automatisch mit Astra Control integriert sind. Sie können eine Regel hinzufügen, die Ressourcen einer bestimmten Gruppe, Art, Version und optional eine Bezeichnung enthält. Dies sollten Sie tun, wenn Astra Control nicht automatisch Ressourcen enthält.</block>
   <block id="b9e5ceb3ee51c79795e57043d65ace4f" category="list-text">*Explicit Storage Classes*: Wenn Sie eine App mit einer explizit eingestellten Speicherklasse bereitstellen und die App klonen müssen, muss der Zielcluster über die ursprünglich angegebene Speicherklasse verfügen. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl.</block>
   <block id="9bef1d9bf218ed752be76e1c92b4e716" category="list-text">Unterstützung von NetApp Cloud Volumes ONTAP als Storage-Back-End</block>
-  <block id="afe823403603f8e45a82a192de4f1f39" category="paragraph"><block ref="afe823403603f8e45a82a192de4f1f39" category="inline-link-macro-rx"></block></block>
   <block id="43f10e14cfc78f2dccf4af9115390a26" category="list-text"><block ref="43f10e14cfc78f2dccf4af9115390a26" category="inline-link-rx"></block></block>
   <block id="aa2317f5569d30b7aac1b41dd02ffe97" category="list-text">Wenn Sie NetApp Cloud Volumes ONTAP als Storage-Backend verwenden möchten, müssen Sie Cloud Volumes ONTAP für die Nutzung mit Amazon Web Services konfigurieren. Weitere Informationen finden Sie im Cloud Volumes ONTAP<block ref="c40ff22452592aa319388d1d94a0a32e" category="inline-link-rx"></block>.</block>
   <block id="892bb983e85684c863a4bf11d26d064e" category="paragraph">Astra Control Service kann über Container Storage Interface (CSI)-Treiber eine Schnittstelle zu Azure Managed Disks als Storage-Backend verwenden. Dieser Service bietet Storage auf Block-Ebene, der von Azure gemanagt wird.</block>
@@ -1991,9 +1951,7 @@
   <block id="69ed61dec8d3d932d3348b6e66006a07" category="list-text">Auf einem Cluster muss eine Kubernetes-Version im Bereich von 1.23 bis 1.25 ausgeführt werden.</block>
   <block id="d5e69ef71e099319f8f69f91e01d0e41" category="section-title">Bis 25. April 2023</block>
   <block id="031a85a49fb1af20498d8b05e9ab9eb2" category="list-text">Unterstützung privater Red hat OpenShift-Cluster</block>
-  <block id="d17303ee723b020bbbbfc1cd5577456b" category="paragraph"><block ref="d17303ee723b020bbbbfc1cd5577456b" category="inline-link-macro-rx"></block></block>
   <block id="e230abda83cb11e7b7ac9992ed62766e" category="list-text">Unterstützung für das ein- oder Ausschließen von Anwendungsressourcen während der Wiederherstellung</block>
-  <block id="ffff33c395d25303894a11efaf1b01aa" category="paragraph"><block ref="ffff33c395d25303894a11efaf1b01aa" category="inline-link-macro-rx"></block></block>
   <block id="b909803838dd775bd8b8dcfbaf82fb87" category="list-text">Unterstützung für das Management von rein datenbasierten Applikationen</block>
   <block id="5b8f884e708de51fd4946164326e802c" category="section-title">Auf der Seite „Aktivität“ werden bis zu 100,000 Ereignisse angezeigt</block>
   <block id="676bd50e0f10e6725dc7a68e3041cfed" category="inline-link-macro">Astra Control REST-API</block>
@@ -2064,7 +2022,6 @@
   <block id="b112804ac2e50d1a247c4e71c3315d8c" category="inline-link">Installieren Sie die Snapshot-CRDs und den Snapshot-Controller</block>
   <block id="6c190cb8b2ab4bcec637bcea54946bee" category="paragraph">Falls noch nicht geschehen,<block ref="0e5afab18fbd6e0f822d02155d04d2bd" category="inline-link-rx"></block>.</block>
   <block id="abfeaf5dc3fa1bf4a2a2cba84c5e546c" category="section-title">15 Mai 2023</block>
-  <block id="7dfc25c1548ba836ed04c79f8fbd1825" category="paragraph">Dies ist ein kleines Bugfix-Release.</block>
   <block id="d5d53109cd766da789a263c6e2051051" category="list-text">Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.</block>
   <block id="43f17763173fe230bdd78477152f5f7d" category="inline-link">Deinstallieren Sie Astra Trident</block>
   <block id="478393a7bc00211c00b84b91bd7270e1" category="list-text"><block ref="ae36d1cdd520df7c3eaefc0ce2deb814" category="inline-link-rx"></block>.</block>
@@ -2225,4 +2182,35 @@ RKE 2 (v1.24.x) mit Rancher 2.7</block>
   <block id="01b0983b96350d7c328b2bdc55473ec9" category="sidebar">Hinzufügen eines selbstverwalteten Clusters</block>
   <block id="df0d5dfa45e4a1cfa039e5d18dfb9d2d" category="sidebar">Fügen Sie ein öffentliches selbstverwaltetes Cluster hinzu</block>
   <block id="3746d0f382f4e7553ff621fded87d97c" category="sidebar">Fügen Sie ein privates, selbstverwaltetes Cluster hinzu</block>
+  <block id="bcceca8869689ff6b9a64bbe278abd0c" category="section-title">27 Juli 2023</block>
+  <block id="d6b8f34be835c5143119e2110314903c" category="list-text">Klonvorgänge unterstützen jetzt nur Live-Klone (aktueller Status der gemanagten Applikation). Verwenden Sie zum Klonen aus einem Snapshot oder Backup den Wiederherstellungs-Workflow.</block>
+  <block id="3a8adf0100989b88b4f6945c96e17134" category="paragraph"><block ref="3a8adf0100989b88b4f6945c96e17134" category="inline-link-macro-rx"></block></block>
+  <block id="78059069f50fc7337ebe6e58e00d6f76" category="paragraph"><block ref="78059069f50fc7337ebe6e58e00d6f76" category="inline-link-macro-rx"></block></block>
+  <block id="8e93cfe6b3f3a84b64a6523ae8cccea3" category="paragraph"><block ref="8e93cfe6b3f3a84b64a6523ae8cccea3" category="inline-link-macro-rx"></block></block>
+  <block id="fcfe20aef6d913878ab9ad13252b4886" category="paragraph">Dies ist eine kleine Bug-Fix-Release.</block>
+  <block id="48127f9248c9afe5c8d6c85fe8b5ac8c" category="paragraph"><block ref="48127f9248c9afe5c8d6c85fe8b5ac8c" category="inline-link-macro-rx"></block></block>
+  <block id="1e86fa1c9e64183a87c8b72a8e927899" category="paragraph"><block ref="1e86fa1c9e64183a87c8b72a8e927899" category="inline-link-macro-rx"></block></block>
+  <block id="af6c8806f70a0231b2093b895ebc672c" category="paragraph"><block ref="af6c8806f70a0231b2093b895ebc672c" category="inline-link-macro-rx"></block></block>
+  <block id="d12350e462849507eeabdb08cb7776d0" category="paragraph"><block ref="d12350e462849507eeabdb08cb7776d0" category="inline-link-macro-rx"></block></block>
+  <block id="45cad2be488e432d792310b7d080cf00" category="paragraph"><block ref="45cad2be488e432d792310b7d080cf00" category="inline-link-macro-rx"></block></block>
+  <block id="275488d5bcb2b9e9af730e47d4740160" category="paragraph"><block ref="275488d5bcb2b9e9af730e47d4740160" category="inline-link-macro-rx"></block></block>
+  <block id="252d50f7e54eea40b30d8d14645cb492" category="paragraph"><block ref="252d50f7e54eea40b30d8d14645cb492" category="inline-link-macro-rx"></block></block>
+  <block id="65fd6614e1532540539a961087820a98" category="paragraph"><block ref="65fd6614e1532540539a961087820a98" category="inline-link-macro-rx"></block></block>
+  <block id="d42b75fe19dabf326e6063949f271820" category="list-text"><block ref="d42b75fe19dabf326e6063949f271820" category="inline-link-macro-rx"></block></block>
+  <block id="15f99de9fca4a87464f86c86d87cfca2" category="list-text"><block ref="15f99de9fca4a87464f86c86d87cfca2" category="inline-link-macro-rx"></block></block>
+  <block id="cb3c51843787890aaa87089f7bdb08f5" category="paragraph"><block ref="cb3c51843787890aaa87089f7bdb08f5" category="inline-link-macro-rx"></block></block>
+  <block id="c8f2cca68cde6f95fb2b8b711e37e65a" category="paragraph"><block ref="c8f2cca68cde6f95fb2b8b711e37e65a" category="inline-link-macro-rx"></block></block>
+  <block id="0d1390555a2169c822a86ca918b21b0f" category="paragraph"><block ref="0d1390555a2169c822a86ca918b21b0f" category="inline-link-macro-rx"></block></block>
+  <block id="048441a1433026f2d36f05c5940169c9" category="paragraph"><block ref="048441a1433026f2d36f05c5940169c9" category="inline-link-macro-rx"></block></block>
+  <block id="11d074237c052361a78d2013830a962f" category="paragraph"><block ref="11d074237c052361a78d2013830a962f" category="inline-link-macro-rx"></block></block>
+  <block id="980998f6472b1a8c9d73efb67dabafe1" category="paragraph"><block ref="980998f6472b1a8c9d73efb67dabafe1" category="inline-link-macro-rx"></block></block>
+  <block id="1e94f2e45dee621ae84f1a7b7c552a70" category="paragraph"><block ref="1e94f2e45dee621ae84f1a7b7c552a70" category="inline-link-macro-rx"></block></block>
+  <block id="972ef63b5c8121c2ac56c48029e25d34" category="paragraph"><block ref="cb94ef005338594c3c497df12c52626a" category="inline-link-macro-rx"></block>.</block>
+  <block id="bf177cc423c13a2a2b2c54e1fb65a7c1" category="paragraph"><block ref="489b409456c0f7bc458435cc853fa427" category="inline-link-macro-rx"></block>.</block>
+  <block id="ee37072224861228e5c0a3dd998234a5" category="paragraph"><block ref="5a02f44ba8c8e8e5387f6065f61f0da8" category="inline-link-macro-rx"></block>.</block>
+  <block id="dec5a46bd6cfa5c43e6553e520a0a69c" category="paragraph"><block ref="166107bbd72cf794988ebaebd1c8e8c2" category="inline-link-macro-rx"></block>.</block>
+  <block id="bfdc6d12952fad78facd1e94852759a3" category="paragraph"><block ref="a14820bea7a397e6be2434a9d285faab" category="inline-link-macro-rx"></block>.</block>
+  <block id="c673cd380fd204c071fbbe9ab6093305" category="paragraph"><block ref="4696e5fb4ee6218a3f53515814eb28d8" category="inline-link-macro-rx"></block>.</block>
+  <block id="e9cea3220da1647df30dfb6a29eb4de1" category="paragraph">Wenn Sie die Flexibilität haben, zwischen Google Cloud Regionen auszuwählen, wählen Sie je nach Performance-Anforderungen entweder CVS oder CVS-Performance. <block ref="3e4123586ab28c1a84ca430e681220b3" category="inline-link-macro-rx"></block>.</block>
+  <block id="3dde386e52ee79140b11e62252e39b49" category="list-text">Die Abrechnung ist jetzt verfügbar, sodass Sie vom Freiplan zum Premium-Plan wechseln können. <block ref="b344195451ae2e57f0e32003c4f1a80b" category="inline-link-macro-rx"></block>.</block>
 </blocks>

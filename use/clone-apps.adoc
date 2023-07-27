@@ -57,12 +57,6 @@ NOTE: Wenn Sie einem Ausführungs-Hook einen Namespace-Filter hinzufügen, der n
 NOTE: Astra Control erstellt im Rahmen des Klonvorgangs neue Ziel-Namespaces. Die angegebenen Ziel-Namespaces dürfen nicht bereits im Ziel-Cluster vorhanden sein.
 
 ** Wählen Sie *Weiter*.
-** Wählen Sie aus, ob Sie den Klon aus einem vorhandenen Snapshot oder einem vorhandenen Backup erstellen möchten. Wenn Sie diese Option nicht wählen, erstellt Astra Control den Klon aus dem aktuellen Status der App.
-+
-*** Wenn Sie aus einem vorhandenen Snapshot oder Backup klonen möchten, wählen Sie den Snapshot oder das Backup aus, den Sie verwenden möchten.
-
-
-** Wählen Sie *Weiter*.
 ** Wählen Sie aus, ob die der App zugeordnete ursprüngliche Storage-Klasse beibehalten oder eine andere Storage-Klasse ausgewählt werden soll.
 +
 
