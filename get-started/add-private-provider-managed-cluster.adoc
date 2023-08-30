@@ -163,6 +163,14 @@ endif::gcp[]
 
 Sie können den privaten Cluster jetzt dem Astra Control Service hinzufügen.
 
+Beachten Sie beim Management von Azure Kubernetes Service und Google Kubernetes Engine-Clustern, dass Ihnen zwei Optionen für die Installation und das Lifecycle Management von Astra Trident zur Verfügung stehen:
+
+* Sie können Astra Control Service für das automatische Management des Lebenszyklus von Astra Trident verwenden. Vergewissern Sie sich dazu, dass Astra Trident nicht auf dem Cluster installiert ist, den Sie mit Astra Control Service managen möchten. In diesem Fall installiert Astra Trident automatisch Astra Trident, sobald Sie das Cluster Management beginnen. Astra Trident Upgrades werden automatisch verarbeitet.
+* Sie können den Lebenszyklus von Astra Trident selbst managen. Installieren Sie dazu Astra Trident auf dem Cluster, bevor Sie das Cluster mit Astra Control Service verwalten. In diesem Fall erkennt Astra Control Service, dass Astra Trident bereits installiert ist, und installiert es nicht neu oder managt Astra Trident Upgrades nicht. Siehe https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident-Dokumentation"^] Für Installationsanweisungen.
+
+
+Wenn Sie Amazon Web Services Cluster mit Astra Control Service managen, müssen Sie Astra Trident manuell auf dem Cluster installieren, bevor Sie es mit Astra Control Service managen. Siehe https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident-Dokumentation"^] Für Installationsanweisungen.
+
 .Bevor Sie beginnen
 [%collapsible%open]
 ====
@@ -206,6 +214,8 @@ endif::gcp[]
 
 ====
 .Schritte
+. (Optional) Wenn Sie einen Amazon EKS Cluster hinzufügen oder die Installation und die Upgrades von Astra Trident selbst managen möchten, installieren Sie Astra Trident auf dem Cluster. Siehe https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident-Dokumentation"^] Für Installationsanweisungen.
+. Öffnen Sie die Web-UI des Astra Control Service in einem Browser.
 . Wählen Sie im Dashboard *Kubernetes Cluster managen* aus.
 +
 Befolgen Sie die Aufforderungen zum Hinzufügen des Clusters.
