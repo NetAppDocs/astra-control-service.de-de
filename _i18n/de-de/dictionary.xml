@@ -250,13 +250,8 @@
   <block id="18b73e29f7da6f9330f1f9e4d3b28341" category="section-title">Installieren Sie den Astra Connector Operator</block>
   <block id="756856619863426af3279d53a81b018d" category="list-text">Klonen des GitHub-Repositorys des Astra Connector-Betreibers:</block>
   <block id="a968d335ed6555127f3fbdb020cecd5f" category="list-text">Ändern Sie die Verzeichnisse auf die oberste Ebene des entpackten Bedienerpakets, damit Sie die sehen können<block ref="f101e04500a8c699d435a8cc7d56f891" prefix=" " category="inline-code"></block> Datei mit<block ref="44ba5ca65651b4f36f1927576dd35436" prefix=" " category="inline-code"></block> Befehl.</block>
-  <block id="37d0b0adf169e682e19c955d0cd73c29" category="list-text">Erstellen Sie einen Namespace für den Astra Connector Operator.</block>
-  <block id="38da14ec20cf0841c7dc45fab0adbf07" category="list-text">Anwenden des<block ref="f101e04500a8c699d435a8cc7d56f891" prefix=" " category="inline-code"></block> Datei zum Namespace des Bedieners.</block>
-  <block id="48812784c9e7b02bc76402c5a0c3ca10" category="list-text">Erstellen Sie einen Namespace für die privaten Clusterkomponenten.</block>
   <block id="e36d851dc2ff79e16c7cfbbb4e4fbe97" category="inline-link">Dokumentation von Astra Automation</block>
   <block id="e9c498c38ce73fcff282ff152abd7d47" category="list-text">Generieren Sie mithilfe der Anweisungen im ein Astra Control API-Token<block ref="c02899be0babfb1350e3b2576a6e8c97" category="inline-link-rx"></block>.</block>
-  <block id="f831baeb7ae8c560addc2916d8b1096e" category="list-text">Wenden Sie die Astra Connector Custom Resource Definition (CRD) an.</block>
-  <block id="138db2318815f6b9fc7cc55dd6a6ad32" category="list-text">Überprüfen Sie den Status des Astra Connectors.</block>
   <block id="d0848afd8553c34945705222a97a4553" category="paragraph">Sie sollten eine Ausgabe wie die folgende sehen:</block>
   <block id="61ddd26ba79b5e63c1e52be1beb28889" category="section-title">Einrichtung von persistentem Storage</block>
   <block id="87716101cfca255da11056a624dbce47" category="inline-link">Richten Sie Microsoft Azure mit von Azure gemanagten Festplatten ein</block>
@@ -2225,4 +2220,8 @@ RKE 2 (v1.24.x) mit Rancher 2.7</block>
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="3c873407a87c44620e1fc922d17cba7d" category="list-text">Anwenden des<block ref="f101e04500a8c699d435a8cc7d56f891" prefix=" " category="inline-code"></block> Datei: Wenn Sie diesen Befehl ausführen, wird der korrekte Namespace für den Astra Connector-Operator erstellt und die Konfiguration auf den Namespace angewendet:</block>
+  <block id="40fcdcafdc66ab23541a6bf36b499c0f" category="list-text">Erstellen Sie einen Namespace für die privaten Clusterkomponenten:</block>
+  <block id="f285f679ba0c90d91ce807d87ad3a50e" category="list-text">Anwenden der Astra Connector Custom Resource Definition (CRD):</block>
+  <block id="c642f3e0823bc0255f23532494f80829" category="list-text">Überprüfen Sie den Status des Astra Connectors:</block>
 </blocks>
