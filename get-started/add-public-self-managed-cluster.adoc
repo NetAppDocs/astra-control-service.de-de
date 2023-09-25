@@ -79,6 +79,12 @@ Ihr Self-Managed-Cluster muss folgende Anforderungen erfüllen:
 * Der Cluster kann nicht in Ihrem On-Premises-Netzwerk gehostet werden, sondern muss in einer Public-Cloud-Umgebung gehostet werden.
 * Wenn Sie Speicher mit CSI-Treibern verwenden oder planen, diese zu verwenden, müssen auf dem Cluster die entsprechenden CSI-Treiber installiert sein. Weitere Informationen zur Verwendung von CSI-Treibern zur Integration von Speicher finden Sie in der Dokumentation Ihres Speicherservices.
 * Sie haben Zugriff auf die Cluster-Datei kubeconfig, die nur ein Kontextelement enthält. Folgen link:create-kubeconfig.html["Diese Anweisungen"^] Um eine kubeconfig-Datei zu erzeugen.
+* Wenn Sie den Cluster mit einer kubeconfig-Datei hinzufügen, die auf eine private Zertifizierungsstelle verweist, fügen Sie der folgende Zeile hinzu `cluster` Abschnitt der Datei kubeconfig. So kann Astra Control das Cluster hinzufügen:
++
+[listing]
+----
+insecure-skip-tls-verify: true
+----
 * *Rancher only*: Ändern Sie beim Verwalten von Anwendungsclustern in einer Rancher-Umgebung den Standardkontext des Anwendungsclusters in der von Rancher bereitgestellten kubeconfig-Datei, um einen Steuerebenen-Kontext anstelle des Rancher API-Serverkontexts zu verwenden. So wird die Last auf dem Rancher API Server reduziert und die Performance verbessert.
 * *Astra Trident*: Wenn Sie NetApp Storage nutzen oder planen, stellen Sie sicher, dass Sie die neueste Version von Astra Trident installiert haben. Wenn Astra Trident bereits installiert ist, link:check-astra-trident-version.html["Vergewissern Sie sich, dass es sich um die neueste Version handelt"^].
 +
