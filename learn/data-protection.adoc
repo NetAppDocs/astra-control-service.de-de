@@ -39,6 +39,24 @@ NOTE: Wenn Sie einen Snapshot oder eine Sicherung durchführen, aber der Vorgang
 
 
 
+=== Unveränderliche Backups
+
+Der Astra Control Service unterstützt das Erstellen unveränderlicher Backups mit den folgenden Plattformen und Bucket-Typen:
+
+* Amazon Web Services verwenden einen Amazon S3 Bucket mit konfigurierter S3 Object Lock
+* Microsoft Azure verwendet einen Azure-Bucket mit konfigurierter Aufbewahrungsrichtlinie
+* Google Kubernetes Engine (GKE), die einen Google Cloud Storage-Bucket mit konfigurierter Aufbewahrungsrichtlinie verwendet
+* NetApp StorageGRID mithilfe eines S3 Buckets mit konfigurierter S3 Object Lock-Funktion
+
+
+Beachten Sie beim Arbeiten mit unveränderlichen Backups Folgendes:
+
+* Wenn ein Backup in einem WORM-Bucket (Write Once Read Many) auf einer nicht unterstützten Plattform oder auf einem nicht unterstützten Bucket-Typ durchgeführt wird, können unvorhersehbare Ergebnisse wie das Löschen der Sicherung sogar dann angezeigt werden, wenn die Aufbewahrungszeit abgelaufen ist.
+* Astra Control unterstützt keine Management-Richtlinien für den Daten-Lebenszyklus oder das manuelle Löschen von Objekten in den Buckets, die Sie mit unveränderlichen Backups verwenden. Stellen Sie sicher, dass Ihr Storage-Backend nicht für das Management des Lebenszyklus von Astra Control Snapshots oder gesicherten Daten konfiguriert ist.
+
+
+
+
 == Klone
 
 Ein _Clone_ ist ein exaktes Duplikat einer App, ihrer Konfiguration und ihrer persistenten Daten-Volumes. Sie können einen Klon entweder manuell auf demselben Kubernetes-Cluster oder auf einem anderen Cluster erstellen. Das Klonen einer Applikation kann nützlich sein, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen.

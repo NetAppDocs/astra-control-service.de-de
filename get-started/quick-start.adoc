@@ -73,7 +73,8 @@ link:set-up-microsoft-azure-with-amd.html["Erfahren Sie mehr über die von Micro
 
 endif::azure[]
 
-Wenn Sie ein eigenes Cluster managen und nicht von einem Cloud-Provider gehostet werden, prüfen Sie die Anforderungen für Self-Managed Cluster.link:add-first-cluster.html#start-managing-kubernetes-clusters["Erfahren Sie mehr über Self-Managed-Cluster-Anforderungen"].
+Wenn Sie ein eigenes Cluster managen und nicht von einem Cloud-Provider gehostet werden, prüfen Sie die Anforderungen für Self-Managed Cluster.
+link:add-first-cluster.html["Erfahren Sie mehr über Self-Managed-Cluster-Anforderungen"].
 
 
 

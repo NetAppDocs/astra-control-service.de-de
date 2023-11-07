@@ -8,7 +8,7 @@ summary: Diese FAQ kann Ihnen helfen, wenn Sie nur nach einer schnellen Antwort 
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ../media/use/
 
 
 [role="lead"]
@@ -48,11 +48,11 @@ Ja. Nach dem Upgrade auf den Premium-Plan beginnt Astra Control Sie mit dem Aufl
 
 *Mitte eines Monats habe ich einen Upgrade auf den Premium PAYGO Plan durchgeführt. Werde ich den ganzen Monat in Rechnung stellen?*
 
-Nein. Die Abrechnung beginnt mit dem Zeitpunkt, an dem Sie auf den Premium-Plan aktualisiert haben.
+Nein Die Abrechnung beginnt mit dem Zeitpunkt, zu dem Sie ein Upgrade auf den Premium-Plan durchgeführt haben.
 
 *Ich verwende den Freiplan, wird mir die Persistent Volume Claims berechnet?*
 
-Ja, die von den Clustern Ihres Cloud-Providers verwendeten persistenten Volumes werden Ihnen Rechnung gestellt.
+Ja, Sie werden von Ihrem Cloud-Provider für die persistenten Volumes berechnet, die von den Clustern verwendet werden.
 
 
 
@@ -102,7 +102,7 @@ ifdef::gcp[]
 
 *Kann ich einen privaten GKE-Cluster zum Astra Control Service hinzufügen?*
 
-Ja, Sie können private GKE-Cluster zum Astra Control Service hinzufügen.  Informationen zum Hinzufügen eines privaten GKE-Clusters finden Sie unter link:add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"].
+Ja, Sie können private GKE-Cluster zum Astra Control Service hinzufügen. Informationen zum Hinzufügen eines privaten GKE-Clusters finden Sie unter link:add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"].
 
 Private GKE-Cluster müssen über den verfügen https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept["Autorisierte Netzwerke"^] Einstellen, um die Astra Control-IP-Adresse zuzulassen:
 
@@ -110,7 +110,7 @@ Private GKE-Cluster müssen über den verfügen https://cloud.google.com/kuberne
 
 *Kann mein GKE-Cluster auf einem gemeinsamen VPC residieren?*
 
-Ja, Astra Control kann Cluster managen, die in einer gemeinsamen VPC residieren. link:set-up-google-cloud.html["Erfahren Sie, wie Sie den Astra-Service-Account für eine Shared VPC-Konfiguration einrichten"].
+Ja. Astra Control kann Cluster managen, die sich in einer gemeinsam genutzten VPC befinden. link:set-up-google-cloud.html["Erfahren Sie, wie Sie den Astra-Service-Account für eine Shared VPC-Konfiguration einrichten"].
 
 *Wo finde ich meine Service-Konto-Anmeldeinformationen auf GCP?*
 
@@ -192,4 +192,78 @@ Ja. Ein Snapshot-Vorgang auf einer Anwendung von Astra Control umfasst die Momen
 
 *Kann ich die von Astra Control erstellten Snapshots direkt über meinen Cloud-Provider managen?*
 
-Nein Snapshots und Backups von Astra Control können nur mit Astra Control verwaltet werden.
+Nein Von Astra Control angenommene Snapshots und Backups können nur mit Astra Control gemanagt werden.
+
+
+
+== Astra Control Provisioner
+
+*Wie unterscheiden sich die Funktionen zur Storage-Bereitstellung von Astra Control von denen in Astra Trident?*
+
+Astra Control Provisioner unterstützt als Teil von Astra Control übergeordnete Funktionen für die Storage-Bereitstellung, die in Open-Source-Funktionen von Astra Trident nicht verfügbar sind. Diese Funktionen stehen zusätzlich zu allen Features, die für den Open-Source-Trident zur Verfügung stehen.
+
+*Ersetzt Astra Control Provisioner Astra Trident?*
+
+Bei den nächsten Updates für Astra Control wird der Provisioner Astra Trident als Storage-bereitstellung und -Orchestrierung in der Architektur von Astra Control ersetzen. Aus diesem Grund ist es sehr empfehlenswert, Astra Control Benutzer link:../use/enable-acp.html["Astra Control Provisioner aktivieren"]. Astra Trident wird weiterhin Open Source bleiben und mit neuen CSI- und anderen Funktionen von NetApp veröffentlicht, gepflegt, unterstützt und auf dem neuesten Stand sein.
+
+*Muss ich für Astra Trident bezahlen?*
+
+Nein Astra Trident ist weiterhin Open-Source-Software und kann kostenlos heruntergeladen werden.
+
+*Kann ich die Funktionen zur Speicherverwaltung und Bereitstellung in Astra Control nutzen, ohne Astra Control zu installieren und zu verwenden?*
+
+Ja, Sie können ein Upgrade auf Astra Trident 23.10 oder höher durchführen und die Astra Control Provisioner-Funktion aktivieren, selbst wenn Sie nicht den gesamten Funktionsumfang des Astra Control Datenmanagements nutzen möchten.
+
+*Wie kann ich von einem vorhandenen Trident-Benutzer zu Astra Control wechseln, um erweiterte Storage-Management- und Bereitstellungsfunktionen zu nutzen?*
+
+Wenn Sie bereits Trident verwenden (einschließlich Benutzer von Astra Trident in der Public Cloud), müssen Sie zuerst eine Astra Control Lizenz erwerben. Anschließend können Sie das Bundle für Astra Control Provisioner herunterladen, das Upgrade von Astra Trident und durchführen link:../use/enable-acp.html["Aktivieren Sie die Funktionen für die Astra Control Provisionierung"].
+
+*Wie kann ich feststellen, ob Astra Control Provisioner Astra Trident in meinem Cluster ersetzt hat?*
+
+Nach der Installation von Astra Control Provisioner wird für das Host-Cluster in der Astra Control UI ein angezeigt `ACP version` Und nicht `Trident version` Feld und aktuelle installierte Versionsnummer.
+
+image:ac-acp-version.png["Ein Screenshot, der den Speicherort der ACP-Version in der Benutzeroberfläche darstellt"]
+
+Wenn Sie keinen Zugriff auf die Benutzeroberfläche haben, können Sie die erfolgreiche Installation mithilfe der folgenden Methoden bestätigen:
+
+[role="tabbed-block"]
+====
+.Astra Trident Betreiber
+--
+Überprüfen Sie die `trident-acp` Container läuft und das `acpVersion` Ist `23.10.0` Mit dem Status `Installed`:
+
+[listing]
+----
+kubectl get torc -o yaml
+----
+Antwort:
+
+[listing]
+----
+status:
+  acpVersion: 23.10.0
+  currentInstallationParams:
+    ...
+    acpImage: <my_custom_registry>/trident-acp:v23.10.0
+    enableACP: "true"
+    ...
+  ...
+  status: Installed
+----
+--
+.Tridentctl
+--
+Aktivieren Sie die Astra Control Provisioner-Funktion:
+
+[listing]
+----
+./tridentctl -n trident version
+----
+Antwort:
+
+[listing]
+----
++----------------+----------------+-------------+ | SERVER VERSION | CLIENT VERSION | ACP VERSION | +----------------+----------------+-------------+ | 23.10.0 | 23.10.0 | 23.10.0. | +----------------+----------------+-------------+
+----
+--
+====

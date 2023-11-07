@@ -26,127 +26,40 @@ Mit Astra Control Service können Sie folgende Arten von privaten, selbst gemana
 | Kubernetes-Distribution | Unterstützte Versionen 
 
 
-| Azure Kubernetes Service für Azure Stack HCI | Azure Stack HCI 21H2 und 22H2 mit AKS 1.23 und 1.24 
+| Azure Kubernetes Service für Azure Stack HCI | Azure Stack HCI 21H2 und 22H2 mit AKS 1.24.x und 1.25.x 
 
 
-| Google Anthos | 1.12 bis 1.14 
+| Google Anthos | 1.15 bis 1.16 
 
 
-| Kubernetes (Vorgelagert) | 1.24 bis 1.26 (für Kubernetes 1.25 oder neuer ist Astra Trident 22.10 oder neuer erforderlich) 
+| Kubernetes (Vorgelagert) | 1.26 bis 1.28 
 
 
-| Rancher Kubernetes Engine (RKE) | RKE 1.3 mit Rancher 2.6
-RKE 1.4 mit Rancher 2.7
-RKE 2 (v1.23.x) mit Rancher 2.6
-RKE 2 (v1.24.x) mit Rancher 2.7 
+| Rancher Kubernetes Engine (RKE) | RKE 1.3 mit Rancher Manager 2.6
+RKE 1.4 mit Rancher Manager 2.7
+RKE 2 (v1.24.x) mit Rancher 2.6
+RKE 2 (v1.26.x) mit Rancher 2.7 
 
 
-| Red hat OpenShift Container Platform | 4.10 bis 4.12 
+| Red hat OpenShift Container Platform | 4.11 bis 4.13 
 
 
-| VMware Tanzu Kubernetes Grid | 1.6 
-
-
-| VMware Tanzu Kubernetes Grid Integrated Edition | 1.14 und 1.15 
+| VMware Tanzu Kubernetes Grid Integrated Edition | 1.16.x 
 |===
 In diesen Anweisungen wird davon ausgegangen, dass Sie bereits einen privaten Cluster erstellt und eine sichere Methode für den Remote-Zugriff darauf vorbereitet haben.
 
 Führen Sie die folgenden Aufgaben aus, um Ihren privaten Cluster zum Astra Control Service hinzuzufügen:
 
-* <<Installieren Sie den Astra Connector Operator>>
-* <<Einrichtung von persistentem Storage>>
-* <<Fügen Sie den privaten, selbst gemanagten Cluster zum Astra Control Service hinzu>>
+. <<Astra Connector Installieren>>
+. <<Einrichtung von persistentem Storage>>
+. <<Fügen Sie den privaten, selbst gemanagten Cluster zum Astra Control Service hinzu>>
 
 
 
 
-== Installieren Sie den Astra Connector Operator
+== Astra Connector Installieren
 
-Sie müssen den Astra Connector Operator auf dem privaten Cluster installieren. Wenn Sie einen Bastion-Host verwenden, geben Sie diese Befehle über die Befehlszeile des Bastion-Hosts aus.
-
-.Schritte
-. Klonen des GitHub-Repositorys des Astra Connector-Betreibers:
-+
-[source, console]
-----
-git clone https://github.com/NetApp/astra-connector-operator.git
-----
-. Ändern Sie die Verzeichnisse auf die oberste Ebene des entpackten Bedienerpakets, damit Sie die sehen können `astraconnector_operator.yaml` Datei mit `ls` Befehl.
-. Anwenden des `astraconnector_operator.yaml` Datei: Wenn Sie diesen Befehl ausführen, wird der korrekte Namespace für den Astra Connector-Operator erstellt und die Konfiguration auf den Namespace angewendet:
-+
-[source, console]
-----
-kubectl apply -f astraconnector_operator.yaml
-----
-. Erstellen Sie einen Namespace für die privaten Clusterkomponenten:
-+
-[source, console]
-----
-kubectl create ns astra-connector
-----
-. Generieren Sie mithilfe der Anweisungen im ein Astra Control API-Token https://docs.netapp.com/us-en/astra-automation/get-started/get_api_token.html["Dokumentation von Astra Automation"^].
-. Ändern Sie die Beispielkonfigurationsdatei im Verzeichnis config/Samples des Astra Connector Operator Repository, um Werte für die folgenden Schlüssel in Ihre Umgebung aufzunehmen:
-+
-** `spec.natssync-client.cloud-bridge-url`
-** `spec.astra.token`
-** `spec.astra.clusterName`
-+
-
-NOTE: `spec.astra.clusterName` Wird nur benötigt, wenn Sie einen privaten AKS-Cluster importieren und die kubeconfig-Datei nicht an den Astra Control Service bereitstellen. Entfernen Sie diese Zeile, wenn dies nicht der Fall ist.
-
-** `spec.astra.accountId`
-+
-Beispiel:
-
-+
-[listing]
-----
-apiVersion: netapp.astraconnector.com/v1
-kind: AstraConnector
-metadata:
-  name: astra-connector
-spec:
-  natssync-client:
-    image: natssync-client:2.0
-    cloud-bridge-url: https://<your.astra.control.service.url>
-  nats:
-    image: nats:2.6.1-alpine3.14
-  httpproxy-client:
-    image: httpproxylet:2.0
-  echo-client:
-    image: echo-proxylet:2.0
-  imageRegistry:
-    name: theotw
-  astra:
-    token: <Astra Control API token>
-    clusterName: <your-private-AKS-cluster-name>
-    accountId: <Astra Control account id>
-    acceptEULA: yes
-----
-
-
-. Anwenden der Astra Connector Custom Resource Definition (CRD):
-+
-[source, console]
-----
-kubectl apply -f config/samples/astraconnector_v1.yaml -n astra-connector
-----
-. Überprüfen Sie den Status des Astra Connectors:
-+
-[source, console]
-----
-kubectl get astraconnector astra-connector -n astra-connector
-----
-+
-Sie sollten eine Ausgabe wie die folgende sehen:
-
-+
-[source, console]
-----
-NAME              REGISTERED   ASTRACONNECTORID
-astra-connector   true         22b839aa-8b85-445a-85dd-0b1f53b5ea19
-----
-
+Bevor Sie einen privaten Cluster hinzufügen, müssen Sie Astra Connector im Cluster installieren, damit Astra Control damit kommunizieren kann. Siehe link:install-astra-connector.html["Astra Connector für private Cluster installieren"] Weitere Anweisungen.
 
 
 
@@ -197,7 +110,6 @@ Astra Control Service unterstützt selbst gemanagte Cluster, die die folgenden K
 Ihr Self-Managed-Cluster muss folgende Anforderungen erfüllen:
 
 * Der Cluster muss über das Internet zugänglich sein.
-* Der Cluster kann nicht in Ihrem On-Premises-Netzwerk gehostet werden, sondern muss in einer Public-Cloud-Umgebung gehostet werden.
 * Wenn Sie Speicher mit CSI-Treibern verwenden oder planen, diese zu verwenden, müssen auf dem Cluster die entsprechenden CSI-Treiber installiert sein. Weitere Informationen zur Verwendung von CSI-Treibern zur Integration von Speicher finden Sie in der Dokumentation Ihres Speicherservices.
 * Sie haben Zugriff auf die Cluster-Datei kubeconfig, die nur ein Kontextelement enthält. Folgen link:create-kubeconfig.html["Diese Anweisungen"^] Um eine kubeconfig-Datei zu erzeugen.
 * Wenn Sie den Cluster mit einer kubeconfig-Datei hinzufügen, die auf eine private Zertifizierungsstelle verweist, fügen Sie der folgende Zeile hinzu `cluster` Abschnitt der Datei kubeconfig. So kann Astra Control das Cluster hinzufügen:
@@ -213,7 +125,7 @@ insecure-skip-tls-verify: true
 NOTE: Das können Sie https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#choose-the-deployment-method["Implementieren Sie Astra Trident"^] Mit dem Trident-Operator (manuell oder mit Hilfe des Helm-Diagramms) oder `tridentctl`. Vor der Installation oder dem Upgrade von Astra Trident sollten Sie sich die https://docs.netapp.com/us-en/trident/trident-get-started/requirements.html["Unterstützte Frontends, Back-Ends und Host-Konfigurationen"^].
 
 +
-** *Astra Trident Storage-Backend konfiguriert*: Es muss mindestens ein Astra Trident Storage-Backend sein https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["Konfiguriert"^] Auf dem Cluster.
+** *Astra Trident Storage-Backend konfiguriert*: Es muss mindestens ein Astra Trident Storage-Backend sein https://docs.netapp.com/us-en/trident/trident-use/backends.html["Konfiguriert"^] Auf dem Cluster.
 ** *Konfigurierte Astra Trident Storage-Klassen*: Es muss mindestens eine Astra Trident Storage-Klasse sein https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Konfiguriert"^] Auf dem Cluster. Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass nur eine Storage-Klasse diese Annotation aufweist.
 ** *Astra Trident Volume Snapshot Controller und Volume Snapshot Klasse installiert und konfiguriert*: Der Volume Snapshot Controller muss sein https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installiert"^] Damit Snapshots in Astra Control erstellt werden können. Mindestens ein Astra Trident `VolumeSnapshotClass` Gewesen https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass["Einrichtung"^] Durch einen Administrator.
 
@@ -221,6 +133,9 @@ NOTE: Das können Sie https://docs.netapp.com/us-en/trident/trident-get-started/
 
 
 ====
+* *Astra Control Provisioner*: Um die erweiterten Management- und Storage-Bereitstellungsfunktionen von Astra Control verwenden zu können, die nur Benutzern von Astra Control zur Verfügung stehen, müssen Sie Astra Trident 23.10 oder höher installieren und aktivieren link:../use/enable-acp.html["Funktionen für die Astra Control Provisioner"].
+
+
 .Schritte
 . Wählen Sie im Dashboard *Kubernetes Cluster managen* aus.
 +
@@ -233,7 +148,7 @@ Befolgen Sie die Aufforderungen zum Hinzufügen des Clusters.
 NOTE: Wenn Sie Ihre eigenen erstellen `kubeconfig` Datei, Sie sollten nur ein *ein*-Kontext-Element darin definieren. Siehe https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes-Dokumentation"^] Weitere Informationen zum Erstellen `kubeconfig` Dateien:
 
 . *Credential Name*: Geben Sie einen Namen für die selbstverwalteten Cluster-Zugangsdaten ein, die Sie auf Astra Control hochladen. Standardmäßig wird der Name der Anmeldeinformationen automatisch als Name des Clusters ausgefüllt.
-. *Private Route Identifier*: Geben Sie die private Route Identifier ein, die Sie vom Astra Connector erhalten können. Wenn Sie den Astra Connector über die abfragen `kubectl get` Die Kennung der privaten Route wird als bezeichnet `ASTRACONNECTORID`.
+. *Private Route Identifier*: Geben Sie die private Route Identifier ein, die Sie vom Astra Connector erhalten können. Wenn Sie den Astra Connector über die abfragen `kubectl get astraconnector -n astra-connector` Die Kennung der privaten Route wird als bezeichnet `ASTRACONNECTORID`.
 +
 
 NOTE: Die Private-Route-ID ist der Name, der dem Astra Connector zugeordnet ist. Damit kann ein privates Kubernetes-Cluster von Astra gemanagt werden. In diesem Kontext ist ein privates Cluster ein Kubernetes-Cluster, das seinen API-Server nicht zum Internet bereitstellt.

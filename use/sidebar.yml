@@ -46,5 +46,7 @@ entries:
     url: "/use/close-account.html"
 - title: Managen Sie Cloud-Instanzen
   url: "/use/manage-cloud-instances.html"
+- title: Astra Control Provisioner Aktivieren
+  url: "/use/enable-acp.html"
 - title: Heben Sie das Management von Applikationen und Clustern auf
   url: "/use/unmanage.html"

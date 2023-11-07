@@ -12,13 +12,13 @@ summary: Nachdem Sie mit dem Management einer Applikation begonnen haben, stellt
 
 
 [role="lead"]
-Nachdem Sie mit dem Management einer Applikation begonnen haben, stellt Astra Control Details zur App bereit, mit der Sie ihren Status (unabhängig davon, ob sie sich gesund ist), ihren Sicherungsstatus (ob sie im Falle eines Ausfalls vollständig geschützt ist), die Behälter, den persistenten Storage und vieles mehr ermitteln können.
+Astra Control bietet nach dem Management einer App Details zu der App, mit der Sie den Kommunikationsstatus (ob Astra Control mit der App kommunizieren kann), den Sicherungsstatus (unabhängig davon, ob die App bei Ausfällen vollständig geschützt ist), die Pods, persistenten Storage usw. ermitteln können.
 
 .Schritte
 . Wählen Sie *Anwendungen* und dann den Namen einer App aus.
 . Hier finden Sie die gewünschten Informationen:
 +
-Anwendungsstatus:: Gibt einen Status an, der den Status der App in Kubernetes wiedergibt.
+Anwendungsstatus:: Zeigt einen Status an, der angibt, ob Astra Control mit der Applikation kommunizieren kann.
 App-Schutzstatus:: Gibt den Status an, wie gut die App geschützt ist:
 +
 --

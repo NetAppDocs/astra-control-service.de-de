@@ -1,0 +1,8 @@
+---
+section: use-acp
+title: Verwenden Sie Astra Control Provisioner
+entries:
+- title: Konfiguration der Storage-Back-End-Verschlüsselung
+  url: "/use-acp/configure-storage-backend-encryption.html"
+- title: Wiederherstellen von Volume-Daten mithilfe eines Snapshots
+  url: "/use-acp/acp-snap-restore.html"

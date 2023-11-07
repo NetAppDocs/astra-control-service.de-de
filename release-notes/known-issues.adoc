@@ -23,6 +23,9 @@ Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
 .Backup, Wiederherstellung und Klonen
 * <<Applikationsklone können nicht mit einer bestimmten Version von PostgreSQL verwendet werden>>
 * <<App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird>>
+* <<Vorgänge zur Wiederherstellung nach ontap-nas-Economy-Storage-Klassen schlagen fehl>>
+* <<Die Wiederherstellung aus einem Backup bei Verwendung der Kerberos-Verschlüsselung während der Übertragung kann fehlschlagen>>
+* <<Backup-Daten bleiben nach dem Löschen von Buckets mit abgelaufener Aufbewahrungsrichtlinie im Bucket erhalten>>
 
 
 .Andere Probleme
@@ -46,6 +49,30 @@ App-Klone innerhalb desselben Clusters schlagen konsequent mit dem Bitnami Postg
 == App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird
 
 Backups und Snapshots schlagen in diesem Szenario mit einem UI 500-Fehler fehl. Aktualisieren Sie die App-Liste als Workaround.
+
+
+
+== Vorgänge zur Wiederherstellung nach ontap-nas-Economy-Storage-Klassen schlagen fehl
+
+Wenn Sie eine in-Place-Wiederherstellung einer Anwendung durchführen (die App in ihren ursprünglichen Namespace wiederherstellen) und die Storage-Klasse der App den verwendet `ontap-nas-economy` Treiber, der Wiederherstellungsvorgang kann fehlschlagen, wenn das Snapshot-Verzeichnis nicht ausgeblendet ist. Befolgen Sie vor der Wiederherstellung vor Ort die Anweisungen unter link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Backup und Restore für den wirtschaftlichen Betrieb von ontap-nas"^] Um das Snapshot-Verzeichnis auszublenden.
+
+
+
+== Die Wiederherstellung aus einem Backup bei Verwendung der Kerberos-Verschlüsselung während der Übertragung kann fehlschlagen
+
+Wenn Sie eine Anwendung von einem Backup auf einem Speicher-Back-End wiederherstellen, das Kerberos in-Flight-Verschlüsselung verwendet, kann der Wiederherstellungsvorgang fehlschlagen. Dieses Problem hat keine Auswirkung auf die Wiederherstellung von einem Snapshot oder die Replizierung der Applikationsdaten mit NetApp SnapMirror.
+
+
+NOTE: Wenn Sie Kerberos-Verschlüsselung während der Übertragung mit NFSv4-Volumes verwenden, stellen Sie sicher, dass die NFSv4-Volumes die richtigen Einstellungen verwenden. Weitere Informationen finden Sie im Abschnitt NetApp NFSv4-Domänenkonfiguration (Seite 13) des https://www.netapp.com/media/16398-tr-3580.pdf["NetApp Leitfaden zu NFSv4-Verbesserungen und Best Practices"^].
+
+
+
+== Backup-Daten bleiben nach dem Löschen von Buckets mit abgelaufener Aufbewahrungsrichtlinie im Bucket erhalten
+
+Wenn Sie das unveränderliche Backup einer App löschen, nachdem die Aufbewahrungsrichtlinie für den Bucket abgelaufen ist, wird das Backup aus Astra Control gelöscht, nicht jedoch aus dem Bucket. Um dies zu umgehen, entfernen Sie die Backups manuell aus dem Speicher-Back-End, wenn Sie die neuesten Backups oder alle Backups für eine Anwendung löschen müssen.
+
+
+NOTE: Wenn Sie mehr als ein Backup für eine App haben, entfernen Sie entweder die letzten Backups oder alle Backups für die App. Wenn Sie alle mittleren inkrementellen Backups entfernen, können Sie die App nicht von der letzten Sicherung wiederherstellen.
 
 
 

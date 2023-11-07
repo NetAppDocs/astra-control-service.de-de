@@ -4,7 +4,7 @@ permalink: release-notes/whats-new.html
 keywords: 'what"s new, bugs, bug fixes, new features, enhancements' 
 summary: NetApp aktualisiert regelmäßig den Astra Control Service, um Ihnen neue Funktionen, Verbesserungen und Fehlerbehebungen zu bieten. 
 ---
-= Was ist neu bei Astra Control Service
+= Neuerungen bei Astra Control Service
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -13,6 +13,44 @@ summary: NetApp aktualisiert regelmäßig den Astra Control Service, um Ihnen ne
 
 [role="lead"]
 NetApp aktualisiert regelmäßig den Astra Control Service, um Ihnen neue Funktionen, Verbesserungen und Fehlerbehebungen zu bieten.
+
+
+
+== Bis 7. November 2023
+
+[[nas-eco-backup-restore]]
+.Neue Funktionen und Support
+* *Backup- und Restore-Funktionen für Applikationen mit ontap-nas-Economy Treiber-Backends*: Aktivieren Sie Backup- und Restore-Vorgänge für `ontap-nas-economy` Mit einigen link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Einfache Schritte"^].
+* *Astra Control Service Support für lokale Red hat OpenShift Container Platform Cluster*
++
+link:../use/restore-apps.html["Fügen Sie einen Cluster hinzu"^]
+
+* *Unveränderliche Backups*: Astra Control unterstützt jetzt link:../concepts/data-protection.html#immutable-backups["Unveränderbare, schreibgeschützte Backups"^] Als zusätzliche Sicherheitsschicht gegen Malware und andere Bedrohungen.
+* *Neu: Astra Control Provisioner*
++
+In der Version 23.10 hat Astra Control eine neue Software-Komponente namens Astra Control Provisioner eingeführt, die für alle lizenzierten Astra Control Benutzer verfügbar sein wird. Mit Astra Control Provisioner erhalten Sie Zugriff auf umfassende Funktionen für erweitertes Management und Storage-Bereitstellung, die über den Funktionsumfang von Astra Trident hinausgehen. Diese Funktionen sind für alle Astra Control Kunden ohne zusätzliche Kosten verfügbar.
+
++
+** *Erste Schritte mit Astra Control Provisioner*
+Das können Sie link:../use/enable-acp.html["Astra Control Provisioner aktivieren"^] Falls Sie Ihre Umgebung installiert und konfiguriert haben, um Astra Trident 23.10 zu verwenden.
+** *Astra Control Provisioner-Funktionalität*
++
+Die Version 23.10 von Astra Control Provisioner bietet folgende Funktionen:
+
++
+*** *Verbesserte Sicherheit des Speicher-Backends mit Kerberos 5-Verschlüsselung*: Sie können die Speichersicherheit durch verbessern link:../use-acp/configure-storage-backend-encryption.html["Aktivieren der Verschlüsselung"^] Für den Datenverkehr zwischen dem gemanagten Cluster und dem Storage-Backend. Astra Control Provisioner unterstützt Kerberos-5-Verschlüsselung über NFSv4.1-Verbindungen von Red hat OpenShift-Clustern zu Azure NetApp Files und lokalen ONTAP-Volumes.
+*** *Wiederherstellen von Daten mit einem Snapshot*: Astra Control Provisioner bietet schnelle, in-Place-Wiederherstellung von Volumes aus einem Snapshot mithilfe des `TridentActionSnapshotRestore` (TASR) CR.
+*** *Sicherungs- und Wiederherstellungsfunktionen für Anwendungen mit `ontap-nas-economy` Treiber-Backends*: Wie beschrieben <<nas-eco-backup-restore,Oben>>.
+
+
+
+
+* *Astra Control Service-Unterstützung für Red hat OpenShift Service auf AWS (ROSA) Clustern*
++
+link:../use/restore-apps.html["Fügen Sie einen Cluster hinzu"^]
+
+* *Ausführungs-Hooks standardmäßig ausgeschaltet*: Ab diesem Release können Ausführungshaken-Funktionen sein link:../use/manage-app-execution-hooks.html#enable-the-execution-hooks-feature["Aktiviert"] Oder deaktiviert für zusätzliche Sicherheit (standardmäßig deaktiviert). Wenn Sie noch keine Ausführungshaken für die Verwendung mit Astra Control erstellt haben, müssen Sie dies tun link:../use/manage-app-execution-hooks.html#enable-the-execution-hooks-feature["Aktivieren Sie die Funktion „Ausführungshaken“"^] Um mit dem Erstellen von Hooks zu beginnen. Wenn Sie vor diesem Release Testsuitehaoks erstellt haben, bleibt die Funktionalität „Ausführungshaken“ aktiviert und Sie können Hooks wie gewohnt verwenden.
+
 
 
 

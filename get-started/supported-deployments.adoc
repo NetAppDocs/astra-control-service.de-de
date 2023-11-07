@@ -40,5 +40,5 @@ ifdef::azure[]
 
 endif::azure[]
 
-* link:add-first-cluster.html#start-managing-kubernetes-clusters["Bereiten Sie selbst gemanagte Cluster vor, bevor Sie sie in den Astra Control Service hinzufügen"].
+* link:add-first-cluster.html["Bereiten Sie selbst gemanagte Cluster vor, bevor Sie sie in den Astra Control Service hinzufügen"].
 

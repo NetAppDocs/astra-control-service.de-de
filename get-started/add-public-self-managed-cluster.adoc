@@ -76,7 +76,6 @@ Astra Control Service unterstützt selbst gemanagte Cluster, die die folgenden K
 Ihr Self-Managed-Cluster muss folgende Anforderungen erfüllen:
 
 * Der Cluster muss über das Internet zugänglich sein.
-* Der Cluster kann nicht in Ihrem On-Premises-Netzwerk gehostet werden, sondern muss in einer Public-Cloud-Umgebung gehostet werden.
 * Wenn Sie Speicher mit CSI-Treibern verwenden oder planen, diese zu verwenden, müssen auf dem Cluster die entsprechenden CSI-Treiber installiert sein. Weitere Informationen zur Verwendung von CSI-Treibern zur Integration von Speicher finden Sie in der Dokumentation Ihres Speicherservices.
 * Sie haben Zugriff auf die Cluster-Datei kubeconfig, die nur ein Kontextelement enthält. Folgen link:create-kubeconfig.html["Diese Anweisungen"^] Um eine kubeconfig-Datei zu erzeugen.
 * Wenn Sie den Cluster mit einer kubeconfig-Datei hinzufügen, die auf eine private Zertifizierungsstelle verweist, fügen Sie der folgende Zeile hinzu `cluster` Abschnitt der Datei kubeconfig. So kann Astra Control das Cluster hinzufügen:
@@ -92,7 +91,7 @@ insecure-skip-tls-verify: true
 NOTE: Das können Sie https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#choose-the-deployment-method["Implementieren Sie Astra Trident"^] Mit dem Trident-Operator (manuell oder mit Hilfe des Helm-Diagramms) oder `tridentctl`. Vor der Installation oder dem Upgrade von Astra Trident sollten Sie sich die https://docs.netapp.com/us-en/trident/trident-get-started/requirements.html["Unterstützte Frontends, Back-Ends und Host-Konfigurationen"^].
 
 +
-** *Astra Trident Storage-Backend konfiguriert*: Es muss mindestens ein Astra Trident Storage-Backend sein https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["Konfiguriert"^] Auf dem Cluster.
+** *Astra Trident Storage-Backend konfiguriert*: Es muss mindestens ein Astra Trident Storage-Backend sein https://docs.netapp.com/us-en/trident/trident-use/backends.html["Konfiguriert"^] Auf dem Cluster.
 ** *Konfigurierte Astra Trident Storage-Klassen*: Es muss mindestens eine Astra Trident Storage-Klasse sein https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Konfiguriert"^] Auf dem Cluster. Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass nur eine Storage-Klasse diese Annotation aufweist.
 ** *Astra Trident Volume Snapshot Controller und Volume Snapshot Klasse installiert und konfiguriert*: Der Volume Snapshot Controller muss sein https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installiert"^] Damit Snapshots in Astra Control erstellt werden können. Mindestens ein Astra Trident `VolumeSnapshotClass` Gewesen https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass["Einrichtung"^] Durch einen Administrator.
 
@@ -100,6 +99,9 @@ NOTE: Das können Sie https://docs.netapp.com/us-en/trident/trident-get-started/
 
 
 ====
+* *Astra Control Provisioner*: Um die erweiterten Management- und Storage-Bereitstellungsfunktionen von Astra Control verwenden zu können, die nur Benutzern von Astra Control zur Verfügung stehen, müssen Sie Astra Trident 23.10 oder höher installieren und aktivieren link:../use/enable-acp.html["Funktionen für die Astra Control Provisioner"].
+
+
 .Schritte
 . Wählen Sie im Dashboard *Kubernetes Cluster managen* aus.
 +

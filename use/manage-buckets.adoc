@@ -73,8 +73,8 @@ Sie können die folgenden Buckets hinzufügen:
 
 
 .Bevor Sie beginnen
-* Der Name eines vorhandenen Buckets.
-* Die Anmeldeinformationen für den Bucket, der Astra Control Service die Berechtigungen zur Verwaltung des Buckets zur Verfügung stellt
+* Stellen Sie sicher, dass Sie den Namen eines vorhandenen Buckets kennen.
+* Stellen Sie sicher, dass Sie über Anmeldedaten für den Bucket verfügen, die Astra Control die erforderlichen Berechtigungen zum Management des Buckets zur Verfügung stellen.
 
 
 ifdef::azure[]
@@ -147,8 +147,13 @@ NOTE: Astra Control weist keinem Cloud-Instanz automatisch einen Standard-Bucket
 
 Sie können einen Eimer entfernen, der nicht mehr verwendet wird oder nicht ordnungsgemäß ist. Dies könnte Sie nutzen, um die Konfiguration Ihres Objektspeicher einfach und aktuell zu halten.
 
-Sie können keinen Standard-Bucket entfernen. Wenn Sie diesen Bucket entfernen möchten, wählen Sie zuerst einen anderen Bucket als Standard aus.
+[NOTE]
+====
+* Sie können keinen Standard-Bucket entfernen. Wenn Sie diesen Bucket entfernen möchten, wählen Sie zuerst einen anderen Bucket als Standard aus.
+* Sie können einen WORM-Bucket (Write Once Read Many) nicht entfernen, bevor die Aufbewahrungsfrist des Cloud-Providers abgelaufen ist. WORM-Buckets werden neben dem Bucket-Namen mit „gesperrt“ gekennzeichnet.
 
+
+====
 .Bevor Sie beginnen
 * Sie sollten vor Beginn sicherstellen, dass keine Backups für diesen Bucket ausgeführt oder abgeschlossen wurden.
 * Sie sollten prüfen, ob der Bucket nicht für geplante Backups verwendet wird.

@@ -28,100 +28,16 @@ Mit Astra Control Service können Sie private EKS-Cluster (Amazon Elastic Kubern
 
 Führen Sie die folgenden Aufgaben aus, um Ihren privaten Cluster zum Astra Control Service hinzuzufügen:
 
-* <<Installieren Sie den Astra Connector Operator>>
-* <<Einrichtung von persistentem Storage>>
-* <<Fügen Sie den über den privaten Provider gemanagten Cluster zu Astra Control Service hinzu>>
+. <<Astra Connector Installieren>>
+. <<Einrichtung von persistentem Storage>>
+. <<Fügen Sie den über den privaten Provider gemanagten Cluster zu Astra Control Service hinzu>>
 
 
 
 
-== Installieren Sie den Astra Connector Operator
+== Astra Connector Installieren
 
-Sie müssen den Astra Connector Operator auf dem privaten Cluster installieren. Wenn Sie einen Bastion-Host verwenden, geben Sie diese Befehle über die Befehlszeile des Bastion-Hosts aus.
-
-.Schritte
-. Klonen des GitHub-Repositorys des Astra Connector-Betreibers:
-+
-[source, console]
-----
-git clone https://github.com/NetApp/astra-connector-operator.git
-----
-. Ändern Sie die Verzeichnisse auf die oberste Ebene des entpackten Bedienerpakets, damit Sie die sehen können `astraconnector_operator.yaml` Datei mit `ls` Befehl.
-. Anwenden des `astraconnector_operator.yaml` Datei: Wenn Sie diesen Befehl ausführen, wird der korrekte Namespace für den Astra Connector-Operator erstellt und die Konfiguration auf den Namespace angewendet:
-+
-[source, console]
-----
-kubectl apply -f astraconnector_operator.yaml
-----
-. Erstellen Sie einen Namespace für die privaten Clusterkomponenten:
-+
-[source, console]
-----
-kubectl create ns astra-connector
-----
-. Generieren Sie mithilfe der Anweisungen im ein Astra Control API-Token https://docs.netapp.com/us-en/astra-automation/get-started/get_api_token.html["Dokumentation von Astra Automation"^].
-. Ändern Sie die Beispielkonfigurationsdatei im Verzeichnis config/Samples des Astra Connector Operator Repository, um Werte für die folgenden Schlüssel in Ihre Umgebung aufzunehmen:
-+
-** `spec.natssync-client.cloud-bridge-url`
-** `spec.astra.token`
-** `spec.astra.clusterName`
-+
-
-NOTE: `spec.astra.clusterName` Wird nur benötigt, wenn Sie einen privaten AKS-Cluster importieren und die kubeconfig-Datei nicht an den Astra Control Service bereitstellen. Entfernen Sie diese Zeile, wenn dies nicht der Fall ist.
-
-** `spec.astra.accountId`
-+
-Beispiel:
-
-+
-[listing]
-----
-apiVersion: netapp.astraconnector.com/v1
-kind: AstraConnector
-metadata:
-  name: astra-connector
-spec:
-  natssync-client:
-    image: natssync-client:2.0
-    cloud-bridge-url: https://<your.astra.control.service.url>
-  nats:
-    image: nats:2.6.1-alpine3.14
-  httpproxy-client:
-    image: httpproxylet:2.0
-  echo-client:
-    image: echo-proxylet:2.0
-  imageRegistry:
-    name: theotw
-  astra:
-    token: <Astra Control API token>
-    clusterName: <your-private-AKS-cluster-name>
-    accountId: <Astra Control account id>
-    acceptEULA: yes
-----
-
-
-. Anwenden der Astra Connector Custom Resource Definition (CRD):
-+
-[source, console]
-----
-kubectl apply -f config/samples/astraconnector_v1.yaml -n astra-connector
-----
-. Überprüfen Sie den Status des Astra Connectors:
-+
-[source, console]
-----
-kubectl get astraconnector astra-connector -n astra-connector
-----
-+
-Sie sollten eine Ausgabe wie die folgende sehen:
-
-+
-[source, console]
-----
-NAME              REGISTERED   ASTRACONNECTORID
-astra-connector   true         22b839aa-8b85-445a-85dd-0b1f53b5ea19
-----
-
+Bevor Sie einen privaten Cluster hinzufügen, müssen Sie Astra Connector im Cluster installieren, damit Astra Control damit kommunizieren kann. Siehe link:install-astra-connector.html["Astra Connector für private Cluster installieren"] Weitere Anweisungen.
 
 
 

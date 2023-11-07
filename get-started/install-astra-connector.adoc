@@ -1,0 +1,137 @@
+---
+sidebar: sidebar 
+permalink: get-started/install-astra-connector.html 
+keywords: connector, install, astra connector, manage cluster, add cluster, cluster, add, manage 
+summary: Sie können den Astra Connector installieren, um private Cluster zu verwalten. 
+---
+= Astra Connector für private Cluster installieren
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Astra Control Service nutzt Astra Connector, um die Kommunikation zwischen Astra Control Service und privaten Clustern zu ermöglichen. Sie müssen Astra Connector auf privaten Clustern installieren, die Sie verwalten möchten.
+
+Astra Connector unterstützt die folgenden Arten von privaten Clustern:
+
+* Amazon Elastic Kubernetes Service (EKS)
+* Azure Kubernetes-Service (AKS)
+* Google Kubernetes Engine (GKE)
+* Red hat OpenShift Service auf AWS (ROSA)
+* ROSA mit AWS PrivateLink
+* Red hat OpenShift-Container-Plattform vor Ort
+
+
+
+
+== Astra Connector Installieren
+
+.Über diese Aufgabe
+* Wenn Sie diese Schritte ausführen, führen Sie diese Befehle für den privaten Cluster aus, den Sie mit Astra Control Service managen möchten.
+* Wenn Sie einen Bastion-Host verwenden, geben Sie diese Befehle über die Befehlszeile des Bastion-Hosts aus.
+
+
+.Bevor Sie beginnen
+* Sie benötigen Zugriff auf den privaten Cluster, den Sie mit Astra Control Service managen möchten.
+* Sie benötigen Kubernetes-Administratorberechtigungen, um den Astra Connector Operator auf dem Cluster zu installieren.
+
+
+.Schritte
+. Installieren Sie den Astra Connector Operator auf dem privaten Cluster, den Sie mit Astra Control Service managen möchten. Wenn Sie diesen Befehl ausführen, wird der Namespace verwendet `astra-connector-operator` Wird erstellt und die Konfiguration wird auf den Namespace angewendet:
++
+[source, console]
+----
+kubectl apply -f https://github.com/NetApp/astra-connector-operator/releases/download/23.07.0-202310251519/astraconnector_operator.yaml
+----
+. Überprüfen Sie, ob der Bediener installiert und bereit ist:
++
+[source, console]
+----
+kubectl get all -n astra-connector-operator
+----
+. Holen Sie sich ein API-Token von Astra Control. Siehe https://docs.netapp.com/us-en/astra-automation/get-started/get_api_token.html["Dokumentation von Astra Automation"^] Weitere Anweisungen.
+. astra-Connector-Namespace erstellen:
++
+[source, console]
+----
+kubectl create ns astra-connector
+----
+. Erstellen Sie die Astra Connector CR-Datei und benennen Sie sie `astra-connector-cr.yaml`. Aktualisieren Sie die Werte in Klammern <>, um sie an die Astra Control-Umgebung und die Cluster-Konfiguration anzupassen:
++
+** *<ASTRA_CONTROL_SERVICE_URL>*: Die Web UI URL des Astra Control Service.
+** *<ASTRA_CONTROL_SERVICE_API_TOKEN>*: Das Astra Control API Token, das Sie im vorherigen Schritt erhalten haben.
+** *<PRIVATE_AKS_CLUSTER_NAME>*: (Nur AKS-Cluster) - der Cluster-Name des privaten Azure Kubernetes Service Clusters. Heben Sie die Kommentareingabe auf und füllen Sie diese Zeile nur dann aus, wenn Sie einen privaten AKS-Cluster hinzufügen.
+** *<ASTRA_CONTROL_ACCOUNT_ID>*: Erhalten von der Astra Control Web-Benutzeroberfläche. Wählen Sie das Symbol oben rechts auf der Seite aus und wählen Sie *API Access* aus.
++
+[source, yaml]
+----
+apiVersion: netapp.astraconnector.com/v1
+kind: AstraConnector
+metadata:
+  name: astra-connector
+  namespace: astra-connector
+spec:
+  natssync-client:
+    cloud-bridge-url: <ASTRA_CONTROL_SERVICE_URL>
+  imageRegistry:
+    name: theotw
+    secret: ""
+  astra:
+    token: <ASTRA_CONTROL_SERVICE_API_TOKEN>
+    #clusterName: <PRIVATE_AKS_CLUSTER_NAME>
+    accountId: <ASTRA_CONTROL_ACCOUNT_ID>
+    acceptEULA: yes
+----
+
+
+. Nachdem Sie das ausgefüllt haben `astra-connector-cr.yaml` Datei mit den richtigen Werten, CR anwenden:
++
+[source, console]
+----
+kubectl apply -f astra-connector-cr.yaml
+----
+. Überprüfen Sie, ob der Astra Connector vollständig bereitgestellt ist:
++
+[source, console]
+----
+kubectl get all -n astra-connector
+----
+. Überprüfen Sie, ob das Cluster bei Astra Control registriert ist:
++
+[source, console]
+----
+kubectl get astraconnector -n astra-connector
+----
++
+Sie sollten eine Ausgabe wie die folgende sehen:
+
++
+[listing]
+----
+NAME              REGISTERED   ASTRACONNECTORID                       STATUS
+astra-connector   true         be475ae5-1511-4eaa-9b9e-712f09b0d065   Registered with Astra
+----
++
+
+TIP: Notieren Sie sich die ASTRACONNECTORID, die Sie benötigen, wenn Sie den Cluster zu Astra Control hinzufügen.
+
+
+
+
+
+== Was kommt als Nächstes?
+
+Nachdem Sie jetzt Astra Connector installiert haben, können Sie jetzt Ihrem privaten Cluster den Astra Control Service hinzufügen.
+
+* link:add-private-provider-managed-cluster.html["Fügen Sie dem Astra Control Service einen über privaten Provider gemanagten Cluster hinzu"^]: Verwenden Sie diese Schritte, um einen Cluster hinzuzufügen, der eine private IP-Adresse hat und von einem Cloud-Provider verwaltet wird. Sie benötigen das Service Principal-Konto, das Service-Konto oder das Benutzerkonto für den Cloud-Provider.
+* link:add-private-self-managed-cluster.html["Fügen Sie Astra Control Service einen privaten, selbst gemanagten Cluster hinzu"^]: Verwenden Sie diese Schritte, um einen Cluster hinzuzufügen, der eine private IP-Adresse hat und von Ihrer Organisation verwaltet wird. Sie müssen eine kubeconfig-Datei für den Cluster erstellen, den Sie hinzufügen möchten.
+
+
+
+
+== Finden Sie weitere Informationen
+
+* link:add-first-cluster.html["Fügen Sie einen Cluster hinzu"^]
+

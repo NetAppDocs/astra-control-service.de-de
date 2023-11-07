@@ -22,12 +22,6 @@ Die folgenden Einschränkungen wirken sich auf das Management von Kubernetes-Clu
 
 
 
-=== Astra Trident ist nicht von einem Cluster deinstalliert
-
-Wenn Sie einen Cluster vom Astra Control Service aus verwalten, wird Astra Trident nicht automatisch aus dem Cluster deinstalliert. Um Astra Trident zu deinstallieren, müssen Sie es benötigen https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Folgen Sie den Schritten in der Dokumentation von Astra Trident"^].
-
-
-
 === Bestehende Verbindungen zu einem Postgres-Pod führen zu Fehlern
 
 Wenn Sie Vorgänge auf Postgres-Pods durchführen, sollten Sie nicht direkt innerhalb des Pods verbinden, um den psql-Befehl zu verwenden. Astra Control Service erfordert psql-Zugriff, um die Datenbanken einzufrieren und zu tauen. Wenn eine bereits vorhandene Verbindung besteht, schlägt der Snapshot, die Sicherung oder der Klon fehl.
@@ -45,14 +39,6 @@ ifdef::gcp[]
 == Einschränkungen für die Verwaltung von GKE-Clustern
 
 Die folgenden Einschränkungen gelten für das Management von Kubernetes-Clustern in der Google Kubernetes Engine (GKE).
-
-
-
-=== Google Marketplace Apps wurden nicht validiert
-
-NetApp hat keine über Google Marketplace bereitgestellten Applikationen validiert. Einige Benutzer haben Probleme mit der Erkennung oder Sicherung von Postgres, MariaDB und MySQL-Anwendungen gemeldet, die vom Google Marketplace bereitgestellt wurden.
-
-Unabhängig von der Art der Applikation, die Sie mit Astra Control Service verwenden, sollten Sie den Backup- und Restore-Workflow immer selbst testen, um sicherzustellen, dass Sie Ihre Disaster-Recovery-Anforderungen erfüllen.
 
 endif::gcp[]
 
@@ -122,7 +108,7 @@ Benutzer mit rollenbasierten Namespace-Einschränkungen dürfen Cluster nicht hi
 
 === Ein Member-Benutzer mit Namespace-Einschränkungen kann nicht auf geklonte oder wiederhergestellte Apps zugreifen, bis ein Admin-Benutzer den Namespace zu der Bedingung hinzufügt
 
-Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name/ID können eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto des Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer den bearbeiten `member` Benutzerkonto und Aktualisierung von Rollenbeschränkungen für den betroffenen Benutzer, um den Zugriff auf den neuen Namespace zu gewähren.
+Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name/ID können eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto des Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem durch einen Klon- oder Wiederherstellungsvorgang ein neuer Namespace erstellt wurde, kann der Kontoadministrator/Kontoinhaber den bearbeiten `member` Benutzerkonto und Aktualisierung von Rollenbeschränkungen für den betroffenen Benutzer, um den Zugriff auf den neuen Namespace zu gewähren.
 
 
 
