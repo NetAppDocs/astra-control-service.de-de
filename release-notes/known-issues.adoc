@@ -69,10 +69,7 @@ NOTE: Wenn Sie Kerberos-Verschlüsselung während der Übertragung mit NFSv4-Vol
 
 == Backup-Daten bleiben nach dem Löschen von Buckets mit abgelaufener Aufbewahrungsrichtlinie im Bucket erhalten
 
-Wenn Sie das unveränderliche Backup einer App löschen, nachdem die Aufbewahrungsrichtlinie für den Bucket abgelaufen ist, wird das Backup aus Astra Control gelöscht, nicht jedoch aus dem Bucket. Um dies zu umgehen, entfernen Sie die Backups manuell aus dem Speicher-Back-End, wenn Sie die neuesten Backups oder alle Backups für eine Anwendung löschen müssen.
-
-
-NOTE: Wenn Sie mehr als ein Backup für eine App haben, entfernen Sie entweder die letzten Backups oder alle Backups für die App. Wenn Sie alle mittleren inkrementellen Backups entfernen, können Sie die App nicht von der letzten Sicherung wiederherstellen.
+Wenn Sie das unveränderliche Backup einer App löschen, nachdem die Aufbewahrungsrichtlinie für den Bucket abgelaufen ist, wird das Backup aus Astra Control gelöscht, nicht jedoch aus dem Bucket. Dieses Problem wird in einer kommenden Version behoben.
 
 
 
