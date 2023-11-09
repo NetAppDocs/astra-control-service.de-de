@@ -23,9 +23,9 @@ NetApp aktualisiert regelmäßig den Astra Control Service, um Ihnen neue Funkti
 * *Backup- und Restore-Funktionen für Applikationen mit ontap-nas-Economy Treiber-Backends*: Aktivieren Sie Backup- und Restore-Vorgänge für `ontap-nas-economy` Mit einigen link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Einfache Schritte"^].
 * *Astra Control Service Support für lokale Red hat OpenShift Container Platform Cluster*
 +
-link:../use/restore-apps.html["Fügen Sie einen Cluster hinzu"^]
+link:../get-started/add-first-cluster.html["Fügen Sie einen Cluster hinzu"^]
 
-* *Unveränderliche Backups*: Astra Control unterstützt jetzt link:../concepts/data-protection.html#immutable-backups["Unveränderbare, schreibgeschützte Backups"^] Als zusätzliche Sicherheitsschicht gegen Malware und andere Bedrohungen.
+* *Unveränderliche Backups*: Astra Control unterstützt jetzt link:../learn/data-protection.html#immutable-backups["Unveränderbare, schreibgeschützte Backups"^] Als zusätzliche Sicherheitsschicht gegen Malware und andere Bedrohungen.
 * *Neu: Astra Control Provisioner*
 +
 In der Version 23.10 hat Astra Control eine neue Software-Komponente namens Astra Control Provisioner eingeführt, die für alle lizenzierten Astra Control Benutzer verfügbar sein wird. Mit Astra Control Provisioner erhalten Sie Zugriff auf umfassende Funktionen für erweitertes Management und Storage-Bereitstellung, die über den Funktionsumfang von Astra Trident hinausgehen. Diese Funktionen sind für alle Astra Control Kunden ohne zusätzliche Kosten verfügbar.
@@ -47,8 +47,10 @@ Die Version 23.10 von Astra Control Provisioner bietet folgende Funktionen:
 
 * *Astra Control Service-Unterstützung für Red hat OpenShift Service auf AWS (ROSA) Clustern*
 +
-link:../use/restore-apps.html["Fügen Sie einen Cluster hinzu"^]
+link:../get-started/add-first-cluster.html["Fügen Sie einen Cluster hinzu"^]
 
+* *Unterstützung für die Verwaltung von Anwendungen, die NVMe/TCP-Speicher verwenden*
+Astra Control kann jetzt Applikationen managen, die von persistenten Volumes unterstützt werden, die über NVMe/TCP verbunden sind.
 * *Ausführungs-Hooks standardmäßig ausgeschaltet*: Ab diesem Release können Ausführungshaken-Funktionen sein link:../use/manage-app-execution-hooks.html#enable-the-execution-hooks-feature["Aktiviert"] Oder deaktiviert für zusätzliche Sicherheit (standardmäßig deaktiviert). Wenn Sie noch keine Ausführungshaken für die Verwendung mit Astra Control erstellt haben, müssen Sie dies tun link:../use/manage-app-execution-hooks.html#enable-the-execution-hooks-feature["Aktivieren Sie die Funktion „Ausführungshaken“"^] Um mit dem Erstellen von Hooks zu beginnen. Wenn Sie vor diesem Release Testsuitehaoks erstellt haben, bleibt die Funktionalität „Ausführungshaken“ aktiviert und Sie können Hooks wie gewohnt verwenden.
 
 
