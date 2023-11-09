@@ -105,9 +105,17 @@ endif::azure[]
 ** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 
+* Lokale Cluster:
++
+** NetApp ONTAP AFF und FAS Systeme
+** NetApp ONTAP Select
+** Cloud Volumes ONTAP
+
+
 
  a| 
 * NetApp ONTAP AFF und FAS Systeme
+* NetApp ONTAP Select
 * https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 
