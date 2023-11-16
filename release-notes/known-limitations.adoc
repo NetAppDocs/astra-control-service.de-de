@@ -30,7 +30,7 @@ Wenn Sie Vorgänge auf Postgres-Pods durchführen, sollten Sie nicht direkt inne
 
 === Auf der Seite „Aktivität“ werden bis zu 100,000 Ereignisse angezeigt
 
-Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab link:../rest-api/api-intro.html["Astra Control REST-API"^].
+Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab https://docs.netapp.com/us-en/astra-automation/["Astra Control REST-API"^].
 
 ifdef::gcp[]
 

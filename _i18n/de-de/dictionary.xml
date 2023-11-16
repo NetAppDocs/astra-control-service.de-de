@@ -1901,7 +1901,6 @@
   <block id="b909803838dd775bd8b8dcfbaf82fb87" category="list-text">Unterstützung für das Management von rein datenbasierten Applikationen</block>
   <block id="5b8f884e708de51fd4946164326e802c" category="section-title">Auf der Seite „Aktivität“ werden bis zu 100,000 Ereignisse angezeigt</block>
   <block id="676bd50e0f10e6725dc7a68e3041cfed" category="inline-link-macro">Astra Control REST-API</block>
-  <block id="474be14e965990f35641a82fd1940bd1" category="paragraph">Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab <block ref="65b0251af1492433290d52a893eea83e" category="inline-link-macro-rx"></block>.</block>
   <block id="92994eff0d2e1bf73c01841823660ef5" category="list-text">*Lizenzierung*: Um mehr als 10 Namespaces zu verwalten, benötigen Sie ein Astra Control Abonnement.</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="list-title">Bevor Sie beginnen</block>
   <block id="63d526831e75bdfe2a1b18d7e1752ca3" category="list-text">Wählen Sie aus, ob die der App zugeordnete ursprüngliche Storage-Klasse beibehalten oder eine andere Storage-Klasse ausgewählt werden soll.</block>
@@ -2554,4 +2553,5 @@ Astra Control kann jetzt Applikationen managen, die von persistenten Volumes unt
   <block id="d5bd450a47d2497dc5f133703c0fab95" category="list-text">Lokale Cluster:</block>
   <block id="00ae925249b1dcd734cdb679b48bf8f7" category="list-text">NetApp ONTAP Select</block>
   <block id="488eba069a2619d48659ff6ffa6f538a" category="paragraph">In Astra Trident Version 23.10 und höher können Sie Astra Control Provisioner verwenden, damit lizenzierte Benutzer von Astra Control auf erweiterte Storage-Bereitstellungsfunktionen zugreifen können. Astra Control Provisioner bietet diese erweiterte Funktionalität zusätzlich zu den auf Astra Trident basierenden Standardfunktionen. Mit diesem Verfahren können Sie Astra Control Provisioner aktivieren und installieren.</block>
+  <block id="3296ea02e6ef8200a85b529d14dc6282" category="paragraph">Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab<block ref="3f49e9a4af0b49133601252075c9bc37" category="inline-link-rx"></block>.</block>
 </blocks>
