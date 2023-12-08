@@ -58,8 +58,6 @@
   <block id="b0cee72642f5457a71ddd0b49efb6d93" category="section-title">Cloud Volumes Service für Google Cloud</block>
   <block id="2cafdb551953c7afd397b12eee1ce505" category="paragraph">Astra Control Service kann Cloud Volumes Service für Google Cloud als Storage-Backend für persistente Volumes nutzen. Sie sollten verstehen, wie die Wahl eines Service-Typs, einer Storage-Klasse und einer persistenten Volume-Größe Sie dabei unterstützen kann, Ihre Performance-Ziele zu erreichen.</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="section-title">Überblick</block>
-  <block id="d0c77e6bcdf6b3675b78f5039ab722db" category="inline-link">Gehen Sie zu den globalen Regions Maps von NetApp Cloud Central</block>
-  <block id="244763a8bcf1786e84650aa8b0aeeb25" category="paragraph">Cloud Volumes Service für Google Cloud bietet zwei Servicetypen: _CVS_ und _CVS-Performance_. Diese Servicetypen werden in bestimmten Google Cloud Regionen unterstützt.<block ref="6fccf359b538aaaeb2b6ee13ea815763" category="inline-link-rx"></block> Ermitteln des Servicetyps, der in der Google Cloud-Region unterstützt wird, in der sich Ihre Cluster befinden.</block>
   <block id="d3f5696e3e2a02aef97b3ec088f9f1bb" category="paragraph">Wenn Ihre Kubernetes-Cluster in einer bestimmten Region residieren müssen, verwenden Sie den in dieser Region unterstützten Servicetyp.</block>
   <block id="1db71e1c4d4dbda81703682edf3a6df1" category="paragraph">Wenn Sie jedoch flexibel zwischen Google Cloud Regionen wählen können, empfehlen wir auf Basis Ihrer Performance-Anforderungen Folgendes:</block>
   <block id="a7033e407548689df90b3b7b5c3fbabd" category="list-text">Wählen Sie für K8s-Applikationen mit mittleren bis hohen Performance-Storage-Anforderungen eine Google Cloud-Region, die CVS-Performance unterstützt und die Premium- oder Extreme-Storage-Klasse verwendet. Zu diesen Workloads gehören KI/ML-Pipelines, CI/CD-Pipelines, Medienverarbeitung und Datenbanken wie relationale Workloads, NoSQL, Zeitreihen usw.</block>
@@ -459,10 +457,6 @@
   <block id="163a9a2de2c53fd4caa470a2d7b49ba6" category="paragraph"><block ref="ae585ba9e035dc3bebfa255ad19291f2" category="inline-link-macro-rx"></block>.</block>
   <block id="f2314bb09d0efb96ec542b1e8f42798f" category="inline-link-macro">Erfahren Sie mehr über die von Microsoft Azure und Azure gemanagten Festplattenanforderungen</block>
   <block id="f3ada5ea7cbb146f87a40c9504f78e3b" category="paragraph"><block ref="a30c1b7efa0b121d09606b1ba764054c" category="inline-link-macro-rx"></block>.</block>
-  <block id="49fc376ed35249f3841846ede4dab884" category="inline-link">NetApp Cloud Central</block>
-  <block id="d4e2866a87cb36aa53ac9d94e7402e45" category="list-text">Erstellen Sie ein<block ref="acbb6886c35e57125998fe7d6c5eea1f" category="inline-link-rx"></block> Konto.</block>
-  <block id="ecefaf3209c4e5c804b1d3c466a9d510" category="inline-link">Von der Astra-Produktseite</block>
-  <block id="fdcff977492d72bd4bad80358b5b7d99" category="list-text">Geben Sie Ihre NetApp Cloud Central E-Mail-ID an, wenn Sie Ihr Astra Control Konto erstellen<block ref="778ba27a5b5fe872bd25f23635cb760f" category="inline-link-rx"></block>.</block>
   <block id="8c14e4dec27dea8a5cc533eb50aa8d6e" category="inline-link-macro">Erfahren Sie mehr über den Registrierungsprozess</block>
   <block id="f2785b884437a4abfaf84ef4de8f60db" category="paragraph"><block ref="2f8c311f1f0fe130dd944321a6337c35" category="inline-link-macro-rx"></block>.</block>
   <block id="a4a0f2c30880c790b9dbbfa923350694" category="paragraph">Nachdem Sie sich angemeldet haben, wählen Sie *Cluster hinzufügen*, um das Cluster mit Astra Control zu verwalten.</block>
@@ -540,37 +534,16 @@
   <block id="1b799238211a6924f3bc70f0d21bb243" category="inline-link-macro">Benachrichtigungen verwalten</block>
   <block id="dd8cd9eba2ecc51750e65a67f022145a" category="list-text"><block ref="dd8cd9eba2ecc51750e65a67f022145a" category="inline-link-macro-rx"></block></block>
   <block id="f02a4f1a1e048f3a6cf64743ff32a880" category="doc">Registrieren Sie sich für ein Astra Control Service-Konto</block>
-  <block id="ae0c96e1388d462dd723e6dd4f0bd3c4" category="paragraph">Zur Nutzung von Astra Control Service benötigen Sie ein Astra Control Service-Konto, das mit Ihrem NetApp Cloud Central Konto verknüpft ist. Füllen Sie den Astra Control Service-Registrierungsprozess aus und wenn Sie noch nicht über ein Cloud Central-Konto verfügen, melden Sie sich bei Cloud Central an, um auf den Astra Control Service zuzugreifen.</block>
   <block id="9f0a6d5d19d9a0882b080bd73f930916" category="section-title">Registrieren Sie sich für ein Astra Control Konto</block>
   <block id="929a2c8db601f1a0c12d13ab5201ca53" category="paragraph">Bevor Sie sich beim Astra Control Service anmelden können, müssen Sie einen Registrierungsvorgang abschließen, um ein Astra Control Service-Konto zu erhalten.</block>
   <block id="8c6baa4592bc515f96faa8a5ebf64958" category="paragraph">Wenn Sie den Astra Control Service nutzen, verwalten Sie Ihre Apps über ein Konto. Ein Konto umfasst Benutzer, die die Apps im Konto anzeigen und verwalten können, sowie Ihre Rechnungsdaten.</block>
-  <block id="c3d2edad004e97ae3aa8859394dc7966" category="inline-link">Wechseln Sie zur Astra Control-Seite auf Cloud Central</block>
-  <block id="3889784207ede468b81664012c11b61c" category="list-text"><block ref="1b7eb0b86e80375179438e28519fc192" category="inline-link-rx"></block>.</block>
-  <block id="26031f2b054a2a1f996995dc1b39cc4e" category="list-text">Wählen Sie *erste Schritte mit Astra Control* aus.</block>
-  <block id="2a48a2be584253c1443571c773960f3a" category="list-text">Wählen Sie die Registerkarte *FREIER PLAN*.</block>
-  <block id="411a964e218cfa49e4a8fcf4b29211ce" category="inline-image-macro">Ein Screenshot der Registerkarte zur Auswahl des Registrierungsformulars, in dem Sie die OPTION „FREIER PLAN“ auswählen müssen.</block>
-  <block id="11dd0e481cc32b1d9468666f07a64381" category="paragraph"><block ref="11dd0e481cc32b1d9468666f07a64381" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5f2575e876c38f49aa892ec0aabae362" category="list-text">Geben Sie die erforderlichen Informationen in das Formular ein.</block>
   <block id="9af90bb703b753ebc52e31ad01e6d842" category="paragraph">Beim Ausfüllen des Formulars sind einige wichtige Punkte zu beachten:</block>
   <block id="b7324677f7d831f32c546a0047ebbc04" category="list-text">Ihr Unternehmensname und Ihre Adresse müssen korrekt sein, da wir sie überprüfen, um die Anforderungen der Global Trade Compliance zu erfüllen.</block>
   <block id="397ba6461bc81007c47830ab967a55c3" category="list-text">Der *Astra-Kundenname* ist der Name Ihres Astra Control Service-Kontos. Diesen Namen sehen Sie in der Benutzeroberfläche des Astra Control Service. Beachten Sie, dass Sie bei Bedarf weitere Konten (bis zu 5) erstellen können.</block>
-  <block id="2bfc156f7e05d36235d990fe7a177fe6" category="list-text">Wenn Sie über ein NetApp Cloud Central Konto verfügen, geben Sie im Feld *Business E-Mail-Adresse* die E-Mail ein, die Sie für dieses Konto verwenden. Wenn Sie noch kein NetApp Cloud Central Konto haben, verwenden Sie die hier eingegebene E-Mail-Adresse, wenn Sie sich bei Cloud Central anmelden.</block>
-  <block id="b623e6ded9a852f4e7cd9765578d0c08" category="list-text">Wählen Sie *Senden*.</block>
-  <block id="186f9f6bf0b85589f8602edb2a2e5c8b" category="section-title">Melden Sie sich bei Cloud Central an</block>
-  <block id="6294a96fba20202cd9ffb33f93601bb2" category="inline-link">Cloud Central Help Center</block>
-  <block id="f0753d19e203557654cb6c3d4f2d0353" category="admonition">Sie können Single Sign-On verwenden, um sich mit den Zugangsdaten aus Ihrem Unternehmensverzeichnis (föderierte Identität) bei Cloud Central anzumelden. Weitere Informationen erhalten Sie im<block ref="2c92c928be02227d051a5057c2e57fc6" category="inline-link-rx"></block> Und wählen Sie dann *Cloud Central Anmelde-Optionen*.</block>
-  <block id="f9e7912a258783aeea63e6b8ad7d46ac" category="list-text">Gehen Sie zu<block ref="acbb6886c35e57125998fe7d6c5eea1f" category="inline-link-rx"></block>.</block>
-  <block id="e4ea5fa0d4fcd14c778ff89db6268aa5" category="list-text">Wählen Sie oben rechts die Option *Registrieren*.</block>
   <block id="ad09bfc9a1feee2f0a3559c8766f8ec2" category="list-text">Füllen Sie das Formular aus.</block>
-  <block id="15fe50b23999649dcf139788bfea4ca2" category="paragraph">Stellen Sie sicher, dass die hier eingegebene Telefonnummer und die E-Mail-Adresse identisch sind, die Sie im vorhergehenden Registrierungsformular für den kostenlosen Plan verwendet haben.</block>
   <block id="7408a50737fd936622eeec54bbeb439c" category="list-text">Wählen Sie *Registrieren*.</block>
-  <block id="7690d2214676bad5c3634c1fde683484" category="admonition">Die in dieses Formular eingegebene E-Mail-Adresse ist für Ihre NetApp Cloud Central Benutzer-ID. Verwenden Sie diese Cloud Central-Benutzer-ID, wenn Sie sich für ein neues Astra Control Service-Konto anmelden oder wenn ein Astra Control Service-Administrator Sie zu einem bestehenden Astra Control Service-Konto einlädt.</block>
-  <block id="20a69192feaea8c49abf375503565d2c" category="inline-image-macro">Ein Screenshot der Cloud Central Anmeldeseite, auf der Sie Ihre E-Mail-Adresse, Ihr Passwort, Ihren Namen, Ihr Unternehmen und Ihre Telefonnummer eingeben müssen, die optional ist.</block>
-  <block id="59d30c1b368c2a97b0c373c9aadf516f" category="paragraph"><block ref="59d30c1b368c2a97b0c373c9aadf516f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="01196ab9b910cb225df67b416b3d977b" category="list-text">Warten Sie auf eine E-Mail von NetApp Cloud Central. Die E-Mail-Adresse stammt von saas.support@netapp.com und kann einige Minuten dauern. Überprüfen Sie Ihren Spam-Ordner.</block>
   <block id="e721d9b72eb394adc96253d65253d0e6" category="list-text">Wenn die E-Mail eintrifft, wählen Sie den Link in der E-Mail aus, um Ihre E-Mail-Adresse zu überprüfen.</block>
-  <block id="079c633ad298feda51d946a3bb2ffee8" category="paragraph">Sie haben jetzt eine aktive Cloud Central-Benutzeranmeldung.</block>
-  <block id="22f598e03124be388e74fc380a10d131" category="paragraph">Nachdem Sie sich jetzt registriert haben, können Sie den Astra Control Service direkt mit Ihren Cloud Central Anmeldedaten über aufrufen<block ref="8c65d1fc4cf122e461b28ceccd26064c" category="inline-link-rx"></block>.</block>
   <block id="414385607184a4404a07220748471e4a" category="summary">Astra Control Service kann Applikationen managen, die auf einem gemanagten Kubernetes Cluster in Cloud-Provider-Umgebungen ausgeführt werden.</block>
   <block id="acb13b8754d0f14e58090cb4826d589f" category="doc">Unterstützte Kubernetes-Implementierungen</block>
   <block id="cea59d092786f5a13a8406ae8389589b" category="inline-link-macro">Erfahren Sie, wie Sie Amazon Web Services für Astra Control Service einrichten</block>
@@ -665,7 +638,6 @@
   <block id="e80c6852f30ca3a2554743348fb6c956" category="section-title">Optional: Netzwerk-Peering für Ihr VPC einrichten</block>
   <block id="56e799b5e3fdedbd2de0cfa822e137f3" category="paragraph">Wenn Sie Cloud Volumes Service für Google Cloud als Storage-Backend-Service nutzen möchten, besteht der letzte Schritt darin, Netzwerk-Peering von Ihrem VPC zum Cloud Volumes Service für Google Cloud einzurichten.</block>
   <block id="88893994553bfb7a40c2878fd0c49602" category="paragraph">Die einfachste Möglichkeit, Netzwerk-Peering einzurichten, besteht darin, die gcloudbefehle direkt von Cloud Volumes Service zu beziehen. Die Befehle sind über Cloud Volumes Service verfügbar, wenn ein neues Dateisystem erstellt wird.</block>
-  <block id="8bd08d1235473b6f15ecaf6caf36b751" category="list-text"><block ref="d0b43c8067b7c810324d7a4486e6286e" category="inline-link-rx"></block> Und geben Sie den Servicetyp an, den Sie in der Region Google Cloud verwenden möchten, in der sich Ihr Cluster befindet.</block>
   <block id="e44254e6f35fa0a5db487136fbc207c0" category="inline-link">Erfahren Sie mehr über diese Service-Typen</block>
   <block id="4152b876d3fc46794daaf8cd19007046" category="paragraph">Cloud Volumes Service bietet zwei Arten von Services: CVS und CVS-Performance.<block ref="95599319630e3da52f0ef2b9e68a7f61" category="inline-link-rx"></block>.</block>
   <block id="5c6fda49c3e6aea016c04db2a5f7bd57" category="inline-link">Wechseln Sie zu Cloud Volumes in der Google Cloud Platform</block>
@@ -1118,12 +1090,9 @@
   <block id="9a0112e9326bfb2ebbe8296f89fd4be9" category="paragraph">Laden Sie Benutzer ein, sich Ihrem Astra Control-Konto anzuschließen und entfernen Sie Benutzer, die keinen Zugriff mehr auf das Konto haben sollten.</block>
   <block id="44a72539ab388ef935cc928a8fb1ce85" category="section-title">Benutzer einladen</block>
   <block id="8e16b174c022e8e7c9d1b7bbbe4b8f7c" category="paragraph">Kontoinhaber und -Administratoren können andere Benutzer einladen, sich dem Astra Control-Konto anzuschließen.</block>
-  <block id="ca9f3676b6e8506c212cf99dece548ed" category="inline-link-macro">Cloud Central-Anmeldung</block>
-  <block id="b5e5ae4cdeabd7d0aa40c62e734c8ac7" category="list-text">Stellen Sie sicher, dass der Benutzer über einen verfügt <block ref="e89daa10bb124a7d24c072e7ff177c2a" category="inline-link-macro-rx"></block>.</block>
   <block id="138a4950d3aca53bd8c1976b5cf5410d" category="list-text">Wählen Sie auf der Registerkarte *Benutzer* die Option *Einladung* aus.</block>
   <block id="5d9c5f1658440faafefd4248d8e5ee52" category="list-text">Geben Sie den Namen, die E-Mail-Adresse und die Rolle des Benutzers ein.</block>
   <block id="cf3a2d2c139bf5c9cc87fe714bfff3b1" category="paragraph">Beachten Sie Folgendes:</block>
-  <block id="5a9a54223f08ece3bf609ecd8d391185" category="list-text">Die E-Mail-Adresse muss mit der E-Mail-Adresse übereinstimmen, die der Benutzer für die Anmeldung bei Cloud Central verwendet hat.</block>
   <block id="07bb712636ed13b638d72bb327675777" category="list-text">Jede Rolle bietet die folgenden Berechtigungen:</block>
   <block id="7db390618915f5cf14f0a045ddccc95f" category="list-text">Um einem Benutzer mit einer Mitglied- oder Viewer-Rolle Einschränkungen hinzuzufügen, aktivieren Sie das Kontrollkästchen * Rolle auf Einschränkungen beschränken*.</block>
   <block id="fc578ea915be6294495556998e7ae8b8" category="list-text">Um einen anderen Benutzer einzuladen, wählen Sie *Weitere Benutzer hinzufügen* und geben Sie Informationen für den neuen Benutzer ein.</block>
@@ -1291,16 +1260,12 @@
   <block id="1f4796ad66f4408d4598ee58e3831b26" category="summary">Astra Control Service ist über eine SaaS-basierte Benutzeroberfläche über astra.netapp.io zugänglich.</block>
   <block id="35664a514c5cd69f2629d976e1d6d8fb" category="doc">Melden Sie sich beim Astra Control Service an</block>
   <block id="606a784ab98942274b8cbba79bae9fca" category="paragraph">Der Zugriff auf Astra Control Service erfolgt über eine SaaS-basierte Benutzeroberfläche über die von Ihnen zu bedienende Benutzeroberfläche<block ref="8c65d1fc4cf122e461b28ceccd26064c" category="inline-link-rx"></block>.</block>
-  <block id="46cec497ef09e7a445f6be28e1f76cf9" category="admonition">Sie können sich mit Single Sign-On über Anmeldedaten aus Ihrem Unternehmensverzeichnis (föderierte Identität) anmelden. Weitere Informationen erhalten Sie im<block ref="2c92c928be02227d051a5057c2e57fc6" category="inline-link-rx"></block> Und wählen Sie dann *Cloud Central Anmelde-Optionen*.</block>
-  <block id="50ea1572aa17b37a78e42af39e1e9f1e" category="inline-link-macro">Eine Cloud Central Benutzer-ID</block>
-  <block id="36ea6edc20cebe6cbf3a65832393439e" category="list-text"><block ref="5b719f36d1ae2486570f7f3e89b89a9e" category="inline-link-macro-rx"></block>.</block>
   <block id="cb43b2fc093c6cb51d0a90bbdc907d4e" category="inline-link-macro">Ein neues Astra Control Konto</block>
   <block id="60ba724b92f7445edcd0b8c39afb0ba9" category="inline-link-macro">Einladung zu einem bestehenden Account</block>
   <block id="6c7f4f015f9428756b99cbe827ee255b" category="list-text"><block ref="ddd413486d575aac18e9405e975354bf" category="inline-link-macro-rx"></block> Oder <block ref="6471d8c89064d68529a2c1844dc462d8" category="inline-link-macro-rx"></block>.</block>
   <block id="4c41a0b1e3e5e7025133c35dc2c24fb1" category="list-text">Einen unterstützten Webbrowser.</block>
   <block id="bec36ae04e09ae06d7d21288f02669c7" category="paragraph">Astra Control Service unterstützt aktuelle Versionen von Firefox, Safari und Chrome mit einer Mindestauflösung von 1280 x 720.</block>
   <block id="51ec1b336ced75b600ce34c0d8ef2f4f" category="list-text">Öffnen Sie einen Webbrowser, und gehen Sie zu<block ref="8c65d1fc4cf122e461b28ceccd26064c" category="inline-link-rx"></block>.</block>
-  <block id="465b9d23562359c56377ba35bfcf5c48" category="list-text">Melden Sie sich mit Ihren NetApp Cloud Central Anmeldedaten an.</block>
   <block id="13af76c117dbd9492fae97f4a28dfba5" category="section-title">Übersicht über die Abrechnung</block>
   <block id="5ecfb1cc769c9fff768f475e2fa5c859" category="paragraph">Mit dem Astra Control Service stehen zwei Kostenarten zur Verfügung: Die Kosten für den Astra Control Service fallen durch NetApp an. Die Kosten für persistenten Volumes und Objekt-Storage fallen vom Cloud-Provider an.</block>
   <block id="c058e20745680dc49d63ea774f133298" category="section-title">Fakturierung des Astra Control Service</block>
@@ -1425,7 +1390,6 @@
   <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">Blogs Community</block>
   <block id="d1b9bd0c14af2ff8d25891d12987a68b" category="sidebar">Astra Discord-Kanal</block>
   <block id="36910a95584c53fdc9ed97782ef3965c" category="sidebar">Astra Control Blog</block>
-  <block id="a984dc296b5a86b8097f515731aee987" category="sidebar">Kubernetes Hub in Cloud Central</block>
   <block id="e29d7c0b36af68edd13ebac84f15b44b" category="sidebar">Cloud-Provider</block>
   <block id="46aef2e5080a5347df1ce7546e1be1df" category="sidebar">Alle Cloud-Provider</block>
   <block id="6beccc67ff905f7da0b29dece26b0485" category="sidebar">Amazon Web Services</block>
@@ -2097,8 +2061,6 @@ RKE 2 (v1.24.x) mit Rancher 2.7</block>
   <block id="445376e98d0efe7729af9dd1fb361ee5" category="list-text"><block ref="eb3f61bcb8e86fdb25ef394d0f81f67c" category="inline-xref-macro-rx"></block></block>
   <block id="d83fe03b30cfc16e1bd2f6475cc46eb5" category="section-title">Fügen Sie den privaten, selbst gemanagten Cluster zum Astra Control Service hinzu</block>
   <block id="d67f163e5fdc875f6e2e27c3ed0cdf01" category="admonition">Die Private-Route-ID ist der Name, der dem Astra Connector zugeordnet ist. Damit kann ein privates Kubernetes-Cluster von Astra gemanagt werden. In diesem Kontext ist ein privates Cluster ein Kubernetes-Cluster, das seinen API-Server nicht zum Internet bereitstellt.</block>
-  <block id="1cbe758d6bc054731023778d3ae61f63" category="summary">Astra Control Service ist in den Authentifizierungsservice von NetApp Cloud Central integriert. Melden Sie sich bei Cloud Central an, um auf den Astra Control Service und die anderen Cloud-Services von NetApp zuzugreifen.</block>
-  <block id="5889ed9e6b0222b99068c361f05d9603" category="paragraph">Wenn Sie noch keinen NetApp Cloud Central Account besitzen, melden Sie sich bei Cloud Central an, um auf Astra Control Service und weitere Cloud-Services von NetApp zuzugreifen. Astra Control Service ist in den Authentifizierungsservice von NetApp Cloud Central integriert. Wenn Sie bereits über ein Cloud Central Konto verfügen und die Registrierung abgeschlossen haben, können Sie auf zugreifen<block ref="98c5a70a1a2162b1fc3e4c3e10ba9906" category="inline-link-rx"></block> Cloud Central – die Zugangsdaten, die Sie selbst nutzen können</block>
   <block id="d35cb258bf38db8a375c6b851aef5d80" category="doc">Erstellen Sie eine kubeconfig-Datei</block>
   <block id="a2d93681918875d2089986e58a2ef85f" category="paragraph">Nachdem Sie Ihre Cloud-Umgebung eingerichtet haben, sind Sie bereit, ein Kubernetes-Cluster zu erstellen und dieses dann zu Astra Control Service hinzuzufügen.</block>
   <block id="81cbd312a10cad3230cda33b84ee9321" category="paragraph">Suchen Sie nach Artikeln, häufig gestellten Fragen oder Informationen zu Problemlösungen in Verbindung mit Astra Control.</block>
@@ -2559,4 +2521,37 @@ Astra Control kann jetzt Applikationen managen, die von persistenten Volumes unt
   <block id="1752f949f63eb1f41cea70be24a2a732" category="list-text"><block ref="1752f949f63eb1f41cea70be24a2a732" category="inline-link-rx"></block></block>
   <block id="8da5e66f477d9799e7fb14fdf498f36a" category="admonition">Wenn Sie Ihre eigenen erstellen<block ref="deabc6332aa53495b56c51d2e3eca54f" prefix=" " category="inline-code"></block> Datei, Sie sollten nur ein *ein*-Kontext-Element darin definieren. Siehe <block ref="9d8ee3d0d4f5c967db921af26c4c5a7a" category="inline-link-macro-rx"></block> Weitere Informationen zum Erstellen<block ref="deabc6332aa53495b56c51d2e3eca54f" prefix=" " category="inline-code"></block> Dateien:</block>
   <block id="4aa0f8ba3923a0c903137a6f7e329b63" category="paragraph">Sie können Apps definieren und managen, die Storage-Ressourcen mit laufenden Pods umfassen, oder Applikationen mit Storage-Ressourcen, ohne laufende Pods auszuführen. Applikationen, auf denen keine Pods ausgeführt werden, werden als reine Daten-Applikationen bezeichnet.</block>
+  <block id="e5b03616a083e54ad13519a3154625c1" category="inline-link">Wechseln Sie zu den Zuordnungen von NetApp BlueXP Regionen weltweit</block>
+  <block id="65a8a347eaac78adbfa6c17d15af2bf3" category="paragraph">Cloud Volumes Service für Google Cloud bietet zwei Servicetypen: _CVS_ und _CVS-Performance_. Diese Servicetypen werden in bestimmten Google Cloud Regionen unterstützt.<block ref="3a64a480df5bdabeb22306a73210cf12" category="inline-link-rx"></block> Ermitteln des Servicetyps, der in der Google Cloud-Region unterstützt wird, in der sich Ihre Cluster befinden.</block>
+  <block id="cfcba38fe8e116204bd3f0c5ba63b148" category="list-text"><block ref="e567ba8e2897f19575c360fa42b79208" category="inline-link-rx"></block> Und geben Sie den Servicetyp an, den Sie in der Region Google Cloud verwenden möchten, in der sich Ihr Cluster befindet.</block>
+  <block id="96ee83a6112cdf0ed8c7770a293a8925" category="summary">Der Astra Control Service ist in den Authentifizierungsservice von NetApp BlueXP integriert. Melden Sie sich bei BlueXP an, um auf Astra Control Service und andere NetApp Cloud-Services zuzugreifen.</block>
+  <block id="d5e7bd562a1697914b02556de3ab3ed4" category="paragraph">Um Astra Control Service nutzen zu können, benötigen Sie ein Astra Control Service Konto, das zu Ihrem NetApp BlueXP Konto verknüpft ist. Füllen Sie den Registrierungsprozess für Astra Control Service aus, und wenn Sie noch kein BlueXP Konto besitzen, melden Sie sich bei BlueXP an, um auf den Astra Control Service zuzugreifen.</block>
+  <block id="cb8d3bdda7b9debee876b1d74a254edd" category="inline-link">Wechseln Sie zur Seite Astra Control bei BlueXP</block>
+  <block id="f4bd6f3a852b8eba4f7007eca1555662" category="list-text"><block ref="f3dcccd17e964be84a1bdd9e03498bc8" category="inline-link-rx"></block>.</block>
+  <block id="5cc8fb97eb2b86cdbdf2617646ff70ca" category="list-text">Wählen Sie *Jetzt starten*.</block>
+  <block id="12d1382b6eedc0055cee8ee4b3fdea31" category="list-text">Wenn Sie ein NetApp BlueXP Konto haben, geben Sie im Feld *geschäftliche E-Mail-Adresse* die E-Mail ein, die Sie für dieses Konto verwenden. Wenn Sie noch kein NetApp BlueXP Konto haben, verwenden Sie bei Ihrer Anmeldung zu BlueXP die hier eingegebene E-Mail-Adresse.</block>
+  <block id="20653d224bca9fb40181f3916e4f643d" category="list-text">Wählen Sie *Konto Erstellen*.</block>
+  <block id="156c302d186fc36d9d944c5d74b971af" category="section-title">Melden Sie sich bei BlueXP an</block>
+  <block id="9d89fae8ef174b821a65fff74333e4ce" category="paragraph">Der Astra Control Service ist in den Authentifizierungsservice von NetApp BlueXP integriert. Sie können sich mit Ihren Zugangsdaten für die BlueXP oder die NetApp Support-Website bei NetApp BlueXP anmelden. Wenn Sie noch kein NetApp BlueXP oder NetApp Support Site Konto haben, melden Sie sich bei BlueXP an. Damit haben Sie Zugriff auf Astra Control Service und weitere Cloud-Services von NetApp. Wenn Sie bereits über ein BlueXP oder NetApp Konto verfügen und die Registrierung abgeschlossen haben, können Sie darauf zugreifen<block ref="98c5a70a1a2162b1fc3e4c3e10ba9906" category="inline-link-rx"></block> Sie können Ihre Anmeldedaten für BlueXP oder die NetApp Support-Website direkt verwenden.</block>
+  <block id="efdaf9f44ce968366fa78277263abc1d" category="inline-link">Hilfe-Center</block>
+  <block id="f6cb3bdd70c9389c9b9924f64c738f91" category="admonition">Sie können sich auch mit Single Sign-On über Anmeldedaten Ihres Unternehmensverzeichnisses bei BlueXP anmelden (föderierte Identität). Weitere Informationen erhalten Sie im<block ref="5f6a58834610a7cc4ed94e6309719ab2" category="inline-link-rx"></block> Und wählen Sie dann *Cloud Central Anmelde-Optionen*.</block>
+  <block id="1273c8a63109161e6fd1f18d6998523f" category="inline-link">NetApp BlueXP</block>
+  <block id="b6aa2af54493e92b88469d9de2275c3a" category="list-text">Gehen Sie zu<block ref="725337a11d1d7a71c9a822037fd82aa8" category="inline-link-rx"></block>.</block>
+  <block id="0b616e301a339c5fa6543e07a4095795" category="list-text">Wählen Sie oben rechts *erste Schritte*.</block>
+  <block id="e8becbe92bbdf8d1721ea0d526cecaa9" category="paragraph">Stellen Sie sicher, dass die Telefonnummer und die E-Mail-Adresse, die Sie hier eingeben, mit denen übereinstimmen, die Sie im vorherigen Astra Control-Registrierungsformular verwendet haben.</block>
+  <block id="01212387b6c7166792baddaa928aa84c" category="admonition">Die E-Mail-Adresse, die Sie in diese Formulare eingeben, gilt für Ihre NetApp BlueXP Benutzer-ID. Verwenden Sie diese BlueXP Benutzer-ID, wenn Sie sich für ein neues Astra Control Konto anmelden oder wenn ein Astra Control Administrator Sie zu einem vorhandenen Astra Control Konto einlädt.</block>
+  <block id="f290ad3a115a62d0d49c00d3388bdbcd" category="list-text">Warten Sie auf eine E-Mail von NetApp BlueXP. Die E-Mail-Adresse stammt von saas.support@netapp.com und kann einige Minuten dauern. Überprüfen Sie Ihren Spam-Ordner.</block>
+  <block id="5e15713c876e34835b6fd302dba44361" category="paragraph">Sie verfügen jetzt über eine aktive BlueXP Benutzeranmeldung.</block>
+  <block id="33f9315d20002606702d6d72dd70e1b0" category="paragraph">Da Sie jetzt registriert sind, können Sie mit Ihren BlueXP Zugangsdaten direkt auf Astra Control zugreifen<block ref="8c65d1fc4cf122e461b28ceccd26064c" category="inline-link-rx"></block>.</block>
+  <block id="2995ebe04d77ed72eb4b7f8ef7d9dcae" category="list-text">Erstellen Sie ein<block ref="725337a11d1d7a71c9a822037fd82aa8" category="inline-link-rx"></block> Konto.</block>
+  <block id="f4b33e0d486d62d711a4a94b0c788d2a" category="inline-link">Auf der Astra Control Produktseite aus</block>
+  <block id="2de14ccf15a060c6e475d24436a4397e" category="list-text">Geben Sie bei der Erstellung Ihres Astra Control Kontos Ihre NetApp BlueXP E-Mail-ID an<block ref="53d06066cd31512993cd987784061d10" category="inline-link-rx"></block>.</block>
+  <block id="79160996ed8489a5cf6613551aa653a7" category="inline-link-macro">BlueXP Anmeldung</block>
+  <block id="dc8c9310bb417e4b1bc9d837d3b96858" category="list-text">Stellen Sie sicher, dass der Benutzer über einen verfügt <block ref="2c20ac1459b4b79b440d836f42649dc2" category="inline-link-macro-rx"></block>.</block>
+  <block id="9ca4b3e529f2eeb866005870321534d0" category="list-text">Die E-Mail-Adresse muss mit der E-Mail-Adresse übereinstimmen, die der Benutzer zur Anmeldung bei BlueXP verwendet hat.</block>
+  <block id="3234eee61324035465efed06f05dd4e1" category="admonition">Sie können sich mit Single Sign-On über Anmeldedaten aus Ihrem Unternehmensverzeichnis (föderierte Identität) anmelden. Weitere Informationen erhalten Sie im<block ref="5f6a58834610a7cc4ed94e6309719ab2" category="inline-link-rx"></block> Und wählen Sie dann *Cloud Central Anmelde-Optionen*.</block>
+  <block id="3d0abd6a01bb76cab17725c7ac70eb79" category="inline-link-macro">Eine BlueXP Benutzer-ID</block>
+  <block id="4ee685f387c020093b35c3bc40e77527" category="list-text"><block ref="4b68967e8d8add3859dd17e793d800ef" category="inline-link-macro-rx"></block>.</block>
+  <block id="13c43592d5afd1d9beed842ae9996863" category="list-text">Melden Sie sich mit Ihren NetApp BlueXP Zugangsdaten an.</block>
+  <block id="0988971b31c78f18d65b944937534087" category="sidebar">Kubernetes Hub auf BlueXP</block>
 </blocks>

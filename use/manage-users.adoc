@@ -21,7 +21,7 @@ Laden Sie Benutzer ein, sich Ihrem Astra Control-Konto anzuschließen und entfer
 Kontoinhaber und -Administratoren können andere Benutzer einladen, sich dem Astra Control-Konto anzuschließen.
 
 .Schritte
-. Stellen Sie sicher, dass der Benutzer über einen verfügt link:../get-started/register.html["Cloud Central-Anmeldung"].
+. Stellen Sie sicher, dass der Benutzer über einen verfügt link:../get-started/register.html["BlueXP Anmeldung"].
 . Wählen Sie *Konto*.
 . Wählen Sie auf der Registerkarte *Benutzer* die Option *Einladung* aus.
 . Geben Sie den Namen, die E-Mail-Adresse und die Rolle des Benutzers ein.
@@ -29,7 +29,7 @@ Kontoinhaber und -Administratoren können andere Benutzer einladen, sich dem Ast
 Beachten Sie Folgendes:
 
 +
-** Die E-Mail-Adresse muss mit der E-Mail-Adresse übereinstimmen, die der Benutzer für die Anmeldung bei Cloud Central verwendet hat.
+** Die E-Mail-Adresse muss mit der E-Mail-Adresse übereinstimmen, die der Benutzer zur Anmeldung bei BlueXP verwendet hat.
 ** Jede Rolle bietet die folgenden Berechtigungen:
 +
 *** Ein *Eigentümer* hat Administratorrechte und kann Konten löschen.
