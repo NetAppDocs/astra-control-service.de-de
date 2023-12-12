@@ -60,7 +60,12 @@ kubectl create ns astra-connector
 ----
 . Erstellen Sie die Astra Connector CR-Datei und benennen Sie sie `astra-connector-cr.yaml`. Aktualisieren Sie die Werte in Klammern <>, um sie an die Astra Control-Umgebung und die Cluster-Konfiguration anzupassen:
 +
-** *<ASTRA_CONTROL_SERVICE_URL>*: Die Web UI URL des Astra Control Service.
+** *<ASTRA_CONTROL_SERVICE_URL>*: Die Web UI URL des Astra Control Service. Beispiel:
++
+[listing]
+----
+https://astra.netapp.io
+----
 ** *<ASTRA_CONTROL_SERVICE_API_TOKEN>*: Das Astra Control API Token, das Sie im vorherigen Schritt erhalten haben.
 ** *<PRIVATE_AKS_CLUSTER_NAME>*: (Nur AKS-Cluster) - der Cluster-Name des privaten Azure Kubernetes Service Clusters. Heben Sie die Kommentareingabe auf und füllen Sie diese Zeile nur dann aus, wenn Sie einen privaten AKS-Cluster hinzufügen.
 ** *<ASTRA_CONTROL_ACCOUNT_ID>*: Erhalten von der Astra Control Web-Benutzeroberfläche. Wählen Sie das Symbol oben rechts auf der Seite aus und wählen Sie *API Access* aus.
