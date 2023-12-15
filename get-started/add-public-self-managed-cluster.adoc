@@ -26,12 +26,6 @@ Mit Astra Control Service können Sie folgende Arten von öffentlichen, selbst g
 | Kubernetes-Distribution | Unterstützte Versionen 
 
 
-| Azure Kubernetes Service für Azure Stack HCI | Azure Stack HCI 21H2 und 22H2 mit AKS 1.23 und 1.24 
-
-
-| Google Anthos | 1.12 bis 1.14 
-
-
 | Kubernetes (Vorgelagert) | 1.24 bis 1.26 (für Kubernetes 1.25 oder neuer ist Astra Trident 22.10 oder neuer erforderlich) 
 
 
@@ -42,12 +36,6 @@ RKE 2 (v1.24.x) mit Rancher 2.7
 
 
 | Red hat OpenShift Container Platform | 4.10 bis 4.12 
-
-
-| VMware Tanzu Kubernetes Grid | 1.6 
-
-
-| VMware Tanzu Kubernetes Grid Integrated Edition | 1.14 und 1.15 
 |===
 Bei diesen Anweisungen wird davon ausgegangen, dass Sie bereits einen selbstverwalteten Cluster erstellt haben.
 

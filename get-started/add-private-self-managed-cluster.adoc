@@ -26,12 +26,6 @@ Mit Astra Control Service können Sie folgende Arten von privaten, selbst gemana
 | Kubernetes-Distribution | Unterstützte Versionen 
 
 
-| Azure Kubernetes Service für Azure Stack HCI | Azure Stack HCI 21H2 und 22H2 mit AKS 1.24.x und 1.25.x 
-
-
-| Google Anthos | 1.15 bis 1.16 
-
-
 | Kubernetes (Vorgelagert) | 1.26 bis 1.28 
 
 
@@ -42,9 +36,6 @@ RKE 2 (v1.26.x) mit Rancher 2.7
 
 
 | Red hat OpenShift Container Platform | 4.11 bis 4.13 
-
-
-| VMware Tanzu Kubernetes Grid Integrated Edition | 1.16.x 
 |===
 In diesen Anweisungen wird davon ausgegangen, dass Sie bereits einen privaten Cluster erstellt und eine sichere Methode für den Remote-Zugriff darauf vorbereitet haben.
 
