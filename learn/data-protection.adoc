@@ -41,6 +41,7 @@ NOTE: Wenn Sie einen Snapshot oder eine Sicherung durchführen, aber der Vorgang
 
 === Unveränderliche Backups
 
+Ein unveränderliches Backup ist ein Backup, das innerhalb eines festgelegten Zeitraums nicht geändert oder gelöscht werden kann. Beim Erstellen eines unveränderlichen Backups überprüft Astra Control, ob es sich bei dem verwendeten Bucket um einen WORM-Bucket (Write Once Read Many) handelt. Falls ja, stellt er sicher, dass das Backup in Astra Control unveränderlich ist.
 Der Astra Control Service unterstützt das Erstellen unveränderlicher Backups mit den folgenden Plattformen und Bucket-Typen:
 
 * Amazon Web Services verwenden einen Amazon S3 Bucket mit konfigurierter S3 Object Lock
@@ -51,7 +52,7 @@ Der Astra Control Service unterstützt das Erstellen unveränderlicher Backups m
 
 Beachten Sie beim Arbeiten mit unveränderlichen Backups Folgendes:
 
-* Wenn ein Backup in einem WORM-Bucket (Write Once Read Many) auf einer nicht unterstützten Plattform oder auf einem nicht unterstützten Bucket-Typ durchgeführt wird, können unvorhersehbare Ergebnisse wie das Löschen der Sicherung sogar dann angezeigt werden, wenn die Aufbewahrungszeit abgelaufen ist.
+* Wenn ein Backup auf einem WORM-Bucket in einer nicht unterstützten Plattform oder auf einem nicht unterstützten Bucket-Typ durchgeführt wird, können unvorhersehbare Ergebnisse wie das Löschen von Backups sogar dann angezeigt werden, wenn die Aufbewahrungszeit abgelaufen ist.
 * Astra Control unterstützt keine Management-Richtlinien für den Daten-Lebenszyklus oder das manuelle Löschen von Objekten in den Buckets, die Sie mit unveränderlichen Backups verwenden. Stellen Sie sicher, dass Ihr Storage-Backend nicht für das Management des Lebenszyklus von Astra Control Snapshots oder gesicherten Daten konfiguriert ist.
 
 
