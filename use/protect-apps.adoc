@@ -70,6 +70,14 @@ Astra Control implementiert die Datensicherungsrichtlinien, indem Snapshots und 
 
 Sie können jederzeit einen On-Demand-Snapshot erstellen.
 
+.Über diese Aufgabe
+Astra Control unterstützt die Snapshot-Erstellung mithilfe von Storage-Klassen, die von den folgenden Treibern unterstützt werden:
+
+* `ontap-nas`
+* `ontap-san`
+* `ontap-san-economy`
+
+
 
 IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Snapshots können nicht erstellt werden. Verwenden Sie eine alternative Storage-Klasse für Snapshots.
 
@@ -98,6 +106,17 @@ Achten Sie darauf, wie Speicherplatz verarbeitet wird, wenn Sie eine Applikation
 ====
 endif::azure[]
 
+[NOTE]
+====
+Astra Control unterstützt die Backup-Erstellung mithilfe von Storage-Klassen, die von den folgenden Treibern unterstützt werden:
+
+* `ontap-nas`
+* `ontap-nas-economy`
+* `ontap-san`
+* `ontap-san-economy`
+
+
+====
 .Über diese Aufgabe
 Buckets in Astra Control berichten nicht über die verfügbare Kapazität. Bevor Sie von Astra Control gemanagte Applikationen sichern oder klonen, überprüfen Sie Bucket-Informationen im entsprechenden Storage-Managementsystem.
 

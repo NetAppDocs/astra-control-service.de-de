@@ -21,6 +21,14 @@ NOTE: Wenn Sie einem Ausführungs-Hook einen Namespace-Filter hinzufügen, der n
 * *Schützen Sie Ihre Anwendungen zuerst*: Es wird dringend empfohlen, dass Sie einen Snapshot oder ein Backup Ihrer Anwendung vor der Wiederherstellung machen. Auf diese Weise können Sie aus dem Snapshot oder Backup klonen, wenn die Wiederherstellung nicht erfolgreich war.
 * *Zieldatenträger prüfen*: Wenn Sie eine andere Speicherklasse wiederherstellen, stellen Sie sicher, dass die Speicherklasse den gleichen persistenten Zugriffsmodus für Volumes verwendet (z. B. ReadWriteMany). Der Wiederherstellungsvorgang schlägt fehl, wenn der Zugriffsmodus des Ziel-persistenten Volumes anders ist. Wenn das persistente Quell-Volume beispielsweise den RWX-Zugriffsmodus verwendet, wählen Sie eine Ziel-Storage-Klasse aus, die RWX nicht bereitstellen kann, wie z. B. Azure Managed Disks, AWS EBS, Google Persistent Disk oder `ontap-san`Wird dazu führen, dass der Wiederherstellungsvorgang fehlschlägt. Weitere Informationen zu den Zugriffsmodi für persistente Volumes finden Sie im https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes["Kubernetes"^] Dokumentation.
 * *Planung des Platzbedarfs*: Wenn Sie eine in-Place-Wiederherstellung einer Applikation durchführen, die NetApp ONTAP Storage nutzt, kann sich der von der wiederhergestellten Applikation genutzte Speicherplatz verdoppeln. Nachdem Sie eine in-Place-Wiederherstellung durchgeführt haben, entfernen Sie alle unerwünschten Snapshots aus der wiederhergestellten Applikation, um Speicherplatz freizugeben.
+* *Unterstützte Storage Class Treiber*: Astra Control unterstützt die Wiederherstellung von Backups mit Speicherklassen, die von den folgenden Treibern unterstützt werden:
++
+** `ontap-nas`
+** `ontap-nas-economy`
+** `ontap-san`
+** `ontap-san-economy`
+
+
 * *(nur ontap-nas-Economy-Treiber) Backups und Wiederherstellungen*: Vor dem Backup oder der Wiederherstellung einer App, die eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Überprüfen Sie, ob der link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Das snapshot Verzeichnis auf dem ONTAP Storage-Backend ist verborgen"]. Das Ausblenden dieses Verzeichnisses kann zu einem Verlust des Zugriffs auf Ihre Anwendung führen, insbesondere wenn es NFSv3 verwendet.
 
 
