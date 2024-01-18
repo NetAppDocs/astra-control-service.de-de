@@ -30,12 +30,7 @@ Der Astra Control Service umfasst drei Pläne:
 
 Kostenloser Plan:: Verwalten Sie bis zu 10 Namespaces kostenlos.
 Premium-PAYGO:: Managen Sie eine unbegrenzte Anzahl von Namespaces zu einer bestimmten Rate pro Namespace.
-Premium-Abonnement:: Mit einem Jahresabonnement können Sie bis zu 10 Namespaces pro Namespace Pack verwalten. Wenden Sie sich an den NetApp Vertrieb, um so viele Pakete wie nötig zu erwerben. Zum Beispiel: Kaufen Sie 3 Pakete, um 30 Namespaces vom Astra Control Service zu verwalten. Wenn Sie mehr Namespaces verwalten als von Ihrem Jahresabonnement erlaubt, werden Ihnen die Abonnementgebühr für einen zusätzlichen Namespace berechnet.
-+
---
-Wenn Sie noch kein Astra Control Konto haben, erstellt der Kauf des Premium Subscription automatisch ein Astra Control-Konto für Sie. Wenn Sie bereits einen kostenlosen Plan besitzen, werden Sie automatisch in das Premium-Abonnement konvertiert.
-
---
+Premium-Abonnement:: Mit einem Jahresabonnement, mit dem Sie bis zu 20 Namespaces pro _Namespace Pack_ verwalten können, können Sie vorab zu einem ermäßigten Preis zahlen. Wenden Sie sich an den NetApp Vertrieb, um so viele Pakete wie nötig zu erwerben. Erwerben Sie beispielsweise 3 Pakete, um 60 Namespaces über Astra Control Service zu managen. Wenn Sie mehr Namespaces verwalten als von Ihrem Jahresabonnement erlaubt, werden Ihnen die Abonnementgebühr für einen zusätzlichen Namespace berechnet. Wenn Sie noch kein Astra Control Konto haben, erstellt der Kauf des Premium Subscription automatisch ein Astra Control-Konto für Sie. Wenn Sie bereits einen kostenlosen Plan besitzen, werden Sie automatisch in das Premium-Abonnement konvertiert.
 
 
 Wenn Sie ein Astra Control-Konto erstellen, sind Sie automatisch beim Free Plan angemeldet. Das Dashboard von Astra Control zeigt Ihnen, wie viele Namespaces Sie derzeit aus den 10 freien Namespaces verwalten, die Sie zugelassen haben. Die Abrechnung beginnt für einen Namespace, wenn die erste App, die den Namespace enthält, verwaltet wird und stoppt für diesen Namespace, wenn die letzte App, die den Namespace enthält, nicht verwaltet wird.
