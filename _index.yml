@@ -1,5 +1,10 @@
 ---
 indexpage:
+  title: Dokumentation des Astra Control Service
+  summary: Astra Control Service ist ein von NetApp gemanagter Service, mit dem Sie
+    das Datenmanagement von Kubernetes Clustern in mehreren Cloud-Umgebungen applikationsgerecht
+    managen. Falls Sie Kubernetes-Applikationen in Ihrer On-Premises-Umgebung managen
+    müssen, besuchen Sie die Dokumentation für das Astra Control Center.
   lead: Astra Control Service ist ein von NetApp gemanagter Service, mit dem Sie das
     Datenmanagement von Kubernetes Clustern in mehreren Cloud-Umgebungen applikationsgerecht
     managen. Falls Sie Kubernetes-Applikationen in Ihrer On-Premises-Umgebung managen
