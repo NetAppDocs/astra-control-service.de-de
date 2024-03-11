@@ -22,6 +22,7 @@ Ein selbstverwalteter Cluster ist ein Cluster, den Sie direkt bereitstellen und 
 
 Mit Astra Control Service können Sie folgende Arten von privaten, selbst gemanagten Clustern managen:
 
+[cols="2*"]
 |===
 | Kubernetes-Distribution | Unterstützte Versionen 
 

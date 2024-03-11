@@ -59,6 +59,7 @@ Sie können eine von drei verschiedenen Versionen der Kerberos-Verschlüsselung 
 
 Konfigurieren Sie die ONTAP-Exportrichtlinie mit den entsprechenden Zugriffsberechtigungen. Wenn beispielsweise Cluster die NFS-Volumes mit einer Mischung aus Kerberos 5i- und Kerberos 5p-Verschlüsselung mounten, verwenden Sie die folgenden Zugriffseinstellungen:
 
+[cols="4*"]
 |===
 | Typ | Schreibgeschützter Zugriff | Lese-/Schreibzugriff | Superuser-Zugriff 
 

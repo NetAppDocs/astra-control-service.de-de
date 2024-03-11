@@ -112,6 +112,7 @@ Wenn Sie starten, aber dann brechen Sie ein Backup, das einen Snapshot enthält 
 
 
 ====
+[cols="9*"]
 |===
 | Szenario | Betrieb | Vorhandener Snapshot | Vorhandenes Backup | Namespace | Cluster | Snapshot Hooks laufen | Backup Hooks laufen | Hooks Run wiederherstellen 
 
