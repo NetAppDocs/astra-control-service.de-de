@@ -61,7 +61,7 @@ Standardmäßig verwendet der Buckets Astra Control Service für das Speichern v
 
 Ein Kubernetes-Cluster muss folgende Anforderungen erfüllen, damit Sie ihn über den Astra Control Service erkennen und managen können.
 
-Kubernetes-Version:: Auf Clustern muss Kubernetes Version 1.24 bis 1.26 ausgeführt werden.
+Kubernetes-Version:: Auf Clustern muss Kubernetes Version 1.26 bis 1.28 ausgeführt werden.
 Bildtyp:: Der Image-Typ für alle Node-Pools muss Linux sein.
 Der Cluster-Status:: Cluster müssen in einem ordnungsgemäßen Zustand ausgeführt werden und mindestens einen Online-Worker-Node ohne „Worker“-Nodes im ausgefallenen Status aufweisen.
 Azure Region:: Als Best Practice sollte eine Region gewählt werden, die Azure NetApp Files unterstützt, auch wenn Sie sie nicht als Storage-Backend verwenden. Dadurch ist es einfacher, Azure NetApp Files zukünftig als Storage-Backend zu verwenden, wenn sich Ihre Performance-Anforderungen ändern. https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp["Hier finden Sie Azure Produkte nach Region"^].

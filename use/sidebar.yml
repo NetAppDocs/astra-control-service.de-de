@@ -50,3 +50,5 @@ entries:
   url: "/use/enable-acp.html"
 - title: Heben Sie das Management von Applikationen und Clustern auf
   url: "/use/unmanage.html"
+- title: Selbstverwaltete Instanz von Astra Control implementieren
+  url: "/use/deploy-astra-control-center.html"

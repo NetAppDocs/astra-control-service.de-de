@@ -32,7 +32,7 @@ Sie können die Kerberos-Verschlüsselung auf dem Storage-Datenverkehr zwischen 
 NOTE: Kerberos-Verschlüsselung für NFS-Datenverkehr mit lokalen ONTAP-Storage-Back-Ends wird nur mithilfe des unterstützt `ontap-nas` Storage-Treiber:
 
 .Bevor Sie beginnen
-* Stellen Sie sicher, dass Sie die Astra Control-Bereitstellung im verwalteten Cluster aktiviert haben. Siehe link:../use/enable-acp.html["Astra Control Provisioner Aktivieren"^] Weitere Anweisungen.
+* Stellen Sie sicher, dass Sie es haben link:../use/enable-acp.html["Astra Control Provisioner wurde aktiviert"^] Auf dem verwalteten Cluster.
 * Stellen Sie sicher, dass Sie Zugriff auf haben `tridentctl` Utility:
 * Stellen Sie sicher, dass Sie Administratorzugriff auf das ONTAP Storage Back-End haben.
 * Stellen Sie sicher, dass Sie den Namen des Volumes oder der Volumes kennen, die Sie über das ONTAP-Speicher-Back-End freigeben werden.
@@ -196,7 +196,7 @@ Sie sollten eine Ausgabe wie die folgende sehen:
 +
 [listing]
 ----
-NAME         PROVISIONER             AGE
+NAME            PROVISIONER             AGE
 ontap-nas-sc    csi.trident.netapp.io   15h
 ----
 
@@ -205,7 +205,7 @@ ontap-nas-sc    csi.trident.netapp.io   15h
 
 === Bereitstellen von Volumes
 
-Nachdem Sie ein Storage-Back-End und eine Storage-Klasse erstellt haben, können Sie nun ein Volume bereitstellen. Anweisungen finden Sie unter https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["Bereitstellen eines Volumes"^].
+Nachdem Sie ein Storage-Back-End und eine Storage-Klasse erstellt haben, können Sie nun ein Volume bereitstellen. Beachten Sie diese Anweisungen für https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["Bereitstellen eines Volumes"^].
 
 
 
@@ -390,4 +390,4 @@ anf-sc-nfs    csi.trident.netapp.io   15h
 
 === Bereitstellen von Volumes
 
-Nachdem Sie ein Storage-Back-End und eine Storage-Klasse erstellt haben, können Sie nun ein Volume bereitstellen. Anweisungen finden Sie unter https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["Bereitstellen eines Volumes"^].
+Nachdem Sie ein Storage-Back-End und eine Storage-Klasse erstellt haben, können Sie nun ein Volume bereitstellen. Beachten Sie diese Anweisungen für https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["Bereitstellen eines Volumes"^].

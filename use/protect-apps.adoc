@@ -150,7 +150,7 @@ Astra Control erstellt ein Backup der App.
 Astra Control Provisioner bietet Backup- und Restore-Funktionen für Storage-Back-Ends, die das verwenden `ontap-nas-economy` Storage-Klasse.
 
 .Bevor Sie beginnen
-* Sie haben Astra Control Provisioner aktiviert.
+* Astra Control Provisioner oder Astra Trident ist aktiviert.
 * Sie haben eine Anwendung in Astra Control definiert. Diese Anwendung verfügt nur über begrenzte Schutzfunktionen, bis Sie diesen Vorgang abgeschlossen haben.
 * Das ist schon `ontap-nas-economy` Ausgewählt als Standard-Storage-Klasse für Ihr Storage-Back-End.
 
@@ -178,7 +178,7 @@ IMPORTANT: Vergewissern Sie sich, dass das Snapshot-Verzeichnis auf dem ONTAP-Sp
 
 
 
-. Gehen Sie in Astra Trident wie folgt vor:
+. Gehen Sie in Astra Control Provisioner oder Astra Trident wie folgt vor:
 +
 .. Aktivieren Sie das Snapshot-Verzeichnis für jedes PV, das auf ontap-nas-Economy basiert und der Applikation zugeordnet ist:
 +

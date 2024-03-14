@@ -35,7 +35,7 @@ Wenn Sie jedoch flexibel zwischen Google Cloud Regionen wählen können, empfehl
 
 
 
-NOTE: Wenn Sie den CVS-Servicetyp mit Astra Trident 23.01 oder höher verwenden, müssen Sie Storage-Pools konfigurieren, bevor Sie Volumes bereitstellen können. Wenn Sie Volumes ohne konfigurierte Speicherpools bereitstellen, schlägt die Volume-Bereitstellung fehl. Siehe https://cloud.google.com/architecture/partners/netapp-cloud-volumes/quickstart#create_a_volume_of_the_cvs_service_type["Cloud Volumes Service Dokumentation"^] Weitere Informationen zum Erstellen von Volumes.
+NOTE: Wenn Sie den CVS-Servicetyp mit Astra Control Provisioner verwenden, müssen Sie Speicherpools konfigurieren, bevor Sie Volumes bereitstellen können. Wenn Sie Volumes ohne konfigurierte Speicherpools bereitstellen, schlägt die Volume-Bereitstellung fehl. Siehe https://cloud.google.com/architecture/partners/netapp-cloud-volumes/quickstart#create_a_volume_of_the_cvs_service_type["Cloud Volumes Service Dokumentation"^] Weitere Informationen zum Erstellen von Volumes.
 
 Die folgende Tabelle bietet einen schnellen Vergleich der auf dieser Seite beschriebenen Informationen.
 

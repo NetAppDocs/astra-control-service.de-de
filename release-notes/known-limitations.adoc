@@ -120,7 +120,7 @@ Führen Sie als Workaround beim Upgrade vorhandener Installationen von Kubernete
 
 . Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.
 . https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Deinstallieren Sie Astra Trident"^].
-. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploy-a-volume-snapshot-controller["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
 . https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Installieren Sie die neueste Version von Astra Trident"^].
 . https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["Erstellen Sie eine VolumeSnapshotClass"^].
 

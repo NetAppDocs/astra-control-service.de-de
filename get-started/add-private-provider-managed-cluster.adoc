@@ -73,13 +73,13 @@ endif::gcp[]
 
 Sie können den privaten Cluster jetzt dem Astra Control Service hinzufügen.
 
-Beachten Sie beim Management von Azure Kubernetes Service und Google Kubernetes Engine-Clustern, dass Ihnen zwei Optionen für die Installation und das Lifecycle Management von Astra Trident zur Verfügung stehen:
+Beachten Sie beim Management von Azure Kubernetes Service und Google Kubernetes Engine-Clustern, dass für die Installation von Astra Control und das Lifecycle Management zwei Optionen zur Verfügung stehen:
 
-* Sie können Astra Control Service für das automatische Management des Lebenszyklus von Astra Trident verwenden. Vergewissern Sie sich dazu, dass Astra Trident nicht auf dem Cluster installiert ist, den Sie mit Astra Control Service managen möchten. In diesem Fall installiert Astra Trident automatisch Astra Trident, sobald Sie das Cluster Management beginnen. Astra Trident Upgrades werden automatisch verarbeitet.
-* Sie können den Lebenszyklus von Astra Trident selbst managen. Installieren Sie dazu Astra Trident auf dem Cluster, bevor Sie das Cluster mit Astra Control Service verwalten. In diesem Fall erkennt Astra Control Service, dass Astra Trident bereits installiert ist, und installiert es nicht neu oder managt Astra Trident Upgrades nicht. Siehe https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident-Dokumentation"^] Für Installationsanweisungen.
+* Mit Astra Control Service können Sie den Lebenszyklus von Astra Control Provisioner automatisch managen. Vergewissern Sie sich dazu, dass Astra Trident nicht installiert ist und Astra Control Provisioner nicht auf dem Cluster aktiviert ist, den Sie mit Astra Control Service managen möchten. In diesem Fall aktiviert Astra Control Service automatisch die Astra Control-Bereitstellung, wenn Sie mit dem Cluster-Management beginnen. Upgrades für die Astra Control-Bereitstellung werden automatisch durchgeführt.
+* Sie können den Lebenszyklus der Astra Control Provisionierung selbst managen. Aktivieren Sie hierfür die Astra Control-Provisionierung im Cluster, bevor Sie das Cluster mit Astra Control Service verwalten. In diesem Fall erkennt Astra Control Service, dass die Provisionierung von Astra Control bereits aktiviert ist. Es wird weder neu installiert noch Astra Control Provisioner-Upgrades gemanagt. Siehe link:../use/enable-acp.html["Astra Control Provisioner Aktivieren"^] Für die Schritte aktivieren Sie die Astra Control-Provisionierung.
 
 
-Wenn Sie Amazon Web Services Cluster mit Astra Control Service managen, müssen Sie Astra Trident manuell auf dem Cluster installieren, bevor Sie es mit Astra Control Service managen. Siehe https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident-Dokumentation"^] Für Installationsanweisungen.
+Wenn Sie Amazon Web Services Cluster mit Astra Control Service managen, müssen Sie bei Bedarf Storage-Back-Ends, die nur mit dem Astra Control Provisioner verwendet werden können, die Astra Control Service manuell im Cluster aktivieren, bevor Sie die Bereitstellung mit Astra Control Service managen. Siehe link:../use/enable-acp.html["Astra Control Provisioner Aktivieren"^] Enthält die Schritte zum Aktivieren der Astra Control-Bereitstellung.
 
 .Bevor Sie beginnen
 [%collapsible%open]
@@ -88,7 +88,7 @@ ifdef::aws[]
 
 .Amazon Web Services
 * Sie sollten die JSON-Datei mit den Anmeldedaten des IAM-Benutzers haben, der das Cluster erstellt hat. link:../get-started/set-up-amazon-web-services.html#create-an-iam-user["Erfahren Sie, wie ein IAM-Benutzer erstellt wird"].
-* Astra Trident ist für Amazon FSX für NetApp ONTAP erforderlich. Wenn Sie Amazon FSX für NetApp ONTAP als Storage-Backend für Ihren EKS-Cluster verwenden möchten, finden Sie die Informationen zu Astra Trident im link:set-up-amazon-web-services.html#eks-cluster-requirements["EKS-Clusteranforderungen"].
+* Astra Control Provisioner ist für Amazon FSX for NetApp ONTAP erforderlich. Wenn Sie Amazon FSX for NetApp ONTAP als Storage-Backend für Ihr EKS-Cluster verwenden möchten, finden Sie in den Informationen zur Astra Control-Bereitstellung im link:set-up-amazon-web-services.html#eks-cluster-requirements["EKS-Clusteranforderungen"].
 * (Optional) Wenn Sie angeben müssen `kubectl` Befehlszugriff für ein Cluster auf andere IAM-Benutzer, die nicht der Ersteller des Clusters sind, finden Sie in den Anweisungen unter https://aws.amazon.com/premiumsupport/knowledge-center/amazon-eks-cluster-access/["Wie erhalte ich Zugriff auf andere IAM-Benutzer und Rollen nach der Cluster-Erstellung in Amazon EKS?"^].
 * Wenn Sie NetApp Cloud Volumes ONTAP als Storage-Backend verwenden möchten, müssen Sie Cloud Volumes ONTAP für die Nutzung mit Amazon Web Services konfigurieren. Weitere Informationen finden Sie im Cloud Volumes ONTAP https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html["Setup-Dokumentation"^].
 
@@ -124,7 +124,7 @@ endif::gcp[]
 
 ====
 .Schritte
-. (Optional) Wenn Sie einen Amazon EKS Cluster hinzufügen oder die Installation und die Upgrades von Astra Trident selbst managen möchten, installieren Sie Astra Trident auf dem Cluster. Siehe https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident-Dokumentation"^] Für Installationsanweisungen.
+. (Optional) Wenn Sie einen Amazon EKS Cluster hinzufügen oder die Installation und Upgrades von Astra Control Provisioner selbst managen möchten, aktivieren Sie die Astra Control Provisioner-Funktion im Cluster. Siehe link:../use/enable-acp.html["Astra Control Provisioner Aktivieren"^] Für Enablement-Schritte.
 . Öffnen Sie die Web-UI des Astra Control Service in einem Browser.
 . Wählen Sie im Dashboard *Kubernetes Cluster managen* aus.
 +

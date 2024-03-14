@@ -97,7 +97,7 @@ Astra Control kann einen Operator, der mit einer „Pass-by-reference“-Archite
 
 Nach dem haben link:../get-started/add-first-cluster.html["Hat den Cluster hinzugefügt"] Bei Astra Control können Sie Apps installieren oder vorhandene Apps auf dem Cluster managen. Jede Anwendung, die einem oder mehreren Namespaces zugeordnet ist, kann verwaltet werden.
 
-Astra Control verwaltet statusorientierte Applikationen nur dann, wenn sich der Storage auf einer Storage-Klasse befindet, die von Astra Control unterstützt wird. Astra Control Service unterstützt alle Storage-Klassen, die von Astra Trident oder einem generischen CSI-Treiber unterstützt werden.
+Astra Control verwaltet statusorientierte Applikationen nur dann, wenn sich der Storage auf einer Storage-Klasse befindet, die von Astra Control unterstützt wird. Astra Control Service unterstützt alle Storage-Klassen, die von Astra Control Provisioner oder einem allgemeinen CSI-Treiber unterstützt werden.
 
 ifdef::gcp[]
 

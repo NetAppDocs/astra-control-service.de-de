@@ -21,4 +21,5 @@ Nachdem Sie sich angemeldet und Astra Control ein Cluster hinzugef√ºgt haben, k√
 * link:../use/manage-users.html["Benutzer einladen und managen"]
 * link:../use/manage-credentials.html["Management der Anmeldedaten von Cloud-Providern"]
 * link:../use/manage-notifications.html["Benachrichtigungen verwalten"]
+* link:../use/deploy-astra-control-center.html["Selbstverwaltete Instanz von Astra Control implementieren"]
 
