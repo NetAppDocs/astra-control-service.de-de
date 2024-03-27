@@ -81,7 +81,7 @@ NOTE: Das abgezogene Image unterstützt nicht mehrere Plattformen und unterstüt
 +
 [source, console]
 ----
-docker pull cr.astra.netapp.io/trident-acp:24.02.0 --platform <cluster platform>
+docker pull cr.astra.netapp.io/astra/trident-acp:24.02.0 --platform <cluster platform>
 ----
 +
 Beispiel:
@@ -89,13 +89,13 @@ Beispiel:
 +
 [listing]
 ----
-docker pull cr.astra.netapp.io/trident-acp:24.02.0 --platform linux/amd64
+docker pull cr.astra.netapp.io/astra/trident-acp:24.02.0 --platform linux/amd64
 ----
 .. Markieren Sie das Bild:
 +
 [source, console]
 ----
-docker tag cr.astra.netapp.io/trident-acp:24.02.0 <my_custom_registry>/trident-acp:24.02.0
+docker tag cr.astra.netapp.io/astra/trident-acp:24.02.0 <my_custom_registry>/trident-acp:24.02.0
 ----
 .. Laden Sie das Bild in Ihre benutzerdefinierte Registrierung:
 +
@@ -112,7 +112,7 @@ docker push <my_custom_registry>/trident-acp:24.02.0
 +
 [source, crane]
 ----
-crane copy cr.astra.netapp.io/trident-acp:24.02.0 <my_custom_registry>/trident-acp:24.02.0
+crane copy cr.astra.netapp.io/astra/trident-acp:24.02.0 <my_custom_registry>/trident-acp:24.02.0
 ----
 
 
@@ -177,7 +177,7 @@ kubectl edit torc trident -n trident
 +
 ... Legen Sie einen benutzerdefinierten Registrierungsport für das Astra Trident Image fest oder ziehen Sie es aus der Astra Control Registry (`tridentImage: <my_custom_registry>/trident:24.02.0` Oder `tridentImage: netapp/trident:24.02.0`).
 ... Astra Control Provisioner Aktivieren (`enableACP: true`).
-... Legen Sie den benutzerdefinierten Registrierungsport für das Astra Control Provisioner-Image fest oder ziehen Sie es aus der Astra Control Registry (`acpImage: <my_custom_registry>/trident-acp:24.02.0` Oder `acpImage: cr.astra.netapp.io/trident-acp:24.02.0`).
+... Legen Sie den benutzerdefinierten Registrierungsport für das Astra Control Provisioner-Image fest oder ziehen Sie es aus der Astra Control Registry (`acpImage: <my_custom_registry>/trident-acp:24.02.0` Oder `acpImage: cr.astra.netapp.io/astra/trident-acp:24.02.0`).
 ... Wenn Sie sich etabliert haben <<pull-secrets,Geheimnisse der Bildausziehung>> Sie können diese hier einstellen (`imagePullSecrets: - <secret_name>`). Verwenden Sie den gleichen geheimen Namen, den Sie in den vorherigen Schritten festgelegt haben.
 
 
@@ -345,7 +345,7 @@ netapp-trident/trident-operator 100.2402.0      24.02.0         A
 
 [listing]
 ----
-helm install trident netapp-trident/trident-operator --version 100.2402.0 --set acpImage=cr.astra.netapp.io/trident-acp:24.02.0 --set enableACP=true --set operatorImage=netapp/trident-operator:24.02.0 --set tridentAutosupportImage=docker.io/netapp/trident-autosupport:24.02 --set tridentImage=netapp/trident:24.02.0 --namespace trident
+helm install trident netapp-trident/trident-operator --version 100.2402.0 --set acpImage=cr.astra.netapp.io/astra/trident-acp:24.02.0 --set enableACP=true --set operatorImage=netapp/trident-operator:24.02.0 --set tridentAutosupportImage=docker.io/netapp/trident-autosupport:24.02 --set tridentImage=netapp/trident:24.02.0 --namespace trident
 ----
 ** Bilder in einer oder mehreren Registern
 
