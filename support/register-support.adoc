@@ -27,7 +27,7 @@ Astra Control beinhaltet ein Feld für den Support-Status, mit dem Sie Ihre Supp
 Der Support-Status beginnt mit „nicht registriert“, wechselt jedoch zu „in Bearbeitung“ und schließlich zu „registriert“, sobald der Status abgeschlossen ist.
 
 +
-Dieser Support-Registrierungsstatus wird alle 15 Minuten abgefragt. Neue NetApp Kunden könnten den nächsten Arbeitstag bis zum Abschluss des Onboarding und der Support-Registrierung in Anspruch nehmen. Wenn die Seriennummer nicht innerhalb von 48 Stunden „registriert“ angezeigt wird, können Sie sich mithilfe von astra.feedback@netapp.com bei NetApp direkt mit Ihnen in Verbindung setzen oder sich manuell bei registrieren https://register.netapp.com[].
+Dieser Support-Registrierungsstatus wird alle 15 Minuten abgefragt. Neue NetApp Kunden können bis zum nächsten Arbeitstag benötigen, um die Registrierung für das Onboarding und Support abzuschließen. Wenn die Seriennummer nicht innerhalb von 48 Stunden „registriert“ angezeigt wird, können Sie sich mithilfe von astra.feedback@netapp.com bei NetApp direkt mit Ihnen in Verbindung setzen oder sich manuell bei registrieren https://register.netapp.com[].
 
 
 
@@ -56,21 +56,19 @@ Wenn Astra Control Ihr Konto nicht automatisch für Support registrieren konnte,
 === Option 1: Aktueller NetApp Kunde mit vorhandenem NetApp Support Site (NSS) Konto
 
 .Schritte
-. Navigieren Sie zum https://register.netapp.com["Support-Registrierung Für Cloud-Datenservices"^] Seite zum Erstellen eines NSS-Kontos.
+. Navigieren Sie zum https://register.netapp.com["Support-Registrierung Für Cloud-Datenservices"^] Seite.
 . Wählen Sie *Ich bin bereits als NetApp Kunde* registriert.
 . Geben Sie Ihre Zugangsdaten für die NetApp Support Site ein, um sich anzumelden.
 +
-Die Seite „bestehende Kundenregistrierung“ wird angezeigt.
-
-+
-image:screenshot-existing-registration.gif["Bestehendes Registrierungsformular Für Kunden"]
+Die Seite „Registrierung bestehender Kunden“ wird angezeigt.
 
 . Füllen Sie die erforderlichen Informationen auf dem Formular aus:
 +
 .. Geben Sie Ihren Namen, Ihre Firma und Ihre E-Mail-Adresse ein.
-.. Wählen Sie als Produktlinie * Astra* aus.
+.. Wählen Sie *Astra Control Service* als Produktlinie aus.
+.. Wählen Sie einen Abrechnungsanbieter aus.
 .. Geben Sie Ihre Seriennummer ein.
-.. Wählen Sie *Registrierung Senden*.
+.. Wählen Sie *Senden*.
 
 
 
@@ -85,20 +83,20 @@ Dies ist eine einmalige Support-Registrierung für die entsprechende Seriennumme
 === Option 2: Neuer NetApp Kunde ohne vorhandenem NetApp Support Site Konto (NSS
 
 .Schritte
-. Navigieren Sie zum https://register.netapp.com["Support-Registrierung Für Cloud-Datenservices"^] Seite zum Erstellen eines NSS-Kontos.
+. Navigieren Sie zum https://register.netapp.com["Support-Registrierung Für Cloud-Datenservices"^] Seite.
 . Wählen Sie *Ich bin kein registrierter NetApp Kunde*.
 +
-Die Seite „Neue Kundenregistrierung“ wird angezeigt.
-
-+
-image:screenshot-new-registration.gif["Registrierungsformular Für Neue Kunden"]
+Die Seite Registrierung neuer Kunden wird angezeigt.
 
 . Füllen Sie die erforderlichen Informationen auf dem Formular aus:
 +
-.. Geben Sie Ihren Namen und Ihre Firmendaten ein.
-.. Wählen Sie *Astra* als Produktlinie aus.
+.. Geben Sie Ihren Namen, Ihre Unternehmensinformationen und Ihre Kontaktdaten ein.
+.. Wählen Sie *Astra Control Service* als Produktlinie aus.
+.. Wählen Sie einen Abrechnungsanbieter aus.
 .. Geben Sie Ihre Seriennummer ein.
-.. Wählen Sie *Registrierung Senden*.
+.. Geben Sie den Captcha-Wert ein.
+.. Aktivieren Sie das Kontrollkästchen, um zu bestätigen, dass Sie die Datenschutzrichtlinie von NetApp gelesen haben.
+.. Wählen Sie *Senden*.
 +
 Sie erhalten eine Bestätigungs-E-Mail von Ihrer eingereichten Registrierung. Sollte kein Fehler auftreten, werden Sie auf eine Seite „Registrierung erfolgreich übermittelt“ weitergeleitet. Sie erhalten zudem innerhalb einer Stunde eine E-Mail mit dem Hinweis, dass „Ihr Produkt jetzt Support-berechtigt ist“.
 
