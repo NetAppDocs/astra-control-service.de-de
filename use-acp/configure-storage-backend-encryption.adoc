@@ -16,7 +16,7 @@ Mit Astra Control Provisioner können Sie die Datensicherheit verbessern, indem 
 
 Astra Control Provisioner unterstützt Kerberos-Verschlüsselung für zwei Arten von Storage-Back-Ends:
 
-* *On-Premises-ONTAP* – Astra Control Provisioner unterstützt Kerberos-Verschlüsselung über NFSv3- und NFSv4-Verbindungen von Red hat OpenShift und Upstream-Kubernetes-Clustern zu lokalen ONTAP-Volumes.
+* *On-Premises-ONTAP* – Astra Control Provisioner unterstützt Kerberos-Verschlüsselung über NFSv3- und NFSv4-Verbindungen von Red hat OpenShift und Upstream-Kubernetes-Clustern zu On-Premises-ONTAP-Volumes.
 * *Azure NetApp Files* – Astra Control Provisioner unterstützt Kerberos-Verschlüsselung über NFSv4.1-Verbindungen von Upstream-Kubernetes-Clustern zu Azure NetApp Files Volumes.
 
 
@@ -24,12 +24,12 @@ Sie können Snapshots, Klone, schreibgeschütztes Klonen und Importieren von Vol
 
 
 
-== Konfiguration der in-Flight-Kerberos-Verschlüsselung mit lokalen ONTAP-Volumes
+== Konfiguration der Verschlüsselung von Kerberos während der Übertragung mit lokalen ONTAP Volumes
 
-Sie können die Kerberos-Verschlüsselung auf dem Storage-Datenverkehr zwischen dem verwalteten Cluster und einem lokalen ONTAP-Storage-Back-End aktivieren.
+Sie können die Kerberos-Verschlüsselung für den Storage-Datenverkehr zwischen dem verwalteten Cluster und einem lokalen ONTAP Storage-Back-End aktivieren.
 
 
-NOTE: Kerberos-Verschlüsselung für NFS-Datenverkehr mit lokalen ONTAP-Storage-Back-Ends wird nur mithilfe des unterstützt `ontap-nas` Storage-Treiber:
+NOTE: Kerberos-Verschlüsselung für NFS-Datenverkehr mit On-Premises ONTAP Storage-Back-Ends wird nur mithilfe des unterstützt `ontap-nas` Storage-Treiber:
 
 .Bevor Sie beginnen
 * Stellen Sie sicher, dass Sie es haben link:../use/enable-acp.html["Astra Control Provisioner wurde aktiviert"^] Auf dem verwalteten Cluster.
