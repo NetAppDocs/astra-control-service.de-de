@@ -1399,7 +1399,6 @@
   <block id="879701946bb2bc7241d0f85fd843455a" category="paragraph">endif::azure[]</block>
   <block id="6e1e9c83b80f4d22d34cbdf60a71383b" category="paragraph">ifdef::gcp[]</block>
   <block id="310c228207a0f8446bbe4c5d16978cb7" category="paragraph">endif::gcp[]</block>
-  <block id="6ef5565e71b748d07e8a7b0699a73b5a" category="paragraph"><block ref="6ef5565e71b748d07e8a7b0699a73b5a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="305b39af5cd987a6208b64358f967be3" category="list-text">Eine einzelne Applikation, die innerhalb eines oder mehrerer Namespaces bereitgestellt wird (Helm 3 wird in diesem Beispiel verwendet).</block>
   <block id="5200a678b94ac14cf371f3073027246a" category="list-text">Eine Gruppe von Ressourcen, die innerhalb eines oder mehrerer Namespaces durch ein Kubernetes-Label identifiziert werden</block>
   <block id="e7ee212d9bc4dca7907f427fe053cfd0" category="paragraph">*Ich habe einen Upgrade auf den Premium PAYGO Plan aus dem Free Plan. Werde ich die ersten 10 Namensräume in Rechnung stellen?*</block>
@@ -2683,4 +2682,5 @@ Wenn Sie ein Zielvolume auf ein reguläres ReadWrite-Volume heraufstufen, könne
   <block id="df3d75a39182fab8d217744cdb76529e" category="list-text">*Verbesserte Sicherheit des Speicher-Backends mit Kerberos 5-Verschlüsselung*: Sie können die Speichersicherheit durch verbessern <block ref="63a1519b1e13a139789d4589996b0d00" category="inline-link-macro-rx"></block> Für den Datenverkehr zwischen dem gemanagten Cluster und dem Storage-Backend. Astra Control Provisioner unterstützt Kerberos-5-Verschlüsselung über NFSv4.1-Verbindungen von Red hat OpenShift-Clustern zu Azure NetApp Files und lokalen ONTAP Volumes.</block>
   <block id="931459f37abea3d820afa0fcf0ecfef7" category="list-text">Astra Control Center
 Astra Control ist jetzt in einem neuen Implementierungsmodell verfügbar. _Astra Control Center_ ist eine selbstverwaltete Software, die Sie in Ihrem Datacenter installieren und betreiben, damit Sie das Lifecycle Management der Kubernetes-Applikationen für lokale Kubernetes-Cluster managen können.</block>
+  <block id="b4cdc34d8767d1d4b7a24fbb97a1d8a7" category="paragraph"><block ref="b4cdc34d8767d1d4b7a24fbb97a1d8a7" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
