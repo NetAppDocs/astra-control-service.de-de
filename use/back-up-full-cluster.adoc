@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: use/back-up-full-cluster.html 
+keywords: backup, back up, backup apps, back up apps, take a backup, schedule backups, full, full backup, cluster backup, cluster, namespace, label, labels, namespaces 
+summary: Schützen Sie Ihre Apps, indem Sie ein vollständiges Cluster-Backup planen, damit alle Namespaces im Cluster geschützt sind. 
+---
+= [Tech Preview] Schützen Sie einen gesamten Cluster
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Sie können ein geplantes, automatisches Backup von beliebigen oder allen nicht gemanagten Namespaces in einem Cluster erstellen. Diese Workflows werden von NetApp als Kubernetes-Servicekonto, als Rollenbindung und als cron-Job bereitgestellt, orchestriert mit einem Python Skript.
+
+
+
+== So funktioniert es
+
+Wenn Sie den vollständigen Cluster-Backup-Workflow konfigurieren und installieren, wird ein Cron-Job regelmäßig ausgeführt und schützt alle noch nicht verwalteten Namespaces. Dabei werden automatisch Schutzrichtlinien basierend auf Zeitplänen erstellt, die Sie während der Installation auswählen.
+
+Wenn Sie nicht jeden nicht verwalteten Namespace auf dem Cluster mit dem vollständigen Cluster-Backup-Workflow schützen möchten, können Sie stattdessen den labelbasierten Backup-Workflow verwenden. Der labelbasierte Backup-Workflow verwendet auch eine Cron-Aufgabe, aber anstatt alle nicht verwalteten Namespaces zu schützen, identifiziert er Namespaces durch von Ihnen zur Verfügung gestellt Labels, um optional die Namespaces auf Basis von Bronze-, Silber- oder Gold-Backup-Richtlinien zu schützen.
+
+Wenn ein neuer Namespace erstellt wird, der in den Umfang des von Ihnen gewählten Workflows fällt, wird er automatisch und ohne Administratoraktionen geschützt. Diese Workflows werden auf Cluster-Basis implementiert. Je nach Cluster-Bedeutung können unterschiedliche Cluster einen der beiden Workflows mit individuellen Sicherungsstufen nutzen.
+
+.Beispiel: Vollständige Cluster-Sicherung
+Wenn Sie beispielsweise den vollständigen Cluster-Backup-Workflow konfigurieren und installieren, werden alle Applikationen in einem Namespace regelmäßig und ohne weiteren Aufwand durch den Administrator gemanagt und geschützt. Der Namespace muss bei der Installation des Workflows nicht vorhanden sein; wenn ein Namespace in der Zukunft hinzugefügt wird, wird er geschützt.
+
+.Beispiel: Label-basierter Schutz
+Für eine größere Granularität können Sie den labelbasierten Workflow verwenden. Sie können beispielsweise diesen Workflow installieren und Ihren Benutzern mitteilen, je nach Schutzstufe eine von mehreren Labels auf alle Namespaces anzuwenden, die sie schützen möchten. Auf diese Weise können Benutzer den Namespace mit einem dieser Labels erstellen, ohne dass sie einen Administrator benachrichtigen müssen. Der neue Namespace und alle darin Apps werden automatisch geschützt.
+
+
+
+== Erstellen Sie ein geplantes Backup aller Namespaces
+
+Sie können mithilfe des vollständigen Cluster-Backup-Workflows ein geplantes Backup aller Namespaces auf einem Cluster erstellen.
+
+.Schritte
+. Laden Sie die folgenden Dateien auf einen Computer herunter, der über Netzwerkzugriff auf den Cluster verfügt:
++
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/fullcluster-backup/components.yaml["Components.yaml CRD-Datei"]
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/fullcluster-backup/protectCluster.py["protectCluster.py Python-Skript"]
+
+
+. So konfigurieren und installieren Sie das Toolkit: https://github.com/NetApp/netapp-astra-toolkits/blob/main/examples/fullcluster-backup/README.md["Befolgen Sie die im Lieferumfang enthaltenen Anweisungen"^].
+
+
+
+
+== Erstellen Sie ein geplantes Backup bestimmter Namespaces
+
+Sie können mithilfe des labelbasierten Backup-Workflows ein geplantes Backup bestimmter Namespaces anhand ihrer Labels erstellen.
+
+.Schritte
+. Laden Sie die folgenden Dateien auf einen Computer herunter, der über Netzwerkzugriff auf den Cluster verfügt:
++
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/labelbased-backup/components.yaml["Components.yaml CRD-Datei"]
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/labelbased-backup/protectCluster.py["protectCluster.py Python-Skript"]
+
+
+. So konfigurieren und installieren Sie das Toolkit: https://github.com/NetApp/netapp-astra-toolkits/blob/main/examples/labelbased-backup/README.md["Befolgen Sie die im Lieferumfang enthaltenen Anweisungen"^].
+

@@ -10,6 +10,8 @@ entries:
     url: "/use/manage-apps.html"
   - title: Schützen von Applikationen
     url: "/use/protect-apps.html"
+  - title: Schützen Sie ein gesamtes Cluster
+    url: "/use/back-up-full-cluster.html"
   - title: Wiederherstellung von Applikationen
     url: "/use/restore-apps.html"
   - title: Klonen und Migrieren von Applikationen
