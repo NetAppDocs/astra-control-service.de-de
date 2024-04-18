@@ -18,7 +18,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur nach einer schnellen Antwort auf eine 
 
 == Überblick
 
-Astra Control zielt darauf ab, das Lifecycle Management von Applikationsdaten für native Kubernetes-Applikationen zu vereinfachen. Astra Control Service unterstützt Kubernetes-Cluster, die in Umgebungen mehrerer Cloud-Provider ausgeführt werden.
+Astra Control zielt auf die Vereinfachung des Lifecycle-Managements von Applikationsdaten für Kubernetes-native Applikationen ab. Astra Control Service unterstützt Kubernetes-Cluster, die in Umgebungen mehrerer Cloud-Provider ausgeführt werden.
 
 In den folgenden Abschnitten finden Sie Antworten auf einige zusätzliche Fragen, die Sie bei der Verwendung von Astra Control beantworten können. Bei weiteren Klarstellungen wenden Sie sich bitte an astra.feedback@netapp.com
 
