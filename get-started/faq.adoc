@@ -4,7 +4,7 @@ permalink: get-started/faq.html
 keywords: faq, frequently asked questions 
 summary: Diese FAQ kann Ihnen helfen, wenn Sie nur nach einer schnellen Antwort auf eine Frage suchen. 
 ---
-= Häufig gestellte Fragen zum Astra Control Service
+= Häufig gestellte Fragen
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -26,44 +26,35 @@ In den folgenden Abschnitten finden Sie Antworten auf einige zusätzliche Fragen
 
 == Zugang zum Astra Control
 
-*Warum muss ich bei der Registrierung für Astra Control so viele Details angeben?*
-
+.Warum muss ich bei der Registrierung für Astra Control so viele Details angeben?
 Astra Control erfordert genaue Kundeninformationen bei der Registrierung. Diese Informationen sind erforderlich, um eine Prüfung auf Global Trade Compliance (GTC) durchgehen zu können.
 
-*Warum erhalte ich einen Fehler bei der Registrierung für Astra Control?*
-
+.Warum erhalte ich bei der Registrierung für Astra Control den Fehler „Registrierung fehlgeschlagen“?
 Astra Control verlangt von Ihnen, im Abschnitt „Onboarding“ genaue Kundeninformationen bereitzustellen. Wenn Sie falsche Informationen angegeben haben, wird ein Fehler bei der Registrierung angezeigt. Andere Konten, für die Sie Mitglied sind, werden ebenfalls gesperrt.
 
-*Was ist die Astra Control Service URL?*
-
+.Wie heißt die Astra Control Service URL?
 Sie können auf den Astra Control Service zugreifen unter https://astra.netapp.io[].
 
-*Ich habe eine E-Mail-Einladung an einen Kollegen geschickt, aber sie haben sie nicht erhalten. Was soll ich tun?*
-
+.Ich habe eine E-Mail-Einladung an Kollegen gesendet, die diese aber nicht erhalten haben. Was soll ich tun?
 Bitten Sie sie, ihren Spam-Ordner auf eine E-Mail von do-not-reply@netapp.com zu prüfen, oder suchen Sie in ihrem Posteingang nach „Einladung“. Sie können den Benutzer auch entfernen und versuchen, ihn erneut hinzuzufügen.
 
-*Ich habe einen Upgrade auf den Premium PAYGO Plan aus dem Free Plan. Werde ich die ersten 10 Namensräume in Rechnung stellen?*
-
+.Ich habe ein Upgrade auf den Premium-PAYGO-Plan vom Free-Plan erhalten. Wird mir die ersten 10 Namespaces in Rechnung gestellt?
 Ja. Nach dem Upgrade auf den Premium-Plan beginnt Astra Control Sie mit dem Aufladen aller verwalteten Namespaces in Ihrem Konto.
 
-*Mitte eines Monats habe ich einen Upgrade auf den Premium PAYGO Plan durchgeführt. Werde ich den ganzen Monat in Rechnung stellen?*
-
+.Ich habe Mitte eines Monats ein Upgrade auf den Premium-PAYGO-Plan durchgeführt. Wird mir der gesamte Monat in Rechnung gestellt?
 Nein Die Abrechnung beginnt mit dem Zeitpunkt, zu dem Sie ein Upgrade auf den Premium-Plan durchgeführt haben.
 
-*Ich verwende den Freiplan, wird mir die Persistent Volume Claims berechnet?*
-
+.Ich verwende den kostenlosen Plan, werde ich für die Persistent Volume Claims in Rechnung gestellt?
 Ja, Sie werden von Ihrem Cloud-Provider für die persistenten Volumes berechnet, die von den Clustern verwendet werden.
 
 
 
 == Kubernetes Cluster werden registriert
 
-*Muss ich CSI-Treiber auf meinem Cluster installieren, bevor ich den Astra Control Service hinzufüge?*
-
+.Muss ich CSI-Treiber auf meinem Cluster installieren, bevor ich sie zu Astra Control Service hinzufügen kann?
 Nein Wenn ein Cluster zu Astra Control hinzugefügt wird, installiert der Service automatisch den CSI-Treiber (Astra Trident Container Storage Interface) auf dem Kubernetes-Cluster. Dieser CSI-Treiber wird für die Bereitstellung persistenter Volumes für von Ihrem Cloud-Provider unterstützte Cluster verwendet.
 
-*Nach dem Hinzufügen zum Astra Control Service muss ich den Worker-Knoten zu meinem Cluster hinzufügen. Was soll ich tun?*
-
+.Ich muss meinem Cluster Worker Nodes hinzufügen, nachdem ich den Astra Control Service hinzugefügt habe. Was soll ich tun?
 Neue Worker-Nodes können vorhandenen Pools hinzugefügt oder neue Pools erstellt werden, solange sie der sind `COS_CONTAINERD` Bildtyp. Diese werden automatisch von Astra Control entdeckt. Wenn die neuen Knoten in Astra Control nicht sichtbar sind, prüfen Sie, ob auf den neuen Worker Nodes der unterstützte Bildtyp ausgeführt wird. Sie können den Zustand der neuen Worker-Nodes auch mit überprüfen `kubectl get nodes` Befehl.
 
 ifdef::aws[]
@@ -72,8 +63,7 @@ ifdef::aws[]
 
 == Registrieren von Elastic Kubernetes Service (EKS) Clustern
 
-*Kann ich einen privaten EKS-Cluster zum Astra Control Service hinzufügen?*
-
+.Kann ich dem Astra Control Service einen privaten EKS Cluster hinzufügen?
 Ja, Sie können dem Astra Control Service private EKS-Cluster hinzufügen. Informationen zum Hinzufügen eines privaten EKS-Clusters finden Sie unter link:add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"].
 
 endif::aws[]
@@ -84,12 +74,10 @@ ifdef::azure[]
 
 == Azure Kubernetes Service-Cluster (AKS) werden registriert
 
-*Kann ich einen privaten AKS-Cluster zum Astra Control Service hinzufügen?*
-
+.Kann ich dem Astra Control Service einen privaten AKS-Cluster hinzufügen?
 Ja, Sie können private AKS-Cluster zu Astra Control Service hinzufügen. Informationen zum Hinzufügen eines privaten AKS-Clusters finden Sie unter link:add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"].
 
-*Kann ich Active Directory zur Verwaltung der Authentifizierung für meine AKS-Cluster verwenden?*
-
+.Kann ich Active Directory verwenden, um die Authentifizierung für meine AKS-Cluster zu verwalten?
 Ja, Sie können Ihre AKS-Cluster so konfigurieren, dass sie Azure Active Directory (Azure AD) zur Authentifizierung und Identitätsverwaltung verwenden. Wenn Sie das Cluster erstellen, befolgen Sie die Anweisungen im https://docs.microsoft.com/en-us/azure/aks/managed-aad["Offizielle Dokumentation"^] Um den Cluster mit Azure AD zu konfigurieren. Stellen Sie sicher, dass Ihre Cluster die Anforderungen für die AKS-verwaltete Azure AD-Integration erfüllen.
 
 endif::azure[]
@@ -100,24 +88,20 @@ ifdef::gcp[]
 
 == Google Kubernetes Engine (GKE)-Cluster werden registriert
 
-*Kann ich einen privaten GKE-Cluster zum Astra Control Service hinzufügen?*
-
+.Kann ich dem Astra Control Service ein privates GKE Cluster hinzufügen?
 Ja, Sie können private GKE-Cluster zum Astra Control Service hinzufügen. Informationen zum Hinzufügen eines privaten GKE-Clusters finden Sie unter link:add-first-cluster.html["Managen Sie Kubernetes Cluster über den Astra Control Service"].
 
 Private GKE-Cluster müssen über den verfügen https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept["Autorisierte Netzwerke"^] Einstellen, um die Astra Control-IP-Adresse zuzulassen:
 
 52.188.218.166/32
 
-*Kann mein GKE-Cluster auf einem gemeinsamen VPC residieren?*
-
+.Kann sich mein GKE-Cluster auf einer gemeinsamen VPC befinden?
 Ja. Astra Control kann Cluster managen, die sich in einer gemeinsam genutzten VPC befinden. link:set-up-google-cloud.html["Erfahren Sie, wie Sie den Astra-Service-Account für eine Shared VPC-Konfiguration einrichten"].
 
-*Wo finde ich meine Service-Konto-Anmeldeinformationen auf GCP?*
-
+.Wo finde ich die Anmeldedaten für mein Servicekonto auf GCP?
 Nachdem Sie sich beim angemeldet haben https://console.cloud.google.com/["Google Cloud Console"^], Ihre Angaben zu Ihrem Servicekonto finden Sie im Bereich *IAM und Admin*. Weitere Informationen finden Sie unter link:set-up-google-cloud.html["So richten Sie Google Cloud für Astra Control ein"].
 
-*Ich möchte verschiedene GKE-Cluster aus verschiedenen GCP-Projekten hinzufügen. Wird dies in Astra Control unterstützt?*
-
+.Ich möchte verschiedene GKE-Cluster aus verschiedenen GCP-Projekten hinzufügen. Wird dies in Astra Control unterstützt?
 Nein, dies ist keine unterstützte Konfiguration. Es wird nur ein einziges GCP-Projekt unterstützt.
 
 endif::gcp[]
@@ -126,16 +110,14 @@ endif::gcp[]
 
 == Cluster werden entfernt
 
-*Wie kann ich die Registrierung richtig aufheben, einen Cluster herunterholen und die zugehörigen Volumes löschen?*
-
+.Wie kann ich die Registrierung aufheben, einen Cluster herunterfahren und die zugehörigen Volumes löschen?
 . link:../use/unmanage.html["Lösen Sie die Anwendungen von Astra Control"].
 . link:../use/unmanage.html#stop-managing-compute["Lösen Sie das Cluster von Astra Control"].
 . link:../use/unmanage.html#deleting-clusters-from-your-cloud-provider["Löschen Sie die Anträge für das persistente Volume"].
 . Löschen des Clusters.
 
 
-*Was passiert mit meinen Anwendungen und Daten, nachdem ich den Cluster aus Astra Control entfernt habe?*
-
+.Was passiert mit meinen Anwendungen und Daten nach dem Entfernen des Clusters aus Astra Control?
 Das Entfernen eines Clusters aus Astra Control führt keine Änderungen an der Cluster-Konfiguration (Applikationen und persistenter Storage) durch. Astra Control Snapshots oder Backups, die von Applikationen auf diesem Cluster erstellt werden, sind zur Wiederherstellung nicht verfügbar. Volume-Snapshot-Daten, die im Storage-Back-End gespeichert sind, werden nicht entfernt. Persistente Storage Backups von Astra Control verbleiben im Objektspeicher Ihres Cloud-Providers, sind aber nicht für die Wiederherstellung verfügbar.
 
 ifdef::gcp[]
@@ -145,21 +127,19 @@ WARNING: Entfernen Sie immer einen Cluster aus Astra Control, bevor Sie ihn übe
 
 endif::gcp[]
 
-*Wird Astra Control Provisioner automatisch aus einem Cluster deinstalliert, wenn ich es entmanage?*
+.Wird Astra Control Provisioner automatisch aus einem Cluster deinstalliert, wenn ich es deverwalte?
 Wenn Sie ein Cluster aus Astra Control Center deinstallieren, wird Astra Control Provisioner oder Astra Trident nicht automatisch aus dem Cluster deinstalliert. Um Astra Control Provisioner und seine Komponenten oder Astra Trident zu deinstallieren, müssen Sie https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Befolgen Sie diese Schritte, um die Astra Trident-Instanz zu deinstallieren, die den Astra Control Provisioner-Service enthält"^].
 
 
 
 == Management von Applikationen
 
-*Kann Astra Control eine Anwendung bereitstellen?*
-
+.Kann Astra Control eine Applikation implementieren?
 Astra Control implementiert keine Applikationen. Applikationen müssen außerhalb von Astra Control bereitgestellt werden.
 
 ifdef::gcp[]
 
-*Ich sehe keine PVCs meiner Anwendung, die an GCP CVS gebunden sind. Was ist falsch?*
-
+.Ich sehe keine PVCs meiner Applikation, die an GCP CVS gebunden sind. Was ist falsch?
 Der Operator Astra Trident setzt die Standard-Storage-Klasse auf `netapp-cvs-perf-premium` Nach dem erfolgreichen Hinzufügen zum Astra Control. Wenn PVCs einer Anwendung nicht an Cloud Volumes Service für Google Cloud gebunden sind, gibt es einige Schritte, die Sie durchführen können:
 
 * Laufen `kubectl get sc` Und überprüfen Sie die Standard-Speicherklasse.
@@ -169,51 +149,42 @@ Der Operator Astra Trident setzt die Standard-Storage-Klasse auf `netapp-cvs-per
 
 endif::gcp[]
 
-*Was passiert mit Anwendungen, nachdem ich sie von Astra Control aus verwaltet habe?*
-
+.Was passiert mit Applikationen, nachdem ich sie nicht mehr von Astra Control aus managen muss?
 Alle bestehenden Backups oder Snapshots werden gelöscht. Applikationen und Daten sind weiterhin verfügbar. Datenmanagement-Vorgänge stehen nicht für nicht verwaltete Anwendungen oder für Backups oder Snapshots zur Verfügung, die dazu gehören.
 
 
 
 == Datenmanagement-Vorgänge
 
-*Wo erstellt Astra Control den Objektspeichereimer?*
-
+.Wo erstellt Astra Control den Objektspeicher-Bucket?
 Die Geografie des ersten verwalteten Clusters bestimmt den Standort des Objektspeichers. Wenn sich beispielsweise der erste Cluster, den Sie hinzufügen, in einer europäischen Zone befindet, wird der Bucket in derselben Region erstellt. Wenn nötig, können Sie link:../use/manage-buckets.html["Weitere Buckets hinzufügen"].
 
-*Es gibt Schnappschüsse in meinem Konto, die ich nicht erstellt habe. Woher kamen sie?*
-
+.Es gibt Snapshots in meinem Konto, die ich nicht erstellt habe. Woher kamen sie?
 In manchen Situationen erstellt Astra Control automatisch einen Snapshot im Rahmen eines anderen Prozesses. Wenn diese Snapshots älter als ein paar Minuten sind, können Sie sie sicher löschen.
 
-*Meine Anwendung verwendet mehrere PVS. Wird Astra Control Snapshots und Backups all dieser VES machen?*
-
+.Meine Anwendung verwendet mehrere PVS. Wird Astra Control Schnappschüsse und Backups von allen diesen PVCs machen?
 Ja. Ein Snapshot-Vorgang auf einer Anwendung von Astra Control umfasst die Momentaufnahme aller VES, die an die VES der Anwendung gebunden sind.
 
-*Kann ich die von Astra Control erstellten Snapshots direkt über meinen Cloud-Provider managen?*
-
+.Kann ich Snapshots, die von Astra Control erstellt werden, direkt über meinen Cloud-Provider managen?
 Nein Von Astra Control angenommene Snapshots und Backups können nur mit Astra Control gemanagt werden.
 
 
 
 == Astra Control Provisioner
 
-*Wie unterscheiden sich die Funktionen zur Storage-Bereitstellung von Astra Control von denen in Astra Trident?*
-
+.Inwiefern unterscheiden sich die Funktionen zur Storage-Bereitstellung von Astra Control von denen in Astra Trident?
 Astra Control Provisioner unterstützt als Teil von Astra Control übergeordnete Funktionen für die Storage-Bereitstellung, die in Open-Source-Funktionen von Astra Trident nicht verfügbar sind. Diese Funktionen stehen zusätzlich zu allen Features, die für den Open-Source-Trident zur Verfügung stehen.
 
-*Ersetzt Astra Control Provisioner Astra Trident?*
+.Ersetzt Astra Control Provisioner Astra Trident?
 Astra Control Provisioner hat Astra Trident als Storage-bereitstellung und -Orchestrierung in der Architektur von Astra Control ersetzt. Astra Control bietet die Möglichkeit link:../use/enable-acp.html["Astra Control Provisioner aktivieren"] Um Astra Control zu verwenden. Astra Trident wird in dieser Version weiterhin unterstützt, wird aber in zukünftigen Versionen nicht unterstützt. Astra Trident bleibt Open Source und wird mit neuen CSI- und anderen Funktionen von NetApp veröffentlicht, gepflegt, unterstützt und aktualisiert. In den kommenden Astra Control Versionen können jedoch nur Astra Control Provisioner verwendet werden, der die CSI-Funktionalität von Astra Trident sowie erweiterte Storage-Managementfunktionen enthält.
 
-*Muss ich für Astra Trident bezahlen?*
-
+.Muss ich für Astra Trident bezahlen?
 Nein Astra Trident ist weiterhin Open-Source-Software und kann kostenlos heruntergeladen werden. Für die Verwendung der Astra Control-Funktion ist jetzt eine Astra Control Lizenz erforderlich.
 
-*Kann ich die Funktionen zur Speicherverwaltung und Bereitstellung in Astra Control nutzen, ohne Astra Control zu installieren und zu verwenden?*
-
+.Kann ich die Funktionen für Storage-Management und -Bereitstellung in Astra Control nutzen, ohne Astra Control komplett zu installieren und zu verwenden?
 Ja, Sie können ein Upgrade auf Astra Control Provisioner durchführen und dessen Funktionen verwenden, selbst wenn Sie nicht den gesamten Funktionsumfang der Astra Control Datenmanagement-Funktion nutzen möchten.
 
-[[Running-acp-Check]]*wie kann ich wissen, ob Astra Control Provisioner Astra Trident in meinem Cluster ersetzt hat?*
-
+.Wie kann ich feststellen, ob Astra Control Provisioner Astra Trident in meinem Cluster ersetzt hat?
 Nach der Installation von Astra Control Provisioner wird für das Host-Cluster in der Astra Control UI ein angezeigt `ACP version` Und nicht `Trident version` Feld und aktuelle installierte Versionsnummer.
 
 image:ac-acp-version.png["Ein Screenshot mit der Versionsposition für die Astra Control Provisioner in der Benutzeroberfläche"]

@@ -34,6 +34,8 @@ sidebar:
   - title: Automatisierung mit der Astra Control REST-API
     url: "/automation.html"
   - section: support
+  - title: Häufig gestellte Fragen
+    url: "/get-started/faq.html"
   - title: Rechtliche Hinweise
     url: "/legal-notices.html"
 product-family:
