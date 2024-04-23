@@ -1,0 +1,130 @@
+---
+sidebar: sidebar 
+permalink: get-started/install-astra-connector-declarative.html 
+keywords: connector, install, astra connector, manage cluster, add cluster, cluster, add, manage 
+summary: Sie können den Astra Connector installieren, um private Cluster zu verwalten. 
+---
+= (Tech Preview) Installieren Sie den deklarativen Kubernetes Astra Connector
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Cluster, die über deklarative Kubernetes-Workflows gemanagt werden, ermöglichen über Astra Connector die Kommunikation zwischen dem gemanagten Cluster und Astra Control. Sie müssen Astra Connector auf allen Clustern installieren, die Sie mit deklarativen Kubernetes-Workflows managen werden.
+
+Sie installieren den deklarativen Kubernetes Astra Connector mithilfe von Kubernetes-Befehlen und CR-Dateien (Custom Resource).
+
+.Über diese Aufgabe
+* Wenn Sie diese Schritte ausführen, führen Sie diese Befehle auf dem Cluster aus, den Sie mit Astra Control managen möchten.
+* Wenn Sie einen Bastion-Host verwenden, geben Sie diese Befehle über die Befehlszeile des Bastion-Hosts aus.
+
+
+.Bevor Sie beginnen
+* Sie benötigen Zugriff auf den Cluster, den Sie mit Astra Control managen möchten.
+* Sie benötigen Kubernetes-Administratorberechtigungen, um den Astra Connector Operator auf dem Cluster zu installieren.
+
+
+
+NOTE: Wenn das Cluster mit der Durchsetzung der Pod-Sicherheitszulassung konfiguriert ist, was der Standard für Kubernetes-Cluster ab Version 1.25 ist, müssen Sie die PSA-Einschränkungen für die entsprechenden Namespaces aktivieren. Siehe link:prep-for-cluster-management.html["Bereiten Sie Ihre Umgebung mit Astra Control auf das Cluster-Management vor"] Weitere Anweisungen.
+
+.Schritte
+. Installieren Sie den Astra Connector Operator auf dem Cluster, das Sie mit deklarativen Kubernetes-Workflows managen möchten. Wenn Sie diesen Befehl ausführen, wird der Namespace verwendet `astra-connector-operator` Wird erstellt und die Konfiguration wird auf den Namespace angewendet:
++
+[source, console]
+----
+kubectl apply -f https://github.com/NetApp/astra-connector-operator/releases/download/24.02.0-202403151353/astraconnector_operator.yaml
+----
+. Überprüfen Sie, ob der Bediener installiert und bereit ist:
++
+[source, console]
+----
+kubectl get all -n astra-connector-operator
+----
+. Holen Sie sich ein API-Token von Astra Control. Siehe https://docs.netapp.com/us-en/astra-automation/get-started/get_api_token.html["Dokumentation von Astra Automation"^] Weitere Anweisungen.
+. Erstellen Sie mithilfe des Tokens einen Schlüssel. Ersetzen Sie <API_TOKEN> durch das Token, das Sie von Astra Control erhalten haben:
++
+[source, console]
+----
+kubectl create secret generic astra-token \
+--from-literal=apiToken=<API_TOKEN> \
+-n astra-connector
+----
+. Erstellen Sie einen Docker-Schlüssel, um das Astra Connector-Image zu übertragen. Ersetzen Sie Werte in Klammern <> durch Informationen aus Ihrer Umgebung:
++
+
+NOTE: Die <ASTRA_CONTROL_ACCOUNT_ID> finden Sie in der Web-UI von Astra Control. Wählen Sie in der Web-Benutzeroberfläche das Symbol oben rechts auf der Seite aus und wählen Sie *API Access*.
+
++
+[source, console]
+----
+kubectl create secret docker-registry regcred \
+--docker-username=<ASTRA_CONTROL_ACCOUNT_ID> \
+--docker-password=<API_TOKEN> \
+-n astra-connector \
+--docker-server=cr.astra.netapp.io
+----
+. Erstellen Sie die Astra Connector CR-Datei und benennen Sie sie `astra-connector-cr.yaml`. Aktualisieren Sie die Werte in Klammern <>, um sie an die Astra Control-Umgebung und die Cluster-Konfiguration anzupassen:
++
+** <ASTRA_CONTROL_ACCOUNT_ID>: Erhalten von der Astra Control Web-UI während des vorhergehenden Schritts.
+** <CLUSTER_NAME>: Der Name, dem dieser Cluster in Astra Control zugewiesen werden soll.
+** <ASTRA_CONTROL_URL>: Die Web UI URL von Astra Control. Beispiel:
++
+[listing]
+----
+https://astra.control.url
+----
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: AstraConnector
+metadata:
+  name: astra-connector
+  namespace: astra-connector
+spec:
+  astra:
+    accountId: <ASTRA_CONTROL_ACCOUNT_ID>
+    clusterName: <CLUSTER_NAME>
+    #Only set `skipTLSValidation` to `true` when using the default self-signed
+    #certificate in a proof-of-concept environment.
+    skipTLSValidation: false #Should be set to false in production environments
+    tokenRef: astra-token
+  natsSyncClient:
+    cloudBridgeURL: <ASTRA_CONTROL_HOST_URL>
+  imageRegistry:
+    name: cr.astra.netapp.io
+    secret: regcred
+----
+
+
+. Nachdem Sie das ausgefüllt haben `astra-connector-cr.yaml` Datei mit den richtigen Werten, CR anwenden:
++
+[source, console]
+----
+kubectl apply -n astra-connector -f astra-connector-cr.yaml
+----
+. Überprüfen Sie, ob der Astra Connector vollständig bereitgestellt ist:
++
+[source, console]
+----
+kubectl get all -n astra-connector
+----
+. Überprüfen Sie, ob das Cluster bei Astra Control registriert ist:
++
+[source, console]
+----
+kubectl get astraconnectors.astra.netapp.io -A
+----
++
+Sie sollten eine Ausgabe wie die folgende sehen:
+
++
+[listing]
+----
+NAMESPACE         NAME              REGISTERED   ASTRACONNECTORID                       STATUS
+astra-connector   astra-connector   true         00ac8-2cef-41ac-8777-ed0583e   Registered with Astra
+----
+. Überprüfen Sie, ob der Cluster in der Liste der verwalteten Cluster auf der Seite *Cluster* der Astra Control Web UI angezeigt wird.
+

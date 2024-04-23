@@ -27,8 +27,14 @@ entries:
 - title: Fügen Sie einen Cluster hinzu
   url: "/get-started/add-first-cluster.html"
   entries:
-  - title: Astra Connector für private Cluster installieren
-    url: "/get-started/install-astra-connector.html"
+  - title: Astra Connector installieren, um Cluster zu managen
+    url: "/get-started/astra-connector-overview.html"
+    entries:
+    - title: Installieren Sie die vorherige Version von Astra Connector für private
+        Cluster
+      url: "/get-started/install-astra-connector-previous.html"
+    - title: Astra Connector für deklarative Kubernetes-Cluster installieren
+      url: "/get-started/install-astra-connector-declarative.html"
   - title: Fügen Sie ein vom Anbieter verwaltetes Cluster hinzu
     entries:
     - title: Fügen Sie ein vom öffentlichen Anbieter verwaltetes Cluster hinzu

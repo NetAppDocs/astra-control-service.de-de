@@ -37,7 +37,7 @@ Führen Sie die folgenden Aufgaben aus, um Ihren privaten Cluster zum Astra Cont
 
 == Astra Connector Installieren
 
-Bevor Sie einen privaten Cluster hinzufügen, müssen Sie Astra Connector im Cluster installieren, damit Astra Control damit kommunizieren kann. Siehe link:install-astra-connector.html["Astra Connector für private Cluster installieren"] Weitere Anweisungen.
+Bevor Sie einen privaten Cluster hinzufügen, müssen Sie Astra Connector im Cluster installieren, damit Astra Control damit kommunizieren kann. Siehe link:install-astra-connector-previous.html["Installieren Sie die vorherige Version von Astra Connector für private Cluster, die mit nicht-Kubernetes-nativen Workflows gemanagt werden"] Weitere Anweisungen.
 
 
 

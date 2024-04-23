@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: get-started/install-astra-connector.html 
+permalink: get-started/install-astra-connector-previous.html 
 keywords: connector, install, astra connector, manage cluster, add cluster, cluster, add, manage 
 summary: Sie können den Astra Connector installieren, um private Cluster zu verwalten. 
 ---
-= Astra Connector für private Cluster installieren
+= Installieren Sie die vorherige Version von Astra Connector
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,21 +12,17 @@ summary: Sie können den Astra Connector installieren, um private Cluster zu ver
 
 
 [role="lead"]
-Astra Control Service nutzt Astra Connector, um die Kommunikation zwischen Astra Control Service und privaten Clustern zu ermöglichen. Sie müssen Astra Connector auf privaten Clustern installieren, die Sie verwalten möchten.
+Astra Control Service verwendet die vorherige Version von Astra Connector, um die Kommunikation zwischen Astra Control Service und privaten Clustern zu ermöglichen, die über nicht-Kubernetes-native Workflows gemanagt werden. Sie müssen Astra Connector auf privaten Clustern installieren, die Sie mit nicht-Kubernetes-nativen Workflows managen möchten.
 
-Astra Connector unterstützt die folgenden Arten von privaten Clustern:
+Die vorherige Version von Astra Connector unterstützt die folgenden Typen von privaten Clustern, die mit nicht-Kubernetes-nativen Workflows gemanagt werden:
 
 * Amazon Elastic Kubernetes Service (EKS)
 * Azure Kubernetes-Service (AKS)
 * Google Kubernetes Engine (GKE)
 * Red hat OpenShift Service auf AWS (ROSA)
 * ROSA mit AWS PrivateLink
-* Lokale Red hat OpenShift Container-Plattform
+* Red hat OpenShift-Container-Plattform vor Ort
 
-
-
-
-== Astra Connector Installieren
 
 .Über diese Aufgabe
 * Wenn Sie diese Schritte ausführen, führen Sie diese Befehle für den privaten Cluster aus, den Sie mit Astra Control Service managen möchten.
@@ -39,7 +35,7 @@ Astra Connector unterstützt die folgenden Arten von privaten Clustern:
 
 
 .Schritte
-. Installieren Sie den Astra Connector Operator auf dem privaten Cluster, den Sie mit Astra Control Service managen möchten. Wenn Sie diesen Befehl ausführen, wird der Namespace verwendet `astra-connector-operator` Wird erstellt und die Konfiguration wird auf den Namespace angewendet:
+. Installieren Sie den vorherigen Astra Connector Operator auf dem privaten Cluster, den Sie mit nicht-Kubernetes-nativen Workflows managen möchten. Wenn Sie diesen Befehl ausführen, wird der Namespace verwendet `astra-connector-operator` Wird erstellt und die Konfiguration wird auf den Namespace angewendet:
 +
 [source, console]
 ----

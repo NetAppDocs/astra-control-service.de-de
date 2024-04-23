@@ -265,6 +265,106 @@ Nach Abschluss des Prozesses werden die dem Namespace zugeordneten Anwendungen i
 
 
 
+=== [Tech Preview] Definieren Sie eine Applikation mithilfe einer benutzerdefinierten Kubernetes-Ressource
+
+Sie können die Kubernetes-Ressourcen angeben, die Sie mit Astra Control managen möchten, indem Sie sie als Applikation mithilfe einer benutzerdefinierten Ressource definieren. Sie können Ressourcen mit Cluster-Umfang hinzufügen, wenn Sie diese Ressourcen einzeln oder alle Kubernetes-Ressourcen in einem Namespace managen möchten, wenn Sie beispielsweise alle Ressourcen in einem bestimmten Namespace auf ähnliche Weise und in gängigen Intervallen managen und schützen möchten.
+
+.Schritte
+. Erstellen Sie die CR-Datei (Custom Resource) und benennen Sie sie (z. B. `astra_mysql_app.yaml`).
+. Benennen Sie die Anwendung in `metadata.name`.
+. Definieren Sie die zu verwaltenden Anwendungsressourcen:
++
+[role="tabbed-block"]
+====
+.spec.includedClusterScopedResources
+--
+Hinzufügen von Ressourcentypen mit Cluster-Umfang zusätzlich zu den von Astra Control automatisch enthaltenen Ressourcen:
+
+** *spec.includedClusterScopedResources*: _(Optional)_ Eine Liste der im Cluster enthaltenen Ressourcentypen.
++
+*** *GroupVersionRind*: _(Optional)_ eindeutig identifiziert eine Art.
++
+**** *Group*: _(erforderlich, wenn groupVersionRind verwendet wird)_ API-Gruppe der einzuschließen Ressource.
+**** *Version*: _(erforderlich, wenn groupVersionRind verwendet wird)_ API-Version der einzubauenden Ressource.
+**** *Kind*: _(erforderlich, wenn groupVersionRind verwendet wird)_ Art der Ressource, die einbezogen werden soll.
+
+
+*** *LabelSelector*: _(Optional)_ Eine Label-Abfrage für eine Gruppe von Ressourcen. Es wird verwendet, um nur die Ressourcen abzurufen, die der Bezeichnung entsprechen. Wenn Sie kein Etikett bereitstellen, sammelt Astra Control alle Instanzen der für diesen Cluster angegebenen Ressourcenkartart. Das Ergebnis von matchLabels und matchExpressions ist ANDed.
++
+**** *MatchLabels*: _(Optional)_ Eine Karte von {key,value} Paaren. Ein einzelner {key,value} in der matchLabels-Karte entspricht einem Element von matchExpressions, das ein Schlüsselfeld von "key", Operator als "in" und Values-Array enthält, das nur "value" enthält. Die Anforderungen sind ANDed.
+**** *MatchExpressions*: _(Optional)_ Eine Liste der Anforderungen an die Etikettenauswahl. Die Anforderungen sind ANDed.
++
+***** *Key*: _(erforderlich, wenn matchExpressions verwendet wird)_ der Label-Schlüssel, der mit dem Label-Selektor verknüpft ist.
+***** *Operator*: _(erforderlich, wenn matchExpressions verwendet wird)_ stellt die Beziehung eines Schlüssels zu einem Satz von Werten dar. Gültige Operatoren sind `In`, `NotIn`, `Exists` Und `DoesNotExist`.
+***** *Values*: _(erforderlich, wenn matchExpressions verwendet wird)_ein Array von String-Werten. Wenn der Operator ist `In` Oder `NotIn`, Das Wertearray darf _Not_ leer sein. Wenn der Operator ist `Exists` Oder `DoesNotExist`, Das Werte-Array muss leer sein.
+
+
+
+
+
+
+
+
+--
+.spec.includedNamespaces
+--
+Fügen Sie Namespaces und Ressourcen in diesen Ressourcen in der Anwendung ein:
+
+** *spec.includedNamespaces*: _(required)_definiert den Namespace und optionale Filter für die Ressourcenauswahl.
++
+*** *Namespace*: _(erforderlich)_ der Namespace, der die App-Ressourcen enthält, die Sie mit Astra Control managen möchten.
+*** *LabelSelector*: _(Optional)_ Eine Label-Abfrage für eine Gruppe von Ressourcen. Es wird verwendet, um nur die Ressourcen abzurufen, die der Bezeichnung entsprechen. Wenn Sie kein Etikett bereitstellen, sammelt Astra Control alle Instanzen der für diesen Cluster angegebenen Ressourcenkartart. Das Ergebnis von matchLabels und matchExpressions ist ANDed.
++
+**** *MatchLabels*: _(Optional)_ Eine Karte von {key,value} Paaren. Ein einzelner {key,value} in der matchLabels-Karte entspricht einem Element von matchExpressions, das ein Schlüsselfeld von "key", Operator als "in" und Values-Array enthält, das nur "value" enthält. Die Anforderungen sind ANDed.
+**** *MatchExpressions*: _(Optional)_ Eine Liste der Anforderungen an die Etikettenauswahl. `key` Und `operator` Erforderlich sind. Die Anforderungen sind ANDed.
++
+***** *Key*: _(erforderlich, wenn matchExpressions verwendet wird)_ der Label-Schlüssel, der mit dem Label-Selektor verknüpft ist.
+***** *Operator*: _(erforderlich, wenn matchExpressions verwendet wird)_ stellt die Beziehung eines Schlüssels zu einem Satz von Werten dar. Gültige Operatoren sind `In`, `NotIn`, `Exists` Und `DoesNotExist`.
+***** *Values*: _(erforderlich, wenn matchExpressions verwendet wird)_ ein Array von String-Werten. Wenn der Operator ist `In` Oder `NotIn`, Das Wertearray darf _Not_ leer sein. Wenn der Operator ist `Exists` Oder `DoesNotExist`, Das Werte-Array muss leer sein.
+
+
+
+
+
+
+
+
+--
+====
++
+Beispiel YAML:
+
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: Application
+metadata:
+  name: astra_mysql_app
+spec:
+  includedNamespaces:
+    - namespace: astra_mysql_app
+      labelSelector:
+        matchLabels:
+          app: nginx
+          env: production
+        matchExpressions:
+          - key: tier
+            operator: In
+            values:
+              - frontend
+              - backend
+----
+. Nachdem Sie das ausgefüllt haben `astra_mysql_app.yaml` Datei mit den richtigen Werten, CR anwenden:
++
+[source, console]
+----
+kubectl apply -f astra_mysql_app.yaml -n astra-connector
+----
+
+
+
+
 == Und wie sieht es mit System-Namespaces aus?
 
 Astra Control erkennt auch Systemnames auf einem Kubernetes Cluster. Wir zeigen Ihnen diese System-Namespaces standardmäßig nicht, da es selten ist, dass Sie die Ressourcen der System-App sichern müssen.

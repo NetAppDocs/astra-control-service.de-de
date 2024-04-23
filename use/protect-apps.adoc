@@ -33,20 +33,27 @@ Sie können die folgenden Aufgaben zum Schutz Ihrer Applikationsdaten ausführen
 
 == Konfigurieren einer Sicherungsrichtlinie
 
-Eine Sicherungsrichtlinie sichert eine Applikation, indem Snapshots, Backups oder beides nach einem definierten Zeitplan erstellt werden. Sie können Snapshots und Backups stündlich, täglich, wöchentlich und monatlich erstellen. Außerdem können Sie die Anzahl der beizubehaltenden Kopien festlegen.
+Eine Sicherungsrichtlinie sichert eine Applikation, indem Snapshots, Backups oder beides nach einem definierten Zeitplan erstellt werden. Sie können Snapshots und Backups stündlich, täglich, wöchentlich und monatlich erstellen. Außerdem können Sie die Anzahl der beizubehaltenden Kopien festlegen. Sie können eine Schutzrichtlinie entweder über die Astra Control Web-UI oder über eine benutzerdefinierte Ressourcendatei (CR) definieren.
 
 Wenn Sie Backups oder Snapshots öfter als einmal pro Stunde benötigen, können Sie dies tun https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html["Erstellen Sie mithilfe der Astra Control REST API Snapshots und Backups"^].
 
 
 NOTE: Wenn Sie eine Schutzrichtlinie definieren, die unveränderliche Backups für WORM-Buckets (Write Once Read Many) erstellt, stellen Sie sicher, dass die Aufbewahrungszeit für die Backups nicht kürzer ist als der für den Bucket konfigurierte Aufbewahrungszeitraum.
 
+
+TIP: Verschieben Sie Backup- und Replikationspläne, um Zeitplanüberschneidungen zu vermeiden. Führen Sie beispielsweise jede Stunde Backups oben in der Stunde durch, und planen Sie die Replikation, um mit einem Offset von 5 Minuten und einem Intervall von 10 Minuten zu beginnen.
+
+[role="tabbed-block"]
+====
+.Konfigurieren Sie eine Schutzrichtlinie über die Web-Benutzeroberfläche
+--
 .Schritte
-. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
+. Wählen Sie *Anwendungen* und dann den Namen einer App aus.
 . Wählen Sie *Datenschutz*.
 . Wählen Sie *Schutzrichtlinie Konfigurieren*.
 . Legen Sie einen Sicherungszeitplan fest. Wählen Sie dazu die Anzahl der Snapshots und Backups aus, die stündlich, täglich, wöchentlich und monatlich erstellt werden sollen.
 +
-Sie können die stündlichen, täglichen, wöchentlichen und monatlichen Zeitpläne gleichzeitig festlegen. Ein Zeitplan wird nicht aktiv umschalten, bis Sie ein Aufbewahrungsniveau für Schnappschüsse und Backups festlegen.
+Sie können die stündlichen, täglichen, wöchentlichen und monatlichen Zeitpläne gleichzeitig festlegen. Ein Zeitplan wird erst aktiviert, wenn Sie eine Aufbewahrungsstufe festlegen.
 
 +
 Wenn Sie ein Aufbewahrungsniveau für Backups festlegen, können Sie den Bucket auswählen, auf dem Sie die Backups speichern möchten.
@@ -55,12 +62,67 @@ Wenn Sie ein Aufbewahrungsniveau für Backups festlegen, können Sie den Bucket 
 Im folgenden Beispiel sind vier Sicherungspläne definiert: Stündlich, täglich, wöchentlich und monatlich für Snapshots und Backups.
 
 +
-image:screenshot-protection-policy.png["Einen Screenshot einer Beispielkonfigurationsrichtlinie, in der Sie Snapshots und Backups stündlich, täglich, wöchentlich oder monatlich erstellen können."]
+image:screenshot-config-protection-policy.png["Einen Screenshot einer Beispielkonfigurationsrichtlinie, in der Sie Snapshots und Backups stündlich, täglich, wöchentlich oder monatlich erstellen können."]
 
+. [*Tech Preview*] Wählen Sie einen Ziel-Bucket für die Backups oder Snapshots aus der Liste der Speicher-Buckets.
 . Wählen Sie *Bewertung*.
-. Wählen Sie *Schutzrichtlinie Festlegen*.
+. Wählen Sie *Schutzrichtlinie Festlegen.*
 
 
+--
+.[Tech Preview] Konfigurieren Sie eine Schutzrichtlinie mit einem CR
+--
+.Schritte
+. Erstellen Sie die CR-Datei (Custom Resource) und benennen Sie sie `astra-control-schedule-cr.yaml`. Aktualisieren Sie die Werte in Klammern <>, um sie an die Anforderungen Ihrer Astra Control-Umgebung, Cluster-Konfiguration und Datensicherung anzupassen:
++
+** <CR_NAME>: Der Name dieser benutzerdefinierten Ressource; wählen Sie einen eindeutigen und vernünftigen Namen für Ihre Umgebung.
+** <APPLICATION_NAME>: Der Kubernetes-Name der zu Back-up-Applikation.
+** <APPVAULT_NAME>: Der Name des AppVault, in dem der Backup-Inhalt gespeichert werden soll.
+** <BACKUPS_RETAINED>: Die Anzahl der beizubehaltenden Backups. Null bedeutet, dass keine Backups erstellt werden sollen.
+** <SNAPSHOTS_RETAINED>: Die Anzahl der beizubehaltenden Snapshots. Null bedeutet, dass keine Snapshots erstellt werden sollen.
+** <GRANULARITY>: Die Häufigkeit, mit der der Zeitplan ausgeführt werden soll. Mögliche Werte, zusammen mit den erforderlichen zugeordneten Feldern:
++
+*** `hourly` (Erfordert, dass Sie angeben `spec.minute`)
+*** `daily` (Erfordert, dass Sie angeben `spec.minute` Und `spec.hour`)
+*** `weekly` (Erfordert, dass Sie angeben `spec.minute`, `spec.hour`, und `spec.dayOfWeek`)
+*** `monthly` (Erfordert, dass Sie angeben `spec.minute`, `spec.hour`, und `spec.dayOfMonth`)
+
+
+** <DAY_OF_MONTH>: _(Optional)_ der Tag des Monats (1 - 31), an dem der Zeitplan ausgeführt werden soll. Dieses Feld ist erforderlich, wenn die Granularität auf festgelegt ist `monthly`.
+** <DAY_OF_WEEK>: _(Optional)_ der Wochentag (0 - 7), an dem der Zeitplan ausgeführt werden soll. Werte von 0 oder 7 zeigen Sonntag an. Dieses Feld ist erforderlich, wenn die Granularität auf festgelegt ist `weekly`.
+** <HOUR_OF_DAY>: _(Optional)_ die Stunde des Tages (0 - 23), die der Zeitplan ausführen soll. Dieses Feld ist erforderlich, wenn die Granularität auf festgelegt ist `daily`, `weekly`, Oder `monthly`.
+** <MINUTE_OF_HOUR>: _(Optional)_ die Minute der Stunde (0 - 59), die der Zeitplan ausführen soll. Dieses Feld ist erforderlich, wenn die Granularität auf festgelegt ist `hourly`, `daily`, `weekly`, Oder `monthly`.
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: Schedule
+metadata:
+  namespace: astra-connector
+  name: <CR_NAME>
+spec:
+  applicationRef: <APPLICATION_NAME>
+  appVaultRef: <APPVAULT_NAME>
+  backupRetention: "<BACKUPS_RETAINED>"
+  snapshotRetention: "<SNAPSHOTS_RETAINED>"
+  granularity: <GRANULARITY>
+  dayOfMonth: "<DAY_OF_MONTH>"
+  dayOfWeek: "<DAY_OF_WEEK>"
+  hour: "<HOUR_OF_DAY>"
+  minute: "<MINUTE_OF_HOUR>"
+----
+
+
+. Nachdem Sie das ausgefüllt haben `astra-control-schedule-cr.yaml` Datei mit den richtigen Werten, CR anwenden:
++
+[source, console]
+----
+kubectl apply -f astra-control-schedule-cr.yaml
+----
+
+
+--
+====
 .Ergebnis
 Astra Control implementiert die Datensicherungsrichtlinien, indem Snapshots und Backups mithilfe der von Ihnen definierten Zeitplan und Aufbewahrungsrichtlinie erstellt und aufbewahrt werden.
 
@@ -81,13 +143,58 @@ Astra Control unterstützt die Snapshot-Erstellung mithilfe von Storage-Klassen,
 
 IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Snapshots können nicht erstellt werden. Verwenden Sie eine alternative Storage-Klasse für Snapshots.
 
+[role="tabbed-block"]
+====
+.Erstellen Sie mithilfe der Web-Benutzeroberfläche einen Snapshot
+--
 .Schritte
 . Wählen Sie *Anwendungen*.
 . Wählen Sie im Menü Optionen in der Spalte *Aktionen* für die gewünschte App die Option *Snapshot* aus.
 . Passen Sie den Namen des Snapshots an und wählen Sie dann *Weiter*.
+. [*Tech Preview*] Wählen Sie einen Ziel-Bucket für den Snapshot aus der Liste der Speicher-Buckets.
 . Überprüfen Sie die Snapshot-Zusammenfassung und wählen Sie *Snapshot*.
 
 
+--
+.[Tech Preview] Erstellen Sie einen Snapshot mit einem CR
+--
+.Schritte
+. Erstellen Sie die CR-Datei (Custom Resource) und benennen Sie sie `astra-control-snapshot-cr.yaml`. Aktualisieren Sie die Werte in Klammern <>, um sie an die Astra Control-Umgebung und die Cluster-Konfiguration anzupassen:
++
+** <CR_NAME>: Der Name dieser benutzerdefinierten Ressource; wählen Sie einen eindeutigen und vernünftigen Namen für Ihre Umgebung.
+** <APPLICATION_NAME>: Der Kubernetes-Name der Applikation, für die ein Snapshot erstellt werden soll.
+** <APPVAULT_NAME>: Der Name des AppVault, in dem der Snapshot-Inhalt gespeichert werden soll.
+** <RECLAIM_POLICY>: _(Optional)_ definiert, was mit einem Snapshot passiert, wenn der Snapshot CR gelöscht wird. Gültige Optionen:
++
+*** `Retain`
+*** `Delete` (Standard)
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: Snapshot
+metadata:
+  namespace: astra-connector
+  name: <CR_NAME>
+spec:
+  applicationRef: <APPLICATION_NAME>
+  appVaultRef: <APPVAULT_NAME>
+  reclaimPolicy: <RECLAIM_POLICY>
+----
+
+
+
+
+. Nachdem Sie das ausgefüllt haben `astra-control-snapshot-cr.yaml` Datei mit den richtigen Werten, CR anwenden:
++
+[source, console]
+----
+kubectl apply -f astra-control-snapshot-cr.yaml
+----
+
+
+--
+====
 .Ergebnis
 Der Snapshot-Prozess beginnt. Ein Snapshot ist erfolgreich, wenn der Status in der Spalte *Zustand* auf der Seite *Datenschutz* > *Snapshots* in der Spalte *Zustand* angegeben ist.
 
@@ -122,16 +229,53 @@ Buckets in Astra Control berichten nicht über die verfügbare Kapazität. Bevor
 
 Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Fahrer, müssen Sie <<Backup und Restore für den wirtschaftlichen Betrieb von ontap-nas,Aktivieren Sie Backup und Restore>> Funktionalität. Stellen Sie sicher, dass Sie einen definiert haben `backendType` Parameter in im https://docs.netapp.com/us-en/trident/trident-reference/objects.html#kubernetes-storageclass-objects["Kubernetes Storage-Objekt"^] Mit einem Wert von `ontap-nas-economy` Bevor Sie Schutzmaßnahmen durchführen.
 
+[role="tabbed-block"]
+====
+.Erstellen Sie mithilfe der Web-Benutzeroberfläche ein Backup
+--
 .Schritte
 . Wählen Sie *Anwendungen*.
 . Wählen Sie im Menü Optionen in der Spalte *Aktionen* für die gewünschte App die Option *Sichern* aus.
 . Passen Sie den Namen des Backups an.
 . Wählen Sie aus, ob die Anwendung aus einem vorhandenen Snapshot gesichert werden soll. Wenn Sie diese Option auswählen, können Sie aus einer Liste vorhandener Snapshots auswählen.
-. Wählen Sie aus der Liste der Storage-Buckets einen Ziel-Bucket für das Backup aus.
+. [*Tech Preview*] Wählen Sie einen Ziel-Bucket für das Backup aus der Liste der Speicher-Buckets.
 . Wählen Sie *Weiter*.
 . Überprüfen Sie die Backup-Zusammenfassung und wählen Sie *Backup*.
 
 
+--
+.[Tech Preview] Erstellen Sie ein Backup mit einem CR
+--
+.Schritte
+. Erstellen Sie die CR-Datei (Custom Resource) und benennen Sie sie `astra-control-backup-cr.yaml`. Aktualisieren Sie die Werte in Klammern <>, um sie an die Astra Control-Umgebung und die Cluster-Konfiguration anzupassen:
++
+** <CR_NAME>: Der Name dieser benutzerdefinierten Ressource; wählen Sie einen eindeutigen und vernünftigen Namen für Ihre Umgebung.
+** <APPLICATION_NAME>: Der Kubernetes-Name der zu Back-up-Applikation.
+** <APPVAULT_NAME>: Der Name des AppVault, in dem der Backup-Inhalt gespeichert werden soll.
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: Backup
+metadata:
+  namespace: astra-connector
+  name: <CR_NAME>
+spec:
+  applicationRef: <APPLICATION_NAME>
+  appVaultRef: <APPVAULT_NAME>
+----
+
+
+. Nachdem Sie das ausgefüllt haben `astra-control-backup-cr.yaml` Datei mit den richtigen Werten, CR anwenden:
++
+[source, console]
+----
+kubectl apply -f astra-control-backup-cr.yaml
+----
+
+
+--
+====
 .Ergebnis
 Astra Control erstellt ein Backup der App.
 
