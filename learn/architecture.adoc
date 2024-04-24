@@ -11,37 +11,223 @@ summary: Hier ein Überblick über die verschiedenen Komponenten der Astra Contr
 :imagesdir: ../media/learn/
 
 
-[role="lead"]
-Hier ist ein Überblick über die verschiedenen Komponenten der Astra Control-Umgebung.
-
-image:astra-architecture-diagram-v7.png["Astra Control – Architekturdiagramm und Komponenten"]
+Astra Control ist eine Kubernetes-Lösung für das übergreifende Lebenszyklusmanagement von Applikationsdaten. Sie vereinfacht den Betrieb zustandsbehafteter Applikationen und unterstützt Sie beim Speichern, Sichern und Verschieben Ihrer Kubernetes-Workloads zwischen Hybrid- und Multi-Cloud-Umgebungen.
 
 
 
-== Komponenten des Astra Control
+== Sorgen
 
-* *Kubernetes-Cluster*: Kubernetes ist eine portable, erweiterbare Open-Source-Plattform für das Management von Workloads und Services in Containern, die sowohl deklarative Konfigurationen als auch Automatisierung ermöglicht. Astra bietet Managementservices für Applikationen, die in einem Kubernetes-Cluster gehostet werden.
-* *Astra Control Provisioner*: Als vollständig unterstützter von NetApp gemanagter Storage-provisioner und -Orchestrator, der Astra Trident CSI-Funktion sowie erweiterte Storage-Managementfunktionen enthält, können Sie mit Astra Control Provisioner Storage-Volumes für Container-Applikationen erstellen, die von Docker und Kubernetes gemanagt werden. Bei Implementierung mit Astra Control umfasst die Provisionierung von Astra Control ein konfiguriertes ONTAP-Storage-Back-End.
+Astra Control bietet entscheidende Funktionen für das Lifecycle Management von Kubernetes-Applikationsdaten:
 
+*Store*:
 
-
-
-== Astra Control-Schnittstellen
-
-Sie können Aufgaben über verschiedene Schnittstellen ausführen:
-
-* *Web-Benutzeroberfläche (UI)*: Sowohl Astra Control Service als auch Astra Control Center nutzen die gleiche webbasierte Benutzeroberfläche, in der Sie Apps verwalten, migrieren und schützen können. Verwenden Sie die UI auch zum Verwalten von Benutzerkonten und Konfigurationseinstellungen.
-* *API*: Sowohl Astra Control Service als auch Astra Control Center nutzen die gleiche Astra Control API. Mit der API können Sie die gleichen Aufgaben ausführen, die Sie über die UI ausgeführt haben.
+* Dynamische Storage-Bereitstellung für Container-Workloads
+* Verschlüsselung der Daten auf der Übertragungsstrecke aus Container zu persistenten Volumes
+* Regionsübergreifende, zonenübergreifende Replizierung
 
 
-Mit Astra Control Center können Sie auch Kubernetes Cluster in VM-Umgebungen managen, migrieren und schützen.
+*Schutz*:
 
+* Automatische Erkennung und applikationsgerechte Sicherung einer gesamten Applikation und ihrer Daten
+* Sofortige Wiederherstellung einer Applikation von einer beliebigen Snapshot-Version je nach den Anforderungen Ihres Unternehmens
+* Schnelles Failover über Zonen, Regionen und Cloud-Provider hinweg
+
+
+*Verschieben*:
+
+* Vollständige Applikations- und Datenmobilität innerhalb und zwischen Kubernetes-Clustern und Clouds
+* Sofortige Klone vollständiger Applikationen und Daten
+* Migration von Anwendungen mit einem Klick über eine konsistente Web-UI und -API
+
+
+
+
+== Der Netapp Architektur Sind
+
+Mit der Architektur von Astra Control bietet die IT erweiterte Datenmanagementfunktionen, die sowohl die Funktionalität als auch die Verfügbarkeit von Kubernetes-Applikationen verbessern. Sie vereinfacht das Management, den Schutz und die Verschiebung von Container-Workloads in Public Clouds und On-Premises-Umgebungen. die Software bietet Automatisierungsfunktionen über ihre REST-API und sein SDK und ermöglicht einen programmatischen Zugriff für eine nahtlose Integration in vorhandene Workflows.
+
+Astra Control ist Kubernetes-nativ und ermöglicht Datensicherungs-Workflows, die benutzerdefinierte Ressourcen verwenden und gleichzeitig rückwärtskompatibel mit der vorhandenen API und dem SDK bleiben. Die native Datensicherung von Kubernetes bietet deutliche Vorteile. Durch die nahtlose Integration in Kubernetes-APIs und -Ressourcen kann die Datensicherung über die vorhandenen CI/CD- und/oder GitOps-Tools eines Unternehmens zu einem integrierenden Bestandteil des Applikationslebenszyklus werden.
+
+image:astra-family-architecture-v1_IEOPS-1558.png["Architektur von Astra Control"]
+
+Astra Control basiert auf vier sich ergänzenden Komponenten:
+
+* *Astra Control*: Astra Control ist der zentralisierte Management-Service für alle gemanagten Cluster und bietet orchestrierte Workloads für den Schutz und die Mobilität von Applikationen in der Cloud und On-Premises sowie folgende Funktionen:
++
+** Kombinierte Ansicht auf mehrere Cluster und Clouds
+** Schutz orchestrierter Workflows
+** Granulare Ressourcenvisualisierung und -Auswahl
+
+
+* *Astra Connector*: Astra Connector arbeitet mit Astra Control zusammen, um eine sichere Verbindung zu jedem verwalteten Cluster bereitzustellen und so die lokale Ausführung geplanter Operationen unabhängig vom Verbindungsstatus sowie die folgenden Funktionen zu ermöglichen:
++
+** Lokale Ausführung geplanter Vorgänge unabhängig vom Verbindungsstatus
+** Lokale Abläufe, die die Nutzung von Astra Systemressourcen auf Cluster verteilen und optimieren
+** Lokale Installation, die den Zugriff auf das Cluster mit den geringsten Berechtigungen ermöglicht, um die Sicherheit zu erhöhen
+
+
+* *Astra Control Provisioner*: Der Astra Control Provisioner bietet zentrale CSI-Bereitstellungsfunktionen und erweiterte Storage Management-Funktionen für zusätzliche Sicherheit und Disaster Recovery-Konfiguration sowie die folgenden Funktionen:
++
+** Dynamische Storage-Bereitstellung für Container-Workloads
+** Erweitertes Storage-Management:
++
+*** Verschlüsselung der Daten während der Übertragung vom Container zum PV
+*** SnapMirror Cloud Funktionalität mit regionsübergreifender Replizierung
+
+
+
+
+* *Astra Custom-Ressourcen*: Auf jedem Cluster verwendete benutzerdefinierte Ressourcen bieten einen Kubernetes-nativen Ansatz für die lokale Ausführung von Vorgängen. Dies vereinfacht die Integration in andere Kubernetes-freundliche Tools und Automatisierungsfunktionen sowie folgende Funktionen:
++
+** Direkte Integration und Workflows für die Automatisierung von Tools anderer Anbieter
+** Primitive auf niedrigerer Ebene, die benutzerdefinierte Workflows ermöglichen
+
+
+
+
+
+
+== Implementierungsmodelle
+
+Astra Control ist in zwei Implementierungsmodellen verfügbar.
+
+image:astra-architecture-diagram-v7.png["Astra Implementierungsmodelle"]
+
+* *Astra Control Service*: Ein von NetApp gemanagter Service, der applikationskonsistentes Datenmanagement für Kubernetes-Cluster in Umgebungen mehrerer Cloud-Provider sowie selbstverwaltete Kubernetes-Cluster bietet.
++
+https://docs.netapp.com/us-en/astra/index.html["Dokumentation des Astra Control Service"^]
+
+* *Astra Control Center*: Gemanagte Software für applikationsgerechtes Datenmanagement von Kubernetes-Clustern, die in Ihrer On-Premises-Umgebung ausgeführt werden. Astra Control Center kann auch auf mehreren Cloud-Provider-Umgebungen mit einem NetApp Cloud Volumes ONTAP Storage-Backend installiert werden.
++
+https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center-Dokumentation"^]
+
+
+
+[cols="1h,2d,2a"]
+|===
+|  | Astra Control Service | Astra Control Center 
+
+
+| Wie wird das angeboten? | Vollständig gemanagter Cloud-Service von NetApp  a| 
+Als Software, die Sie herunterladen, installieren und verwalten können
+
+
+
+| Wo wird sie gehostet? | In einer Public Cloud von NetApp ihrer Wahl  a| 
+In Ihrem eigenen Kubernetes-Cluster
+
+
+
+| Wie wird sie aktualisiert? | Gemanagt von NetApp  a| 
+Sie verwalten jegliche Updates
+
+
+
+| Welche Kubernetes-Distributionen werden unterstützt?  a| 
+* *Cloud-Provider*
++
+** Amazon Web Services
++
+*** Amazon Elastic Kubernetes Service (EKS)
+
+
+** Google Cloud
++
+*** Google Kubernetes Engine (GKE)
+
+
+** Microsoft Azure
++
+*** Azure Kubernetes-Service (AKS)
+
+
+
+
+* *Selbstverwaltete Cluster*
++
+** Kubernetes (Vorgelagert)
+** Rancher Kubernetes Engine (RKE)
+** Red hat OpenShift Container Platform
+
+
+* *On-Premises-Cluster*
++
+** Lokale Red hat OpenShift Container-Plattform
+
+
+
+ a| 
+* Azure Kubernetes Service für Azure Stack HCI
+* Google Anthos
+* Kubernetes (Vorgelagert)
+* Rancher Kubernetes Engine (RKE)
+* Red hat OpenShift Container Platform
+
+
+
+
+| Welche Storage-Back-Ends werden unterstützt?  a| 
+* *Cloud-Provider*
++
+** Amazon Web Services
++
+*** Amazon EBS
+*** Amazon FSX für NetApp ONTAP
+*** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP"^]
+
+
+** Google Cloud
++
+*** Google Persistent Disk
+*** NetApp Cloud Volumes Service
+*** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP"^]
+
+
+** Microsoft Azure
++
+*** Über Azure Gemanagte Festplatten
+*** Azure NetApp Dateien
+*** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Cloud Volumes ONTAP"^]
+
+
+
+
+* *Selbstverwaltete Cluster*
++
+** Amazon EBS
+** Über Azure Gemanagte Festplatten
+** Google Persistent Disk
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
+** NetApp MetroCluster
+** https://longhorn.io/["Longhorn"^]
+
+
+* *On-Premises-Cluster*
++
+** NetApp MetroCluster
+** NetApp ONTAP AFF und FAS Systeme
+** NetApp ONTAP Select
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
+** https://longhorn.io/["Longhorn"^]
+
+
+
+ a| 
+* NetApp ONTAP AFF und FAS Systeme
+* NetApp ONTAP Select
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
+* https://longhorn.io/["Longhorn"^]
+
+
+|===
 
 
 == Finden Sie weitere Informationen
 
-* https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center-Dokumentation"^]
-* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API-Dokumentation"^]
+* https://docs.netapp.com/us-en/astra/index.html["Dokumentation des Astra Control Service"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center-Dokumentation"^]
 * https://docs.netapp.com/us-en/trident/index.html["Astra Trident-Dokumentation"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^]
+* https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights-Dokumentation"^]
 * https://docs.netapp.com/us-en/ontap/index.html["ONTAP-Dokumentation"^]
 
