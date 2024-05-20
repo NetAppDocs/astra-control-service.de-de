@@ -50,6 +50,12 @@ Die folgenden Einschränkungen wirken sich auf das Anwendungsmanagement des Astr
 
 
 
+=== Vorgänge zur Wiederherstellung nach ontap-nas-Economy-Storage-Klassen schlagen fehl
+
+Wenn Sie eine in-Place-Wiederherstellung einer Anwendung durchführen (die App in ihren ursprünglichen Namespace wiederherstellen) und die Storage-Klasse der App den verwendet `ontap-nas-economy` Treiber, der Wiederherstellungsvorgang kann fehlschlagen, wenn das Snapshot-Verzeichnis nicht ausgeblendet ist. Befolgen Sie vor der Wiederherstellung vor Ort die Anweisungen unter link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Backup und Restore für den wirtschaftlichen Betrieb von ontap-nas"^] Um das Snapshot-Verzeichnis auszublenden.
+
+
+
 === Diverse Applikationen, die denselben Namespace nutzen, können nicht zusammen in einem anderen Namespace wiederhergestellt werden
 
 Wenn Sie mehrere Anwendungen verwalten, die denselben Namespace verwenden (durch das Erstellen mehrerer App-Definitionen in Astra Control), können Sie nicht alle Anwendungen auf einem anderen Single Namespace wiederherstellen. Jede Applikation muss ihrem eigenen separaten Namespace wiederhergestellt werden.
