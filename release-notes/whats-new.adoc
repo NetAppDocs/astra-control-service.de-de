@@ -19,7 +19,7 @@ NetApp aktualisiert regelmäßig den Astra Control Service, um Ihnen neue Funkti
 == 14 März 2024
 
 .(Tech Preview) erklärende Kubernetes-Workflows
-Diese Version von Astra Control Center enthält deklarative Kubernetes-Funktionen, mit denen Sie das Datenmanagement von einer nativen benutzerdefinierten Kubernetes-Ressource (Custom Resource, CR) aus durchführen können.
+Diese Version des Astra Control Service enthält deklarative Kubernetes-Funktionen, mit denen Sie das Datenmanagement über eine native benutzerdefinierte Kubernetes-Ressource (Custom Resource, CR) ausführen können.
 
 Diese Funktion ist nur in der EAP-Instanz (EAP) des Astra Control Service verfügbar. Informationen zum Beitritt zum EAP erhalten Sie von Ihrem NetApp Ansprechpartner.
 
