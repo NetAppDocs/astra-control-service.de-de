@@ -458,7 +458,6 @@
   <block id="67d2a2db6f77778acc532b68658f63cc" category="list-text">Anschließend verwalten Sie diese Applikationen mithilfe des Astra Control Service und erstellen Snapshots, Backups und Klone.</block>
   <block id="b714fdd25acef8e71be758de7ff02f0b" category="section-title">So funktioniert Astra Control Center</block>
   <block id="90d397f2aa31c2e6d9f5dfda5d12adca" category="paragraph">Astra Control Center wird lokal in Ihrer eigenen Private Cloud ausgeführt.</block>
-  <block id="ea2708b459fc0cad6936ec216bd9405e" category="paragraph">Astra Control Center ist vollständig in das AutoSupport und Active IQ Ecosystem integriert, damit Benutzer und NetApp Support Fehlerbehebungs- und Verwendungsinformationen liefern können.</block>
   <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link">Anforderungen</block>
   <block id="e63cc3795b9216d59b085bd3111a248d" category="paragraph">Um Astra Control Center zu installieren und zu verwenden, müssen Sie sicher sein<block ref="bdde32b2c988689d803729c06660acb4" category="inline-link-rx"></block>.</block>
   <block id="6319f881d45c326a5f6222a746f50981" category="paragraph">Astra Control Center funktioniert auf hohem Niveau wie folgt:</block>
@@ -2885,4 +2884,5 @@ Astra Control ist jetzt in einem neuen Implementierungsmodell verfügbar. _Astra
   <block id="20186cef4fc96e59fa1bf8ee82f413ce" category="paragraph">Diese Version des Astra Control Service enthält deklarative Kubernetes-Funktionen, mit denen Sie das Datenmanagement über eine native benutzerdefinierte Kubernetes-Ressource (Custom Resource, CR) ausführen können.</block>
   <block id="7da594e16f0a75f632446ae54fcebe05" category="paragraph"><block ref="7da594e16f0a75f632446ae54fcebe05" category="inline-link-rx"></block></block>
   <block id="f5a6b606e4d3218555a81c4263520975" category="admonition">Eine Videoeingangsfunktion zum Abonnement von Azure Marketplace finden Sie unter<block ref="f66ebb92a2b0ab499cd7d4ec1bb5ea24" category="inline-link-rx"></block>.</block>
+  <block id="a9cf730f8ab04a5b52f1d19c74c1483c" category="paragraph">Astra Control Center ist vollständig in das Ecosystem von AutoSupport und Active IQ Digital Advisor (auch als digitaler Berater bekannt) integriert, um Benutzern und NetApp-Support Fehlerbehebungs- und Verwendungsinformationen zu bieten.</block>
 </blocks>
